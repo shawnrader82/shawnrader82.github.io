@@ -1,10 +1,14 @@
 title: Mobile American Notary & Apostilles
 url: "https://www.mobileamericannotary.com"
 baseurl: ""
+description: "Expert mobile notary and apostille services in Los Angeles"
 
 permalink: /blog/:title/
 
 markdown: kramdown
+
+plugins:
+  - jekyll-feed
 
 include:
   - "*.html"
@@ -17,6 +21,7 @@ exclude:
   - order-form/Spread Sheets & Scripts
   - "*.py"
   - fix-ga-tags.sh
+  - vendor
 
 defaults:
   - scope:
@@ -24,3 +29,4 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+

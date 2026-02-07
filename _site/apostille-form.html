@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RG90RK03WJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RG90RK03WJ');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apostille / Legalization Intake | Mobile American Notary & Apostilles</title>
+    <meta name="description" content="Secure online intake form to start your apostille or authentication order with Mobile American Notary & Apostilles in Los Angeles.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Apostille Legalization Intake Form | Mobile American Notary">
+    <meta property="og:description" content="Secure online intake form to start your apostille or authentication order with Mobile American Notary & Apostilles in Los Angeles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mobileamericannotary.com/apostille-form.html">
+    <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-apostille.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apostille Legalization Intake Form | Mobile American Notary">
+    <meta name="twitter:description" content="Secure online intake form to start your apostille or authentication order with Mobile American Notary & Apostilles in Los Angeles.">
+    <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-apostille.jpg">
+
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="apostille-form.css" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<!-- ========== APOSTILLE INTAKE WRAPPER ========== -->
+<div class="page-wrap">
+  <div class="intake-shell">
+
+    <!-- ========== INTAKE HEADER / STEP INDICATOR ========== -->
+    <div class="intake-header">
+      <h1>Apostille / Legalization Intake</h1>
+      <p>Tell us about you and your documents so we can confirm requirements, pricing, and timing.</p>
+    </div>
+
+    <div class="intake-steps">
+      <div class="intake-step-pill intake-step-pill--active" id="step-pill-1">
+        <div class="intake-step-pill-dot">1</div>
+        <div class="intake-step-pill-line"></div>
+        <div class="intake-step-pill-label">About you</div>
+      </div>
+      <div class="intake-step-pill" id="step-pill-2">
+        <div class="intake-step-pill-dot">2</div>
+        <div class="intake-step-pill-line"></div>
+        <div class="intake-step-pill-label">Services</div>
+      </div>
+      <div class="intake-step-pill" id="step-pill-3">
+        <div class="intake-step-pill-dot">3</div>
+        <div class="intake-step-pill-line"></div>
+        <div class="intake-step-pill-label">Documents</div>
+      </div>
+      <div class="intake-step-pill" id="step-pill-4">
+        <div class="intake-step-pill-dot">4</div>
+        <div class="intake-step-pill-line"></div>
+        <div class="intake-step-pill-label">Appointment</div>
+      </div>
+    </div>
+    <!-- ========== /INTAKE HEADER / STEP INDICATOR ========== -->
+
+    <!-- ========== INTAKE FORM (ALL STEPS) ========== -->
+    <form id="apostille-intake-form"
+          method="POST"
+          action="/api/apostille-intake"
+          enctype="multipart/form-data">
+
+      <!-- ========== STEP 1 · ABOUT YOU ========== -->
+      <section class="intake-step intake-step--active" id="step-1-about-you">
+        <div class="service-detail-inner">
+          <div class="intake-card">
+            <p class="step-label">Step 1 of 4 · About you</p>
+            <h2 class="service-detail-title">Tell us about you</h2>
+            <p class="service-detail-subtitle">
+              We use this information to contact you and return your completed documents.
+            </p>
+
+            <div class="form-grid form-grid--two">
+              <label class="full-field">
+                <span class="form-label">First name *</span>
+                <input id="first_name" name="first_name" autocomplete="given-name" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Last name *</span>
+                <input id="last_name" name="last_name" autocomplete="family-name" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Company (optional)</span>
+                <input id="company" name="company" autocomplete="organization">
+                <span class="form-help">For personal documents, you can leave this blank.</span>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Email address *</span>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Phone number *</span>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Mailing address *</span>
+                <input id="pac-input-mailing"
+                       name="mailing_address_1"
+                       autocomplete="address-line1"
+                       required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Address line 2</span>
+                <input id="mailing_address_2" name="mailing_address_2" autocomplete="address-line2">
+              </label>
+
+              <div class="address-row">
+                <label class="full-field">
+                  <span class="form-label">City *</span>
+                  <input id="mailing_city" name="mailing_city" autocomplete="address-level2" required>
+                </label>
+
+                <label class="full-field">
+                  <span class="form-label">State *</span>
+                  <input id="mailing_state" name="mailing_state" maxlength="2" autocomplete="address-level1" required>
+                </label>
+              </div>
+
+              <div class="address-row">
+                <label class="full-field">
+                  <span class="form-label">ZIP code *</span>
+                  <input id="mailing_zip" name="mailing_zip" autocomplete="postal-code" required>
+                </label>
+
+                <label class="full-field">
+                  <span class="form-label">Country *</span>
+                  <input id="mailing_country" name="mailing_country"
+                         value="United States" autocomplete="country-name" required>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <span></span>
+              <button type="button" class="btn btn-primary" id="go-to-step-2">
+                Continue to services
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ========== /STEP 1 · ABOUT YOU ========== -->
+
+      <!-- ========== STEP 2 · SERVICES ========== -->
+      <section class="intake-step" id="step-2-services">
+        <div class="service-detail-inner">
+          <div class="intake-card">
+            <p class="step-label">Step 2 of 4 · Services</p>
+            <h2 class="service-detail-title">Which services do you need?</h2>
+            <p class="service-detail-subtitle">
+              Select all that apply so we can tailor pricing and timing for your situation.
+            </p>
+
+            <div class="full-field">
+              <div class="form-label">Services for this order *</div>
+              <div class="service-tiles">
+                <label class="service-tile">
+                  <input type="checkbox"
+                         name="services[]"
+                         value="apostille"
+                         id="svc-apostille"
+                         checked>
+                  <div class="service-tile-body">
+                    <div class="service-tile-title">Apostille / authentication</div>
+                    <div class="service-tile-text">
+                      For documents that need to be used abroad and require an apostille or authentication.
+                    </div>
+                  </div>
+                </label>
+
+                <label class="service-tile">
+                  <input type="checkbox"
+                         name="services[]"
+                         value="translation"
+                         id="svc-translation">
+                  <div class="service-tile-body">
+                    <div class="service-tile-title">Certified document translation</div>
+                    <div class="service-tile-text">
+                      Certified translations for use with foreign authorities or consulates.
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <span class="form-help">
+                Tap to select one or both services.
+              </span>
+            </div>
+
+            <div class="full-field" style="margin-top:16px;">
+              <span class="form-label">Are these documents for personal or business use? *</span>
+              <input type="hidden" name="usage_type" id="usage_type" value="personal">
+              <div class="usage-toggle" style="margin-top:6px;">
+                <button type="button"
+                        class="toggle-pill toggle-pill--active"
+                        data-usage-value="personal"
+                        id="usage-personal">
+                  Personal
+                </button>
+                <button type="button"
+                        class="toggle-pill"
+                        data-usage-value="business"
+                        id="usage-business">
+                  Business
+                </button>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn--secondary" id="back-to-step-1">
+                Back
+              </button>
+              <button type="button" class="btn btn-primary" id="go-to-step-3">
+                Continue to your documents
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ========== /STEP 2 · SERVICES ========== -->
+
+      <!-- ========== STEP 3 · DOCUMENTS ========== -->
+      <section class="intake-step" id="step-3-documents">
+        <div class="service-detail-inner">
+          <div class="intake-card">
+            <p class="step-label">Step 3 of 4 · Your documents</p>
+            <h2 class="service-detail-title">Tell us about your documents</h2>
+            <p class="service-detail-subtitle">
+              These details help determine which offices will handle your case, what pricing looks like, and the approximate turnaround time.
+            </p>
+
+            <!-- Destination country -->
+            <div class="full-field">
+              <span class="form-label">Which country will these documents be used in? *</span>
+              <select id="destination_country" name="destination_country" required>
+                <option value="">Select a country...</option>
+                <!-- Options loaded by JS -->
+              </select>
+              <span class="form-help">
+                This helps us confirm Hague vs non‑Hague requirements and fees.
+              </span>
+            </div>
+
+            <!-- Document list -->
+            <div class="full-field" style="margin-top:16px;">
+              <span class="form-label">What documents do you need processed?</span>
+              <span class="form-help" style="margin-bottom:8px;">
+                For each document group, choose the issuing state or federal, document type, and quantity.
+              </span>
+
+              <div id="document-list">
+                <!-- First row -->
+                <div class="document-row">
+                  <div class="document-row-header">
+                    <span>Document #1</span>
+                  </div>
+                  <div class="form-grid form-grid--two">
+
+                    <!-- Issuing state / authority -->
+                    <div class="full-field">
+                      <span class="form-label">Issuing state or federal *</span>
+                      <select name="document_state[]" required>
+                        <option value="" disabled>──────── Federal ────────</option>
+                        <option value="FEDERAL">Federal (e.g., FBI, USCIS)</option>
+
+                        <option value="" disabled>──────── States ────────</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+
+                        <option value="" disabled>──────── Territories ────────</option>
+                        <option value="DC">District of Columbia</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="GU">Guam</option>
+                        <option value="VI">U.S. Virgin Islands</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="MP">Northern Mariana Islands</option>
+                      </select>
+                    </div>
+
+                    <!-- Document type -->
+                    <div class="full-field">
+                      <span class="form-label">Document type *</span>
+                      <select name="document_type[]" required>
+                        <option value="">Select document type...</option>
+
+                        <option value="" disabled>──────── Vital records ────────</option>
+                        <option value="Birth certificate">Birth certificate</option>
+                        <option value="Death certificate">Death certificate</option>
+                        <option value="Divorce decree">Divorce decree</option>
+                        <option value="Marriage certificate">Marriage certificate</option>
+                        <option value="Other vital record">Other vital record</option>
+
+                        <option value="" disabled>──────── Court & adoption ────────</option>
+                        <option value="Adoption order">Adoption order</option>
+                        <option value="Court judgment / order">Court judgment / order</option>
+                        <option value="Name change order">Name change order</option>
+                        <option value="Other court or adoption document">Other court or adoption document</option>
+
+                        <option value="" disabled>──────── Business & corporate ────────</option>
+                        <option value="Articles / corporate formation">Articles / corporate formation</option>
+                        <option value="Certificates of good standing / status">Certificate of good standing / status</option>
+                        <option value="Corporate resolution / minutes">Corporate resolution / minutes</option>
+                        <option value="Operating agreement / bylaws">Operating agreement / bylaws</option>
+                        <option value="Other business or corporate document">Other business or corporate document</option>
+
+                        <option value="" disabled>──────── School & academic ────────</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Enrollment / attendance letter">Enrollment / attendance letter</option>
+                        <option value="Recommendation / reference letter (school)">Recommendation / reference letter (school)</option>
+                        <option value="Transcript">Transcript</option>
+                        <option value="Other school or academic document">Other school or academic document</option>
+
+                        <option value="" disabled>──────── Notarized documents (POA & letters) ────────</option>
+                        <option value="Affidavit (notarized)">Affidavit (notarized)</option>
+                        <option value="Authorization / consent letter (notarized)">Authorization / consent letter (notarized)</option>
+                        <option value="General power of attorney (notarized)">General power of attorney (notarized)</option>
+                        <option value="Letter of invitation (notarized)">Letter of invitation (notarized)</option>
+                        <option value="Special / limited power of attorney (notarized)">Special / limited power of attorney (notarized)</option>
+                        <option value="Other notarized document or letter">Other notarized document or letter</option>
+
+                        <option value="" disabled>──────── Federal documents ────────</option>
+                        <option value="FBI background check">FBI background check</option>
+                        <option value="Federal court document">Federal court document</option>
+                        <option value="Immigration / USCIS document">Immigration / USCIS document</option>
+                        <option value="IRS / tax letter">IRS / tax letter</option>
+                        <option value="SSA / Social Security letter">SSA / Social Security letter</option>
+                        <option value="Other federal document">Other federal document</option>
+
+                        <option value="Other">Other (please describe)</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="form-grid form-grid--two" style="margin-top:8px;">
+                    <div class="full-field">
+                      <span class="form-label">Quantity *</span>
+                      <input type="number"
+                             name="document_quantity[]"
+                             min="1"
+                             value="1"
+                             required
+                             class="doc-quantity">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button"
+                      class="btn-pill"
+                      id="add-document-btn"
+                      style="margin-top:10px;">
+                + Add another document group
+              </button>
+            </div>
+
+            <!-- Total documents -->
+            <div class="full-field" style="margin-top:12px;">
+              <span class="form-label">Total documents</span>
+              <input type="number"
+                     id="total_documents"
+                     name="total_documents"
+                     value="1"
+                     readonly
+                     style="background:#f3f4f6; cursor:not-allowed;">
+              <span class="form-help">
+                This updates automatically as you add quantity for each group.
+              </span>
+            </div>
+
+            <!-- Other names on documents -->
+            <div class="full-field" style="margin-top:12px;">
+              <span class="form-label">
+                Other names that appear on these documents
+              </span>
+              <textarea
+                name="other_names"
+                placeholder="If you are submitting documents for another person (child, spouse, client), list their full name as it appears on the documents. If these are your own documents, you can leave this blank or type N/A."
+                rows="2"
+              ></textarea>
+              <span class="form-help">
+                Required when you are submitting documents for another person so we can match each document to the correct individual.
+              </span>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn--secondary" id="back-to-step-2">
+                ← Back
+              </button>
+              <button type="button" class="btn btn-primary" id="go-to-step-4">
+                Continue to appointment
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- ========== /STEP 3 · DOCUMENTS ========== -->
+
+      <!-- ========== STEP 4 · APPOINTMENT / DELIVERY ========== -->
+      <section class="intake-step" id="step-4-appointment">
+        <div class="service-detail-inner">
+          <div class="intake-card">
+            <p class="step-label">Step 4 of 4 · Appointment & delivery</p>
+            <h2 class="service-detail-title">How will we receive your documents?</h2>
+            <p class="service-detail-subtitle">
+              Choose how you’d like to meet or send us your documents.
+            </p>
+
+            <div class="full-field" style="margin-top:8px;">
+              <span class="form-label">Appointment / delivery method *</span>
+              <div class="usage-toggle" style="margin-top:6px; flex-wrap:wrap; gap:8px;">
+
+                <button type="button"
+                        class="toggle-pill"
+                        data-delivery-value="home_visit"
+                        id="delivery-home-visit">
+                  In‑person at your home/office
+                </button>
+
+                <button type="button"
+                        class="toggle-pill"
+                        data-delivery-value="office_visit"
+                        id="delivery-office-visit">
+                  In‑person at our office
+                </button>
+
+                <button type="button"
+                        class="toggle-pill"
+                        data-delivery-value="mail_in"
+                        id="delivery-mail-in">
+                  Mailing documents to our office
+                </button>
+
+                <button type="button"
+                        class="toggle-pill"
+                        data-delivery-value="upload_only"
+                        id="delivery-upload-only">
+                  Document upload only
+                </button>
+              </div>
+              <input type="hidden" name="delivery_method" id="delivery_method">
+              <span class="form-help">
+                If you’re outside the U.S., you’ll likely use mailing or document upload.
+              </span>
+            </div>
+
+            <div class="form-actions" style="margin-top:16px;">
+              <button type="button" class="btn btn--secondary" id="back-to-step-3">
+                ← Back
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Submit Request →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ========== /STEP 4 · APPOINTMENT / DELIVERY ========== -->
+
+
+<!-- ========== STEP 5 · SHIPPING ========== -->
+<section class="intake-step" id="step-5-shipping">
+  <div class="service-detail-inner">
+    <div class="intake-card">
+      <p class="step-label">Step 5 of 5 · Shipping</p>
+      <h2 class="service-detail-title">Shipping information</h2>
+      <p class="service-detail-subtitle">
+        Tell us where to send your completed documents and which return method you prefer.
+      </p>
+
+      <!-- Who will we ship your document(s) to? -->
+      <div class="full-field" style="margin-top:8px;">
+        <span class="form-label">
+          Who will we ship your document(s) to? (Domestic customer) *
+        </span>
+        <div class="usage-toggle" style="margin-top:6px; flex-direction:column; align-items:flex-start; gap:6px;">
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input type="radio"
+                   name="shipping_recipient_type"
+                   value="international_recipient"
+                   style="margin-right:8px;">
+            To an international recipient
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input type="radio"
+                   name="shipping_recipient_type"
+                   value="other_us_recipient"
+                   style="margin-right:8px;">
+            To another US recipient
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input type="radio"
+                   name="shipping_recipient_type"
+                   value="back_to_you"
+                   style="margin-right:8px;">
+            Back to you
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input type="radio"
+                   name="shipping_recipient_type"
+                   value="pickup_at_office"
+                   style="margin-right:8px;">
+            I will pick up the document from your office
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input type="radio"
+                   name="shipping_recipient_type"
+                   value="same_day_courier_la"
+                   style="margin-right:8px;">
+            Same day courier (Los Angeles County)
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input type="radio"
+                   name="shipping_recipient_type"
+                   value="same_day_courier_oc"
+                   style="margin-right:8px;">
+            Same day courier (Orange County)
+          </label>
+        </div>
+        <span class="form-help">
+          We’ll confirm exact shipping costs based on the final destination and carrier.
+        </span>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="form-actions" style="margin-top:16px;">
+        <button type="button" class="btn btn--secondary" id="back-to-step-4">
+          ← Back
+        </button>
+        <button type="submit" class="btn btn-primary">
+          Submit Request →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== /STEP 5 · SHIPPING ========== -->
+
+
+
+
+      <input type="hidden" name="form_source" value="website-apostille-intake">
+      <input type="hidden" name="lead_type" value="apostille">
+    </form>
+    <!-- ========== /INTAKE FORM (ALL STEPS) ========== -->
+
+  </div>
+</div>
+<!-- ========== /APOSTILLE INTAKE WRAPPER ========== -->
+
+<!-- ========== STEP 3 · SCRIPTS (LOCAL TO THIS STEP) ========== -->
+<script>
+  (function loadCountries() {
+    const countrySelect = document.getElementById('destination_country');
+    if (!countrySelect) return;
+
+    const demoCountries = [
+      'Afghanistan', 'Albania', 'Algeria', 'Argentina', 'Australia', 'Austria',
+      'Bahrain', 'Bangladesh', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China',
+      'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark',
+      'Dominican Republic', 'Ecuador', 'Egypt', 'France', 'Germany', 'Greece',
+      'Hong Kong', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel',
+      'Italy', 'Japan', 'Jordan', 'Kuwait', 'Lebanon', 'Malaysia', 'Mexico',
+      'Morocco', 'Netherlands', 'New Zealand', 'Norway', 'Pakistan', 'Peru',
+      'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia',
+      'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain',
+      'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine',
+      'United Arab Emirates', 'United Kingdom', 'United States', 'Vietnam'
+    ];
+
+    demoCountries.forEach(country => {
+      const opt = document.createElement('option');
+      opt.value = country;
+      opt.textContent = country;
+      countrySelect.appendChild(opt);
+    });
+  })();
+
+  let docCounter = 1;
+  const docListEl = document.getElementById('document-list');
+  const addDocBtn = document.getElementById('add-document-btn');
+  const totalDocsEl = document.getElementById('total_documents');
+
+  function updateTotalDocuments() {
+    if (!totalDocsEl) return;
+    const quantities = Array.from(document.querySelectorAll('.doc-quantity'));
+    const total = quantities.reduce((sum, input) => {
+      const val = parseInt(input.value || '0', 10);
+      return sum + (isNaN(val) ? 0 : val);
+    }, 0);
+    totalDocsEl.value = total || 0;
+  }
+
+  if (addDocBtn && docListEl) {
+    addDocBtn.addEventListener('click', () => {
+      docCounter++;
+      const newRow = document.createElement('div');
+      newRow.className = 'document-row';
+      newRow.innerHTML = `
+        <div class="document-row-header">
+          <span>Document #${docCounter}</span>
+          <button type="button" class="btn-pill btn-pill--danger remove-doc-btn">Remove</button>
+        </div>
+        <div class="form-grid form-grid--two">
+          <div class="full-field">
+            <span class="form-label">Issuing state or federal *</span>
+            <select name="document_state[]" required>
+              <option value="" disabled>──────── Federal ────────</option>
+              <option value="FEDERAL">Federal (e.g., FBI, USCIS)</option>
+
+              <option value="" disabled>──────── States ────────</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+
+              <option value="" disabled>──────── Territories ────────</option>
+              <option value="DC">District of Columbia</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="GU">Guam</option>
+              <option value="VI">U.S. Virgin Islands</option>
+              <option value="AS">American Samoa</option>
+              <option value="MP">Northern Mariana Islands</option>
+            </select>
+          </div>
+          <div class="full-field">
+            <span class="form-label">Document type *</span>
+            <select name="document_type[]" required>
+              <option value="">Select document type...</option>
+
+              <option value="" disabled>──────── Vital records ────────</option>
+              <option value="Birth certificate">Birth certificate</option>
+              <option value="Death certificate">Death certificate</option>
+              <option value="Divorce decree">Divorce decree</option>
+              <option value="Marriage certificate">Marriage certificate</option>
+              <option value="Other vital record">Other vital record</option>
+
+              <option value="" disabled>──────── Court & adoption ────────</option>
+              <option value="Adoption order">Adoption order</option>
+              <option value="Court judgment / order">Court judgment / order</option>
+              <option value="Name change order">Name change order</option>
+              <option value="Other court or adoption document">Other court or adoption document</option>
+
+              <option value="" disabled>──────── Business & corporate ────────</option>
+              <option value="Articles / corporate formation">Articles / corporate formation</option>
+              <option value="Certificates of good standing / status">Certificate of good standing / status</option>
+              <option value="Corporate resolution / minutes">Corporate resolution / minutes</option>
+              <option value="Operating agreement / bylaws">Operating agreement / bylaws</option>
+              <option value="Other business or corporate document">Other business or corporate document</option>
+
+              <option value="" disabled>──────── School & academic ────────</option>
+              <option value="Diploma">Diploma</option>
+              <option value="Enrollment / attendance letter">Enrollment / attendance letter</option>
+              <option value="Recommendation / reference letter (school)">Recommendation / reference letter (school)</option>
+              <option value="Transcript">Transcript</option>
+              <option value="Other school or academic document">Other school or academic document</option>
+
+              <option value="" disabled>──────── Notarized documents (POA & letters) ────────</option>
+              <option value="Affidavit (notarized)">Affidavit (notarized)</option>
+              <option value="Authorization / consent letter (notarized)">Authorization / consent letter (notarized)</option>
+              <option value="General power of attorney (notarized)">General power of attorney (notarized)</option>
+              <option value="Letter of invitation (notarized)">Letter of invitation (notarized)</option>
+              <option value="Special / limited power of attorney (notarized)">Special / limited power of attorney (notarized)</option>
+              <option value="Other notarized document or letter">Other notarized document or letter</option>
+
+              <option value="" disabled>──────── Federal documents ────────</option>
+              <option value="FBI background check">FBI background check</option>
+              <option value="Federal court document">Federal court document</option>
+              <option value="Immigration / USCIS document">Immigration / USCIS document</option>
+              <option value="IRS / tax letter">IRS / tax letter</option>
+              <option value="SSA / Social Security letter">SSA / Social Security letter</option>
+              <option value="Other federal document">Other federal document</option>
+
+              <option value="Other">Other (please describe)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid form-grid--two" style="margin-top:8px;">
+          <div class="full-field">
+            <span class="form-label">Quantity *</span>
+            <input type="number"
+                   name="document_quantity[]"
+                   min="1"
+                   value="1"
+                   required
+                   class="doc-quantity">
+          </div>
+        </div>
+      `;
+      docListEl.appendChild(newRow);
+      updateTotalDocuments();
+    });
+
+    docListEl.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove-doc-btn')) {
+        e.target.closest('.document-row').remove();
+        updateTotalDocuments();
+      }
+    });
+
+    docListEl.addEventListener('input', (e) => {
+      if (e.target.classList.contains('doc-quantity')) {
+        updateTotalDocuments();
+      }
+    });
+
+    updateTotalDocuments();
+  }
+</script>
+<!-- ========== /STEP 3 · SCRIPTS ========== -->
+
+<!-- ========== INTAKE FORM SCRIPTS (GLOBAL) ========== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const steps = [
+      document.getElementById("step-1-about-you"),
+      document.getElementById("step-2-services"),
+      document.getElementById("step-3-documents"),
+      document.getElementById("step-4-appointment")
+    ];
+
+    const pills = [
+      document.getElementById("step-pill-1"),
+      document.getElementById("step-pill-2"),
+      document.getElementById("step-pill-3"),
+      document.getElementById("step-pill-4")
+    ];
+
+    function setActiveStep(index) {
+      steps.forEach((step, i) => {
+        if (!step) return;
+        step.classList.toggle("intake-step--active", i === index);
+      });
+      pills.forEach((pill, i) => {
+        if (!pill) return;
+        pill.classList.toggle("intake-step-pill--active", i === index);
+      });
+      const active = steps[index];
+      if (active) {
+        window.scrollTo({ top: active.offsetTop - 40, behavior: "smooth" });
+      }
+    }
+
+    document.getElementById("go-to-step-2")?.addEventListener("click", () => setActiveStep(1));
+    document.getElementById("back-to-step-1")?.addEventListener("click", () => setActiveStep(0));
+    document.getElementById("go-to-step-3")?.addEventListener("click", () => setActiveStep(2));
+    document.getElementById("back-to-step-2")?.addEventListener("click", () => setActiveStep(1));
+    document.getElementById("go-to-step-4")?.addEventListener("click", () => setActiveStep(3));
+    document.getElementById("back-to-step-3")?.addEventListener("click", () => setActiveStep(2));
+
+    const usageField = document.getElementById("usage_type");
+    const usageButtons = document.querySelectorAll(".usage-toggle .toggle-pill");
+    if (usageField && usageButtons.length) {
+      usageButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const value = btn.getAttribute("data-usage-value");
+          if (value) usageField.value = value;
+          usageButtons.forEach(b => b.classList.remove("toggle-pill--active"));
+          btn.classList.add("toggle-pill--active");
+        });
+      });
+    }
+
+    const deliveryField = document.getElementById("delivery_method");
+    const deliveryButtons = document.querySelectorAll("[data-delivery-value]");
+    if (deliveryField && deliveryButtons.length) {
+      deliveryButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const value = btn.getAttribute("data-delivery-value");
+          deliveryField.value = value;
+          deliveryButtons.forEach(b => b.classList.remove("toggle-pill--active"));
+          btn.classList.add("toggle-pill--active");
+        });
+      });
+    }
+  });
+</script>
+<!-- ========== /INTAKE FORM SCRIPTS (GLOBAL) ========== -->
+
+</body>
+</html>
+

@@ -1,0 +1,215 @@
+// ========== STEP 3 · SCRIPTS (LOCAL TO THIS STEP) ==========
+(function loadCountries() {
+  const countrySelect = document.getElementById('destination_country');
+  if (!countrySelect) return;
+
+  const demoCountries = [
+    'Afghanistan', 'Albania', 'Algeria', 'Argentina', 'Australia', 'Austria',
+    'Bahrain', 'Bangladesh', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China',
+    'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark',
+    'Dominican Republic', 'Ecuador', 'Egypt', 'France', 'Germany', 'Greece',
+    'Hong Kong', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel',
+    'Italy', 'Japan', 'Jordan', 'Kuwait', 'Lebanon', 'Malaysia', 'Mexico',
+    'Morocco', 'Netherlands', 'New Zealand', 'Norway', 'Pakistan', 'Peru',
+    'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia',
+    'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain',
+    'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine',
+    'United Arab Emirates', 'United Kingdom', 'United States', 'Vietnam'
+  ];
+
+  demoCountries.forEach(country => {
+    const opt = document.createElement('option');
+    opt.value = country;
+    opt.textContent = country;
+    countrySelect.appendChild(opt);
+  });
+})();
+
+let docCounter = 1;
+const docListEl = document.getElementById('document-list');
+const addDocBtn = document.getElementById('add-document-btn');
+const totalDocsEl = document.getElementById('total_documents');
+
+function updateTotalDocuments() {
+  if (!totalDocsEl) return;
+  const quantities = Array.from(document.querySelectorAll('.doc-quantity'));
+  const total = quantities.reduce((sum, input) => {
+    const val = parseInt(input.value || '0', 10);
+    return sum + (isNaN(val) ? 0 : val);
+  }, 0);
+  totalDocsEl.value = total || 0;
+}
+
+if (addDocBtn && docListEl) {
+  addDocBtn.addEventListener('click', () => {
+    docCounter++;
+    const newRow = document.createElement('div');
+    newRow.className = 'document-row';
+    newRow.innerHTML = docListEl.firstElementChild.innerHTML;
+
+    const header = newRow.querySelector('.document-row-header');
+    header.innerHTML = `
+      <span>Document #${docCounter}</span>
+      <button type="button" class="btn-pill btn-pill--danger remove-doc-btn">Remove</button>
+    `;
+
+    newRow.querySelectorAll('.doc-quantity').forEach(i => i.value = 1);
+    newRow.querySelectorAll('select').forEach(sel => sel.selectedIndex = 0);
+    docListEl.appendChild(newRow);
+    updateTotalDocuments();
+  });
+
+  docListEl.addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove-doc-btn')) {
+      e.target.closest('.document-row').remove();
+      updateTotalDocuments();
+    }
+  });
+
+  docListEl.addEventListener('input', (e) => {
+    if (e.target.classList.contains('doc-quantity')) {
+      updateTotalDocuments();
+    }
+  });
+
+  updateTotalDocuments();
+}
+
+// ========== INTAKE FORM SCRIPTS (GLOBAL) ==========
+function updateServiceTiles() {
+  const apostilleInput = document.getElementById("svc-apostille");
+  const translationInput = document.getElementById("svc-translation");
+  const apostilleBlock = document.getElementById("apostille-documents-block");
+  const translationBlock = document.getElementById("translation-documents-block");
+  const translationAddons = document.getElementById("translation-addons-block");
+
+  if (!apostilleInput || !translationInput) return;
+
+  const apostilleTile = apostilleInput.closest(".service-tile").querySelector(".service-tile-body");
+  const translationTile = translationInput.closest(".service-tile").querySelector(".service-tile-body");
+
+  apostilleTile.style.borderColor = apostilleInput.checked ? "#111827" : "#d1d5db";
+  apostilleTile.style.background = apostilleInput.checked ? "#eef2ff" : "#f9fafb";
+  translationTile.style.borderColor = translationInput.checked ? "#111827" : "#d1d5db";
+  translationTile.style.background = translationInput.checked ? "#eef2ff" : "#f9fafb";
+
+  if (apostilleBlock) {
+    apostilleBlock.classList.toggle("hidden", !apostilleInput.checked);
+  }
+  if (translationBlock) {
+    translationBlock.classList.toggle("hidden", !translationInput.checked);
+  }
+  if (translationAddons) {
+    translationAddons.classList.toggle("hidden", !translationInput.checked);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = Array.from(document.querySelectorAll(".intake-step"));
+  const pills = Array.from(document.querySelectorAll(".intake-step-pill"));
+
+  function scrollActiveStepIntoView(index) {
+    const container = document.querySelector(".intake-steps--scroll");
+    const pill = pills[index];
+    if (!container || !pill) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const pillRect = pill.getBoundingClientRect();
+    const offset = pillRect.left - containerRect.left;
+    const centerOffset = offset - (containerRect.width / 2 - pillRect.width / 2);
+
+    container.scrollTo({
+      left: container.scrollLeft + centerOffset,
+      behavior: "smooth"
+    });
+  }
+
+  function setActiveStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.toggle("intake-step--active", i === index);
+    });
+    pills.forEach((pill, i) => {
+      pill.classList.toggle("intake-step-pill--active", i === index);
+    });
+
+    const active = steps[index];
+    if (active) {
+      window.scrollTo({ top: active.offsetTop - 40, behavior: "smooth" });
+    }
+
+    scrollActiveStepIntoView(index);
+    updateServiceTiles();
+  }
+
+  // Next / prev buttons
+  document.querySelectorAll("[data-next-step]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const next = parseInt(btn.getAttribute("data-next-step"), 10);
+      setActiveStep(next);
+    });
+  });
+
+  document.querySelectorAll("[data-prev-step]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const prev = parseInt(btn.getAttribute("data-prev-step"), 10);
+      setActiveStep(prev);
+    });
+  });
+
+  // Usage type toggle
+  const usageField = document.getElementById("usage_type");
+  document.querySelectorAll("[data-usage-value]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-usage-value");
+      usageField.value = value;
+      document.querySelectorAll("[data-usage-value]").forEach(b => {
+        b.classList.toggle("toggle-pill--active", b === btn);
+      });
+    });
+  });
+
+  // Service selection listeners
+  const apostilleInput = document.getElementById("svc-apostille");
+  const translationInput = document.getElementById("svc-translation");
+
+  if (apostilleInput) {
+    apostilleInput.addEventListener("change", updateServiceTiles);
+  }
+  if (translationInput) {
+    translationInput.addEventListener("change", updateServiceTiles);
+  }
+
+  document.querySelectorAll(".service-tile").forEach(label => {
+    label.addEventListener("click", () => {
+      const input = label.querySelector('input[type="checkbox"]');
+      if (!input) return;
+      setTimeout(updateServiceTiles, 0);
+    });
+  });
+
+  // Initial sync
+  updateServiceTiles();
+
+  // Delivery method toggle
+  const deliveryField = document.getElementById("delivery_method");
+  document.querySelectorAll("[data-delivery-value]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-delivery-value");
+      deliveryField.value = value;
+      document.querySelectorAll("[data-delivery-value]").forEach(b => {
+        b.classList.toggle("toggle-pill--active", b === btn);
+      });
+    });
+  });
+
+  // Speed option pill styling
+  document.querySelectorAll('input[name="speed_option"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.querySelectorAll('input[name="speed_option"]').forEach(r => {
+        const pill = r.closest('.toggle-pill');
+        pill.classList.toggle('toggle-pill--active', r.checked);
+      });
+    });
+  });
+});
+

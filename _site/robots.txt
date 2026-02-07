@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.mobileamericannotary.com/sitemap.xml
+
