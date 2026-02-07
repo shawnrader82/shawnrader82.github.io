@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Mobile American Notary Blog</title>
+  <link rel="stylesheet" href="/styles-v2.css">
+  <style>
+    .blog-post {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.8;
+      color: #ddd;
+    }
+    .blog-post h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+    .blog-meta {
+      color: #999;
+      font-size: 0.9em;
+      margin-bottom: 30px;
+    }
+    .blog-post img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .blog-post a {
+      color: #c0392b;
+    }
+    .back-to-blog {
+      display: inline-block;
+      margin-top: 30px;
+      color: #c0392b;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  <script src="/header.js"></script>
+
+  <article class="blog-post">
+    <h1>{{ page.title }}</h1>
+    <div class="blog-meta">
+      {{ page.date | date: "%B %-d, %Y" }}
+      {% if page.author %} · {{ page.author }}{% endif %}
+      {% if page.categories %} · {{ page.categories | join: ", " }}{% endif %}
+    </div>
+
+    {% if page.image %}
+    <img src="{{ page.image }}" alt="{{ page.title }}">
+    {% endif %}
+
+    {{ content }}
+
+    <a href="/blog/" class="back-to-blog">← Back to Blog</a>
+  </article>
+
+  <div id="footer-placeholder"></div>
+  <script src="/footer.js"></script>
+</body>
+</html>

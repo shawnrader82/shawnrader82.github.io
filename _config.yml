@@ -1,0 +1,26 @@
+title: Mobile American Notary & Apostilles
+url: "https://www.mobileamericannotary.com"
+baseurl: ""
+
+permalink: /blog/:title/
+
+markdown: kramdown
+
+include:
+  - "*.html"
+  - "*.shtml"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - order-form/Spread Sheets & Scripts
+  - "*.py"
+  - fix-ga-tags.sh
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
