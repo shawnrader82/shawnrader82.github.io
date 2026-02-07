@@ -736,7 +736,12 @@
       <div class="contact-card contact-form-card">
         <h3>Send a quick message</h3>
 
-        <form id="contact-form" action="contact-handler.php" method="post" class="contact-form">
+        <form id="contact-form" action="https://formsubmit.co/info@mobileamericannotary.com" method="POST" class="contact-form">
+          <!-- Formsubmit settings -->
+          <input type="hidden" name="_subject" value="New Contact Form - MAN Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.mobileamericannotary.com/thank-you.html">
+
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
 
@@ -759,7 +764,7 @@
 
           <div class="hnpt" aria-hidden="true">
             <label for="website">Leave this field empty</label>
-            <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
+        <input type="text" name="_honey" style="display:none" autocomplete="off" tabindex="-1">
           </div>
 
           <button type="submit" class="btn btn--primary">Send message</button>
@@ -773,40 +778,6 @@
 </section>
 <!-- ========== /CONTACT & SCHEDULING (GRAY) ========== -->
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var form   = document.getElementById('contact-form');
-  var status = document.getElementById('contact-status');
-
-  if (!form || !status) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    status.textContent = 'Sending...';
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', form.action, true);
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-    xhr.onload = function () {
-      var resp = xhr.responseText ? xhr.responseText.trim() : '';
-      if (xhr.status === 200 && resp === 'OK') {
-        status.textContent = 'Thank you, your message has been sent.';
-        form.reset();
-      } else {
-        status.textContent = 'Sorry, there was a problem sending your message.';
-      }
-    };
-
-    xhr.onerror = function () {
-      status.textContent = 'Sorry, there was a network error.';
-    };
-
-    xhr.send(new FormData(form));
-  });
-});
-</script>
 
 <script src="/header.js"></script>
 <div id="footer-placeholder"></div>
