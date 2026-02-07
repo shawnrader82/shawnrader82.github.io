@@ -9,75 +9,30 @@ title: Blog - Mobile American Notary
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Mobile American Notary & Apostilles</title>
   <link rel="stylesheet" href="/styles-v2.css">
-  <style>
-    .blog-listing {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .blog-listing h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #fff;
-      font-size: 2.2em;
-    }
-    .blog-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 20px;
-      transition: transform 0.2s;
-    }
-    .blog-card:hover {
-      transform: translateY(-3px);
-      border-color: #c0392b;
-    }
-    .blog-card h2 {
-      margin: 0 0 8px 0;
-    }
-    .blog-card h2 a {
-      color: #fff;
-      text-decoration: none;
-    }
-    .blog-card h2 a:hover {
-      color: #c0392b;
-    }
-    .blog-card .date {
-      color: #999;
-      font-size: 0.85em;
-      margin-bottom: 12px;
-    }
-    .blog-card .excerpt {
-      color: #ccc;
-      line-height: 1.6;
-    }
-    .blog-card .read-more {
-      color: #c0392b;
-      text-decoration: none;
-      font-weight: 600;
-    }
-  </style>
 </head>
 <body>
   <div id="header-placeholder"></div>
   <script src="/header.js"></script>
 
-  <section class="blog-listing">
-    <h1>Blog</h1>
+  <div class="blog-page-wrap">
+    <section class="blog-shell">
+      <h1 style="text-align:center; margin-bottom:32px; color:#0f172a; font-size:2.2rem;">Blog</h1>
 
-    {% for post in site.posts %}
-    <div class="blog-card">
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
-      <div class="excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 40 }}
+      {% for post in site.posts %}
+      <div class="blog-card blog-card--white">
+        {% if post.image %}
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-thumb">
+        {% endif %}
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
+        <div class="excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 40 }}
+        </div>
+        <a href="{{ post.url }}" class="read-more">Read More →</a>
       </div>
-      <a href="{{ post.url }}" class="read-more">Read More →</a>
-    </div>
-    {% endfor %}
-
-  </section>
+      {% endfor %}
+    </section>
+  </div>
 
   <div id="footer-placeholder"></div>
   <script src="/footer.js"></script>

@@ -1743,3 +1743,26 @@ footer.site-footer > * {
   opacity: 1 !important;
 }
 /* ========== /BLOG WATERMARK FIX ========== */
+
+/* ========== BLOG WATERMARK MASK ========== */
+.blog-page-wrap {
+  position: relative;
+  background: #ffffff;
+}
+.blog-page-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: 0;
+}
+.blog-shell,
+.blog-post-shell {
+  position: relative;
+  z-index: 1;
+}
+.blog-post-shell img,
+.blog-thumb {
+  opacity: 1 !important;
+}
+/* ========== /BLOG WATERMARK MASK ========== */
