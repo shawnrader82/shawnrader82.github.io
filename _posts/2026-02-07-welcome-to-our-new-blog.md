@@ -1,9 +1,10 @@
 ---
 title: "Welcome to Our New Blog"
+layout: post
 date: 2026-02-07
 author: "Mobile American Notary"
 categories: [news]
-image: /images/brand/logo.webp
+image: /images/brand/logo.png
 ---
 
 We're excited to launch our new blog! Here you'll find helpful information about notary services, apostille processing, and document legalization.
