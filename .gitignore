@@ -1,0 +1,7 @@
+*.png
+*.jpeg
+*.jpg
+!favicon.*
+.DS_Store
+Thumbs.db
+.xdp-*

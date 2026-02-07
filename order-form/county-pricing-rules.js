@@ -1,0 +1,153 @@
+// ========== COUNTY PRICING RULES ==========
+// Generated from County-Pricing-Master.xlsx
+
+const COUNTY_PRICING_RULES = {
+  "Alabama": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 20.0,
+    countyServiceFee: 100.0,
+    notes: "Notarized documents require probate judge authentication of notary commission before SOS"
+  },
+  "Georgia": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 15.0,
+    countyServiceFee: 100.0,
+    notes: "Notarized documents require county clerk certification before SOS apostille"
+  },
+  "Hawaii": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 20.0,
+    countyServiceFee: 100.0,
+    notes: "Documents notarized by notary public require Lt. Governor authentication before apostille"
+  },
+  "Kentucky": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 18.0,
+    countyServiceFee: 100.0,
+    notes: "County clerk must certify notary signature before Secretary of State authentication"
+  },
+  "Maryland": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 15.0,
+    countyServiceFee: 100.0,
+    notes: "County clerk certification required for notarized documents before state apostille"
+  },
+  "New York": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 10.0,
+    countyServiceFee: 100.0,
+    notes: "Vital records and notarized documents require county clerk authentication where notary is commissioned"
+  },
+  "Tennessee": {
+    requiresCountyAuth: true,
+    countyPerDocFee: 12.0,
+    countyServiceFee: 100.0,
+    notes: "Notarized documents need county clerk certification before state apostille"
+  },
+  "California": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Texas": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Florida": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Illinois": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Pennsylvania": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Ohio": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Michigan": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "North Carolina": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Virginia": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Washington": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Arizona": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Massachusetts": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Indiana": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Missouri": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Wisconsin": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Colorado": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+  "Minnesota": {
+    requiresCountyAuth: false,
+    countyPerDocFee: 0.0,
+    countyServiceFee: 0.0,
+    notes: "Direct to Secretary of State - no county requirement"
+  },
+};
+
+if (typeof window !== 'undefined') {
+  window.COUNTY_PRICING_RULES = COUNTY_PRICING_RULES;
+}

@@ -1,0 +1,3 @@
+LEGEND:|Price Type values:
+|per_page = charge for every translated page (250 words = 1 page)
+|per_transaction = charge once per order regardless of page count

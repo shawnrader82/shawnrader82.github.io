@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Notary Service Details | Mobile American Notary &amp; Apostilles</title>
+    <meta name="description" content="Tell us about your documents, destination country, and timing so we can confirm apostille requirements, pricing, and next steps.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Detailed Apostille Intake Questionnaire | Mobile American Notary">
+    <meta property="og:description" content="Tell us about your documents, destination country, and timing so we can confirm apostille requirements, pricing, and next steps.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mobileamericannotary.com/apostille-intake-form.html">
+    <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-apostille.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Detailed Apostille Intake Questionnaire | Mobile American Notary">
+    <meta name="twitter:description" content="Tell us about your documents, destination country, and timing so we can confirm apostille requirements, pricing, and next steps.">
+    <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-apostille.jpg">
+
+  <meta name="description" content="Mobile American Notary & Apostilles offers mobile notary visits for everyday documents, hospital and care‑facility signings, jail and detention notarizations, and real estate closings across Los Angeles, Orange, and Ventura Counties, with clear information on what to expect and how to schedule." />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RG90RK03WJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RG90RK03WJ');
+</script>
+
+  <!-- Global font and shared site styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+
+
+<!-- ========== HEADER (WHITE) ========== -->
+<div id="header-placeholder"></div>
+<!-- ========== /HEADER (WHITE) ========== -->
+
+
+
+<!-- ===== APOSTILLE / LEGALIZATION INTAKE – SECTION 1 START ===== -->
+<section class="service-detail service-detail--white intake-step intake-step--active"
+         id="step-1-about-you">
+  <div class="service-detail-inner">
+
+    <div class="intake-card">
+      <p class="step-label">Step 1 of 3 · About you</p>
+      <h2 class="service-detail-title">Tell us about you</h2>
+      <p class="service-detail-subtitle">
+        This first step just collects your contact details so we can confirm requirements, pricing, and timing.
+      </p>
+
+      <!-- Your contact details -->
+      <div class="form-grid">
+
+        <label class="full-field">
+          <span class="form-label">First name *</span>
+          <input id="first_name" name="first_name" autocomplete="given-name" required>
+        </label>
+
+        <label class="full-field">
+          <span class="form-label">Last name *</span>
+          <input id="last_name" name="last_name" autocomplete="family-name" required>
+        </label>
+
+        <label class="full-field">
+          <span class="form-label">Company (optional)</span>
+          <input id="company" name="company" autocomplete="organization">
+        </label>
+
+        <label class="full-field">
+          <span class="form-label">Phone number *</span>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+        </label>
+
+        <label class="full-field">
+          <span class="form-label">Email address *</span>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </label>
+
+        <!-- Mailing address with Google Autocomplete -->
+        <label class="full-field">
+          <span class="form-label">Mailing address *</span>
+          <input id="pac-input-mailing"
+                 name="mailing_address_1"
+                 autocomplete="address-line1"
+                 required>
+        </label>
+
+        <label class="full-field">
+          <span class="form-label">Address line 2</span>
+          <input id="mailing_address_2" name="mailing_address_2" autocomplete="address-line2">
+        </label>
+
+        <div class="address-row">
+          <label class="slim-field-left">
+            <span class="form-label">City *</span>
+            <input id="mailing_city" name="mailing_city" autocomplete="address-level2" required>
+          </label>
+
+          <label class="slim-field-right">
+            <span class="form-label">State *</span>
+            <input id="mailing_state" name="mailing_state" maxlength="2" autocomplete="address-level1" required>
+          </label>
+        </div>
+
+        <div class="address-row">
+          <label class="slim-field-left">
+            <span class="form-label">ZIP code *</span>
+            <input id="mailing_zip" name="mailing_zip" autocomplete="postal-code" required>
+          </label>
+
+          <label class="slim-field-right">
+            <span class="form-label">Country *</span>
+            <input id="mailing_country" name="mailing_country" value="United States" autocomplete="country-name" required>
+          </label>
+        </div>
+      </div>
+
+      <!-- Next step button (hook this into your existing JS) -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-primary" id="go-to-step-2">
+          Continue to your documents
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== APOSTILLE / LEGALIZATION INTAKE – SECTION 1 END ===== -->
+
+
+<!-- ===== STEP 2: SERVICE SELECTION START ===== -->
+<section class="service-detail service-detail--white intake-step"
+         id="step-2-services">
+  <div class="service-detail-inner">
+    <div class="intake-card">
+      <p class="step-label">Step 2 of 3 · Services</p>
+      <h2 class="service-detail-title">Which services do you need?</h2>
+      <p class="service-detail-subtitle">
+        Select all that apply so we can ask only the questions relevant to your case.
+      </p>
+
+      <div class="full-field">
+        <div class="form-label">Services for this order</div>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:4px;">
+          <label style="display:flex; align-items:center; gap:8px; font-size:14px;">
+            <input type="checkbox"
+                   name="services[]"
+                   value="apostille"
+                   id="svc-apostille"
+                   checked>
+            Apostille / authentication
+          </label>
+          <label style="display:flex; align-items:center; gap:8px; font-size:14px;">
+            <input type="checkbox"
+                   name="services[]"
+                   value="mobile-notary"
+                   id="svc-notary">
+            Mobile notary only (no apostille)
+          </label>
+          <label style="display:flex; align-items:center; gap:8px; font-size:14px;">
+            <input type="checkbox"
+                   name="services[]"
+                   value="translation"
+                   id="svc-translation">
+            Certified document translation
+          </label>
+        </div>
+      </div>
+
+      <!-- Personal vs business toggle (applies to apostille/translation pricing) -->
+      <div class="full-field" style="margin-top:12px;">
+        <span class="form-label">Are these documents for personal or business use?</span>
+        <input type="hidden" name="usage_type" id="usage_type" value="personal">
+        <div class="usage-toggle" style="display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;">
+          <button type="button"
+                  class="toggle-pill toggle-pill--active"
+                  data-usage-value="personal"
+                  id="usage-personal">
+            Personal
+          </button>
+          <button type="button"
+                  class="toggle-pill"
+                  data-usage-value="business"
+                  id="usage-business">
+            Business
+          </button>
+        </div>
+      </div>
+
+      <div class="form-actions" style="margin-top:16px;">
+        <button type="button" class="btn btn--secondary" id="back-to-step-1">
+          Back
+        </button>
+        <button type="button" class="btn btn-primary" id="go-to-step-3">
+          Continue to your documents
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== STEP 2: SERVICE SELECTION END ===== -->
+
+
+
+<!-- ===== APOSTILLE / LEGALIZATION INTAKE – STEP 3 START ===== -->
+<section class="service-detail service-detail--white intake-step"
+         id="step-2-documents">
+  <div class="service-detail-inner">
+    <div class="intake-card">
+      <p class="step-label">Step 2 of 3 · Your documents</p>
+      <h2 class="service-detail-title">Tell us about your documents</h2>
+      <p class="service-detail-subtitle">
+        These details help confirm which offices will handle your case and what pricing and timing will look like.
+      </p>
+
+      <!-- Personal vs business pill toggle -->
+      <div class="full-field" style="margin-bottom:10px;">
+        <span class="form-label">Are these documents for personal or business use?</span>
+        <input type="hidden" name="usage_type" id="usage_type" value="personal">
+        <div class="usage-toggle" style="display:flex; gap:8px; flex-wrap:wrap; margin-top:6px;">
+          <button type="button"
+                  class="toggle-pill toggle-pill--active"
+                  data-usage-value="personal"
+                  id="usage-personal">
+            Personal
+          </button>
+          <button type="button"
+                  class="toggle-pill"
+                  data-usage-value="business"
+                  id="usage-business">
+            Business
+          </button>
+        </div>
+      </div>
+
+      <!-- Document rows -->
+      <div class="form-grid" id="document-rows">
+
+        <!-- ONE DOCUMENT ROW TEMPLATE -->
+        <div class="full-field document-row">
+          <div class="form-grid" style="align-items:flex-end;">
+            <div>
+              <label class="form-label" for="doc-type-1">Document type</label>
+              <select id="doc-type-1" name="documents[0][type]" required>
+                <option value="">Select a document</option>
+
+                <optgroup label="Vital records">
+                  <option value="birth-cert">Birth certificate</option>
+                  <option value="marriage-cert">Marriage certificate</option>
+                  <option value="death-cert">Death certificate</option>
+                  <option value="vital-divorce">Divorce certificate / record</option>
+                </optgroup>
+
+                <optgroup label="Court (state / local)">
+                  <option value="state-divorce-order">Divorce judgment / order</option>
+                  <option value="adoption-order">Adoption order</option>
+                  <option value="state-court-order">Other state court order</option>
+                </optgroup>
+
+                <optgroup label="Federal court">
+                  <option value="federal-judgment">Federal court judgment / order</option>
+                  <option value="bankruptcy">Bankruptcy court document</option>
+                  <option value="other-federal-court">Other federal court record</option>
+                </optgroup>
+
+                <optgroup label="Corporate / business">
+                  <option value="good-standing">Certificate of good standing</option>
+                  <option value="articles">Articles / incorporation documents</option>
+                  <option value="corp-resolution">Corporate resolution / minutes</option>
+                  <option value="corp-poa">Corporate power of attorney</option>
+                  <option value="other-corporate">Other corporate document</option>
+                </optgroup>
+
+                <optgroup label="Notarized / POA">
+                  <option value="poa-general">Power of attorney (general / special)</option>
+                  <option value="notarized-letter">Notarized letter / affidavit / consent</option>
+                  <option value="other-notarized">Other notarized document</option>
+                </optgroup>
+
+                <optgroup label="Federal agency">
+                  <option value="fbi-check">FBI background check</option>
+                  <option value="uscis-letter">USCIS / immigration letter</option>
+                  <option value="irs-letter">IRS / tax letter</option>
+                  <option value="doj-letter">DOJ / Department of Justice document</option>
+                  <option value="uspto-usda-fda">USPTO / USDA / FDA / other agency</option>
+                  <option value="other-federal-agency">Other federal agency document</option>
+                </optgroup>
+
+                <optgroup label="Consular / NARA / other">
+                  <option value="consular-report">Consular report or certificate</option>
+                  <option value="nara-record">NARA / archive record</option>
+                  <option value="other-special">Other / not sure</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div style="max-width:140px;">
+              <label class="form-label" for="doc-qty-1">How many?</label>
+              <input id="doc-qty-1"
+                     name="documents[0][quantity]"
+                     type="number"
+                     min="1"
+                     inputmode="numeric"
+                     value="1"
+                     required>
+            </div>
+          </div>
+        </div>
+        <!-- /ONE DOCUMENT ROW TEMPLATE -->
+
+      </div>
+
+      <!-- Add / Remove + total -->
+      <div class="form-actions" style="margin-top:10px; display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="btn-pill btn-pill--secondary" id="add-document-row">
+          Add another document
+        </button>
+        <button type="button" class="btn-pill btn-pill--danger" id="remove-document-row">
+          Remove last document
+        </button>
+      </div>
+
+      <div class="full-field" style="margin-top:12px;">
+        <label class="form-label">Total documents (all types)</label>
+        <input type="text"
+               id="total-documents"
+               name="total_documents"
+               value="1"
+               readonly>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="form-actions" style="margin-top:16px;">
+        <button type="button" class="btn btn--secondary" id="back-to-step-1">
+          Back
+        </button>
+        <button type="button" class="btn btn-primary" id="go-to-step-3">
+          Continue to pricing &amp; timing
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== APOSTILLE / LEGALIZATION INTAKE – STEP 3 END ===== -->
+
+
+<!-- ========== GLOBAL CTA STRIP (DARK) ========== -->
+<section style="background:#020617; color:#e5e7eb; padding:20px 24px; border-top:1px solid #111827; border-bottom:1px solid #111827;">
+  <div class="service-detail-inner" style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">
+    <div style="flex:1 1 260px; min-width:220px;">
+      <h2 style="font-size:18px; margin:0 0 4px;">Ready to schedule your appointment?</h2>
+      <p style="font-size:14px; margin:0;">
+        Call or text today to book mobile notary, apostille, Live Scan, or translation coordination.
+      </p>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+      <a href="tel:12139332507"
+         style="display:inline-block; padding:10px 18px; background:#f97373; color:#111827; font-weight:600; border-radius:999px; font-size:14px;">
+        Call/Text (213) 933‑2507
+      </a>
+      <a href="index.html#contact"
+         style="display:inline-block; padding:10px 18px; border:1px solid #f97373; color:#e5e7eb; border-radius:999px; font-size:14px;">
+        Request an appointment
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ========== /GLOBAL CTA STRIP (DARK) ========== -->
+
+<!-- ========== FOOTER (DARK, MATCH INDEX) ========== -->
+<footer style="background:#020617; color:#e5e7eb; padding:24px 24px 32px;">
+  <div class="service-detail-inner" style="max-width:1100px; margin:0 auto;">
+    <div style="display:flex; flex-wrap:wrap; gap:18px; justify-content:space-between; align-items:flex-start;">
+
+      <div style="flex:1 1 220px; min-width:220px;">
+        <h3 style="font-size:16px; margin-bottom:8px;">Mobile American Notary &amp; Apostilles</h3>
+        <p style="font-size:14px; line-height:1.6;">
+          Mobile notary, apostille, Live Scan fingerprinting, and document translation coordination
+          serving Los Angeles and surrounding areas.
+        </p>
+        <p style="font-size:14px; margin-top:8px;">
+          Los Angeles, California<br />
+          Phone: <a href="tel:12139332507" style="color:#fca5a5;">(213) 933‑2507</a>
+        </p>
+      </div>
+
+      <div style="flex:1 1 180px; min-width:180px; font-size:14px;">
+        <h3 style="font-size:16px; margin-bottom:8px;">Quick Links</h3>
+        <p><a href="index.html#notary-section">Mobile Notary</a></p>
+        <p><a href="index.html#apostille-section">Apostille Services</a></p>
+        <p><a href="index.html#livescan-section">Live Scan Fingerprinting</a></p>
+        <p><a href="index.html#translations-section">Document Translations</a></p>
+        <p><a href="index.html#contact">Contact &amp; Scheduling</a></p>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+        <p><a href="terms.html">Terms &amp; Conditions</a></p>
+      </div>
+
+      <div style="flex:1 1 220px; min-width:220px; font-size:14px;">
+        <h3 style="font-size:16px; margin-bottom:8px;">Service Area &amp; Hours</h3>
+        <p>
+          Serving Los Angeles, Glendale, Burbank, Pasadena, Long Beach, Valencia and many nearby communities
+          across Los Angeles County.
+        </p>
+        <p style="margin-top:6px;">
+          Standard hours 9:00 am–8:00 pm, with select evening, weekend, and holiday appointments available
+          by request and after‑hours fee.
+        </p>
+      </div>
+
+    </div>
+
+    <p style="font-size:12px; color:#9ca3af; margin-top:12px; text-align:center;">
+      Mobile American Notary &amp; Apostilles is not a law firm and does not provide legal advice.
+      Please consult an attorney for legal questions.
+    </p>
+
+    <p style="font-size:12px; color:#9ca3af; margin-top:6px; text-align:center;">
+      &copy; <span id="year-span"></span> Mobile American Notary &amp; Apostilles. All rights reserved.
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('year-span').textContent = new Date().getFullYear();
+  </script>
+</footer>
+<!-- ========== /FOOTER (DARK) ========== -->
+<script>
+  let mailingAutocomplete;
+
+  function initAddressAutocomplete() {
+    const address1Field = document.getElementById('pac-input-mailing');
+    const cityField     = document.getElementById('mailing_city');
+    const stateField    = document.getElementById('mailing_state');
+    const postalField   = document.getElementById('mailing_zip');
+    const countryField  = document.getElementById('mailing_country');
+
+    if (!address1Field) return;
+
+    mailingAutocomplete = new google.maps.places.Autocomplete(address1Field, {
+      types: ['address'],
+      componentRestrictions: { country: ['us'] },
+      fields: ['address_components']
+    });
+
+    mailingAutocomplete.addListener('place_changed', function () {
+      const place = mailingAutocomplete.getPlace();
+      if (!place || !place.address_components) return;
+
+      let streetNumber = '';
+      let route = '';
+      let city = '';
+      let state = '';
+      let postal = '';
+      let countryLong = '';
+
+      place.address_components.forEach(function (component) {
+        const types = component.types;
+
+        if (types.includes('street_number')) {
+          streetNumber = component.long_name;
+        }
+        if (types.includes('route')) {
+          route = component.long_name;
+        }
+
+        if (
+          types.includes('locality') ||
+          types.includes('postal_town') ||
+          types.includes('sublocality') ||
+          types.includes('administrative_area_level_2')
+        ) {
+          if (!city) {
+            city = component.long_name;
+          }
+        }
+
+        if (types.includes('administrative_area_level_1')) {
+          state = component.short_name;
+        }
+        if (types.includes('postal_code')) {
+          postal = component.long_name;
+        }
+        if (types.includes('country')) {
+          countryLong = component.long_name;
+        }
+      });
+
+      address1Field.value = (streetNumber + ' ' + route).trim();
+      if (cityField && city)    cityField.value = city;
+      if (stateField && state)  stateField.value = state;
+      if (postalField && postal) postalField.value = postal;
+      if (countryField && countryLong) countryField.value = countryLong;
+    });
+  }
+</script>
+
+
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHuZHT66BR3KKAmVWiQhkuJBea2lJbMgA&libraries=places&callback=initAddressAutocomplete"
+  async
+  defer></script>
+<script>
+  // ----- Multi-step card navigation -----
+  document.addEventListener("DOMContentLoaded", function () {
+    const steps = [
+      document.getElementById("step-1-about-you"),
+      document.getElementById("step-2-documents")
+      // later: add step-3, step-4, etc.
+    ];
+
+    function showStep(index) {
+      steps.forEach(function (step, i) {
+        if (!step) return;
+        if (i === index) {
+          step.classList.add("intake-step--active");
+        } else {
+          step.classList.remove("intake-step--active");
+        }
+      });
+      const active = steps[index];
+      if (active) {
+        window.scrollTo({
+          top: active.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
+    }
+
+    const btnToStep2     = document.getElementById("go-to-step-2");
+    const btnBackToStep1 = document.getElementById("back-to-step-1");
+
+    if (btnToStep2) {
+      btnToStep2.addEventListener("click", function () {
+        showStep(1); // show Step 2
+      });
+    }
+
+    if (btnBackToStep1) {
+      btnBackToStep1.addEventListener("click", function () {
+        showStep(0); // show Step 1
+      });
+    }
+  });
+</script>
+
+<script>
+  // ----- Step 2: document rows (add/remove + total) -----
+  document.addEventListener("DOMContentLoaded", function () {
+    const rowsContainer   = document.getElementById("document-rows");
+    const addRowButton    = document.getElementById("add-document-row");
+    const removeRowButton = document.getElementById("remove-document-row");
+    const totalField      = document.getElementById("total-documents");
+
+    if (!rowsContainer || !addRowButton || !removeRowButton || !totalField) return;
+
+    function updateTotal() {
+      const qtyInputs = rowsContainer.querySelectorAll("input[name^='documents'][name$='[quantity]']");
+      let total = 0;
+      qtyInputs.forEach(function (input) {
+        const val = parseInt(input.value, 10);
+        if (!isNaN(val) && val > 0) {
+          total += val;
+        }
+      });
+      totalField.value = total.toString();
+    }
+
+    function renumberRows() {
+      const rows = rowsContainer.querySelectorAll(".document-row");
+      rows.forEach(function (row, index) {
+        const select      = row.querySelector("select");
+        const qty         = row.querySelector("input[type='number']");
+        const selectLabel = row.querySelector("label[for^='doc-type-']");
+        const qtyLabel    = row.querySelector("label[for^='doc-qty-']");
+
+        const selectId = "doc-type-" + (index + 1);
+        const qtyId    = "doc-qty-" + (index + 1);
+
+        if (select) {
+          select.id   = selectId;
+          select.name = "documents[" + index + "][type]";
+          if (selectLabel) selectLabel.setAttribute("for", selectId);
+        }
+        if (qty) {
+          qty.id   = qtyId;
+          qty.name = "documents[" + index + "][quantity]";
+          if (qtyLabel) qtyLabel.setAttribute("for", qtyId);
+        }
+      });
+    }
+
+    function attachQtyListeners() {
+      const qtyInputs = rowsContainer.querySelectorAll("input[type='number']");
+      qtyInputs.forEach(function (input) {
+        input.removeEventListener("input", updateTotal);
+        input.addEventListener("input", updateTotal);
+      });
+    }
+
+    function addRow() {
+      const firstRow = rowsContainer.querySelector(".document-row");
+      if (!firstRow) return;
+
+      const newRow = firstRow.cloneNode(true);
+
+      const newSelect = newRow.querySelector("select");
+      const newQty    = newRow.querySelector("input[type='number']");
+      if (newSelect) newSelect.value = "";
+      if (newQty)    newQty.value = "1";
+
+      rowsContainer.appendChild(newRow);
+      renumberRows();
+      attachQtyListeners();
+      updateTotal();
+    }
+
+    function removeLastRow() {
+      const rows = rowsContainer.querySelectorAll(".document-row");
+      if (rows.length <= 1) {
+        // Keep one row; just clear it.
+        const row    = rows[0];
+        const select = row.querySelector("select");
+        const qty    = row.querySelector("input[type='number']");
+        if (select) select.value = "";
+        if (qty)    qty.value = "1";
+      } else {
+        rows[rows.length - 1].remove();
+      }
+      renumberRows();
+      attachQtyListeners();
+      updateTotal();
+    }
+
+    addRowButton.addEventListener("click", addRow);
+    removeRowButton.addEventListener("click", removeLastRow);
+
+    // Initial wiring
+    renumberRows();
+    attachQtyListeners();
+    updateTotal();
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const usageField = document.getElementById("usage_type");
+    const usageButtons = document.querySelectorAll(".usage-toggle .toggle-pill");
+
+    if (!usageField || !usageButtons.length) return;
+
+    usageButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const value = btn.getAttribute("data-usage-value");
+        usageField.value = value;
+
+        usageButtons.forEach(function (b) {
+          b.classList.remove("toggle-pill--active");
+        });
+        btn.classList.add("toggle-pill--active");
+      });
+    });
+  });
+</script>
+
+
+
+<!-- ========== HEADER.JS ========== -->
+<script src="header.js"></script>
+<div id="footer-placeholder"></div>
+<script src="footer.js"></script>
+<!-- ========== HEADER.JS ========== -->
+
+
+
+<!-- ========== FOOTER.JS ========== -->
+<div id="footer-placeholder"></div>
+<script src="footer.js"></script>
+<!-- ========== /FOOTER.JS ========== -->
+
+</body>
+</html>
+

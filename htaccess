@@ -1,0 +1,168 @@
+# ============================================================
+# .htaccess - Mobile American Notary & Apostilles
+# Last updated: 2026-02-06
+# ============================================================
+
+
+# ────────────────────────────────────────────────────────────
+# 1) REWRITE ENGINE
+# ────────────────────────────────────────────────────────────
+RewriteEngine On
+
+
+# ────────────────────────────────────────────────────────────
+# 2) FORCE HTTPS
+# ────────────────────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+# ────────────────────────────────────────────────────────────
+# 3) FORCE WWW
+# ────────────────────────────────────────────────────────────
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} !^www\.mobileamericannotary\.com$ [NC]
+RewriteRule ^ https://www.mobileamericannotary.com%{REQUEST_URI} [L,R=301]
+
+
+# ────────────────────────────────────────────────────────────
+# 4) LEGACY REDIRECTS (from old WordPress / previous site)
+# ────────────────────────────────────────────────────────────
+Redirect 301 /pricing /pricing.html
+Redirect 301 /about-us /about.html
+Redirect 301 /get-a-quote /index.html#contact
+Redirect 301 /notary-services /services/notary.html
+Redirect 301 /apostilles /services/apostille.html
+Redirect 301 /blog/5-notary-services-we-offer /services/notary.html
+Redirect 301 /blog/expedited-apostille-processing-in-under-two-weeks /services/apostille/same-day-los-angeles.html
+Redirect 301 /leave-review /#reviews
+Redirect 301 /contact-us /#contact
+Redirect 301 /privacy-policy /privacy.html
+Redirect 301 /terms /terms.html
+Redirect 301 /document-translations /services/translations.html
+
+
+# ────────────────────────────────────────────────────────────
+# 5) SITE REORGANIZATION: APOSTILLE SUBPAGES
+#    /landing/apostille-* → /services/apostille/*
+#    28 pages
+# ────────────────────────────────────────────────────────────
+Redirect 301 /landing/apostille-business-articles-incorporation.html /services/apostille/business-articles-incorporation.html
+Redirect 301 /landing/apostille-business-corporate.html /services/apostille/business-corporate.html
+Redirect 301 /landing/apostille-business-good-standing.html /services/apostille/business-good-standing.html
+Redirect 301 /landing/apostille-business-resolutions.html /services/apostille/business-resolutions.html
+Redirect 301 /landing/apostille-court-adoption.html /services/apostille/court-adoption.html
+Redirect 301 /landing/apostille-court-custody-name-change.html /services/apostille/court-custody-name-change.html
+Redirect 301 /landing/apostille-court-divorce-decree.html /services/apostille/court-divorce-decree.html
+Redirect 301 /landing/apostille-court-documents.html /services/apostille/court-documents.html
+Redirect 301 /landing/apostille-federal-birth-abroad.html /services/apostille/federal-birth-abroad.html
+Redirect 301 /landing/apostille-federal-court-documents.html /services/apostille/federal-court-documents.html
+Redirect 301 /landing/apostille-federal-death-abroad.html /services/apostille/federal-death-abroad.html
+Redirect 301 /landing/apostille-federal-documents.html /services/apostille/federal-documents.html
+Redirect 301 /landing/apostille-federal-fbi-background-check.html /services/apostille/federal-fbi-background-check.html
+Redirect 301 /landing/apostille-federal-nara-documents.html /services/apostille/federal-nara-documents.html
+Redirect 301 /landing/apostille-federal-uscis-naturalization-name-change.html /services/apostille/federal-uscis-naturalization-name-change.html
+Redirect 301 /landing/apostille-poa-notarized.html /services/apostille/poa-notarized.html
+Redirect 301 /landing/apostille-same-day-los-angeles.html /services/apostille/same-day-los-angeles.html
+Redirect 301 /landing/apostille-school-academic.html /services/apostille/school-academic.html
+Redirect 301 /landing/apostille-school-diploma-college.html /services/apostille/school-diploma-college.html
+Redirect 301 /landing/apostille-school-diploma-high-school.html /services/apostille/school-diploma-high-school.html
+Redirect 301 /landing/apostille-school-enrollment-graduation-letters.html /services/apostille/school-enrollment-graduation-letters.html
+Redirect 301 /landing/apostille-school-transcript-college.html /services/apostille/school-transcript-college.html
+Redirect 301 /landing/apostille-school-transcript-high-school.html /services/apostille/school-transcript-high-school.html
+Redirect 301 /landing/apostille-vital-birth.html /services/apostille/vital-birth.html
+Redirect 301 /landing/apostille-vital-death.html /services/apostille/vital-death.html
+Redirect 301 /landing/apostille-vital-divorce.html /services/apostille/vital-divorce.html
+Redirect 301 /landing/apostille-vital-documents.html /services/apostille/vital-documents.html
+Redirect 301 /landing/apostille-vital-marriage.html /services/apostille/vital-marriage.html
+
+
+# ────────────────────────────────────────────────────────────
+# 6) SITE REORGANIZATION: JAIL SUBPAGES
+#    /landing/notary-jail-* → /services/notary-jail/*
+#    5 pages
+# ────────────────────────────────────────────────────────────
+Redirect 301 /landing/notary-jail-crdf-lynwood.html /services/notary-jail/crdf-lynwood.html
+Redirect 301 /landing/notary-jail-mens-central.html /services/notary-jail/mens-central.html
+Redirect 301 /landing/notary-jail-north-county-castaic.html /services/notary-jail/north-county-castaic.html
+Redirect 301 /landing/notary-jail-pitchess.html /services/notary-jail/pitchess.html
+Redirect 301 /landing/notary-jail-twin-towers.html /services/notary-jail/twin-towers.html
+
+
+# ────────────────────────────────────────────────────────────
+# 7) SITE REORGANIZATION: HOSPITAL SUBPAGES
+#    /landing/hospitals/* → /services/notary-hospital/*
+#    17 pages + 1 typo fix
+# ────────────────────────────────────────────────────────────
+Redirect 301 /landing/hospitals/beverly-grove-cedars-sinai.html /services/notary-hospital/beverly-grove-cedars-sinai.html
+Redirect 301 /landing/hospitals/boyle-heights-keck-usc.html /services/notary-hospital/boyle-heights-keck-usc.html
+Redirect 301 /landing/hospitals/burbank-providence-saint-joseph.html /services/notary-hospital/burbank-providence-saint-joseph.html
+Redirect 301 /landing/hospitals/east-hollywood-presbyterian.html /services/notary-hospital/east-hollywood-presbyterian.html
+Redirect 301 /landing/hospitals/encino-hospital-medical-center.html /services/notary-hospital/encino-hospital-medical-center.html
+Redirect 301 /landing/hospitals/hollywood-kaiser.html /services/notary-hospital/hollywood-kaiser.html
+Redirect 301 /landing/hospitals/mission-hills-providence-holy-cross.html /services/notary-hospital/mission-hills-providence-holy-cross.html
+Redirect 301 /landing/hospitals/northridge-dignity-northridge.html /services/notary-hospital/northridge-dignity-northridge.html
+Redirect 301 /landing/hospitals/simi-valley-adventist.html /services/notary-hospital/simi-valley-adventist.html
+Redirect 301 /landing/hospitals/sylmar-olive-view-ucla.html /services/notary-hospital/sylmar-olive-view-ucla.html
+Redirect 301 /landing/hospitals/tarzana-providence-cedars-sinai.html /services/notary-hospital/tarzana-providence-cedars-sinai.html
+Redirect 301 /landing/hospitals/thousand-oaks-los-robles.html /services/notary-hospital/thousand-oaks-los-robles.html
+Redirect 301 /landing/hospitals/valencia-henry-mayo.html /services/notary-hospital/valencia-henry-mayo.html
+Redirect 301 /landing/hospitals/van-nuys-valley-presbyterian.html /services/notary-hospital/van-nuys-valley-presbyterian.html
+Redirect 301 /landing/hospitals/west-hills-ucla-west-valley.html /services/notary-hospital/west-hills-ucla-west-valley.html
+Redirect 301 /landing/hospitals/westwood-ucla.html /services/notary-hospital/westwood-ucla.html
+Redirect 301 /landing/hospitals/woodland-hills-kaiser.html /services/notary-hospital/woodland-hills-kaiser.html
+# Typo fix: original file had double .html extension
+Redirect 301 /landing/hospitals/simi-valley-adventist.html.html /services/notary-hospital/simi-valley-adventist.html
+
+
+# ────────────────────────────────────────────────────────────
+# 8) SITE REORGANIZATION: SPECIALTY HUB PAGES
+#    /landing/ → /services/
+#    3 pages
+# ────────────────────────────────────────────────────────────
+Redirect 301 /landing/notary-hospital-medical-los-angeles.html /services/notary-hospital.html
+Redirect 301 /landing/notary-estate-planning-los-angeles.html /services/notary-estate.html
+Redirect 301 /landing/notary-real-estate-los-angeles.html /services/notary-real-estate.html
+
+
+# ────────────────────────────────────────────────────────────
+# 9) DUPLICATE CLEANUP
+# ────────────────────────────────────────────────────────────
+Redirect 301 /services/notary/notary-general.html /services/notary-general.html
+
+
+# ────────────────────────────────────────────────────────────
+# 10) BROWSER CACHING
+# ────────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images: 6 months
+  ExpiresByType image/webp       "access plus 6 months"
+  ExpiresByType image/jpeg       "access plus 6 months"
+  ExpiresByType image/jpg        "access plus 6 months"
+  ExpiresByType image/png        "access plus 6 months"
+  ExpiresByType image/gif        "access plus 6 months"
+  ExpiresByType image/svg+xml    "access plus 6 months"
+  ExpiresByType image/x-icon     "access plus 6 months"
+
+  # Fonts: 6 months
+  ExpiresByType font/woff2       "access plus 6 months"
+  ExpiresByType font/woff        "access plus 6 months"
+  ExpiresByType font/ttf         "access plus 6 months"
+
+  # CSS & JS: 1 month
+  ExpiresByType text/css                         "access plus 1 month"
+  ExpiresByType application/javascript           "access plus 1 month"
+  ExpiresByType application/x-javascript         "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  <FilesMatch "\.(jpe?g|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "max-age=15552000, public"
+  </FilesMatch>
+</IfModule>
+
