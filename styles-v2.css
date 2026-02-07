@@ -1720,3 +1720,26 @@ footer.site-footer > * {
   z-index: 1;
 }
 /* ========== /FOOTER BAND (HIDE WATERMARK) ========== */
+
+/* ========== BLOG WATERMARK FIX ========== */
+/* Lift blog containers above the body::before watermark */
+.blog-shell,
+.blog-post-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Solid background behind the blog post so watermark can't bleed through */
+.blog-post-shell {
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+}
+
+/* Ensure blog images are fully opaque and above any pseudo-elements */
+.blog-post-shell img,
+.blog-thumb {
+  position: relative;
+  z-index: 2;
+  opacity: 1 !important;
+}
+/* ========== /BLOG WATERMARK FIX ========== */
