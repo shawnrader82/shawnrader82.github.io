@@ -1,0 +1,74 @@
+---
+title: "7 Common Apostille Mistakes (And How to Avoid Them in California)"
+layout: post
+date: 2026-01-25
+author: "Mobile American Notary"
+categories: [apostilles]
+image: /images/blog/apostille-rejected.png
+---
+
+When you are sending U.S. documents overseas, a small mistake in the apostille process can cause big delays, rejected paperwork, or missed school, immigration, or business deadlines. If you live in Los Angeles, Orange, or Ventura County, understanding a few basics can help your documents get accepted the first time.
+
+Below are seven of the most common apostille mistakes we see and how to avoid them.
+
+## 1. Using the Wrong Type of Document
+
+Not every copy of a document can receive an apostille. Vital records like birth, marriage, and death certificates often must be certified copies issued by the county or state, not photocopies from your personal files.
+
+Before you start, confirm whether your destination country requires a certified vital record, a court-certified copy, or an original notarized document. For an overview of which documents usually need an apostille, you can visit the [California Secretary of State apostille information page](https://www.sos.ca.gov/notary/request-apostille).
+
+---
+
+## 2. Skipping the Notarization Step
+
+Some documents must be notarized before the state will issue an apostille, while others must come directly from the issuing agency. Powers of attorney, affidavits, and many business documents usually need proper notarization, while most vital records do not.
+
+If you are unsure, ask first. A quick question can prevent signing in the wrong place, using the wrong form, or trying to apostille a document that is not eligible in its current form. If you need help with proper notarization before apostille, you can read more on our [mobile notary services](/services/notary.html).
+
+---
+
+## 3. Using an Expired or Incorrect ID
+
+Apostille processing often starts with notarization, and California notaries must verify identity using valid, government-issued photo ID. If your driver's license or passport is expired, or the name on your ID does not match your document, your appointment can be delayed.
+
+Before your notary arrives, check that your ID is current, legible, and as close as possible to the name that appears on your documents. If you have questions about what IDs are acceptable, feel free to contact us through our [appointment request page](https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services).
+
+---
+
+## 4. Waiting Until the Last Minute
+
+Apostille processing times vary by document type, state, and destination country requirements. While rush options may be available in some situations, there is no guaranteed same-day solution for every document.
+
+If you have a visa appointment, school enrollment, or closing date, build in extra time so you can handle any unexpected issues without added stress. Our [apostille services](/services/apostille.html) page explains typical timelines and rush options so you can plan ahead.
+
+---
+
+## 5. Choosing the Wrong Service Provider
+
+Not every notary or shipping store is familiar with international document requirements. Errors such as incomplete notarial certificates, incorrect acknowledgment wording, or missing seals can lead to your apostille being rejected abroad.
+
+Working with a provider that regularly handles apostilles, legalizations, and foreign-bound documents reduces the risk of costly delays and repeat trips. You can see how we handle these details on our [About Us](/about.html) page.
+
+---
+
+## 6. Forgetting About Translations
+
+Many countries require certified translations in addition to properly apostilled documents, especially for immigration, school, and court matters. Sending only English-language documents to a non-English-speaking country can lead to last-minute scrambling for a translator.
+
+Coordinating translation, notarization, and apostille as one process helps ensure your documents are accepted by the foreign government, court, or school without confusion. If you need help with this, visit our [document translation coordination](/services/translations.html) page to see how we can bundle translation with notary and apostille.
+
+---
+
+## 7. Not Taking Advantage of Mobile Services
+
+Driving between a notary, county office, and shipping center can be difficult if you are in a hospital, rehab facility, busy office, or caring for family. Mobile notarization and apostille coordination allow a commissioned notary to come to your home, office, hospital, or even jail within Los Angeles, Orange, or Ventura County.
+
+For groups or tight timelines, mobile service can save hours, reduce errors, and keep your schedule on track. You can request an on-site visit anywhere in our service area through our [booking page](https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services).
+
+---
+
+## How We Help Clients Avoid These Issues
+
+Mobile American Notary & Apostilles focuses on getting your documents signed, notarized, and apostilled correctly the first time so they are accepted overseas without delays or rejections. We handle apostilles and legalizations for vital records, school records, court documents, and corporate paperwork, and can coordinate certified translations when needed.
+
+We offer mobile appointments across Los Angeles County, Orange County, and Ventura County including homes, offices, hospitals, rehab facilities, and jails with extended and after-hours options available by request. If you are dealing with a tight deadline or are unsure where to start, you can get in touch through our [appointment request page](https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services) to review your situation before you schedule.
