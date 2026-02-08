@@ -179,6 +179,9 @@
   },
   "active": "5a16b0a46d01f156",
   "lastOpenFiles": [
+    "blog/sedH7S36A",
+    "blog/seddng2xv",
+    "blog/sedQSa17I",
     "_posts/2026-02-07-test-post.md.md",
     "_posts/2026-02-07-test-post.md",
     "CNAME",
@@ -190,8 +193,6 @@
     "_site/blog/test-post.md",
     "_site/blog/mobile-notary-hospitals-los-angeles/index.html",
     "_site/blog/mobile-notary-hospitals-los-angeles",
-    "_site/blog/7-common-apostille-mistakes-california/index.html",
-    "_site/blog/7-common-apostille-mistakes-california",
     "_site/order-form/backup/Screenshot_20260201_175107_Brave.jpg",
     "_site/order-form/backup/Screenshot_20260201_174815_Brave.jpg",
     "_site/order-form/backup/Screenshot_20260201_174811_Brave.jpg",
@@ -223,7 +224,6 @@
     "vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser/vendor/http-parser-java/README.md",
     "vendor/bundle/ruby/3.2.0/gems/concurrent-ruby-1.3.6/CHANGELOG.md",
     "vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/docs/GettingStarted.md",
-    "vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/docs/DocumentationGuidesIndex.md",
-    "vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/README.md"
+    "vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/docs/DocumentationGuidesIndex.md"
   ]
 }
