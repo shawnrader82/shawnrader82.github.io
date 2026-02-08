@@ -15,15 +15,16 @@ title: Blog - Mobile American Notary
   <div id="header-placeholder"></div>
   <script src="/header.js"></script>
 
+  <section class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="blog-hero-inner">
+      <h1>Blog</h1>
+      <p>Helpful guides on notary, apostille, and document services in Los Angeles</p>
+    </div>
+  </section>
+
   <div class="blog-page-wrap">
     <section class="blog-shell">
-      <section class="blog-hero">
-        <div class="blog-hero-bg"></div>
-        <div class="blog-hero-inner">
-        <h1>Blog</h1>
-        <p>Helpful guides on notary, apostille, and document services in Los Angeles</p>
-      </div>
-      </section>
 
       {% for post in site.posts %}
       {% assign card_class = "blog-card--white" %}
