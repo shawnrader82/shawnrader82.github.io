@@ -1744,6 +1744,8 @@ img {
 
 /* ========== SITE FOOTER ========== */
 .site-footer {
+  position: relative;
+  z-index: 2;
   background: #111827;
   color: #d1d5db;
   padding: 32px 24px 24px;
