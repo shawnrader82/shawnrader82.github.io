@@ -26,6 +26,9 @@ title: Blog - Mobile American Notary
       {% endif %}
 
       <div class="blog-card {{ card_class }}">
+        {% if post.image and post.image != "" and post.image != '""' %}
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-thumb">
+        {% endif %}
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
         <div class="excerpt">
