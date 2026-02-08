@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RG90RK03WJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RG90RK03WJ');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
-  <title>Mobile Notary Los Angeles & Apostille Services | Mobile American Notary</title>
-  <link rel="canonical" href="https://www.mobileamericannotary.com/">
-  <meta name="description" content="Mobile American Notary & Apostilles provides mobile notary Los Angeles services, same or next business day apostille, jail weddings and inmate marriages, Live Scan fingerprinting, and certified translations. Call or text (213) 933‑2507 to schedule.">
-  <link rel="icon" href="/images/brand/logo.webp">
+  <title>Mobile Notary Los Angeles &amp; Apostille Services | Mobile American Notary</title>
+  <link rel="canonical" href="https://www.mobileamericannotary.com/" />
+  <meta name="description" content="Mobile American Notary &amp; Apostilles provides mobile notary Los Angeles services, same or next business day apostille, jail weddings and inmate marriages, Live Scan fingerprinting, and certified translations. Call or text (213) 933‑2507 to schedule." />
+  <link rel="icon" href="images/brandlogo.png" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mobile American Notary &amp; Apostilles | Mobile Notary &amp; Apostille Service Los Angeles" />
@@ -15,73 +24,170 @@
   <meta property="og:url" content="https://www.mobileamericannotary.com/" />
   <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
   <meta property="og:site_name" content="Mobile American Notary &amp; Apostilles" />
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mobile American Notary &amp; Apostilles | Mobile Notary &amp; Apostille Service Los Angeles" />
   <meta name="twitter:description" content="Mobile notary, apostille, Live Scan, and document services across Los Angeles, Orange, and Ventura Counties. Same or next business day appointments and clear guidance on complex documents." />
   <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG90RK03WJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RG90RK03WJ');
+  <!-- Global font and shared site styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles-v2.css?v=1.0.12" />
+
+  <!-- ===== STRUCTURED DATA ===== -->
+
+  <!-- 1. BreadcrumbList (homepage = single root item) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mobileamericannotary.com/"
+      }
+    ]
+  }
   </script>
 
-  <!-- Global font and shared site styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="styles-v2.css?v=1.0.12">
-
+  <!-- 2. Notary / LocalBusiness with AggregateRating -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Notary",
-  "name": "Mobile American Notary & Apostilles",
-  "url": "https://www.mobileamericannotary.com",
-  "logo": "https://www.mobileamericannotary.com/images/brand/logo.webp",
-  "image": "https://www.mobileamericannotary.com/images/brand/logo.webp",
-  "telephone": "+1-213-933-2507",
-  "email": "info@mobileamericannotary.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "10718 White Oak Ave Suite 5",
-    "addressLocality": "Granada Hills",
-    "addressRegion": "CA",
-    "postalCode": "91344",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 34.2764,
-    "longitude": -118.4683
-  },
-  "areaServed": [
-    "Los Angeles County",
-    "Orange County",
-    "Ventura County"
-  ],
-  "priceRange": "$$",
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+  {
+    "@context": "https://schema.org",
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "logo": "https://www.mobileamericannotary.com/images/brandlogo.webp",
+    "image": "https://www.mobileamericannotary.com/images/brandlogo.webp",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Shawn Rader",
+      "jobTitle": "Notary Public"
+    },
+    "foundingDate": "2018",
+    "description": "Mobile American Notary & Apostilles provides mobile notary services, same or next business day apostille, jail weddings, Live Scan fingerprinting, and certified translation coordination across Los Angeles, Orange, and Ventura Counties.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Los Angeles County"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Orange County"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ventura County"
+      }
     ],
-    "opens": "09:00",
-    "closes": "20:00"
-  }],
-  "sameAs": [
-    "https://www.facebook.com/MobileAmericanNotary/",
-    "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-    "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
-  ]
-}
-</script>
-<link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
+    "priceRange": "$$",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "20:00"
+    }],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "100",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Mobile Notary & Apostille Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobile Notary",
+            "url": "https://www.mobileamericannotary.com/services/notary.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Apostille & Document Legalization",
+            "url": "https://www.mobileamericannotary.com/services/apostille.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Live Scan Fingerprinting",
+            "url": "https://www.mobileamericannotary.com/services/livescan.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Document Translation Coordination",
+            "url": "https://www.mobileamericannotary.com/services/translations.html"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Jail Weddings & Inmate Marriages",
+            "url": "https://www.mobileamericannotary.com/services/jail-weddings.html"
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary/",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    ]
+  }
+  </script>
+
+  <!-- 3. WebSite with SearchAction (Sitelinks Searchbox) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.mobileamericannotary.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp" />
 </head>
 
 <body>
+
 
 <!-- ========== HEADER (WHITE) ========== -->
 <div id="header-placeholder"></div>
