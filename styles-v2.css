@@ -1763,10 +1763,27 @@ img {
 
 /* ========== BLOG PAGE HERO ========== */
 .blog-hero {
-  background: linear-gradient(135deg, #1e293b 0%, #7f1d1d 100%);
-  color: #fff;
+  position: relative;
+  overflow: hidden;
+  background: #020617;
+  width: 100%;
+  max-width: none;
+}
+.blog-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)),
+    url("images/services/notary-hero.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: saturate(1.1);
+}
+.blog-hero-inner {
+  position: relative;
+  padding: 56px 28px 48px;
   text-align: center;
-  padding: 56px 24px 48px;
 }
 .blog-hero h1 {
   font-size: 2.4rem;
@@ -1776,9 +1793,16 @@ img {
 }
 .blog-hero p {
   font-size: 1.1rem;
-  margin: 0;
   color: #e5e7eb;
   max-width: 600px;
   margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .blog-hero-inner {
+    padding: 44px 18px 40px;
+  }
+  .blog-hero h1 {
+    font-size: 1.6rem;
+  }
 }
 /* ========== /BLOG PAGE HERO ========== */
