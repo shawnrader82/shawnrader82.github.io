@@ -19,10 +19,13 @@ title: Blog - Mobile American Notary
       <h1 style="text-align:center; margin-bottom:32px; color:#0f172a; font-size:2.2rem;">Blog</h1>
 
       {% for post in site.posts %}
-      <div class="blog-card blog-card--white">
-        {% if post.image %}
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-thumb">
-        {% endif %}
+      {% assign card_class = "blog-card--white" %}
+      {% assign remainder = forloop.index0 | modulo: 2 %}
+      {% if remainder == 1 %}
+        {% assign card_class = "blog-card--gray" %}
+      {% endif %}
+
+      <div class="blog-card {{ card_class }}">
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
         <div class="excerpt">
