@@ -25,16 +25,18 @@ title: Blog - Mobile American Notary
         {% assign card_class = "blog-card--gray" %}
       {% endif %}
 
-      <div class="blog-card {{ card_class }}">
+      <div class="blog-card blog-card--horizontal {{ card_class }}">
         {% if post.image and post.image != "" and post.image != '""' %}
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="blog-thumb">
+        <div class="blog-card__image"><img src="{{ post.image }}" alt="{{ post.title }}"></div>
         {% endif %}
+        <div class="blog-card__content">
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
         <div class="excerpt">
           {{ post.excerpt | strip_html | truncatewords: 40 }}
         </div>
         <a href="{{ post.url }}" class="read-more">Read More →</a>
+        </div>
       </div>
       {% endfor %}
     </section>
