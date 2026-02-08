@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.mobileamericannotary.com/</loc><lastmod>2026-02-07</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <!-- Core Pages -->
+  <url><loc>https://www.mobileamericannotary.com/</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.mobileamericannotary.com/about.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/pricing.html</loc><lastmod>2026-02-07</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.mobileamericannotary.com/faq.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.mobileamericannotary.com/privacy.html</loc><lastmod>2026-02-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.mobileamericannotary.com/terms.html</loc><lastmod>2026-02-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.mobileamericannotary.com/sms-consent.html</loc><lastmod>2026-02-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Notary Services -->
   <url><loc>https://www.mobileamericannotary.com/services/notary.html</loc><lastmod>2026-02-07</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-general.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-jail.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-real-estate.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.mobileamericannotary.com/services/notary-estate-planning.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary/affidavit-of-support.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary/bill-of-sale.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary/copy-certification.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -24,6 +26,8 @@
   <url><loc>https://www.mobileamericannotary.com/services/notary/notary-general.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary/passport-consent-ds3053.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary/power-of-attorney.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Notary — Hospital Pages -->
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital/beverly-grove-cedars-sinai.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital/boyle-heights-keck-usc.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital/burbank-providence-saint-joseph.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -41,11 +45,15 @@
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital/west-hills-ucla-west-valley.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital/westwood-ucla.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-hospital/woodland-hills-kaiser.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Notary — Jail Pages -->
   <url><loc>https://www.mobileamericannotary.com/services/notary-jail/mens-central.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-jail/twin-towers.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-jail/crdf-lynwood.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-jail/pitchess.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/notary-jail/north-county-castaic.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Apostille Services -->
   <url><loc>https://www.mobileamericannotary.com/services/apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/apostille/vital-documents.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/apostille/vital-birth.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -69,5 +77,83 @@
   <url><loc>https://www.mobileamericannotary.com/services/apostille/poa-notarized.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-documents.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-fbi-background-check.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-court-documents.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-court-documents.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-birth-abroad.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-death-abroad.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-nara-documents.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/federal-uscis-naturalization-name-change.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/same-day-los-angeles.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/country-mexico.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/country-spain.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/country-cuba.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/country-taiwan.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/apostille/country-thailand.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Live Scan -->
+  <url><loc>https://www.mobileamericannotary.com/services/livescan.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Translations -->
+  <url><loc>https://www.mobileamericannotary.com/services/translations.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Jail Weddings — Hub -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings.html</loc><lastmod>2026-02-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Jail Weddings — LA County -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/mens-central.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/twin-towers.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/crdf-lynwood.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/pitchess-castaic.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/north-county-castaic.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Jail Weddings — Orange County -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/theo-lacy.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/central-mens-oc.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/central-womens-oc.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/musick.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Jail Weddings — San Bernardino County -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/west-valley.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/glen-helen.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/central-detention.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Jail Weddings — Riverside County -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/robert-presley.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/smith-banning.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/cois-byrd.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Jail Weddings — Ventura County -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/ventura-main-jail.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/ventura-todd-road.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/ventura-east-valley.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Jail Weddings — Santa Barbara County -->
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/santa-barbara-main.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Location Pages -->
+  <url><loc>https://www.mobileamericannotary.com/locations/beverly-hills-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/burbank-glendale-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/chatsworth-northridge-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/downtown-los-angeles-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/encino-tarzana-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch-apostille-notary.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/hollywood-west-hollywood-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/san-fernando-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/simi-valley-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/valencia-santa-clarita-notary.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/van-nuys-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park-notary-apostille.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/locations/apostille-philippines-spa.html</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://www.mobileamericannotary.com/blog/</loc><lastmod>2026-02-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/</loc><lastmod>2026-01-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/blog/7-common-apostille-mistakes-california/</loc><lastmod>2026-01-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/blog/mobile-notary-hospitals-los-angeles/</loc><lastmod>2026-02-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/blog/welcome-to-our-new-blog/</loc><lastmod>2026-02-07</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>
