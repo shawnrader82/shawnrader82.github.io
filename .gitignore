@@ -7,3 +7,4 @@ Thumbs.db
 .xdp-*
 vendor/
 .obsidian/
+!images/brand/logo.*
