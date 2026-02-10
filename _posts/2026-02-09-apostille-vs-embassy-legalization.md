@@ -11,7 +11,7 @@ tags:
   - california
   - hague convention
   - document authentication
-image: /assets/images/apostille-vs-legalization.jpg
+image: /assets/images/blog/apostille-vs-legalization.jpg
 ---
 
 
