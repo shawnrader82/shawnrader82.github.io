@@ -7,11 +7,7 @@ categories:
   - apostille
 tags:
   - apostille
-  - embassy legalization
   - california
-  - hague convention
-  - document authentication
-  - image: /images/blog/apostille-vs-legalization.jpg
 image: /images/blog/apostille-vs-legalization.jpg
 ---
 
