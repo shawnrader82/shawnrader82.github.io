@@ -60,7 +60,12 @@
     "@type": "Notary",
     "name": "Mobile American Notary & Apostilles",
     "url": "https://www.mobileamericannotary.com",
-    "logo": "https://www.mobileamericannotary.com/images/brandlogo.webp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.mobileamericannotary.com/images/brandlogo.webp",
+      "width": 600,
+      "height": 60
+    },
     "image": "https://www.mobileamericannotary.com/images/brandlogo.webp",
     "telephone": "+1-213-933-2507",
     "email": "info@mobileamericannotary.com",
@@ -69,7 +74,7 @@
       "name": "Shawn Rader",
       "jobTitle": "Notary Public"
     },
-    "foundingDate": "2018",
+    "foundingDate": "2018-04-14",
     "description": "Mobile American Notary & Apostilles provides mobile notary services, same or next business day apostille, jail weddings, Live Scan fingerprinting, and certified translation coordination across Los Angeles, Orange, and Ventura Counties.",
     "address": {
       "@type": "PostalAddress",
@@ -109,57 +114,42 @@
     }],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "100",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
+      "ratingValue": 5.0,
+      "reviewCount": 100,
+      "bestRating": 5,
+      "worstRating": 1
+        },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Mobile Notary & Apostille Services",
       "itemListElement": [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Mobile Notary",
-            "url": "https://www.mobileamericannotary.com/services/notary.html"
-          }
+          "@type": "Service",
+          "name": "Mobile Notary",
+          "url": "https://www.mobileamericannotary.com/services/notary.html"
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Apostille & Document Legalization",
-            "url": "https://www.mobileamericannotary.com/services/apostille.html"
-          }
+          "@type": "Service",
+          "name": "Apostille & Document Legalization",
+          "url": "https://www.mobileamericannotary.com/services/apostille.html"
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Live Scan Fingerprinting",
-            "url": "https://www.mobileamericannotary.com/services/livescan.html"
-          }
+          "@type": "Service",
+          "name": "Live Scan Fingerprinting",
+          "url": "https://www.mobileamericannotary.com/services/livescan.html"
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Document Translation Coordination",
-            "url": "https://www.mobileamericannotary.com/services/translations.html"
-          }
+          "@type": "Service",
+          "name": "Document Translation Coordination",
+          "url": "https://www.mobileamericannotary.com/services/translations.html"
         },
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Jail Weddings & Inmate Marriages",
-            "url": "https://www.mobileamericannotary.com/services/jail-weddings.html"
-          }
+          "@type": "Service",
+          "name": "Jail Weddings & Inmate Marriages",
+          "url": "https://www.mobileamericannotary.com/services/jail-weddings.html"
         }
       ]
-    },
+    }
     "sameAs": [
       "https://www.facebook.com/MobileAmericanNotary/",
       "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
@@ -168,18 +158,6 @@
   }
   </script>
 
-  <!-- 3. WebSite with SearchAction (Sitelinks Searchbox) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Mobile American Notary & Apostilles",
-    "url": "https://www.mobileamericannotary.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.mobileamericannotary.com/?s={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
   }
   </script>
 
