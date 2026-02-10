@@ -11,10 +11,14 @@
             "id": "5a16b0a46d01f156",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2026-02-09-apostille-vs-embassy-legalization.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-02-09-apostille-vs-embassy-legalization"
             }
           }
         ]
@@ -179,6 +183,11 @@
   },
   "active": "5a16b0a46d01f156",
   "lastOpenFiles": [
+    "images/blog/apostille-vs-legalization.jpg",
+    "images/blog/apostille-vs-legalization.png",
+    "images/blog/apostille vs legalization.png",
+    "images/blog/generated-image.png",
+    "images/blog/Unconfirmed 717993.crdownload",
     "services/notary-hospital/Unconfirmed 195452.crdownload",
     "services/notary-hospital/Unconfirmed 501429.crdownload",
     "services/notary-hospital/Unconfirmed 368148.crdownload",
@@ -188,8 +197,6 @@
     "services/notary-hospital/Unconfirmed 939015.crdownload",
     "services/notary-hospital/Unconfirmed 898015.crdownload",
     "services/notary-hospital/Unconfirmed 677500.crdownload",
-    "services/Unconfirmed 624074.crdownload",
-    "services/notary-jail/mdc-los-angeles.html",
     "_posts/2026-02-07-test-post.md.md",
     "_posts/2026-02-07-test-post.md",
     "_site/blog/test-post.md",
@@ -200,9 +207,6 @@
     "_site/order-form/backup/Screenshot_20260201_154146_Brave.jpg",
     "_site/order-form/backup/Screenshot_20260201_154127_Brave.jpg",
     "_site/order-form/backup/Screenshot from 2026-02-01 15-44-46.png",
-    "_site/order-form/backup/FireShot Capture 316 - Apostille _ Legalization & Translation Intake - [192.168.1.41].png",
-    "_site/images/services/notary-hero.webp",
-    "_site/images/services/notary-hero.png",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-feed-0.17.0/README.md",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-4.4.1/lib/theme_template/example/_post.md",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-4.4.1/lib/blank_template/index.md",
