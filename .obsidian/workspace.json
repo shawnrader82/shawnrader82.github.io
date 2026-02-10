@@ -183,6 +183,11 @@
   },
   "active": "5a16b0a46d01f156",
   "lastOpenFiles": [
+    "_posts/2026-02-02-mobile-notary-hospitals-los-angeles.md",
+    "_posts/2026-02-07-welcome-to-our-new-blog.md",
+    "_posts/2026-02-09-apostille-vs-embassy-legalization.md",
+    "_posts/2026-01-19-what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one.md",
+    "_posts/2026-01-25-7-common-apostille-mistakes-california.md",
     "images/blog/apostille-vs-legalization.jpg",
     "images/blog/apostille-vs-legalization.png",
     "images/blog/apostille vs legalization.png",
@@ -206,7 +211,6 @@
     "_site/order-form/backup/Screenshot_20260201_154154_Brave.jpg",
     "_site/order-form/backup/Screenshot_20260201_154146_Brave.jpg",
     "_site/order-form/backup/Screenshot_20260201_154127_Brave.jpg",
-    "_site/order-form/backup/Screenshot from 2026-02-01 15-44-46.png",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-feed-0.17.0/README.md",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-4.4.1/lib/theme_template/example/_post.md",
     "vendor/bundle/ruby/3.2.0/gems/jekyll-4.4.1/lib/blank_template/index.md",
@@ -224,10 +228,6 @@
     "vendor/bundle/ruby/3.2.0/gems/ffi-1.17.3-x86_64-linux-gnu/CHANGELOG.md",
     "vendor/bundle/ruby/3.2.0/gems/addressable-2.8.8/README.md",
     "vendor/bundle/ruby/3.2.0/gems/addressable-2.8.8/CHANGELOG.md",
-    "vendor/bundle/ruby/3.2.0/gems/concurrent-ruby-1.3.6/README.md",
-    "vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser/vendor/http-parser-java/README.md",
-    "vendor/bundle/ruby/3.2.0/gems/concurrent-ruby-1.3.6/CHANGELOG.md",
-    "vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/docs/GettingStarted.md",
-    "vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/docs/DocumentationGuidesIndex.md"
+    "vendor/bundle/ruby/3.2.0/gems/concurrent-ruby-1.3.6/README.md"
   ]
 }
