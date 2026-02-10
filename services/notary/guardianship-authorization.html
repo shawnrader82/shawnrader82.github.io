@@ -33,9 +33,9 @@
       "@type": "Notary",
       "name": "Mobile American Notary & Apostilles",
       "url": "https://www.mobileamericannotary.com",
-      "telephone": "+1-213-933-2507",
-      "areaServed": ["Los Angeles County", "Orange County", "Ventura County"]
-    }
+      "telephone": "+1-213-933-2507"
+    },
+    "areaServed": ["Los Angeles County", "Orange County", "Ventura County"]
   }
   </script>
 
@@ -96,13 +96,29 @@
     ]
   }
   </script>
-<link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
+
+  <!-- Structured Data: Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.mobileamericannotary.com/"},
+      {"@type":"ListItem","position":2,"name":"Services","item":"https://www.mobileamericannotary.com/services/"},
+      {"@type":"ListItem","position":3,"name":"General Notary","item":"https://www.mobileamericannotary.com/services/notary-general.html"},
+      {"@type":"ListItem","position":4,"name":"Guardianship Authorization","item":"https://www.mobileamericannotary.com/services/notary/guardianship-authorization.html"}
+    ]
+  }
+  </script>
+
+  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
 </head>
 <body>
 
 <!-- HEADER (WHITE) -->
 <div id="header-placeholder"></div>
 <!-- /HEADER (WHITE) -->
+
 
 <!-- ========== SECTION 1: HERO (GRAY) ========== -->
 <section class="service-detail service-detail--gray">
@@ -291,8 +307,8 @@
 </section>
 <!-- ========== /SECTION 5: NOTARIZATION DETAILS (WHITE) ========== -->
 
-<!-- ========== SECTION 6: WHAT TO BRING (GRAY) ========== -->
-<section class="service-detail service-detail--gray">
+<!-- ========== SECTION 6: WHAT TO BRING (BLUE) ========== -->
+<section class="service-detail service-detail--blue">
   <div class="service-detail-inner">
     <div class="service-detail-kicker">Before Your Appointment</div>
     <h2>What To Have Ready For Your Guardianship Notarization</h2>
@@ -319,13 +335,13 @@
         </ul>
       </div>
     </div>
-    <hr class="section-divider">
+    <hr class="section-divider" style="border-color: rgba(148,163,184,0.3);">
   </div>
 </section>
-<!-- ========== /SECTION 6: WHAT TO BRING (GRAY) ========== -->
+<!-- ========== /SECTION 6: WHAT TO BRING (BLUE) ========== -->
 
-<!-- ========== SECTION 7: RELATED DOCUMENTS (WHITE) ========== -->
-<section class="service-detail service-detail--white">
+<!-- ========== SECTION 7: RELATED DOCUMENTS (GRAY) ========== -->
+<section class="service-detail service-detail--gray">
   <div class="service-detail-inner">
     <div class="service-detail-kicker">Related Documents</div>
     <h2>Other Documents Often Needed With Guardianship Authorizations</h2>
@@ -382,10 +398,10 @@
     <hr class="section-divider">
   </div>
 </section>
-<!-- ========== /SECTION 7: RELATED DOCUMENTS (WHITE) ========== -->
+<!-- ========== /SECTION 7: RELATED DOCUMENTS (GRAY) ========== -->
 
-<!-- ========== SECTION 8: FAQ (GRAY) ========== -->
-<section class="service-detail service-detail--gray">
+<!-- ========== SECTION 8: FAQ (WHITE) ========== -->
+<section class="service-detail service-detail--white">
   <div class="service-detail-inner">
     <div class="service-detail-kicker">Frequently Asked Questions</div>
     <h2>Guardianship And Temporary Custody Authorization FAQ</h2>
@@ -451,27 +467,7 @@
     <hr class="section-divider">
   </div>
 </section>
-<!-- ========== /SECTION 8: FAQ (GRAY) ========== -->
-
-<!-- ========== SECTION 9: FINAL CTA (BLUE) ========== -->
-<section class="service-detail service-detail--blue" style="text-align:center; padding:48px 24px;">
-  <div class="service-detail-inner">
-    <h2 style="color:#ffffff; margin-bottom:6px;">Ready To Notarize Your Guardianship Authorization?</h2>
-    <p style="color:#e5e7eb; font-size:14px; margin-bottom:20px; max-width:560px; margin-left:auto; margin-right:auto;">
-      Book a mobile notary appointment for your guardianship or temporary custody authorization, or call
-      and text to ask about availability and what to have ready.
-    </p>
-    <div class="service-detail-cta" style="justify-content:center;">
-      <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services/A4Y3VY5DP6THP4ZKQI565KCC" class="btn btn--primary btn--flex">
-        Book A Guardianship Notary Appointment
-      </a>
-      <a href="tel:12139332507" class="btn btn--secondary btn--flex">
-        Call or Text (213) 933-2507
-      </a>
-    </div>
-  </div>
-</section>
-<!-- ========== /SECTION 9: FINAL CTA (BLUE) ========== -->
+<!-- ========== /SECTION 8: FAQ (WHITE) ========== -->
 
 <!-- FOOTER -->
 <script src="/header.js" defer></script>
