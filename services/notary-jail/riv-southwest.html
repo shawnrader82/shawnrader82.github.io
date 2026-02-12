@@ -26,7 +26,7 @@
     gtag('config', 'G-RG90RK03WJ');
   </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="/styles-v2.css?v=1.0.12" />
+  <link rel="stylesheet" href="/styles-v2.css?v=1.0.13" />
   <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
   <script type="application/ld+json">
   {
@@ -35,7 +35,7 @@
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"Home","item":"https://www.mobileamericannotary.com/"},
       {"@type":"ListItem","position":2,"name":"Services","item":"https://www.mobileamericannotary.com/services/"},
-      {"@type":"ListItem","position":3,"name":"Jail Notary","item":"https://www.mobileamericannotary.com/services/notary-jail/"},
+      {"@type":"ListItem","position":3,"name":"Jail Notary","item":"https://www.mobileamericannotary.com/services/notary-jail.html"},
       {"@type":"ListItem","position":4,"name":"Southwest Detention Center"}
     ]
   }
@@ -116,50 +116,99 @@
   </script>
 </head>
 <body>
-  <div id="header-placeholder"></div>
-  <script src="/header.js" defer></script>
 
-  <section class="service-detail-hero" style="background-image:url('/images/services/notary-hero.webp')">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo;
-        <a href="/services/">Services</a> &rsaquo;
-        <a href="/services/notary-jail/">Jail Notary</a> &rsaquo;
-        <span>Southwest Detention Center</span>
-      </nav>
-      <h1>Mobile Notary at Southwest Detention Center</h1>
-      <p class="subtitle">On-site notarization for inmates at Riverside County&#39;s southwest area detention facility in Murrieta</p>
-      <div class="service-detail-cta">
-        <a href="tel:+12139332507" class="btn btn-primary">Call (213)&nbsp;933&#8209;2507</a>
-        <a href="sms:+12139332507" class="btn btn-outline">Text Us</a>
+<!-- ========== HEADER ========== -->
+<div id="header-placeholder"></div>
+<script>
+fetch('/header.html')
+  .then(r => r.text())
+  .then(html => document.getElementById('header-placeholder').innerHTML = html);
+</script>
+<!-- ========== /HEADER ========== -->
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-kicker">Riverside County Jail Notary</div>
+      <h1 class="hero-title">Mobile Notary at Southwest Detention Center</h1>
+      <p class="hero-subtitle">
+        On-site notarization for inmates at Riverside County&#39;s southwest area detention facility
+        in Murrieta. Also known as the Cois M. Byrd Detention Center. We travel from Los Angeles so
+        inmates can sign powers of attorney, court documents, real estate paperwork, and other legal
+        forms without waiting until release.
+      </p>
+      <p class="hero-meta">
+        30755-B Auld Rd, Murrieta, CA 92563 &bull; (951) 696&#8209;3050
+      </p>
+      <div class="hero-ctas">
+        <a href="tel:12139332507" class="btn btn--primary btn--flex">
+          Call or Text (213) 933&#8209;2507
+        </a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+           class="btn btn--secondary btn--flex" target="_blank" rel="noopener">
+          Schedule Southwest Notary
+        </a>
       </div>
     </div>
   </section>
+  <!-- ========== /HERO ========== -->
 
-  <section class="service-detail-section">
-    <div class="container">
+  <!-- ========== FACILITY INFO (WHITE) ========== -->
+  <section class="service-detail service-detail--white">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Facility information</div>
       <h2>About Southwest Detention Center</h2>
-      <p>The Southwest Detention Center, also known as the Cois M. Byrd Detention Center, is located in the French Valley area between Murrieta and Temecula in southwest Riverside County. Operational since 1993, this facility is operated by the Riverside County Sheriff&#39;s Department and houses male inmates only.</p>
-      <p>Southwest Detention Center is approximately 1.5 hours from Los Angeles via the I-15 freeway. The facility serves the communities of Murrieta, Temecula, Lake Elsinore, Wildomar, and surrounding areas. Note that the Southwest Detention Center and Cois M. Byrd Detention Center refer to the same facility &mdash; they are sometimes listed under either name in inmate locator systems.</p>
-      <div class="info-box">
-        <p><strong>Address:</strong> 30755-B Auld Rd, Murrieta, CA 92563</p>
-        <p><strong>Main phone:</strong> (951) 696-3050</p>
-        <p><strong>Visit scheduling:</strong> (951) 696-3470 (daily, 9:00 AM &ndash; 5:00 PM)</p>
-        <p><strong>Operated by:</strong> Riverside County Sheriff&#39;s Department</p>
-        <p><strong>Also known as:</strong> Cois M. Byrd Detention Center</p>
-        <p><strong>Housing:</strong> Male inmates only</p>
-        <p><strong>Public visiting:</strong> By appointment only &mdash; call one day in advance to schedule</p>
-        <p><strong>Visit length:</strong> Approximately 45 minutes; max 2 visits per inmate per week</p>
-        <p><strong>Attorney/special visits:</strong> Contact the facility directly at (951) 696-3050 to schedule</p>
-        <p><strong>Location:</strong> French Valley area (Murrieta/Temecula), approximately 1.5 hours from LA via I-15</p>
-      </div>
-      <h3>Why inmates at Southwest need notary services</h3>
-      <ul class="icon-list">
-        <li><strong>Time-sensitive legal matters</strong> &mdash; Court deadlines, plea agreements, and filings that cannot wait until release.</li>
-        <li><strong>Power of attorney</strong> &mdash; Authorizing a spouse, family member, or attorney to handle finances, property, or legal matters while in custody.</li>
-        <li><strong>Real estate transactions</strong> &mdash; Signing deeds, refinancing documents, or property transfers with hard deadlines.</li>
-        <li><strong>Family law documents</strong> &mdash; Divorce paperwork, custody agreements, and support modifications requiring notarized signatures.</li>
-      </ul>
+
+      <div class="service-detail-grid">
+        <div>
+          <p class="service-detail-lead">
+            The Southwest Detention Center, also known as the Cois M. Byrd Detention Center, is
+            located in the French Valley area between Murrieta and Temecula in southwest Riverside
+            County. Operational since 1993, this facility is operated by the Riverside County
+            Sheriff&#39;s Department and houses male inmates only.
+          </p>
+          <p style="font-size:14px; line-height:1.6; margin-top:10px;">
+            Southwest Detention Center is approximately 1.5 hours from Los Angeles via the I-15
+            freeway. The facility serves the communities of Murrieta, Temecula, Lake Elsinore,
+            Wildomar, and surrounding areas. Note that the Southwest Detention Center and Cois M.
+            Byrd Detention Center refer to the same facility &#8212; they are sometimes listed under
+            either name in inmate locator systems.
+          </p>
+          <ul>
+            <li><strong>Address:</strong> 30755-B Auld Rd, Murrieta, CA 92563</li>
+            <li><strong>Main phone:</strong> (951) 696&#8209;3050</li>
+            <li><strong>Visit scheduling:</strong> (951) 696&#8209;3470 (daily, 9:00 AM &#8211; 5:00 PM)</li>
+            <li><strong>Operated by:</strong> Riverside County Sheriff&#39;s Department</li>
+            <li><strong>Also known as:</strong> Cois M. Byrd Detention Center</li>
+            <li><strong>Housing:</strong> Male inmates only</li>
+            <li><strong>Public visiting:</strong> By appointment only &#8212; call one day in advance to schedule</li>
+            <li><strong>Visit length:</strong> Approximately 45 minutes; max 2 visits per inmate per week</li>
+            <li><strong>Attorney/special visits:</strong> Contact the facility directly at (951) 696&#8209;3050</li>
+            <li><strong>Location:</strong> French Valley area (Murrieta/Temecula), approximately 1.5 hours from LA via I-15</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Why inmates at Southwest need notary services</h3>
+          <ul>
+            <li>
+              <strong>Time-sensitive legal matters</strong> &#8212; Court deadlines, plea agreements,
+              and filings that cannot wait until release.
+            </li>
+            <li>
+              <strong>Power of attorney</strong> &#8212; Authorizing a spouse, family member, or attorney
+              to handle finances, property, or legal matters while in custody.
+            </li>
+            <li>
+              <strong>Real estate transactions</strong> &#8212; Signing deeds, refinancing documents,
+              or property transfers with hard deadlines.
+            </li>
+            <li>
+              <strong>Family law documents</strong> &#8212; Divorce paperwork, custody agreements, and
+              support modifications requiring notarized signatures.
+            </li>
+          </ul>
           <div class="crosslink-box">
             <strong>Planning a wedding at Southwest Detention Center?</strong>
             <span>
@@ -169,183 +218,338 @@
               </a>
             </span>
           </div>
+        </div>
+      </div>
     </div>
   </section>
+  <!-- ========== /FACILITY INFO (WHITE) ========== -->
 
-  <section class="service-detail-section bg-light">
-    <div class="container">
+  <!-- ========== DOCUMENTS (GRAY) ========== -->
+  <section class="service-detail service-detail--gray">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Documents we notarize at Southwest</div>
       <h2>Common Documents for Southwest Inmates</h2>
-      <h3>Powers of attorney &amp; authorizations</h3>
-      <ul>
-        <li>General power of attorney</li>
-        <li>Limited or special power of attorney</li>
-        <li>Durable power of attorney for finances</li>
-        <li>Healthcare power of attorney / advance directive</li>
-        <li>DMV power of attorney for vehicle transfers</li>
-        <li>Bank and financial institution authorizations</li>
-      </ul>
-      <h3>Real estate documents</h3>
-      <ul>
-        <li>Grant deeds and quitclaim deeds</li>
-        <li>Refinancing and loan modification paperwork</li>
-        <li>Property sale and escrow documents</li>
-        <li>Lease agreements and rental authorizations</li>
-      </ul>
-      <h3>Court &amp; legal documents</h3>
-      <ul>
-        <li>Declarations and affidavits</li>
-        <li>Divorce responses and stipulations</li>
-        <li>Child custody and visitation agreements</li>
-        <li>Probate and estate documents</li>
-        <li>Civil case filings and responses</li>
-      </ul>
-      <h3>Other documents</h3>
-      <ul>
-        <li>Vehicle title transfers</li>
-        <li>Business authorizations and resolutions</li>
-        <li>Immigration-related affidavits</li>
-        <li>Insurance claims and benefit forms</li>
-        <li>Any document requiring a notarized signature</li>
-      </ul>
+
+      <div class="service-detail-grid">
+        <div>
+          <h3>Powers of attorney &amp; authorizations</h3>
+          <ul>
+            <li>General power of attorney</li>
+            <li>Limited or special power of attorney</li>
+            <li>Durable power of attorney for finances</li>
+            <li>Healthcare power of attorney / advance directive</li>
+            <li>DMV power of attorney for vehicle transfers</li>
+            <li>Bank and financial institution authorizations</li>
+          </ul>
+
+          <h3>Real estate documents</h3>
+          <ul>
+            <li>Grant deeds and quitclaim deeds</li>
+            <li>Refinancing and loan modification paperwork</li>
+            <li>Property sale and escrow documents</li>
+            <li>Lease agreements and rental authorizations</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Court &amp; legal documents</h3>
+          <ul>
+            <li>Declarations and affidavits</li>
+            <li>Divorce responses and stipulations</li>
+            <li>Child custody and visitation agreements</li>
+            <li>Probate and estate documents</li>
+            <li>Civil case filings and responses</li>
+          </ul>
+
+          <h3>Other documents</h3>
+          <ul>
+            <li>Vehicle title transfers</li>
+            <li>Business authorizations and resolutions</li>
+            <li>Immigration-related affidavits</li>
+            <li>Insurance claims and benefit forms</li>
+            <li>Any document requiring a notarized signature</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
+  <!-- ========== /DOCUMENTS (GRAY) ========== -->
 
   <hr class="section-divider">
-  <section class="service-detail-section">
-    <div class="container">
+
+  <!-- ========== HOW IT WORKS (BLUE) ========== -->
+  <section class="service-detail service-detail--blue">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">How it works</div>
       <h2>Scheduling a Notary Appointment at Southwest</h2>
-      <ol class="steps-list">
-        <li>
-          <h3>Contact us with the inmate&#39;s information</h3>
-          <p>Call or text with the inmate&#39;s full legal name, booking number (if known), and a description of the documents that need to be notarized. Let us know your deadline so we can prioritize scheduling.</p>
-        </li>
-        <li>
-          <h3>We coordinate with the facility</h3>
-          <p>Riverside County facilities require visits to be scheduled at least one day in advance. For attorney or professional visits at Southwest, we contact the facility directly at (951) 696-3050 to coordinate. Due to the distance from Los Angeles, we plan the trip carefully to ensure timely arrival.</p>
-        </li>
-        <li>
-          <h3>Prepare your documents</h3>
-          <p>Have all documents ready and complete before the appointment &mdash; we cannot draft legal documents, only notarize signatures. If the inmate needs to review documents first, coordinate with their attorney or use the facility&#39;s mail system.</p>
-        </li>
-        <li>
-          <h3>The notary appointment</h3>
-          <p>We travel from Los Angeles to Southwest Detention Center in Murrieta (approximately 1.5 hours via I-15), clear security screening, and meet with the inmate in the designated visiting area. The inmate confirms their identity, signs the documents in our presence, and we complete the notarization.</p>
-        </li>
-        <li>
-          <h3>Document delivery</h3>
-          <p>After the appointment, we return the signed and notarized documents to you, your attorney, escrow company, or other designated recipient &mdash; by hand delivery, courier, or mail depending on your timeline.</p>
-        </li>
-      </ol>
-      <p class="tip"><strong>Tip:</strong> The Southwest Detention Center is also known as the Cois M. Byrd Detention Center. If you&#39;re searching for an inmate, try both names in the Riverside County inmate locator. This facility houses male inmates only.</p>
-    </div>
-  </section>
 
-  <section class="service-detail-section bg-light">
-    <div class="container">
-      <h2>Southwest Notary Fees</h2>
-      <p>Jail notarizations at Southwest Detention Center require travel from Los Angeles to Murrieta, coordination with facility staff, security screening, and wait time. Pricing reflects the distance and complexity of working within the facility&#39;s procedures.</p>
-      <p><strong>Southwest appointments:</strong> Starting at $325</p>
-      <ul>
-        <li>Price includes travel to Southwest (30755-B Auld Rd, Murrieta), coordination, wait time, and notarization</li>
-        <li>Additional signatures at the same appointment may be added for a reduced fee</li>
-        <li>Rush or same-day appointments may have additional fees based on availability</li>
-      </ul>
-      <h3>What is included</h3>
-      <ul>
-        <li>Travel from Los Angeles to Southwest Detention Center and back</li>
-        <li>Coordination with facility procedures</li>
-        <li>Security screening and wait time</li>
-        <li>Notarization of documents (California notary fees per signature)</li>
-        <li>Return of documents to you or your designated recipient</li>
-      </ul>
-      <p>Final pricing depends on the number of documents, any special circumstances, and timing. Call or text for a quote based on your specific situation.</p>
+      <div class="service-detail-grid">
+        <div>
+          <div class="faq-item" style="font-size:14px; line-height:1.6;">
+            <h3>1. Contact us with the inmate&#39;s information</h3>
+            <p>
+              Call or text with the inmate&#39;s full legal name, booking number (if known), and a
+              description of the documents that need to be notarized. Let us know your deadline so
+              we can prioritize scheduling.
+            </p>
+
+            <h3>2. We coordinate with the facility</h3>
+            <p>
+              Riverside County facilities require visits to be scheduled at least one day in advance.
+              For attorney or professional visits at Southwest, we contact the facility directly at
+              (951) 696&#8209;3050 to coordinate. Due to the distance from Los Angeles, we plan the
+              trip carefully to ensure timely arrival.
+            </p>
+
+            <h3>3. Prepare your documents</h3>
+            <p>
+              Have all documents ready and complete before the appointment &#8212; we cannot draft legal
+              documents, only notarize signatures. If the inmate needs to review documents first,
+              coordinate with their attorney or use the facility&#39;s mail system.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="faq-item" style="font-size:14px; line-height:1.6;">
+            <h3>4. The notary appointment</h3>
+            <p>
+              We travel from Los Angeles to Southwest Detention Center in Murrieta (approximately 1.5
+              hours via I-15), clear security screening, and meet with the inmate in the designated
+              visiting area. The inmate confirms their identity, signs the documents in our presence,
+              and we complete the notarization.
+            </p>
+
+            <h3>5. Document delivery</h3>
+            <p>
+              After the appointment, we return the signed and notarized documents to you, your attorney,
+              escrow company, or other designated recipient &#8212; by hand delivery, courier, or mail
+              depending on your timeline.
+            </p>
+          </div>
+
+          <div class="service-detail-cta" style="margin-top:16px;">
+            <a href="tel:12139332507" class="btn btn--primary btn--flex">
+              Call or Text (213) 933&#8209;2507
+            </a>
+            <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+               class="btn btn--secondary btn--flex" target="_blank" rel="noopener">
+              Schedule Appointment
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="service-detail-note">
+        Tip: The Southwest Detention Center is also known as the Cois M. Byrd Detention Center. If
+        you&#39;re searching for an inmate, try both names in the Riverside County inmate locator.
+        This facility houses male inmates only.
+      </p>
     </div>
   </section>
+  <!-- ========== /HOW IT WORKS (BLUE) ========== -->
+
+  <!-- ========== PRICING (WHITE) ========== -->
+  <section class="service-detail service-detail--white">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Pricing</div>
+      <h2>Southwest Notary Fees</h2>
+
+      <div class="service-detail-grid">
+        <div>
+          <p class="service-detail-lead">
+            Jail notarizations at Southwest Detention Center require travel from Los Angeles to
+            Murrieta, coordination with facility staff, security screening, and wait time. Pricing
+            reflects the distance and complexity of working within the facility&#39;s procedures.
+          </p>
+          <ul>
+            <li><strong>Southwest appointments:</strong> Starting at $325</li>
+            <li>Price includes travel to Southwest (30755-B Auld Rd, Murrieta), coordination, wait time, and notarization</li>
+            <li>Additional signatures at the same appointment may be added for a reduced fee</li>
+            <li>Rush or same-day appointments may have additional fees based on availability</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>What is included</h3>
+          <ul>
+            <li>Travel from Los Angeles to Southwest Detention Center and back</li>
+            <li>Coordination with facility procedures</li>
+            <li>Security screening and wait time</li>
+            <li>Notarization of documents (California notary fees per signature)</li>
+            <li>Return of documents to you or your designated recipient</li>
+          </ul>
+
+          <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">
+            Final pricing depends on the number of documents, any special circumstances, and timing.
+            Call or text for a quote based on your specific situation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== /PRICING (WHITE) ========== -->
 
   <hr class="section-divider">
-  <section class="service-detail-section bg-gray" id="faq">
-    <div class="container">
+
+  <!-- ========== FAQ (GRAY) ========== -->
+  <section class="service-detail service-detail--gray" id="southwest-notary-faq">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Common Questions</div>
       <h2>Southwest Notary FAQs</h2>
 
       <div class="faq-item">
         <h3>Where is the Southwest Detention Center?</h3>
-        <p>Southwest is located at 30755-B Auld Rd, Murrieta, CA 92563, in the French Valley area between Murrieta and Temecula. It is approximately 1.5 hours from Los Angeles via I-15.</p>
+        <p>
+          Southwest is located at 30755-B Auld Rd, Murrieta, CA 92563, in the French Valley area
+          between Murrieta and Temecula. It is approximately 1.5 hours from Los Angeles via I-15.
+        </p>
       </div>
+
       <div class="faq-item">
         <h3>Is the Southwest Detention Center the same as Cois M. Byrd?</h3>
-        <p>Yes. The Southwest Detention Center and Cois M. Byrd Detention Center are the same facility. It may be listed under either name in inmate locator systems.</p>
+        <p>
+          Yes. The Southwest Detention Center and Cois M. Byrd Detention Center are the same facility.
+          It may be listed under either name in inmate locator systems.
+        </p>
       </div>
+
       <div class="faq-item">
         <h3>How do I find out if someone is at Southwest?</h3>
-        <p>Search the Riverside County Sheriff&#39;s inmate locator online or call (951) 696-3050 with the inmate&#39;s name and date of birth.</p>
+        <p>
+          Search the Riverside County Sheriff&#39;s inmate locator online or call (951) 696&#8209;3050
+          with the inmate&#39;s name and date of birth.
+        </p>
       </div>
+
       <div class="faq-item">
         <h3>How do I schedule a visit at Southwest?</h3>
-        <p>Call (951) 696-3470 between 9:00 AM and 5:00 PM daily. Visits must be scheduled at least one day in advance. For attorney or professional visits, contact (951) 696-3050.</p>
+        <p>
+          Call (951) 696&#8209;3470 between 9:00 AM and 5:00 PM daily. Visits must be scheduled at
+          least one day in advance. For attorney or professional visits, contact (951) 696&#8209;3050.
+        </p>
       </div>
+
       <div class="faq-item">
         <h3>Does Southwest house women?</h3>
-        <p>No. Southwest houses male inmates only. If you are looking for a female inmate in Riverside County, check the Robert Presley Detention Center or contact the Riverside County Sheriff.</p>
+        <p>
+          No. Southwest houses male inmates only. If you are looking for a female inmate in Riverside
+          County, check the Robert Presley Detention Center or contact the Riverside County Sheriff.
+        </p>
       </div>
+
       <div class="faq-item">
         <h3>How long does a notary appointment at Southwest take?</h3>
-        <p>Plan for 4 to 5 hours total including travel from Los Angeles (approximately 1.5 hours each way via I-15), security screening, wait time, and the signing.</p>
+        <p>
+          Plan for 4 to 5 hours total including travel from Los Angeles (approximately 1.5 hours each
+          way via I-15), security screening, wait time, and the signing.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- ========== /FAQ (GRAY) ========== -->
+
+  <!-- ========== OTHER FACILITIES (BLUE) ========== -->
+  <section class="service-detail service-detail--blue">
+    <div class="service-detail-inner" style="max-width:900px; margin:0 auto;">
+      <div class="service-detail-kicker">Other jails we serve</div>
+      <h2 style="font-size:22px; margin-bottom:10px;">
+        Need notary services at a different facility?
+      </h2>
+      <p class="service-detail-lead" style="margin-bottom:16px;">
+        We provide mobile notary services at jails and detention centers throughout Riverside County,
+        Los Angeles County, and Southern California.
+      </p>
+
+      <div class="service-detail-grid" style="gap:18px;">
+        <div>
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px;">Other Riverside County facilities</p>
+          <ul style="font-size:14px; line-height:1.8;">
+            <li><a href="/services/notary-jail/riv-robert-presley.html">Robert Presley Detention Center (Riverside)</a></li>
+            <li><a href="/services/notary-jail/riv-larry-smith.html">Larry D. Smith Correctional Facility (Banning)</a></li>
+          </ul>
+
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px; margin-top:14px;">San Bernardino County facilities</p>
+          <ul style="font-size:14px; line-height:1.8;">
+            <li><a href="/services/notary-jail/sb-west-valley.html">West Valley Detention Center (Rancho Cucamonga)</a></li>
+            <li><a href="/services/notary-jail/sb-glen-helen.html">Glen Helen Rehabilitation Center (Devore)</a></li>
+            <li><a href="/services/notary-jail/sb-central.html">Central Detention Center (San Bernardino)</a></li>
+            <li><a href="/services/notary-jail/sb-high-desert.html">High Desert Detention Center (Adelanto)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px;">Los Angeles County facilities</p>
+          <ul style="font-size:14px; line-height:1.8;">
+            <li><a href="/services/notary-jail/la-mens-central.html">Men&#39;s Central Jail (Los Angeles)</a></li>
+            <li><a href="/services/notary-jail/la-twin-towers.html">Twin Towers Correctional Facility</a></li>
+            <li><a href="/services/notary-jail/la-crdf-lynwood.html">Century Regional Detention Facility (Lynwood)</a></li>
+            <li><a href="/services/notary-jail/la-pitchess.html">Pitchess Detention Center (Castaic)</a></li>
+            <li><a href="/services/notary-jail/la-nccf.html">North County Correctional Facility (Castaic)</a></li>
+            <li><a href="/services/notary-jail/la-mdc.html">MDC Los Angeles (Federal)</a></li>
+          </ul>
+
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px; margin-top:14px;">Not sure which jail?</p>
+          <p style="font-size:14px; line-height:1.6;">
+            Call or text with the inmate&#39;s name and we can help locate them and coordinate the appointment.
+          </p>
+        </div>
       </div>
 
+      <p style="font-size:13px; color:var(--text-muted); margin-top:16px;">
+        For an overview of all jail notary services, visit our
+        <a href="/services/notary-jail.html">Jail Notary hub page</a>.
+      </p>
     </div>
   </section>
+  <!-- ========== /OTHER FACILITIES (BLUE) ========== -->
 
-  <section class="service-detail-section">
-    <div class="container">
-      <h2>Need notary services at a different facility?</h2>
-      <p>We provide mobile notary services at jails and detention centers throughout Riverside County, Los Angeles County, and Southern California.</p>
-      <h3>Other Riverside County facilities</h3>
-      <ul>
-        <li><a href="/services/notary-jail/riv-robert-presley.html">Robert Presley Detention Center (Riverside)</a></li>
-        <li><a href="/services/notary-jail/riv-larry-smith.html">Larry D. Smith Correctional Facility (Banning)</a></li>
-      </ul>
-      <h3>Los Angeles County facilities</h3>
-      <ul>
-        <li><a href="/services/notary-jail/la-mens-central.html">Men&#39;s Central Jail (Los Angeles)</a></li>
-        <li><a href="/services/notary-jail/la-twin-towers.html">Twin Towers Correctional Facility</a></li>
-        <li><a href="/services/notary-jail/la-crdf-lynwood.html">Century Regional Detention Facility (Lynwood)</a></li>
-        <li><a href="/services/notary-jail/la-pitchess.html">Pitchess Detention Center (Castaic)</a></li>
-        <li><a href="/services/notary-jail/la-nccf.html">North County Correctional Facility (Castaic)</a></li>
-        <li><a href="/services/notary-jail/la-mdc.html">MDC Los Angeles (Federal)</a></li>
-      </ul>
-      <h3>San Bernardino County facilities</h3>
-      <ul>
-        <li><a href="/services/notary-jail/sb-west-valley.html">West Valley Detention Center (Rancho Cucamonga)</a></li>
-        <li><a href="/services/notary-jail/sb-glen-helen.html">Glen Helen Rehabilitation Center (Devore)</a></li>
-        <li><a href="/services/notary-jail/sb-central.html">Central Detention Center (San Bernardino)</a></li>
-        <li><a href="/services/notary-jail/sb-high-desert.html">High Desert Detention Center (Adelanto)</a></li>
-      </ul>
-      <p><strong>Not sure which jail?</strong> Call or text with the inmate&#39;s name and we can help locate them and coordinate the appointment.</p>
-      <p>For an overview of all jail notary services, visit our <a href="/services/notary-jail/">Jail Notary hub page</a>.</p>
-    </div>
-  </section>
+  <!-- ========== FINAL CTA (WHITE) ========== -->
+  <section class="service-detail service-detail--white">
+    <div class="service-detail-inner" style="max-width:900px; margin:0 auto;">
+      <div class="service-detail-kicker">Schedule your Southwest notary appointment</div>
+      <h2 style="font-size:22px; margin-bottom:10px;">Call or text to get started</h2>
+      <p class="service-detail-lead" style="margin-bottom:16px;">
+        Share the inmate&#39;s name, booking number, and what documents need to be signed, and we will
+        confirm availability and next steps.
+      </p>
 
-  <section class="service-detail-section bg-dark cta-bottom">
-    <div class="container">
-      <h2>Call or text to get started</h2>
-      <p>Share the inmate&#39;s name, booking number, and what documents need to be signed, and we will confirm availability and next steps.</p>
-      <p>When you contact us, it helps to include:</p>
-      <ul>
+      <p style="font-size:14px; line-height:1.6; margin-bottom:12px;">
+        When you contact us, it helps to include:
+      </p>
+      <ul style="font-size:14px; line-height:1.6; margin-left:18px; margin-bottom:16px;">
         <li>Inmate&#39;s full legal name and booking number</li>
         <li>Confirmation they are currently housed at Southwest</li>
         <li>Type of documents that need to be notarized</li>
         <li>Your deadline or court date</li>
         <li>Who should receive the signed documents after the appointment</li>
       </ul>
-      <p>We will confirm facility procedures, coordinate scheduling, and give you a clear quote before the appointment is finalized.</p>
-      <div class="service-detail-cta">
-        <a href="tel:+12139332507" class="btn btn-primary">Call (213)&nbsp;933&#8209;2507</a>
-        <a href="sms:+12139332507" class="btn btn-outline">Text Us</a>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;">
+        <a href="tel:12139332507" class="btn btn--primary btn--flex">
+          Call or Text (213) 933&#8209;2507
+        </a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+           class="btn btn--secondary btn--flex" target="_blank" rel="noopener">
+          Schedule Southwest Notary
+        </a>
       </div>
+
+      <p style="font-size:13px; color:var(--text-muted); margin-top:14px;">
+        We will confirm facility procedures, coordinate scheduling, and give you a clear quote
+        before the appointment is finalized.
+      </p>
     </div>
   </section>
+  <!-- ========== /FINAL CTA (WHITE) ========== -->
 
-  <div id="footer-placeholder"></div>
-  <script src="/footer.js" defer></script>
+<!-- ========== FOOTER ========== -->
+<div id="footer-placeholder"></div>
+<script>
+fetch('/footer.html')
+  .then(r => r.text())
+  .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+</script>
+<!-- ========== /FOOTER ========== -->
+
 </body>
 </html>

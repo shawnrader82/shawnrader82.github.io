@@ -35,7 +35,7 @@
 
   <!-- Global font and shared site styles -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="/styles-v2.css?v=1.0.12" />
+  <link rel="stylesheet" href="/styles-v2.css?v=1.0.13" />
   <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
 
   <!-- Structured Data: Breadcrumb -->
@@ -46,7 +46,7 @@
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"Home","item":"https://www.mobileamericannotary.com/"},
       {"@type":"ListItem","position":2,"name":"Services","item":"https://www.mobileamericannotary.com/services/"},
-      {"@type":"ListItem","position":3,"name":"Jail Notary","item":"https://www.mobileamericannotary.com/services/notary-jail/"},
+      {"@type":"ListItem","position":3,"name":"Jail Notary","item":"https://www.mobileamericannotary.com/services/notary-jail.html"},
       {"@type":"ListItem","position":4,"name":"Theo Lacy Facility"}
     ]
   }
@@ -133,52 +133,89 @@
 </head>
 <body>
 
-  <div id="header-placeholder"></div>
-  <script src="/header.js" defer></script>
+<!-- ========== HEADER ========== -->
+<div id="header-placeholder"></div>
+<script>
+fetch('/header.html')
+  .then(r => r.text())
+  .then(html => document.getElementById('header-placeholder').innerHTML = html);
+</script>
+<!-- ========== /HEADER ========== -->
 
   <!-- ========== HERO ========== -->
-  <section class="service-detail-hero" style="background-image:url('/images/services/notary-hero.webp')">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &rsaquo;
-        <a href="/services/">Services</a> &rsaquo;
-        <a href="/services/notary-jail/">Jail Notary</a> &rsaquo;
-        <span>Theo Lacy Facility</span>
-      </nav>
-      <h1>Mobile Notary at Theo Lacy Facility</h1>
-      <p class="subtitle">On-site notarization for inmates at the Theo Lacy maximum-security jail in Orange, CA</p>
-      <div class="service-detail-cta">
-        <a href="tel:+12139332507" class="btn btn-primary">Call (213)&nbsp;933&#8209;2507</a>
-        <a href="sms:+12139332507" class="btn btn-outline">Text Us</a>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-kicker">Orange County Jail Notary</div>
+      <h1 class="hero-title">Mobile Notary at Theo Lacy Facility</h1>
+      <p class="hero-subtitle">
+        On-site notarization for inmates at the Theo Lacy maximum-security jail in Orange, CA.
+        We travel from Los Angeles to the facility so inmates can sign powers of attorney, court
+        documents, real estate paperwork, and other legal forms without waiting until release.
+      </p>
+      <p class="hero-meta">
+        501 The City Drive South, Orange, CA 92868 &bull; (714) 935&#8209;6940
+      </p>
+      <div class="hero-ctas">
+        <a href="tel:12139332507" class="btn btn--primary btn--flex">
+          Call or Text (213) 933&#8209;2507
+        </a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+           class="btn btn--secondary btn--flex" target="_blank" rel="noopener">
+          Schedule Theo Lacy Notary
+        </a>
       </div>
     </div>
   </section>
+  <!-- ========== /HERO ========== -->
 
-  <!-- ========== ABOUT THE FACILITY ========== -->
-  <section class="service-detail-section">
-    <div class="container">
+  <!-- ========== FACILITY INFO (WHITE) ========== -->
+  <section class="service-detail service-detail--white">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Facility information</div>
       <h2>About the Theo Lacy Facility</h2>
-      <p>The Theo Lacy Facility is a maximum-security jail complex situated in the City of Orange, operated by the Orange County Sheriff&#39;s Department. With a capacity of approximately 3,100 to 3,400 inmates, it is one of the largest jail facilities in Orange County. Theo Lacy houses both sentenced and pre-sentenced male inmates arrested for misdemeanors and felonies.</p>
 
-      <div class="info-box">
-        <p><strong>Address:</strong> 501 The City Drive South, Orange, CA 92868</p>
-        <p><strong>Main phone:</strong> (714) 935-6940</p>
-        <p><strong>Visiting appointments:</strong> (714) 935-6202</p>
-        <p><strong>Operated by:</strong> Orange County Sheriff&#39;s Department</p>
-        <p><strong>Security level:</strong> Maximum security</p>
-        <p><strong>Capacity:</strong> Approximately 3,100 &ndash; 3,400 inmates</p>
-        <p><strong>Public visiting hours:</strong> Friday &ndash; Monday, 8:00 AM &ndash; 5:00 PM (by appointment)</p>
-        <p><strong>Parking:</strong> North parking structure across from Lamoreaux Justice Center</p>
-        <p><strong>Location:</strong> City of Orange, between the I-5 (Santa Ana) and SR-22 (Garden Grove) freeways</p>
-      </div>
+      <div class="service-detail-grid">
+        <div>
+          <p class="service-detail-lead">
+            The Theo Lacy Facility is a maximum-security jail complex situated in the City of Orange,
+            operated by the Orange County Sheriff&#39;s Department. With a capacity of approximately
+            3,100 to 3,400 inmates, it is one of the largest jail facilities in Orange County. Theo Lacy
+            houses both sentenced and pre-sentenced male inmates arrested for misdemeanors and felonies.
+          </p>
+          <ul>
+            <li><strong>Address:</strong> 501 The City Drive South, Orange, CA 92868</li>
+            <li><strong>Main phone:</strong> (714) 935&#8209;6940</li>
+            <li><strong>Visiting appointments:</strong> (714) 935&#8209;6202</li>
+            <li><strong>Operated by:</strong> Orange County Sheriff&#39;s Department</li>
+            <li><strong>Security level:</strong> Maximum security</li>
+            <li><strong>Capacity:</strong> Approximately 3,100 &#8211; 3,400 inmates</li>
+            <li><strong>Public visiting hours:</strong> Friday &#8211; Monday, 8:00 AM &#8211; 5:00 PM (by appointment)</li>
+            <li><strong>Parking:</strong> North parking structure across from Lamoreaux Justice Center</li>
+            <li><strong>Location:</strong> City of Orange, between the I-5 (Santa Ana) and SR-22 (Garden Grove) freeways</li>
+          </ul>
+        </div>
 
-      <h3>Why inmates at Theo Lacy need notary services</h3>
-      <ul class="icon-list">
-        <li><strong>Time-sensitive legal matters</strong> &mdash; Court deadlines, plea agreements, and filings that cannot wait until release.</li>
-        <li><strong>Power of attorney</strong> &mdash; Authorizing a spouse, family member, or attorney to handle finances, property, or legal matters while in custody.</li>
-        <li><strong>Real estate transactions</strong> &mdash; Signing deeds, refinancing documents, or property transfers with hard deadlines.</li>
-        <li><strong>Family law documents</strong> &mdash; Divorce paperwork, custody agreements, and support modifications requiring notarized signatures.</li>
-      </ul>
+        <div>
+          <h3>Why inmates at Theo Lacy need notary services</h3>
+          <ul>
+            <li>
+              <strong>Time-sensitive legal matters</strong> &#8212; Court deadlines, plea agreements,
+              and filings that cannot wait until release.
+            </li>
+            <li>
+              <strong>Power of attorney</strong> &#8212; Authorizing a spouse, family member, or attorney
+              to handle finances, property, or legal matters while in custody.
+            </li>
+            <li>
+              <strong>Real estate transactions</strong> &#8212; Signing deeds, refinancing documents,
+              or property transfers with hard deadlines.
+            </li>
+            <li>
+              <strong>Family law documents</strong> &#8212; Divorce paperwork, custody agreements, and
+              support modifications requiring notarized signatures.
+            </li>
+          </ul>
           <div class="crosslink-box">
             <strong>Planning a wedding at Theo Lacy?</strong>
             <span>
@@ -188,195 +225,333 @@
               </a>
             </span>
           </div>
+        </div>
+      </div>
     </div>
   </section>
+  <!-- ========== /FACILITY INFO (WHITE) ========== -->
 
-  <!-- ========== COMMON DOCUMENTS ========== -->
-  <section class="service-detail-section bg-light">
-    <div class="container">
+  <!-- ========== DOCUMENTS (GRAY) ========== -->
+  <section class="service-detail service-detail--gray">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Documents we notarize at Theo Lacy</div>
       <h2>Common Documents for Theo Lacy Inmates</h2>
 
-      <h3>Powers of attorney &amp; authorizations</h3>
-      <ul>
-        <li>General power of attorney</li>
-        <li>Limited or special power of attorney</li>
-        <li>Durable power of attorney for finances</li>
-        <li>Healthcare power of attorney / advance directive</li>
-        <li>DMV power of attorney for vehicle transfers</li>
-        <li>Bank and financial institution authorizations</li>
-      </ul>
+      <div class="service-detail-grid">
+        <div>
+          <h3>Powers of attorney &amp; authorizations</h3>
+          <ul>
+            <li>General power of attorney</li>
+            <li>Limited or special power of attorney</li>
+            <li>Durable power of attorney for finances</li>
+            <li>Healthcare power of attorney / advance directive</li>
+            <li>DMV power of attorney for vehicle transfers</li>
+            <li>Bank and financial institution authorizations</li>
+          </ul>
 
-      <h3>Real estate documents</h3>
-      <ul>
-        <li>Grant deeds and quitclaim deeds</li>
-        <li>Refinancing and loan modification paperwork</li>
-        <li>Property sale and escrow documents</li>
-        <li>Lease agreements and rental authorizations</li>
-      </ul>
+          <h3>Real estate documents</h3>
+          <ul>
+            <li>Grant deeds and quitclaim deeds</li>
+            <li>Refinancing and loan modification paperwork</li>
+            <li>Property sale and escrow documents</li>
+            <li>Lease agreements and rental authorizations</li>
+          </ul>
+        </div>
 
-      <h3>Court &amp; legal documents</h3>
-      <ul>
-        <li>Declarations and affidavits</li>
-        <li>Divorce responses and stipulations</li>
-        <li>Child custody and visitation agreements</li>
-        <li>Probate and estate documents</li>
-        <li>Civil case filings and responses</li>
-      </ul>
+        <div>
+          <h3>Court &amp; legal documents</h3>
+          <ul>
+            <li>Declarations and affidavits</li>
+            <li>Divorce responses and stipulations</li>
+            <li>Child custody and visitation agreements</li>
+            <li>Probate and estate documents</li>
+            <li>Civil case filings and responses</li>
+          </ul>
 
-      <h3>Other documents</h3>
-      <ul>
-        <li>Vehicle title transfers</li>
-        <li>Business authorizations and resolutions</li>
-        <li>Immigration-related affidavits</li>
-        <li>Insurance claims and benefit forms</li>
-        <li>Any document requiring a notarized signature</li>
-      </ul>
+          <h3>Other documents</h3>
+          <ul>
+            <li>Vehicle title transfers</li>
+            <li>Business authorizations and resolutions</li>
+            <li>Immigration-related affidavits</li>
+            <li>Insurance claims and benefit forms</li>
+            <li>Any document requiring a notarized signature</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
+  <!-- ========== /DOCUMENTS (GRAY) ========== -->
 
   <hr class="section-divider">
-  <!-- ========== HOW IT WORKS ========== -->
-  <section class="service-detail-section">
-    <div class="container">
+
+  <!-- ========== HOW IT WORKS (BLUE) ========== -->
+  <section class="service-detail service-detail--blue">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">How it works</div>
       <h2>Scheduling a Notary Appointment at Theo Lacy</h2>
-      <ol class="steps-list">
-        <li>
-          <h3>Contact us with the inmate&#39;s information</h3>
-          <p>Call or text with the inmate&#39;s full legal name, booking number (if known), and a description of the documents that need to be notarized. Let us know your deadline so we can prioritize scheduling.</p>
-        </li>
-        <li>
-          <h3>We coordinate with Theo Lacy</h3>
-          <p>The Theo Lacy Facility has specific procedures for professional visits. We confirm the current visiting schedule, any advance requirements, and ensure the inmate is available and housed at Theo Lacy.</p>
-        </li>
-        <li>
-          <h3>Prepare your documents</h3>
-          <p>Have all documents ready and complete before the appointment &mdash; we cannot draft legal documents, only notarize signatures. If the inmate needs to review documents first, coordinate with their attorney or use the facility&#39;s mail system.</p>
-        </li>
-        <li>
-          <h3>The notary appointment</h3>
-          <p>We travel from Los Angeles to the Theo Lacy Facility in Orange, clear security screening, and meet with the inmate in the designated professional visiting area. The inmate confirms their identity, signs the documents in our presence, and we complete the notarization.</p>
-        </li>
-        <li>
-          <h3>Document delivery</h3>
-          <p>After the appointment, we return the signed and notarized documents to you, your attorney, escrow company, or other designated recipient &mdash; by hand delivery, courier, or mail depending on your timeline.</p>
-        </li>
-      </ol>
-      <p class="tip"><strong>Tip:</strong> Theo Lacy is a busy facility with thousands of inmates. Professional visit scheduling can fill up &mdash; give us as much notice as possible, but we understand jail notarizations are often urgent and will do our best to accommodate same-day or next-day requests.</p>
+
+      <div class="service-detail-grid">
+        <div>
+          <div class="faq-item" style="font-size:14px; line-height:1.6;">
+            <h3>1. Contact us with the inmate&#39;s information</h3>
+            <p>
+              Call or text with the inmate&#39;s full legal name, booking number (if known), and a
+              description of the documents that need to be notarized. Let us know your deadline so
+              we can prioritize scheduling.
+            </p>
+
+            <h3>2. We coordinate with Theo Lacy</h3>
+            <p>
+              The Theo Lacy Facility has specific procedures for professional visits. We confirm the
+              current visiting schedule, any advance requirements, and ensure the inmate is available
+              and housed at Theo Lacy.
+            </p>
+
+            <h3>3. Prepare your documents</h3>
+            <p>
+              Have all documents ready and complete before the appointment &#8212; we cannot draft legal
+              documents, only notarize signatures. If the inmate needs to review documents first,
+              coordinate with their attorney or use the facility&#39;s mail system.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="faq-item" style="font-size:14px; line-height:1.6;">
+            <h3>4. The notary appointment</h3>
+            <p>
+              We travel from Los Angeles to the Theo Lacy Facility in Orange, clear security screening,
+              and meet with the inmate in the designated professional visiting area. The inmate confirms
+              their identity, signs the documents in our presence, and we complete the notarization.
+            </p>
+
+            <h3>5. Document delivery</h3>
+            <p>
+              After the appointment, we return the signed and notarized documents to you, your attorney,
+              escrow company, or other designated recipient &#8212; by hand delivery, courier, or mail
+              depending on your timeline.
+            </p>
+          </div>
+
+          <div class="service-detail-cta" style="margin-top:16px;">
+            <a href="tel:12139332507" class="btn btn--primary btn--flex">
+              Call or Text (213) 933&#8209;2507
+            </a>
+            <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+               class="btn btn--secondary btn--flex" target="_blank" rel="noopener">
+              Schedule Appointment
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="service-detail-note">
+        Tip: Theo Lacy is a busy facility with thousands of inmates. Professional visit scheduling
+        can fill up &#8212; give us as much notice as possible, but we understand jail notarizations are
+        often urgent and will do our best to accommodate same-day or next-day requests.
+      </p>
     </div>
   </section>
+  <!-- ========== /HOW IT WORKS (BLUE) ========== -->
 
-  <!-- ========== FEES ========== -->
-  <section class="service-detail-section bg-light">
-    <div class="container">
+  <!-- ========== PRICING (WHITE) ========== -->
+  <section class="service-detail service-detail--white">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Pricing</div>
       <h2>Theo Lacy Notary Fees</h2>
-      <p>Jail notarizations at Theo Lacy require travel from Los Angeles to Orange, coordination with facility staff, security screening, and wait time. Pricing reflects the distance and complexity of working within the facility&#39;s procedures.</p>
-      <p><strong>Theo Lacy appointments:</strong> Starting at $250</p>
-      <ul>
-        <li>Price includes travel to Theo Lacy (501 The City Drive South, Orange), coordination, wait time, and notarization</li>
-        <li>Additional signatures at the same appointment may be added for a reduced fee</li>
-        <li>Rush or same-day appointments may have additional fees based on availability</li>
-      </ul>
 
-      <h3>What is included</h3>
-      <ul>
-        <li>Travel from Los Angeles to Theo Lacy Facility and back</li>
-        <li>Coordination with facility procedures</li>
-        <li>Security screening and wait time</li>
-        <li>Notarization of documents (California notary fees per signature)</li>
-        <li>Return of documents to you or your designated recipient</li>
-      </ul>
-      <p>Final pricing depends on the number of documents, any special circumstances, and timing. Call or text for a quote based on your specific situation.</p>
+      <div class="service-detail-grid">
+        <div>
+          <p class="service-detail-lead">
+            Jail notarizations at Theo Lacy require travel from Los Angeles to Orange, coordination
+            with facility staff, security screening, and wait time. Pricing reflects the distance and
+            complexity of working within the facility&#39;s procedures.
+          </p>
+          <ul>
+            <li><strong>Theo Lacy appointments:</strong> Starting at $250</li>
+            <li>Price includes travel to Theo Lacy (501 The City Drive South, Orange), coordination, wait time, and notarization</li>
+            <li>Additional signatures at the same appointment may be added for a reduced fee</li>
+            <li>Rush or same-day appointments may have additional fees based on availability</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>What is included</h3>
+          <ul>
+            <li>Travel from Los Angeles to Theo Lacy Facility and back</li>
+            <li>Coordination with facility procedures</li>
+            <li>Security screening and wait time</li>
+            <li>Notarization of documents (California notary fees per signature)</li>
+            <li>Return of documents to you or your designated recipient</li>
+          </ul>
+
+          <p style="font-size:13px; color:var(--text-muted); margin-top:12px;">
+            Final pricing depends on the number of documents, any special circumstances, and timing.
+            Call or text for a quote based on your specific situation.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
+  <!-- ========== /PRICING (WHITE) ========== -->
 
   <hr class="section-divider">
+
   <!-- ========== FAQ (GRAY) ========== -->
-  <section class="service-detail-section bg-gray" id="faq">
-    <div class="container">
+  <section class="service-detail service-detail--gray" id="theo-lacy-notary-faq">
+    <div class="service-detail-inner">
+      <div class="service-detail-kicker">Common Questions</div>
       <h2>Theo Lacy Notary FAQs</h2>
 
       <div class="faq-item">
         <h3>Where is the Theo Lacy Facility?</h3>
-        <p>The Theo Lacy Facility is located at 501 The City Drive South, Orange, CA 92868, between the Santa Ana Freeway (I-5) and the Garden Grove Freeway (SR-22). Parking is available at the North parking structure across from the Lamoreaux Justice Center.</p>
+        <p>
+          The Theo Lacy Facility is located at 501 The City Drive South, Orange, CA 92868, between
+          the Santa Ana Freeway (I-5) and the Garden Grove Freeway (SR-22). Parking is available at
+          the North parking structure across from the Lamoreaux Justice Center.
+        </p>
       </div>
 
       <div class="faq-item">
         <h3>How many inmates does Theo Lacy hold?</h3>
-        <p>Theo Lacy is a maximum-security facility with a capacity of approximately 3,100 to 3,400 inmates. It houses both sentenced and pre-sentenced male inmates arrested for misdemeanors and felonies.</p>
+        <p>
+          Theo Lacy is a maximum-security facility with a capacity of approximately 3,100 to 3,400
+          inmates. It houses both sentenced and pre-sentenced male inmates arrested for misdemeanors
+          and felonies.
+        </p>
       </div>
 
       <div class="faq-item">
         <h3>How do I find out if someone is at Theo Lacy?</h3>
-        <p>You can search the Orange County Sheriff&#39;s Department inmate locator online or call the facility at (714) 935-6940 with the inmate&#39;s name and date of birth.</p>
+        <p>
+          You can search the Orange County Sheriff&#39;s Department inmate locator online or call
+          the facility at (714) 935&#8209;6940 with the inmate&#39;s name and date of birth.
+        </p>
       </div>
 
       <div class="faq-item">
         <h3>What ID does the inmate need for notarization?</h3>
-        <p>The facility maintains booking records with photos that can be used for identification. If the inmate has a valid California ID, driver&#39;s license, or passport on file, that can also be used. We confirm ID options before the appointment.</p>
+        <p>
+          The facility maintains booking records with photos that can be used for identification. If
+          the inmate has a valid California ID, driver&#39;s license, or passport on file, that can
+          also be used. We confirm ID options before the appointment.
+        </p>
       </div>
 
       <div class="faq-item">
         <h3>Can you visit Theo Lacy any day for notarizations?</h3>
-        <p>Professional visitors such as attorneys and notaries typically have broader access than public visitors, who are limited to Friday through Monday. We confirm the current professional visiting schedule with the facility before each appointment.</p>
+        <p>
+          Professional visitors such as attorneys and notaries typically have broader access than
+          public visitors, who are limited to Friday through Monday. We confirm the current
+          professional visiting schedule with the facility before each appointment.
+        </p>
       </div>
 
       <div class="faq-item">
         <h3>How long does a notary appointment at Theo Lacy take?</h3>
-        <p>Plan for 1 to 3 hours total including travel from Los Angeles, security screening, wait time, and the signing. The notarization itself is quick, but facility procedures and travel from LA add time.</p>
+        <p>
+          Plan for 1 to 3 hours total including travel from Los Angeles, security screening, wait
+          time, and the signing. The notarization itself is quick, but facility procedures and
+          travel from LA add time.
+        </p>
       </div>
     </div>
   </section>
+  <!-- ========== /FAQ (GRAY) ========== -->
 
-  <!-- ========== OTHER FACILITIES ========== -->
-  <section class="service-detail-section">
-    <div class="container">
-      <h2>Need notary services at a different facility?</h2>
-      <p>We provide mobile notary services at jails and detention centers throughout Orange County and Los Angeles County.</p>
+  <!-- ========== OTHER FACILITIES (BLUE) ========== -->
+  <section class="service-detail service-detail--blue">
+    <div class="service-detail-inner" style="max-width:900px; margin:0 auto;">
+      <div class="service-detail-kicker">Other jails we serve</div>
+      <h2 style="font-size:22px; margin-bottom:10px;">
+        Need notary services at a different facility?
+      </h2>
+      <p class="service-detail-lead" style="margin-bottom:16px;">
+        We provide mobile notary services at jails and detention centers throughout Orange County
+        and Los Angeles County.
+      </p>
 
-      <h3>Other Orange County facilities</h3>
-      <ul>
-        <li><a href="/services/notary-jail/oc-central.html">OC Central Men&#39;s &amp; Women&#39;s Jail (Santa Ana)</a></li>
-        <li><a href="/services/notary-jail/oc-musick.html">James A. Musick Facility (Irvine)</a></li>
-      </ul>
+      <div class="service-detail-grid" style="gap:18px;">
+        <div>
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px;">Other Orange County facilities</p>
+          <ul style="font-size:14px; line-height:1.8;">
+            <li><a href="/services/notary-jail/oc-central.html">OC Central Men&#39;s &amp; Women&#39;s Jail (Santa Ana)</a></li>
+            <li><a href="/services/notary-jail/oc-musick.html">James A. Musick Facility (Irvine)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px;">Los Angeles County facilities</p>
+          <ul style="font-size:14px; line-height:1.8;">
+            <li><a href="/services/notary-jail/la-mens-central.html">Men&#39;s Central Jail (Los Angeles)</a></li>
+            <li><a href="/services/notary-jail/la-twin-towers.html">Twin Towers Correctional Facility</a></li>
+            <li><a href="/services/notary-jail/la-crdf-lynwood.html">Century Regional Detention Facility (Lynwood)</a></li>
+            <li><a href="/services/notary-jail/la-pitchess.html">Pitchess Detention Center (Castaic)</a></li>
+            <li><a href="/services/notary-jail/la-nccf.html">North County Correctional Facility (Castaic)</a></li>
+            <li><a href="/services/notary-jail/la-mdc.html">MDC Los Angeles (Federal)</a></li>
+          </ul>
 
-      <h3>Los Angeles County facilities</h3>
-      <ul>
-        <li><a href="/services/notary-jail/la-mens-central.html">Men&#39;s Central Jail (Los Angeles)</a></li>
-        <li><a href="/services/notary-jail/la-twin-towers.html">Twin Towers Correctional Facility</a></li>
-        <li><a href="/services/notary-jail/la-crdf-lynwood.html">Century Regional Detention Facility (Lynwood)</a></li>
-        <li><a href="/services/notary-jail/la-pitchess.html">Pitchess Detention Center (Castaic)</a></li>
-        <li><a href="/services/notary-jail/la-nccf.html">North County Correctional Facility (Castaic)</a></li>
-        <li><a href="/services/notary-jail/la-mdc.html">MDC Los Angeles (Federal)</a></li>
-      </ul>
+          <p style="font-size:14px; font-weight:600; margin-bottom:8px; margin-top:14px;">Not sure which jail?</p>
+          <p style="font-size:14px; line-height:1.6;">
+            Call or text with the inmate&#39;s name and we can help locate them and coordinate the appointment.
+          </p>
+        </div>
+      </div>
 
-      <p><strong>Not sure which jail?</strong> Call or text with the inmate&#39;s name and we can help locate them and coordinate the appointment.</p>
-      <p>For an overview of all jail notary services, visit our <a href="/services/notary-jail/">Jail Notary hub page</a>.</p>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:16px;">
+        For an overview of all jail notary services, visit our
+        <a href="/services/notary-jail.html">Jail Notary hub page</a>.
+      </p>
     </div>
   </section>
+  <!-- ========== /OTHER FACILITIES (BLUE) ========== -->
 
-  <!-- ========== BOTTOM CTA ========== -->
-  <section class="service-detail-section bg-dark cta-bottom">
-    <div class="container">
-      <h2>Call or text to get started</h2>
-      <p>Share the inmate&#39;s name, booking number, and what documents need to be signed, and we will confirm availability and next steps.</p>
-      <p>When you contact us, it helps to include:</p>
-      <ul>
+  <!-- ========== FINAL CTA (WHITE) ========== -->
+  <section class="service-detail service-detail--white">
+    <div class="service-detail-inner" style="max-width:900px; margin:0 auto;">
+      <div class="service-detail-kicker">Schedule your Theo Lacy notary appointment</div>
+      <h2 style="font-size:22px; margin-bottom:10px;">Call or text to get started</h2>
+      <p class="service-detail-lead" style="margin-bottom:16px;">
+        Share the inmate&#39;s name, booking number, and what documents need to be signed, and we will
+        confirm availability and next steps.
+      </p>
+
+      <p style="font-size:14px; line-height:1.6; margin-bottom:12px;">
+        When you contact us, it helps to include:
+      </p>
+      <ul style="font-size:14px; line-height:1.6; margin-left:18px; margin-bottom:16px;">
         <li>Inmate&#39;s full legal name and booking number</li>
         <li>Confirmation they are currently housed at Theo Lacy</li>
         <li>Type of documents that need to be notarized</li>
         <li>Your deadline or court date</li>
         <li>Who should receive the signed documents after the appointment</li>
       </ul>
-      <p>We will confirm Theo Lacy procedures, coordinate scheduling, and give you a clear quote before the appointment is finalized.</p>
-      <div class="service-detail-cta">
-        <a href="tel:+12139332507" class="btn btn-primary">Call (213)&nbsp;933&#8209;2507</a>
-        <a href="sms:+12139332507" class="btn btn-outline">Text Us</a>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;">
+        <a href="tel:12139332507" class="btn btn--primary btn--flex">
+          Call or Text (213) 933&#8209;2507
+        </a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+           class="btn btn--secondary btn--flex" target="_blank" rel="noopener">
+          Schedule Theo Lacy Notary
+        </a>
       </div>
+
+      <p style="font-size:13px; color:var(--text-muted); margin-top:14px;">
+        We will confirm Theo Lacy procedures, coordinate scheduling, and give you a clear quote
+        before the appointment is finalized.
+      </p>
     </div>
   </section>
+  <!-- ========== /FINAL CTA (WHITE) ========== -->
 
-  <div id="footer-placeholder"></div>
-  <script src="/footer.js" defer></script>
+<!-- ========== FOOTER ========== -->
+<div id="footer-placeholder"></div>
+<script>
+fetch('/footer.html')
+  .then(r => r.text())
+  .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+</script>
+<!-- ========== /FOOTER ========== -->
 
 </body>
 </html>

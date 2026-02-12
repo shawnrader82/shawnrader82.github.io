@@ -158,6 +158,31 @@ img {
 
 /* ========== /FAQ BLOCKS & DIVIDER ========== */
 
+/* ========== FAQ & STEP SPACING (FACILITY PAGES) ========== */
+
+/* Breathing room + subtle divider between consecutive h3s inside .faq-item
+   (applies to How It Works steps AND inline FAQ questions on facility pages) */
+.faq-item h3 + p + h3,
+.faq-item h3 + p + p + h3 {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* Blue sections (How It Works): lighter divider line for dark background */
+.service-detail--blue .faq-item h3 + p + h3,
+.service-detail--blue .faq-item h3 + p + p + h3 {
+  border-top-color: rgba(148, 163, 184, 0.2);
+}
+
+/* Gray sections (FAQs): slightly darker divider */
+.service-detail--gray .faq-item h3 + p + h3,
+.service-detail--gray .faq-item h3 + p + p + h3 {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ========== /FAQ & STEP SPACING (FACILITY PAGES) ========== */
+
 
 /* ========== CROSSLINK BOX ========== */
 .crosslink-box {
