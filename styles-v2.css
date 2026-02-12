@@ -159,6 +159,24 @@ img {
 /* ========== /FAQ BLOCKS & DIVIDER ========== */
 
 
+/* ========== CROSSLINK BOX ========== */
+.crosslink-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(139, 26, 26, 0.05);
+  border: 1px solid rgba(139, 26, 26, 0.15);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.crosslink-box a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+/* ========== /CROSSLINK BOX ========== */
+
+
 
 /* ========== /ROOT & GLOBAL ========== */
 
@@ -697,6 +715,22 @@ img {
   gap: 28px;
 }
 
+/* Jail facility detail rows */
+.jw-facility-detail-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.jw-facility-detail-label {
+  font-weight: 600;
+  color: var(--text-main);
+  min-width: 130px;
+  white-space: nowrap;
+}
+
 .service-detail h3 {
   font-size: 16px;
   margin-bottom: 10px;
@@ -762,6 +796,7 @@ img {
   box-shadow: 0 10px 26px rgba(15,23,42,0.35);
 }
 /* ========== /SERVICE DETAIL SECTIONS (INCL. APOSTILLE) ========== */
+
 
 
 
@@ -1806,3 +1841,28 @@ img {
   }
 }
 /* ========== /BLOG PAGE HERO ========== */
+
+
+/* ========== JAIL NOTARY COUNTY HUBS ========== */
+.facility-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.facility-list li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.facility-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.facility-list a:hover {
+  text-decoration: underline;
+}
+/* ========== /JAIL NOTARY COUNTY HUBS ========== */
+
