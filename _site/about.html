@@ -11,17 +11,122 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
   <title>About Mobile American Notary &amp; Apostilles</title>
   <meta name="description" content="Learn about Mobile American Notary &amp; Apostilles, a Los Angeles-based mobile notary and apostille service led by Shawn Rader, providing mobile notarizations, hospital and jail signings, estate documents, and apostille support across Los Angeles, Orange, Ventura, and nearby counties." />
   <link rel="canonical" href="https://www.mobileamericannotary.com/about.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About Mobile American Notary &amp; Apostilles | Los Angeles Mobile Notary" />
+  <meta property="og:description" content="Learn about Mobile American Notary &amp; Apostilles, a Los Angeles-based mobile notary and apostille service led by Shawn Rader. Hospital, jail, estate, and real estate signings across LA, Orange, and Ventura Counties." />
+  <meta property="og:url" content="https://www.mobileamericannotary.com/about.html" />
+  <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
+  <meta property="og:site_name" content="Mobile American Notary &amp; Apostilles" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Mobile American Notary &amp; Apostilles | Los Angeles Mobile Notary" />
+  <meta name="twitter:description" content="Learn about Mobile American Notary &amp; Apostilles, a Los Angeles-based mobile notary and apostille service led by Shawn Rader. Hospital, jail, estate, and real estate signings across LA, Orange, and Ventura Counties." />
+  <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
 
   <!-- Global font and shared site styles (same as index.html) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="styles-v2.css?v=1.0.12" />
+
+  <!-- ===== STRUCTURED DATA ===== -->
+
+  <!-- 1. BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mobileamericannotary.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About"
+      }
+    ]
+  }
+  </script>
+
+  <!-- 2. LocalBusiness (Notary) with AggregateRating -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "logo": "https://www.mobileamericannotary.com/images/brandlogo.webp",
+    "image": "https://www.mobileamericannotary.com/images/brandlogo.webp",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Shawn Rader",
+      "jobTitle": "Notary Public",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Mobile American Notary & Apostilles"
+      }
+    },
+    "foundingDate": "2018",
+    "description": "Mobile American Notary & Apostilles is a Los Angeles-based mobile notary and apostille service led by Shawn Rader, providing mobile notarizations, hospital and jail signings, estate documents, and apostille support across Los Angeles, Orange, Ventura, and nearby counties.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "areaServed": [
+      "Los Angeles County",
+      "Orange County",
+      "Ventura County"
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "100",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    ]
+  }
+  </script>
+
+  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp" />
 </head>
 
-
 <body>
+
 
 <!-- ========== HEADER (WHITE) ========== -->
 <div id="header-placeholder"></div>

@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Our New Blog | Mobile American Notary Blog</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/styles-v2.css">
+<link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
 </head>
 <body>
   <div id="header-placeholder"></div>
-  <script src="/header.js"></script>
+  <script src="/header.js" defer></script>
 
   <div class="blog-page-wrap">
     <article class="blog-post-shell">
@@ -20,7 +22,7 @@
       </div>
 
       
-      <img src="/images/brand/logo.png" alt="Welcome to Our New Blog">
+      <img loading="lazy" src="/images/brand/logo.webp" alt="Welcome to Our New Blog">
       
 
       <p>We’re excited to launch our new blog! Here you’ll find helpful information about notary services, apostille processing, and document legalization.</p>
@@ -43,6 +45,6 @@
   </div>
 
   <div id="footer-placeholder"></div>
-  <script src="/footer.js"></script>
+  <script src="/footer.js" defer></script>
 </body>
 </html>

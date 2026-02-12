@@ -1,107 +1,177 @@
 # Mobile American Notary & Apostilles
 
-> Mobile notary and apostille service based in Granada Hills, serving Los Angeles County, Orange County, and Ventura County. We help clients apostille court orders, vital records, school documents, business records, and federal documents for use overseas, and provide mobile notary, hospital, estate planning, jail, and real estate signing services throughout the region.
+> Mobile American Notary & Apostilles is a Los Angeles-based mobile notary, apostille, Live Scan fingerprinting, certified translation, and jail wedding coordination service. We serve Los Angeles, Orange, Ventura, San Bernardino, Riverside, and Santa Barbara Counties. Phone: (213) 933-2507.
 
-## Core pages
+## Core Services
 
-- [Home](https://www.mobileamericannotary.com/): Overview of mobile notary, apostille, jail, livescan, and translation services, service area, and contact options.
-- [Notary services](https://www.mobileamericannotary.com/services/notary.html): Mobile notary at homes, offices, hospitals, care facilities, and jails.
-- [Jail notary services](https://www.mobileamericannotary.com/services/notary-jail.html): Mobile notary for inmates at Los Angeles County jails and detention centers.
-- [Apostille services](https://www.mobileamericannotary.com/services/apostille.html): Main hub for apostille information and document families.
-- [Livescan services](https://www.mobileamericannotary.com/services/livescan.html): Livescan fingerprinting and related identity services.
-- [Translations](https://www.mobileamericannotary.com/services/translations.html): Document translation support connected to notary and apostille work.
-- [Pricing](https://www.mobileamericannotary.com/pricing.html): Typical fees and turnaround options.
-- [About](https://www.mobileamericannotary.com/about.html): Background, experience, and service philosophy.
-- [Privacy policy](https://www.mobileamericannotary.com/privacy.html): Privacy practices and data handling.
-- [Terms of service](https://www.mobileamericannotary.com/terms.html): Terms for using services and the website.
-- [Apostille intake form](https://www.mobileamericannotary.com/apostille-intake-form.html): Secure form to share document details and timelines.
-- [SMS consent](https://www.mobileamericannotary.com/sms-consent.html): Information and consent for text message communication.
+- [Home](https://www.mobileamericannotary.com/)
+- [Mobile Notary Services](https://www.mobileamericannotary.com/services/notary.html)
+- [Apostille & Document Legalization](https://www.mobileamericannotary.com/services/apostille.html)
+- [Live Scan Fingerprinting](https://www.mobileamericannotary.com/services/livescan.html)
+- [Certified Document Translations](https://www.mobileamericannotary.com/services/translations.html)
+- [Jail Wedding & Inmate Marriage Services](https://www.mobileamericannotary.com/services/jail-weddings.html)
+- [Apostille Intake Form](https://www.mobileamericannotary.com/apostille-intake-form.html)
+- [Pricing & Fees](https://www.mobileamericannotary.com/pricing.html)
+- [FAQ](https://www.mobileamericannotary.com/faq.html)
+- [About](https://www.mobileamericannotary.com/about.html)
 
-## Notary specialty landing pages
+## Mobile Notary — Document Types
 
-- [Estate planning notary](https://www.mobileamericannotary.com/landing/notary-estate-planning-los-angeles.html) – Estate planning & power of attorney mobile notary visits in Los Angeles (homes, law offices, hospitals, care facilities).
-- [Hospital & medical notary](https://www.mobileamericannotary.com/landing/notary-hospital-medical-los-angeles.html) – Hospital & medical-facility mobile notary for bedside signings and medical paperwork.
-- [Real estate notary](https://www.mobileamericannotary.com/landing/notary-real-estate-los-angeles.html) – Mobile notary for real estate closings, deeds, loan documents, and escrow signings.
+- [General Notary Appointments](https://www.mobileamericannotary.com/services/notary-general.html)
+- [Hospital & Care Facility Signings](https://www.mobileamericannotary.com/services/notary-hospital.html)
+- [Jail & Detention Center Notarizations](https://www.mobileamericannotary.com/services/notary-jail.html)
+- [Real Estate & Loan Signings](https://www.mobileamericannotary.com/services/notary-real-estate.html)
+- [Affidavit of Support](https://www.mobileamericannotary.com/services/notary/affidavit-of-support.html)
+- [Bill of Sale](https://www.mobileamericannotary.com/services/notary/bill-of-sale.html)
+- [Copy Certification](https://www.mobileamericannotary.com/services/notary/copy-certification.html)
+- [General Affidavit](https://www.mobileamericannotary.com/services/notary/general-affidavit.html)
+- [Guardianship Authorization](https://www.mobileamericannotary.com/services/notary/guardianship-authorization.html)
+- [Letter of Resignation](https://www.mobileamericannotary.com/services/notary/letter-of-resignation.html)
+- [Minor Travel Consent](https://www.mobileamericannotary.com/services/notary/minor-travel-consent.html)
+- [Name Change Affidavit](https://www.mobileamericannotary.com/services/notary/name-change-affidavit.html)
+- [Passport Consent DS-3053](https://www.mobileamericannotary.com/services/notary/passport-consent-ds3053.html)
+- [Power of Attorney](https://www.mobileamericannotary.com/services/notary/power-of-attorney.html)
 
-## Jail notary facility pages
+## Notary — Hospital & Care Facility Pages
 
-- [Men's Central Jail (MCJ)](https://www.mobileamericannotary.com/landing/notary-jail-mens-central.html) – Mobile notary at Men's Central Jail in downtown Los Angeles.
-- [Twin Towers Correctional Facility](https://www.mobileamericannotary.com/landing/notary-jail-twin-towers.html) – Mobile notary at Twin Towers in downtown Los Angeles.
-- [Pitchess Detention Center](https://www.mobileamericannotary.com/landing/notary-jail-pitchess.html) – Mobile notary at Pitchess Detention Center (North, South, East) in Castaic.
-- [North County Correctional Facility (NCCF)](https://www.mobileamericannotary.com/landing/notary-jail-north-county-castaic.html) – Mobile notary at NCCF in Castaic.
-- [Century Regional Detention Facility (CRDF)](https://www.mobileamericannotary.com/landing/notary-jail-crdf-lynwood.html) – Mobile notary at CRDF women's facility in Lynwood.
+- [Cedars-Sinai (Beverly Grove)](https://www.mobileamericannotary.com/services/notary-hospital/beverly-grove-cedars-sinai.html)
+- [Keck Hospital of USC (Boyle Heights)](https://www.mobileamericannotary.com/services/notary-hospital/boyle-heights-keck-usc.html)
+- [Providence Saint Joseph (Burbank)](https://www.mobileamericannotary.com/services/notary-hospital/burbank-providence-saint-joseph.html)
+- [Hollywood Presbyterian](https://www.mobileamericannotary.com/services/notary-hospital/east-hollywood-presbyterian.html)
+- [Encino Hospital Medical Center](https://www.mobileamericannotary.com/services/notary-hospital/encino-hospital-medical-center.html)
+- [Kaiser Permanente Hollywood](https://www.mobileamericannotary.com/services/notary-hospital/hollywood-kaiser.html)
+- [Providence Holy Cross (Mission Hills)](https://www.mobileamericannotary.com/services/notary-hospital/mission-hills-providence-holy-cross.html)
+- [Dignity Health Northridge](https://www.mobileamericannotary.com/services/notary-hospital/northridge-dignity-northridge.html)
+- [Adventist Health Simi Valley](https://www.mobileamericannotary.com/services/notary-hospital/simi-valley-adventist.html)
+- [Olive View-UCLA (Sylmar)](https://www.mobileamericannotary.com/services/notary-hospital/sylmar-olive-view-ucla.html)
+- [Providence Cedars-Sinai Tarzana](https://www.mobileamericannotary.com/services/notary-hospital/tarzana-providence-cedars-sinai.html)
+- [Los Robles (Thousand Oaks)](https://www.mobileamericannotary.com/services/notary-hospital/thousand-oaks-los-robles.html)
+- [Henry Mayo (Valencia)](https://www.mobileamericannotary.com/services/notary-hospital/valencia-henry-mayo.html)
+- [Valley Presbyterian (Van Nuys)](https://www.mobileamericannotary.com/services/notary-hospital/van-nuys-valley-presbyterian.html)
+- [UCLA West Valley (West Hills)](https://www.mobileamericannotary.com/services/notary-hospital/west-hills-ucla-west-valley.html)
+- [UCLA Medical Center (Westwood)](https://www.mobileamericannotary.com/services/notary-hospital/westwood-ucla.html)
+- [Kaiser Permanente Woodland Hills](https://www.mobileamericannotary.com/services/notary-hospital/woodland-hills-kaiser.html)
 
-## Apostille landing pages – vital records
+## Notary — Jail & Detention Facility Pages
 
-- [https://www.mobileamericannotary.com/landing/apostille-vital-documents.html](https://www.mobileamericannotary.com/landing/apostille-vital-documents.html)
-- [https://www.mobileamericannotary.com/landing/apostille-vital-birth.html](https://www.mobileamericannotary.com/landing/apostille-vital-birth.html)
-- [https://www.mobileamericannotary.com/landing/apostille-vital-marriage.html](https://www.mobileamericannotary.com/landing/apostille-vital-marriage.html)
-- [https://www.mobileamericannotary.com/landing/apostille-vital-death.html](https://www.mobileamericannotary.com/landing/apostille-vital-death.html)
-- [https://www.mobileamericannotary.com/landing/apostille-vital-divorce.html](https://www.mobileamericannotary.com/landing/apostille-vital-divorce.html)
+- [Men's Central Jail (Los Angeles)](https://www.mobileamericannotary.com/services/notary-jail/mens-central.html)
+- [Twin Towers Correctional Facility (Los Angeles)](https://www.mobileamericannotary.com/services/notary-jail/twin-towers.html)
+- [CRDF / Century Regional Detention (Lynwood)](https://www.mobileamericannotary.com/services/notary-jail/crdf-lynwood.html)
+- [Pitchess Detention Center (Castaic)](https://www.mobileamericannotary.com/services/notary-jail/pitchess.html)
+- [North County Correctional Facility (Castaic)](https://www.mobileamericannotary.com/services/notary-jail/north-county-castaic.html)
 
-## Apostille landing pages – court documents
+## Jail Weddings — Facility Detail Pages
 
-- [https://www.mobileamericannotary.com/landing/apostille-court-documents.html](https://www.mobileamericannotary.com/landing/apostille-court-documents.html)
-- [https://www.mobileamericannotary.com/landing/apostille-court-adoption.html](https://www.mobileamericannotary.com/landing/apostille-court-adoption.html)
-- [https://www.mobileamericannotary.com/landing/apostille-court-custody-name-change.html](https://www.mobileamericannotary.com/landing/apostille-court-custody-name-change.html)
-- [https://www.mobileamericannotary.com/landing/apostille-court-divorce-decree.html](https://www.mobileamericannotary.com/landing/apostille-court-divorce-decree.html)
+### Los Angeles County
+- [Men's Central Jail](https://www.mobileamericannotary.com/services/jail-weddings/mens-central.html)
+- [Twin Towers Correctional Facility](https://www.mobileamericannotary.com/services/jail-weddings/twin-towers.html)
+- [Century Regional Detention (CRDF Lynwood)](https://www.mobileamericannotary.com/services/jail-weddings/crdf-lynwood.html)
+- [Pitchess Detention Center (Castaic)](https://www.mobileamericannotary.com/services/jail-weddings/pitchess-castaic.html)
+- [North County Correctional Facility (Castaic)](https://www.mobileamericannotary.com/services/jail-weddings/north-county-castaic.html)
 
-## Apostille landing pages – school & academic
+### Orange County
+- [Theo Lacy Facility (Orange)](https://www.mobileamericannotary.com/services/jail-weddings/theo-lacy.html)
+- [Central Men's Jail (Santa Ana)](https://www.mobileamericannotary.com/services/jail-weddings/central-mens-oc.html)
+- [Central Women's Jail (Santa Ana)](https://www.mobileamericannotary.com/services/jail-weddings/central-womens-oc.html)
+- [James A. Musick Facility (Irvine)](https://www.mobileamericannotary.com/services/jail-weddings/musick.html)
 
-- [https://www.mobileamericannotary.com/landing/apostille-school-academic.html](https://www.mobileamericannotary.com/landing/apostille-school-academic.html)
-- [https://www.mobileamericannotary.com/landing/apostille-school-diploma-high-school.html](https://www.mobileamericannotary.com/landing/apostille-school-diploma-high-school.html)
-- [https://www.mobileamericannotary.com/landing/apostille-school-diploma-college.html](https://www.mobileamericannotary.com/landing/apostille-school-diploma-college.html)
-- [https://www.mobileamericannotary.com/landing/apostille-school-enrollment-graduation-letters.html](https://www.mobileamericannotary.com/landing/apostille-school-enrollment-graduation-letters.html)
-- [https://www.mobileamericannotary.com/landing/apostille-school-transcript-high-school.html](https://www.mobileamericannotary.com/landing/apostille-school-transcript-high-school.html)
-- [https://www.mobileamericannotary.com/landing/apostille-school-transcript-college.html](https://www.mobileamericannotary.com/landing/apostille-school-transcript-college.html)
+### San Bernardino County
+- [West Valley Detention Center (Rancho Cucamonga)](https://www.mobileamericannotary.com/services/jail-weddings/west-valley.html)
+- [Glen Helen Rehabilitation Center (San Bernardino)](https://www.mobileamericannotary.com/services/jail-weddings/glen-helen.html)
+- [Central Detention Center (San Bernardino)](https://www.mobileamericannotary.com/services/jail-weddings/central-detention.html)
 
-## Apostille landing pages – business & corporate
+### Riverside County
+- [Robert Presley Detention Center (Riverside)](https://www.mobileamericannotary.com/services/jail-weddings/robert-presley.html)
+- [Larry D. Smith Correctional Facility (Banning)](https://www.mobileamericannotary.com/services/jail-weddings/smith-banning.html)
+- [Cois M. Byrd Detention Center (French Valley)](https://www.mobileamericannotary.com/services/jail-weddings/cois-byrd.html)
 
-- [https://www.mobileamericannotary.com/landing/apostille-business-corporate.html](https://www.mobileamericannotary.com/landing/apostille-business-corporate.html)
-- [https://www.mobileamericannotary.com/landing/apostille-business-articles-incorporation.html](https://www.mobileamericannotary.com/landing/apostille-business-articles-incorporation.html)
-- [https://www.mobileamericannotary.com/landing/apostille-business-good-standing.html](https://www.mobileamericannotary.com/landing/apostille-business-good-standing.html)
-- [https://www.mobileamericannotary.com/landing/apostille-business-resolutions.html](https://www.mobileamericannotary.com/landing/apostille-business-resolutions.html)
+### Ventura County
+- [Ventura County Main Jail (Ventura)](https://www.mobileamericannotary.com/services/jail-weddings/ventura-main-jail.html)
+- [Todd Road Jail (Santa Paula)](https://www.mobileamericannotary.com/services/jail-weddings/ventura-todd-road.html)
+- [East Valley Jail (Thousand Oaks)](https://www.mobileamericannotary.com/services/jail-weddings/ventura-east-valley.html)
 
-## Apostille landing pages – federal documents
+### Santa Barbara County
+- [Santa Barbara County Jail](https://www.mobileamericannotary.com/services/jail-weddings/santa-barbara-main.html)
 
-- [https://www.mobileamericannotary.com/landing/apostille-federal-documents.html](https://www.mobileamericannotary.com/landing/apostille-federal-documents.html)
-- [https://www.mobileamericannotary.com/landing/apostille-federal-birth-abroad.html](https://www.mobileamericannotary.com/landing/apostille-federal-birth-abroad.html)
-- [https://www.mobileamericannotary.com/landing/apostille-federal-death-abroad.html](https://www.mobileamericannotary.com/landing/apostille-federal-death-abroad.html)
-- [https://www.mobileamericannotary.com/landing/apostille-federal-fbi-background-check.html](https://www.mobileamericannotary.com/landing/apostille-federal-fbi-background-check.html)
-- [https://www.mobileamericannotary.com/landing/apostille-federal-nara-documents.html](https://www.mobileamericannotary.com/landing/apostille-federal-nara-documents.html)
-- [https://www.mobileamericannotary.com/landing/apostille-federal-court-documents.html](https://www.mobileamericannotary.com/landing/apostille-federal-court-documents.html)
-- [https://www.mobileamericannotary.com/landing/apostille-federal-uscis-naturalization-name-change.html](https://www.mobileamericannotary.com/landing/apostille-federal-uscis-naturalization-name-change.html)
+## Apostille — Document Type Pages
 
-## Apostille landing pages – powers of attorney & timing
+### Vital Records
+- [Vital Records Overview](https://www.mobileamericannotary.com/services/apostille/vital-documents.html)
+- [Birth Certificate Apostille](https://www.mobileamericannotary.com/services/apostille/vital-birth.html)
+- [Marriage Certificate Apostille](https://www.mobileamericannotary.com/services/apostille/vital-marriage.html)
+- [Divorce Certificate Apostille](https://www.mobileamericannotary.com/services/apostille/vital-divorce.html)
+- [Death Certificate Apostille](https://www.mobileamericannotary.com/services/apostille/vital-death.html)
 
-- [https://www.mobileamericannotary.com/landing/apostille-poa-notarized.html](https://www.mobileamericannotary.com/landing/apostille-poa-notarized.html)
-- [https://www.mobileamericannotary.com/landing/apostille-same-day-los-angeles.html](https://www.mobileamericannotary.com/landing/apostille-same-day-los-angeles.html)
+### School & Academic
+- [School & Academic Overview](https://www.mobileamericannotary.com/services/apostille/school-academic.html)
+- [High School Diploma Apostille](https://www.mobileamericannotary.com/services/apostille/school-diploma-high-school.html)
+- [College Diploma Apostille](https://www.mobileamericannotary.com/services/apostille/school-diploma-college.html)
+- [School Enrollment & Graduation Letters](https://www.mobileamericannotary.com/services/apostille/school-enrollment-graduation-letters.html)
+- [High School Transcript Apostille](https://www.mobileamericannotary.com/services/apostille/school-transcript-high-school.html)
+- [College Transcript Apostille](https://www.mobileamericannotary.com/services/apostille/school-transcript-college.html)
 
-## Blog posts
+### Court Documents
+- [Court Documents Overview](https://www.mobileamericannotary.com/services/apostille/court-documents.html)
+- [Adoption Records Apostille](https://www.mobileamericannotary.com/services/apostille/court-adoption.html)
+- [Custody & Name Change Apostille](https://www.mobileamericannotary.com/services/apostille/court-custody-name-change.html)
+- [Divorce Decree Apostille](https://www.mobileamericannotary.com/services/apostille/court-divorce-decree.html)
 
-- [https://mobileamericannotary.com/blog/apostilles/7-common-apostille-mistakes-california/](https://mobileamericannotary.com/blog/apostilles/7-common-apostille-mistakes-california/)
-- [https://mobileamericannotary.com/blog/general-notary/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/](https://mobileamericannotary.com/blog/general-notary/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/)
-- (Planned) Hospital & care-facility mobile notary article – add URL once published.
+### Business & Corporate
+- [Business & Corporate Overview](https://www.mobileamericannotary.com/services/apostille/business-corporate.html)
+- [Articles of Incorporation Apostille](https://www.mobileamericannotary.com/services/apostille/business-articles-incorporation.html)
+- [Certificate of Good Standing Apostille](https://www.mobileamericannotary.com/services/apostille/business-good-standing.html)
+- [Corporate Resolutions Apostille](https://www.mobileamericannotary.com/services/apostille/business-resolutions.html)
+- [Notarized Power of Attorney Apostille](https://www.mobileamericannotary.com/services/apostille/poa-notarized.html)
 
-## Location-based notary & apostille pages
+### Federal Documents
+- [Federal Documents Overview](https://www.mobileamericannotary.com/services/apostille/federal-documents.html)
+- [FBI Background Check Apostille](https://www.mobileamericannotary.com/services/apostille/federal-fbi-background-check.html)
+- [Federal Court Documents Apostille](https://www.mobileamericannotary.com/services/apostille/federal-court-documents.html)
+- [Consular Report of Birth Abroad Apostille](https://www.mobileamericannotary.com/services/apostille/federal-birth-abroad.html)
+- [Consular Report of Death Abroad Apostille](https://www.mobileamericannotary.com/services/apostille/federal-death-abroad.html)
+- [NARA / National Archives Apostille](https://www.mobileamericannotary.com/services/apostille/federal-nara-documents.html)
+- [USCIS Naturalization & Name Change Apostille](https://www.mobileamericannotary.com/services/apostille/federal-uscis-naturalization-name-change.html)
 
-- [https://www.mobileamericannotary.com/locations/burbank-glendale-notary-apostille.html](https://www.mobileamericannotary.com/locations/burbank-glendale-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/chatsworth-northridge-notary-apostille.html](https://www.mobileamericannotary.com/locations/chatsworth-northridge-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/encino-tarzana-notary-apostille.html](https://www.mobileamericannotary.com/locations/encino-tarzana-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch-apostille-notary.html](https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch-apostille-notary.html)
-- [https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa-notary-apostille.html](https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/san-fernando-notary-apostille.html](https://www.mobileamericannotary.com/locations/san-fernando-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city-notary-apostille.html](https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/simi-valley-notary-apostille.html](https://www.mobileamericannotary.com/locations/simi-valley-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima-notary-apostille.html](https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village-notary-apostille.html](https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/valencia-santa-clarita-notary.html](https://www.mobileamericannotary.com/locations/valencia-santa-clarita-notary.html)
-- [https://www.mobileamericannotary.com/locations/van-nuys-notary-apostille.html](https://www.mobileamericannotary.com/locations/van-nuys-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park-notary-apostille.html](https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/apostille-philippines-spa.html](https://www.mobileamericannotary.com/locations/apostille-philippines-spa.html)
-- [https://www.mobileamericannotary.com/locations/hollywood-west-hollywood-notary-apostille.html](https://www.mobileamericannotary.com/locations/hollywood-west-hollywood-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/beverly-hills-notary-apostille.html](https://www.mobileamericannotary.com/locations/beverly-hills-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey-notary-apostille.html](https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/downtown-los-angeles-notary-apostille.html](https://www.mobileamericannotary.com/locations/downtown-los-angeles-notary-apostille.html)
-- [https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html](https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html)
+### Same-Day & Country-Specific
+- [Same-Day Apostille Los Angeles](https://www.mobileamericannotary.com/services/apostille/same-day-los-angeles.html)
+- [Apostille for Mexico](https://www.mobileamericannotary.com/services/apostille/country-mexico.html)
+- [Apostille for Spain](https://www.mobileamericannotary.com/services/apostille/country-spain.html)
+- [Apostille for Cuba](https://www.mobileamericannotary.com/services/apostille/country-cuba.html)
+- [Apostille for Taiwan](https://www.mobileamericannotary.com/services/apostille/country-taiwan.html)
+- [Apostille for Thailand](https://www.mobileamericannotary.com/services/apostille/country-thailand.html)
 
+## Location Pages
+
+- [Beverly Hills](https://www.mobileamericannotary.com/locations/beverly-hills-notary-apostille.html)
+- [Burbank & Glendale](https://www.mobileamericannotary.com/locations/burbank-glendale-notary-apostille.html)
+- [Chatsworth & Northridge](https://www.mobileamericannotary.com/locations/chatsworth-northridge-notary-apostille.html)
+- [Downtown Los Angeles](https://www.mobileamericannotary.com/locations/downtown-los-angeles-notary-apostille.html)
+- [Encino & Tarzana](https://www.mobileamericannotary.com/locations/encino-tarzana-notary-apostille.html)
+- [Granada Hills & Porter Ranch](https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch-apostille-notary.html)
+- [Hollywood & West Hollywood](https://www.mobileamericannotary.com/locations/hollywood-west-hollywood-notary-apostille.html)
+- [Pasadena & Altadena](https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html)
+- [Reseda, Winnetka & Lake Balboa](https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa-notary-apostille.html)
+- [San Fernando](https://www.mobileamericannotary.com/locations/san-fernando-notary-apostille.html)
+- [Santa Monica, Venice & Marina del Rey](https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey-notary-apostille.html)
+- [Sherman Oaks & Studio City](https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city-notary-apostille.html)
+- [Simi Valley](https://www.mobileamericannotary.com/locations/simi-valley-notary-apostille.html)
+- [Sylmar, Sun Valley & Pacoima](https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima-notary-apostille.html)
+- [Thousand Oaks & Westlake Village](https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village-notary-apostille.html)
+- [Valencia & Santa Clarita](https://www.mobileamericannotary.com/locations/valencia-santa-clarita-notary.html)
+- [Van Nuys](https://www.mobileamericannotary.com/locations/van-nuys-notary-apostille.html)
+- [Woodland Hills, West Hills & Canoga Park](https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park-notary-apostille.html)
+- [Philippines SPA Apostille](https://www.mobileamericannotary.com/locations/apostille-philippines-spa.html)
+
+## Blog
+
+- [Blog Home](https://www.mobileamericannotary.com/blog/)
+- [What Does a Mobile Notary Do in Los Angeles?](https://www.mobileamericannotary.com/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/)
+- [7 Common Apostille Mistakes in California](https://www.mobileamericannotary.com/blog/7-common-apostille-mistakes-california/)
+- [Mobile Notary at Hospitals in Los Angeles](https://www.mobileamericannotary.com/blog/mobile-notary-hospitals-los-angeles/)
+- [Welcome to Our New Blog](https://www.mobileamericannotary.com/blog/welcome-to-our-new-blog/)
+
+## Legal
+
+- [Privacy Policy](https://www.mobileamericannotary.com/privacy.html)
+- [Terms & Conditions](https://www.mobileamericannotary.com/terms.html)
+- [SMS Consent](https://www.mobileamericannotary.com/sms-consent.html)

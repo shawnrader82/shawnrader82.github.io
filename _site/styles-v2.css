@@ -159,6 +159,24 @@ img {
 /* ========== /FAQ BLOCKS & DIVIDER ========== */
 
 
+/* ========== CROSSLINK BOX ========== */
+.crosslink-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(139, 26, 26, 0.05);
+  border: 1px solid rgba(139, 26, 26, 0.15);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.crosslink-box a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+/* ========== /CROSSLINK BOX ========== */
+
+
 
 /* ========== /ROOT & GLOBAL ========== */
 
@@ -697,6 +715,22 @@ img {
   gap: 28px;
 }
 
+/* Jail facility detail rows */
+.jw-facility-detail-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.jw-facility-detail-label {
+  font-weight: 600;
+  color: var(--text-main);
+  min-width: 130px;
+  white-space: nowrap;
+}
+
 .service-detail h3 {
   font-size: 16px;
   margin-bottom: 10px;
@@ -762,6 +796,7 @@ img {
   box-shadow: 0 10px 26px rgba(15,23,42,0.35);
 }
 /* ========== /SERVICE DETAIL SECTIONS (INCL. APOSTILLE) ========== */
+
 
 
 
@@ -1543,82 +1578,99 @@ img {
 }
 /* ========== /INTAKE FORM STEPS ========== */
 
-
 /* ========== BLOG SECTIONS ========== */
 
+/* Page wrapper with subtle watermark */
+.blog-page-wrap {
+  position: relative;
+  background: transparent;
+}
+.blog-page-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/brand/watermark.webp");
+  background-repeat: no-repeat;
+  background-position: center 120px;
+  background-size: 500px auto;
+  opacity: 0.06;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Blog listing container */
 .blog-shell {
   max-width: 1100px;
   margin: 0 auto;
   padding: 40px 24px 56px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Cards that mimic your service-detail sections */
+/* Cards */
 .blog-card {
   border-radius: var(--radius-lg);
   padding: 30px 26px;
   margin: 0;
 }
+.blog-card + .blog-card {
+  margin-top: 24px;
+}
 
-/* Alternate backgrounds: white, light gray, dark navy */
+/* Alternate backgrounds */
 .blog-card--white {
   background: #ffffff;
   color: #0f172a;
 }
-
 .blog-card--gray {
   background: #e5e7eb;
   color: #0f172a;
 }
-
 .blog-card--blue {
   background: #0b1120;
   color: #f9fafb;
 }
 
-/* Shared text styles */
+/* Card text styles */
 .blog-card h2 {
   margin: 0 0 8px 0;
   font-size: 1.6rem;
 }
-
 .blog-card h2 a {
   text-decoration: none;
   color: inherit;
 }
-
 .blog-card h2 a:hover {
   color: var(--accent);
 }
-
 .blog-card .date {
   font-size: 0.85rem;
   margin-bottom: 10px;
   color: var(--text-muted);
 }
-
 .blog-card--blue .date {
   color: #9ca3af;
 }
-
 .blog-card .excerpt {
   line-height: 1.6;
   font-size: 1rem;
   margin-bottom: 12px;
 }
-
 .blog-card .read-more {
   text-decoration: none;
   font-weight: 600;
   color: var(--accent);
 }
 
-/* Thumbnail image: full color, no opacity */
+/* Thumbnail image */
 .blog-thumb {
   width: 100%;
   max-height: 280px;
   object-fit: cover;
   border-radius: var(--radius-md);
   margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
   opacity: 1 !important;
 }
 
@@ -1630,20 +1682,20 @@ img {
   background: #ffffff;
   color: #0f172a;
   border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+  position: relative;
+  z-index: 1;
 }
-
 .blog-post-shell h1 {
   font-size: 2.2rem;
   margin-bottom: 8px;
   color: #0f172a;
 }
-
 .blog-post-shell h2 {
   margin-top: 28px;
   margin-bottom: 8px;
   color: #0f172a;
 }
-
 .blog-post-meta {
   color: #6b7280;
   font-size: 0.9rem;
@@ -1651,36 +1703,32 @@ img {
   padding-bottom: 12px;
   border-bottom: 1px solid #e5e7eb;
 }
-
 .blog-post-shell p {
   color: #111827;
   font-size: 1.03rem;
   line-height: 1.8;
   margin-bottom: 16px;
 }
-
 .blog-post-shell ul,
 .blog-post-shell ol {
   color: #111827;
   margin-left: 20px;
   margin-bottom: 16px;
 }
-
 .blog-post-shell li {
   margin-bottom: 6px;
 }
-
 .blog-post-shell img {
   max-width: 100%;
   border-radius: var(--radius-md);
   margin: 20px 0;
+  position: relative;
+  z-index: 2;
   opacity: 1 !important;
 }
-
 .blog-post-shell a {
   color: var(--accent);
 }
-
 .blog-back-link {
   display: inline-block;
   margin-top: 26px;
@@ -1692,77 +1740,129 @@ img {
 /* ========== /BLOG SECTIONS ========== */
 
 
+/* ========== BLOG HORIZONTAL CARDS ========== */
+.blog-card--horizontal {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+.blog-card__image {
+  flex: 0 0 33%;
+  max-width: 33%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-md);
+}
+.blog-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  .blog-card--horizontal {
+    flex-direction: column;
+  }
+  .blog-card__image {
+    flex: none;
+    max-width: 100%;
+    max-height: 220px;
+  }
+}
+/* ========== /BLOG HORIZONTAL CARDS ========== */
 
-/* ========== FOOTER BAND (HIDE WATERMARK) ========== */
+/* ========== SITE FOOTER ========== */
 .site-footer {
   position: relative;
-  background: #0b1120;
-  color: #e5e7eb;
-}
-
-.global-cta-strip {
-  background: #0b1120;
-  color: #e5e7eb;
-}
-
-/* Solid layer above the body watermark */
-footer.site-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #0b1120;
-  z-index: 0;
-}
-
-/* Keep footer content above the mask */
-footer.site-footer > * {
-  position: relative;
-  z-index: 1;
-}
-/* ========== /FOOTER BAND (HIDE WATERMARK) ========== */
-
-/* ========== BLOG WATERMARK FIX ========== */
-/* Lift blog containers above the body::before watermark */
-.blog-shell,
-.blog-post-shell {
-  position: relative;
-  z-index: 1;
-}
-
-/* Solid background behind the blog post so watermark can't bleed through */
-.blog-post-shell {
-  background: #ffffff;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
-}
-
-/* Ensure blog images are fully opaque and above any pseudo-elements */
-.blog-post-shell img,
-.blog-thumb {
-  position: relative;
   z-index: 2;
-  opacity: 1 !important;
+  background: #111827;
+  color: #d1d5db;
+  padding: 32px 24px 24px;
+  margin-top: 0;
 }
-/* ========== /BLOG WATERMARK FIX ========== */
+.site-footer a:hover {
+  color: #fca5a5;
+}
+.site-footer .section-divider {
+  border: none;
+  border-top: 1px solid #374151;
+  margin: 18px 0;
+}
+/* ========== /SITE FOOTER ========== */
 
-/* ========== BLOG WATERMARK MASK ========== */
-.blog-page-wrap {
+/* ========== BLOG PAGE HERO ========== */
+.blog-hero {
   position: relative;
-  background: #ffffff;
+  overflow: hidden;
+  background: #020617;
+  width: 100%;
+  max-width: none;
 }
-.blog-page-wrap::before {
-  content: "";
+.blog-hero-bg {
   position: absolute;
   inset: 0;
-  background: #ffffff;
-  z-index: 0;
+  background-image:
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)),
+    url("images/services/notary-hero.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: saturate(1.1);
 }
-.blog-shell,
-.blog-post-shell {
+.blog-hero-inner {
   position: relative;
-  z-index: 1;
+  padding: 56px 28px 48px;
+  text-align: center;
 }
-.blog-post-shell img,
-.blog-thumb {
-  opacity: 1 !important;
+.blog-hero h1 {
+  font-size: 2.4rem;
+  margin: 0 0 10px;
+  font-weight: 700;
+  color: #fff;
 }
-/* ========== /BLOG WATERMARK MASK ========== */
+.blog-hero p {
+  font-size: 1.1rem;
+  color: #e5e7eb;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .blog-hero-inner {
+    padding: 44px 18px 40px;
+  }
+  .blog-hero h1 {
+    font-size: 1.6rem;
+  }
+}
+/* ========== /BLOG PAGE HERO ========== */
+
+
+/* ========== JAIL NOTARY COUNTY HUBS ========== */
+.facility-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.facility-list li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.facility-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.facility-list a:hover {
+  text-decoration: underline;
+}
+/* ========== /JAIL NOTARY COUNTY HUBS ========== */
+

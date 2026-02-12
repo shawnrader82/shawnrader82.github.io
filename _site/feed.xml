@@ -1,4 +1,142 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-07T13:07:10-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mobile American Notary &amp;amp; Apostilles</title><subtitle>Expert mobile notary and apostille services in Los Angeles</subtitle><entry><title type="html"></title><link href="http://localhost:4000/blog/test-post.md/" rel="alternate" type="text/html" title="" /><published>2026-02-07T00:00:00-08:00</published><updated>2026-02-07T00:00:00-08:00</updated><id>http://localhost:4000/blog/test-post.md</id><content type="html" xml:base="http://localhost:4000/blog/test-post.md/"><![CDATA[<p>##</p>]]></content><author><name>Mobile American Notary</name></author><summary type="html"><![CDATA[##]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/blog/" /><media:content medium="image" url="http://localhost:4000/images/blog/" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to Our New Blog</title><link href="http://localhost:4000/blog/welcome-to-our-new-blog/" rel="alternate" type="text/html" title="Welcome to Our New Blog" /><published>2026-02-07T00:00:00-08:00</published><updated>2026-02-07T00:00:00-08:00</updated><id>http://localhost:4000/blog/welcome-to-our-new-blog</id><content type="html" xml:base="http://localhost:4000/blog/welcome-to-our-new-blog/"><![CDATA[<p>We’re excited to launch our new blog! Here you’ll find helpful information about notary services, apostille processing, and document legalization.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://www.mobileamericannotary.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.mobileamericannotary.com/" rel="alternate" type="text/html" /><updated>2026-02-11T21:17:15-08:00</updated><id>https://www.mobileamericannotary.com/feed.xml</id><title type="html">Mobile American Notary &amp;amp; Apostilles</title><subtitle>Expert mobile notary and apostille services in Los Angeles</subtitle><entry><title type="html">Do I Need an Apostille or Embassy Legalization? How to Tell</title><link href="https://www.mobileamericannotary.com/blog/apostille-vs-embassy-legalization/" rel="alternate" type="text/html" title="Do I Need an Apostille or Embassy Legalization? How to Tell" /><published>2026-02-09T00:00:00-08:00</published><updated>2026-02-09T00:00:00-08:00</updated><id>https://www.mobileamericannotary.com/blog/apostille-vs-embassy-legalization</id><content type="html" xml:base="https://www.mobileamericannotary.com/blog/apostille-vs-embassy-legalization/"><![CDATA[<p>If you need to use a U.S. document in another country, you’ll almost always hear two terms: <em>apostille</em> and <em>embassy legalization</em>. Knowing which one you need is crucial—choosing the wrong path can cost you weeks of delay and extra fees.</p>
+
+<p>In California, both processes start with making sure your document is properly issued or notarized, but they follow very different routes depending on the country where the document will be used.</p>
+
+<h2 id="what-is-an-apostille">What Is an Apostille?</h2>
+
+<p>An apostille is a special certificate that authenticates the signature of a public official on a document for use in a foreign country that is part of the <a href="https://www.hcch.net/en/instruments/conventions/specialised-sections/apostille">Hague Apostille Convention</a>.</p>
+
+<p>In California, apostilles are issued by the California Secretary of State and are usually enough on their own for Hague Convention countries like Spain, France, Germany, Japan, and many others.</p>
+
+<p><strong>You typically need an apostille when:</strong></p>
+
+<ul>
+  <li>Your document will be used in a <strong>Hague Convention country</strong>.</li>
+  <li>You are dealing with <strong>birth or marriage certificates, school records, powers of attorney, or corporate documents</strong> going abroad.</li>
+  <li>The foreign authority specifically asks for an <em>apostille</em> rather than “consular legalization.”</li>
+</ul>
+
+<p>For most people, the apostille route is the simpler and faster option because it is a single-step certification at the state or federal level instead of going through multiple government offices.</p>
+
+<h2 id="what-is-embassy-consular-legalization">What Is Embassy (Consular) Legalization?</h2>
+
+<p>Embassy legalization—also called consular legalization—is the older, more complex process used for countries that are <strong>not</strong> members of the Hague Apostille Convention.</p>
+
+<p>Instead of receiving one apostille certificate, your document passes through several levels of authentication, ending at the embassy or consulate of the destination country.</p>
+
+<p><strong>You typically need embassy legalization when:</strong></p>
+
+<ul>
+  <li>Your document will be used in a <strong>non-Hague country</strong> (for example, many Middle Eastern countries such as the UAE or Qatar, and some Asian or African nations).</li>
+  <li>The instructions from the foreign authority mention <strong>“legalization,” “embassy stamp,” or “consular authentication.”</strong></li>
+  <li>The receiving country’s consulate website outlines a <strong>multi-step process</strong> that includes both U.S. authorities and their embassy.</li>
+</ul>
+
+<p>Because each embassy has its own rules, fees, and timelines, this path is usually more time-consuming and expensive than an apostille.</p>
+
+<h2 id="key-differences-at-a-glance">Key Differences at a Glance</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th><strong>Apostille</strong></th>
+      <th><strong>Embassy Legalization</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Used for</strong></td>
+      <td>Hague Convention member countries</td>
+      <td>Non-Hague countries</td>
+    </tr>
+    <tr>
+      <td><strong>Issued by</strong></td>
+      <td>CA Secretary of State or U.S. Dept. of State</td>
+      <td>Foreign embassy/consulate (after state &amp; federal steps)</td>
+    </tr>
+    <tr>
+      <td><strong>Number of steps</strong></td>
+      <td>1–2</td>
+      <td>3–4+</td>
+    </tr>
+    <tr>
+      <td><strong>Typical timeline</strong></td>
+      <td>Days (same/next day with expedited service)</td>
+      <td>Several weeks</td>
+    </tr>
+    <tr>
+      <td><strong>Relative cost</strong></td>
+      <td>Lower</td>
+      <td>Higher (multiple agency fees)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="step-by-step-how-each-process-works">Step-by-Step: How Each Process Works</h2>
+
+<h3 id="apostille-simplified-path">Apostille (Simplified Path)</h3>
+
+<ol>
+  <li>Get the document properly issued or notarized.</li>
+  <li>Submit it to the <strong>California Secretary of State</strong> (or the U.S. Department of State for federal documents like FBI background checks).</li>
+  <li>Receive the apostille certificate attached to your document—done.</li>
+</ol>
+
+<h3 id="embassy-legalization-multi-step-path">Embassy Legalization (Multi-Step Path)</h3>
+
+<ol>
+  <li>Get the document properly issued or notarized.</li>
+  <li>Obtain <strong>state certification</strong> from the California Secretary of State.</li>
+  <li>Obtain <strong>federal authentication</strong> from the U.S. Department of State (required for many documents).</li>
+  <li>Submit to the <strong>foreign embassy or consulate</strong> for final legalization.</li>
+</ol>
+
+<p>Because of these extra layers, embassy legalization often takes several weeks, while apostilles can be completed much faster—especially when handled by an experienced service.</p>
+
+<h2 id="real-world-examples">Real-World Examples</h2>
+
+<p>Here are a few common scenarios to make the choice clearer:</p>
+
+<ul>
+  <li><strong>Birth certificate for marriage in Spain</strong> — Spain is a Hague Convention country → you need an <strong>apostille</strong>.</li>
+  <li><strong>U.S. degree for employment in the UAE</strong> — The UAE has historically required consular steps → you’ll likely need <strong>embassy legalization</strong>.</li>
+  <li><strong>Corporate documents for a business partner in France</strong> — France is a Hague member → an <strong>apostille</strong> is sufficient.</li>
+  <li><strong>Employment records for work in a non-Hague Middle Eastern country</strong> — These usually require <strong>full embassy legalization</strong>.</li>
+</ul>
+
+<p>In every case, the destination country’s rules and the exact instructions from the foreign authority should guide your decision.</p>
+
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+
+<p>People often lose time because they start the wrong process or skip a required step. Watch out for these:</p>
+
+<ul>
+  <li>Starting an apostille when the country actually requires <strong>embassy legalization</strong> (or vice versa).</li>
+  <li>Submitting documents that were <strong>never notarized</strong> when notarization is a prerequisite.</li>
+  <li>Using the <strong>wrong type of certificate</strong>—for example, a photocopy instead of a certified copy from the issuing agency.</li>
+  <li>Ignoring the <strong>embassy’s specific rules</strong> on fees, translations, or supporting forms.</li>
+</ul>
+
+<p>Verifying the destination country and document type <em>before</em> you file anything can save you weeks of delay and unnecessary costs.</p>
+
+<h2 id="not-sure-which-one-you-need">Not Sure Which One You Need?</h2>
+
+<p>If your instructions are unclear—or the foreign authority simply says “legalize the document”—you’re not alone. This confuses almost everyone.</p>
+
+<p>Here’s what to do:</p>
+
+<ol>
+  <li>Confirm whether the destination country is a <strong>Hague Convention member</strong>.</li>
+  <li>Check the country’s <strong>consulate or embassy website</strong> for their document requirements.</li>
+  <li>Ask a professional apostille and legalization service to review your situation.</li>
+</ol>
+
+<p>A short conversation with a specialist is often enough to determine the right path for your specific documents.</p>
+
+<hr />
+
+<p><strong>Need help figuring out your next step?</strong> At <a href="/">Mobile American Notary &amp; Apostilles</a>, we review your destination country and document type, then handle every step—from notarization to final certification—so you don’t waste time on rejected paperwork. <a href="/contact">Call or text us today</a> to get started.</p>]]></content><author><name></name></author><category term="apostille" /><category term="apostille" /><category term="california" /><summary type="html"><![CDATA[Not sure if your document needs an apostille or embassy legalization? Learn the key differences, when each is required, and how to avoid costly mistakes in California.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.mobileamericannotary.com/images/blog/apostille-vs-legalization.jpg" /><media:content medium="image" url="https://www.mobileamericannotary.com/images/blog/apostille-vs-legalization.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Welcome to Our New Blog</title><link href="https://www.mobileamericannotary.com/blog/welcome-to-our-new-blog/" rel="alternate" type="text/html" title="Welcome to Our New Blog" /><published>2026-02-07T00:00:00-08:00</published><updated>2026-02-07T00:00:00-08:00</updated><id>https://www.mobileamericannotary.com/blog/welcome-to-our-new-blog</id><content type="html" xml:base="https://www.mobileamericannotary.com/blog/welcome-to-our-new-blog/"><![CDATA[<p>We’re excited to launch our new blog! Here you’ll find helpful information about notary services, apostille processing, and document legalization.</p>
 
 <h2 id="what-to-expect">What to Expect</h2>
 
@@ -10,7 +148,7 @@
   <li>Updates on our mobile notary services across Los Angeles</li>
 </ul>
 
-<p>Have questions? <a href="/contact.html">Contact us</a> anytime.</p>]]></content><author><name>Mobile American Notary</name></author><category term="news" /><summary type="html"><![CDATA[We’re excited to launch our new blog! Here you’ll find helpful information about notary services, apostille processing, and document legalization.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/brand/logo.png" /><media:content medium="image" url="http://localhost:4000/images/brand/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Mobile Notary for Hospitals and Care Facilities in Los Angeles: What Families Need to Know</title><link href="http://localhost:4000/blog/mobile-notary-hospitals-los-angeles/" rel="alternate" type="text/html" title="Mobile Notary for Hospitals and Care Facilities in Los Angeles: What Families Need to Know" /><published>2026-02-02T00:00:00-08:00</published><updated>2026-02-02T00:00:00-08:00</updated><id>http://localhost:4000/blog/mobile-notary-hospitals-los-angeles</id><content type="html" xml:base="http://localhost:4000/blog/mobile-notary-hospitals-los-angeles/"><![CDATA[<p>Life doesn’t pause when a loved one is in the hospital or a care facility, but important paperwork often can’t wait. A <a href="/services/notary.html">mobile notary who comes directly to hospitals, rehab centers, and nursing homes across Los Angeles</a> can make the process faster, easier, and less stressful.</p>
+<p>Have questions? <a href="/contact.html">Contact us</a> anytime.</p>]]></content><author><name>Mobile American Notary</name></author><category term="news" /><summary type="html"><![CDATA[We’re excited to launch our new blog! Here you’ll find helpful information about notary services, apostille processing, and document legalization.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.mobileamericannotary.com/images/brand/logo.webp" /><media:content medium="image" url="https://www.mobileamericannotary.com/images/brand/logo.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Mobile Notary for Hospitals and Care Facilities in Los Angeles: What Families Need to Know</title><link href="https://www.mobileamericannotary.com/blog/mobile-notary-hospitals-los-angeles/" rel="alternate" type="text/html" title="Mobile Notary for Hospitals and Care Facilities in Los Angeles: What Families Need to Know" /><published>2026-02-02T00:00:00-08:00</published><updated>2026-02-02T00:00:00-08:00</updated><id>https://www.mobileamericannotary.com/blog/mobile-notary-hospitals-los-angeles</id><content type="html" xml:base="https://www.mobileamericannotary.com/blog/mobile-notary-hospitals-los-angeles/"><![CDATA[<p>Life doesn’t pause when a loved one is in the hospital or a care facility, but important paperwork often can’t wait. A <a href="/services/notary.html">mobile notary who comes directly to hospitals, rehab centers, and nursing homes across Los Angeles</a> can make the process faster, easier, and less stressful.</p>
 
 <hr />
 
@@ -56,7 +194,7 @@
 
 <p>Mobile American Notary and Apostilles provides on-site notarization for powers of attorney, healthcare directives, estate documents, and more at medical facilities across Los Angeles, Orange, and Ventura Counties.</p>
 
-<p>Call or text today, or <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services/WYQMAM4KC4IJZHB5GVPGRYJX">request a hospital notary visit online</a>.</p>]]></content><author><name>Mobile American Notary</name></author><category term="medical-facilities" /><summary type="html"><![CDATA[Life doesn’t pause when a loved one is in the hospital or a care facility, but important paperwork often can’t wait. A mobile notary who comes directly to hospitals, rehab centers, and nursing homes across Los Angeles can make the process faster, easier, and less stressful.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/blog/notary-appointment.jpg" /><media:content medium="image" url="http://localhost:4000/images/blog/notary-appointment.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">7 Common Apostille Mistakes (And How to Avoid Them in California)</title><link href="http://localhost:4000/blog/7-common-apostille-mistakes-california/" rel="alternate" type="text/html" title="7 Common Apostille Mistakes (And How to Avoid Them in California)" /><published>2026-01-25T00:00:00-08:00</published><updated>2026-01-25T00:00:00-08:00</updated><id>http://localhost:4000/blog/7-common-apostille-mistakes-california</id><content type="html" xml:base="http://localhost:4000/blog/7-common-apostille-mistakes-california/"><![CDATA[<p>When you are sending U.S. documents overseas, a small mistake in the apostille process can cause big delays, rejected paperwork, or missed school, immigration, or business deadlines. If you live in Los Angeles, Orange, or Ventura County, understanding a few basics can help your documents get accepted the first time.</p>
+<p>Call or text today, or <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services/WYQMAM4KC4IJZHB5GVPGRYJX">request a hospital notary visit online</a>.</p>]]></content><author><name>Mobile American Notary</name></author><category term="medical-facilities" /><summary type="html"><![CDATA[Life doesn’t pause when a loved one is in the hospital or a care facility, but important paperwork often can’t wait. A mobile notary who comes directly to hospitals, rehab centers, and nursing homes across Los Angeles can make the process faster, easier, and less stressful.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.mobileamericannotary.com/images/blog/notary-appointment.jpg" /><media:content medium="image" url="https://www.mobileamericannotary.com/images/blog/notary-appointment.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">7 Common Apostille Mistakes (And How to Avoid Them in California)</title><link href="https://www.mobileamericannotary.com/blog/7-common-apostille-mistakes-california/" rel="alternate" type="text/html" title="7 Common Apostille Mistakes (And How to Avoid Them in California)" /><published>2026-01-25T00:00:00-08:00</published><updated>2026-01-25T00:00:00-08:00</updated><id>https://www.mobileamericannotary.com/blog/7-common-apostille-mistakes-california</id><content type="html" xml:base="https://www.mobileamericannotary.com/blog/7-common-apostille-mistakes-california/"><![CDATA[<p>When you are sending U.S. documents overseas, a small mistake in the apostille process can cause big delays, rejected paperwork, or missed school, immigration, or business deadlines. If you live in Los Angeles, Orange, or Ventura County, understanding a few basics can help your documents get accepted the first time.</p>
 
 <p>Below are seven of the most common apostille mistakes we see and how to avoid them.</p>
 
@@ -120,7 +258,7 @@
 
 <p>Mobile American Notary &amp; Apostilles focuses on getting your documents signed, notarized, and apostilled correctly the first time so they are accepted overseas without delays or rejections. We handle apostilles and legalizations for vital records, school records, court documents, and corporate paperwork, and can coordinate certified translations when needed.</p>
 
-<p>We offer mobile appointments across Los Angeles County, Orange County, and Ventura County including homes, offices, hospitals, rehab facilities, and jails with extended and after-hours options available by request. If you are dealing with a tight deadline or are unsure where to start, you can get in touch through our <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services">appointment request page</a> to review your situation before you schedule.</p>]]></content><author><name>Mobile American Notary</name></author><category term="apostilles" /><summary type="html"><![CDATA[When you are sending U.S. documents overseas, a small mistake in the apostille process can cause big delays, rejected paperwork, or missed school, immigration, or business deadlines. If you live in Los Angeles, Orange, or Ventura County, understanding a few basics can help your documents get accepted the first time.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/blog/apostille-rejected.png" /><media:content medium="image" url="http://localhost:4000/images/blog/apostille-rejected.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What Does a Mobile Notary Do in Los Angeles (and When Do You Need One)?</title><link href="http://localhost:4000/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/" rel="alternate" type="text/html" title="What Does a Mobile Notary Do in Los Angeles (and When Do You Need One)?" /><published>2026-01-19T00:00:00-08:00</published><updated>2026-01-19T00:00:00-08:00</updated><id>http://localhost:4000/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one</id><content type="html" xml:base="http://localhost:4000/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/"><![CDATA[<h2 id="what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one">What Does a Mobile Notary Do in Los Angeles (and When Do You Need One?)</h2>
+<p>We offer mobile appointments across Los Angeles County, Orange County, and Ventura County including homes, offices, hospitals, rehab facilities, and jails with extended and after-hours options available by request. If you are dealing with a tight deadline or are unsure where to start, you can get in touch through our <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services">appointment request page</a> to review your situation before you schedule.</p>]]></content><author><name>Mobile American Notary</name></author><category term="apostilles" /><summary type="html"><![CDATA[When you are sending U.S. documents overseas, a small mistake in the apostille process can cause big delays, rejected paperwork, or missed school, immigration, or business deadlines. If you live in Los Angeles, Orange, or Ventura County, understanding a few basics can help your documents get accepted the first time.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.mobileamericannotary.com/images/blog/apostille-rejected.png" /><media:content medium="image" url="https://www.mobileamericannotary.com/images/blog/apostille-rejected.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What Does a Mobile Notary Do in Los Angeles (and When Do You Need One)?</title><link href="https://www.mobileamericannotary.com/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/" rel="alternate" type="text/html" title="What Does a Mobile Notary Do in Los Angeles (and When Do You Need One)?" /><published>2026-01-19T00:00:00-08:00</published><updated>2026-01-19T00:00:00-08:00</updated><id>https://www.mobileamericannotary.com/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one</id><content type="html" xml:base="https://www.mobileamericannotary.com/blog/what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one/"><![CDATA[<h2 id="what-does-a-mobile-notary-do-in-los-angeles-and-when-do-you-need-one">What Does a Mobile Notary Do in Los Angeles (and When Do You Need One?)</h2>
 
 <p>Life in Los Angeles moves fast. When important documents show up, you may not have time to drive across town, find parking, and sit in a lobby waiting for a notary. That is when a mobile notary becomes very useful.</p>
 
@@ -156,4 +294,4 @@
 
 <p>If you have a deadline, a family member who cannot travel, or simply want to avoid traffic and parking, a mobile notary can help you get important paperwork signed with less stress. You get a professional who comes to your location, explains the steps clearly, and helps you finish the process in one visit.</p>
 
-<p>When you are ready to schedule, you can call or text the number on this site or send a message through the contact form with a short description of your documents and your preferred time. Then all you need to do is have your ID and documents ready, and your notary will take care of the rest.</p>]]></content><author><name>Mobile American Notary</name></author><category term="general-notary" /><summary type="html"><![CDATA[What Does a Mobile Notary Do in Los Angeles (and When Do You Need One?)]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/blog/notary-appointment.jpg" /><media:content medium="image" url="http://localhost:4000/images/blog/notary-appointment.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>When you are ready to schedule, you can call or text the number on this site or send a message through the contact form with a short description of your documents and your preferred time. Then all you need to do is have your ID and documents ready, and your notary will take care of the rest.</p>]]></content><author><name>Mobile American Notary</name></author><category term="general-notary" /><summary type="html"><![CDATA[What Does a Mobile Notary Do in Los Angeles (and When Do You Need One?)]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.mobileamericannotary.com/images/blog/notary-appointment.jpg" /><media:content medium="image" url="https://www.mobileamericannotary.com/images/blog/notary-appointment.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
