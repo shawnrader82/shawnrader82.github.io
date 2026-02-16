@@ -67,30 +67,28 @@
   </script>
 
   <!-- 2. Service schema -->
-<!-- 2. Service schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Pasadena & Altadena Mobile Notary, Apostille & Jail Signing Services",
-  "description": "...",
-  "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html",
-  "serviceType": "Mobile Notary and Apostille Service",
-  "provider": { ... },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "130",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Pasadena" },
-    { "@type": "City", "name": "Altadena" }
-  ]
-}
-</script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pasadena & Altadena Mobile Notary, Apostille & Jail Signing Services",
+    "description": "...",
+    "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html",
+    "serviceType": "Mobile Notary and Apostille Service",
+    "provider": { ... },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "100",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Pasadena" },
+      { "@type": "City", "name": "Altadena" }
+    ]
+  }
+  </script>
 
   <!-- 3. FAQPage schema -->
   <script type="application/ld+json">
@@ -127,7 +125,7 @@
         "name": "What identification do we need for a mobile notary appointment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Each signer must have valid, government-issued photo ID such as a driver\u2019s license or passport, along with all pages of the documents that need to be signed, and we review ID questions with you before scheduling."
+          "text": "Each signer must have valid, government-issued photo ID such as a driver\\u2019s license or passport, along with all pages of the documents that need to be signed, and we review ID questions with you before scheduling."
         }
       },
       {
@@ -146,13 +144,14 @@
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- ========== HEADER (injected by header.js) ========== -->
   <div id="header-placeholder"></div>
   <script src="/header.js" defer></script>
+  <!-- ========== /HEADER ========== -->
 
   <main>
 
-    <!-- HERO DARK -->
+    <!-- ========== HERO (DARK) ========== -->
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-inner" style="max-width:900px; margin:0 auto">
@@ -172,9 +171,9 @@
         </div>
       </div>
     </section>
-    <!-- /HERO DARK -->
+    <!-- ========== /HERO (DARK) ========== -->
 
-    <!-- INTRO WHITE -->
+    <!-- ========== INTRO (WHITE) ========== -->
     <section class="service-detail service-detail--white">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Help for Pasadena &amp; Altadena residents</div>
@@ -198,9 +197,9 @@
         </p>
       </div>
     </section>
-    <!-- /INTRO WHITE -->
+    <!-- ========== /INTRO (WHITE) ========== -->
 
-    <!-- WHY CLIENTS CHOOSE US GRAY -->
+    <!-- ========== WHY CLIENTS CHOOSE US (GRAY) ========== -->
     <section class="service-detail service-detail--gray">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Why Pasadena &amp; Altadena clients call us</div>
@@ -224,9 +223,9 @@
         </p>
       </div>
     </section>
-    <!-- /WHY CLIENTS CHOOSE US GRAY -->
+    <!-- ========== /WHY CLIENTS CHOOSE US (GRAY) ========== -->
 
-    <!-- HOW IT WORKS BLUE -->
+    <!-- ========== HOW IT WORKS (BLUE) ========== -->
     <section class="service-detail service-detail--blue">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Simple 3‑step process</div>
@@ -261,9 +260,9 @@
         </div>
       </div>
     </section>
-    <!-- /HOW IT WORKS BLUE -->
+    <!-- ========== /HOW IT WORKS (BLUE) ========== -->
 
-    <!-- COMMON APPOINTMENTS WHITE -->
+    <!-- ========== COMMON APPOINTMENTS (WHITE) ========== -->
     <section class="service-detail service-detail--white">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Common appointments in this area</div>
@@ -292,9 +291,9 @@
         </div>
       </div>
     </section>
-    <!-- /COMMON APPOINTMENTS WHITE -->
+    <!-- ========== /COMMON APPOINTMENTS (WHITE) ========== -->
 
-    <!-- APOSTILLE SUPPORT GRAY -->
+    <!-- ========== APOSTILLE SUPPORT (GRAY) ========== -->
     <section class="service-detail service-detail--gray">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Documents used outside the U.S.</div>
@@ -318,9 +317,9 @@
         </p>
       </div>
     </section>
-    <!-- /APOSTILLE SUPPORT GRAY -->
+    <!-- ========== /APOSTILLE SUPPORT (GRAY) ========== -->
 
-    <!-- JAIL SIGNINGS BLUE -->
+    <!-- ========== JAIL SIGNINGS (BLUE) ========== -->
     <section class="service-detail service-detail--blue">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Jail &amp; court‑related notarizations</div>
@@ -357,9 +356,9 @@
         </div>
       </div>
     </section>
-    <!-- /JAIL SIGNINGS BLUE -->
+    <!-- ========== /JAIL SIGNINGS (BLUE) ========== -->
 
-    <!-- FAQ GRAY -->
+    <!-- ========== FAQ (GRAY) ========== -->
     <section class="service-detail service-detail--gray">
       <div class="service-detail-inner" style="max-width:1000px; margin:0 auto">
         <div class="service-detail-kicker">Pasadena &amp; Altadena notary FAQ</div>
@@ -388,9 +387,9 @@
         </div>
       </div>
     </section>
-    <!-- /FAQ GRAY -->
+    <!-- ========== /FAQ (GRAY) ========== -->
 
-    <!-- CTA INTAKE WHITE -->
+    <!-- ========== CTA INTAKE (WHITE) ========== -->
     <section id="pasadena-altadena-intake" class="service-detail service-detail--white">
       <div class="service-detail-inner" style="max-width:900px; margin:0 auto">
         <div class="service-detail-kicker">Start your Pasadena &amp; Altadena appointment</div>
@@ -420,13 +419,15 @@
         </p>
       </div>
     </section>
-    <!-- /CTA INTAKE WHITE -->
+    <!-- ========== /CTA INTAKE (WHITE) ========== -->
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ========== FOOTER (injected by footer.js) ========== -->
   <div id="footer-placeholder"></div>
   <script src="/footer.js" defer></script>
+  <!-- ========== /FOOTER ========== -->
 
 </body>
 </html>
+
