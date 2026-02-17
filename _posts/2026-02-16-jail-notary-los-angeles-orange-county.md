@@ -14,7 +14,7 @@ tags:
   - twin towers
   - santa ana
 permalink: /blog/jail-notary-los-angeles-orange-county/
-image: /images/blog/jail-notary.jpg
+image: /images/blog/jail-notary.webp
 image_alt: Mobile notary meeting with an inmate in a jail visitation area to sign documents
 ---
 ---
