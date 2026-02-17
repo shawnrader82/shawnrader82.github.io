@@ -2,9 +2,10 @@
 title: "Mobile Notary for Hospitals and Care Facilities in Los Angeles: What Families Need to Know"
 layout: post
 date: 2026-02-02
-author: "Mobile American Notary"
-categories: [medical-facilities]
-image: /images/blog/notary-appointment.jpg
+author: Mobile American Notary
+categories:
+  - medical-facilities
+image: /images/blog/medical-1.jpg
 ---
 
 Life doesn't pause when a loved one is in the hospital or a care facility, but important paperwork often can't wait. A [mobile notary who comes directly to hospitals, rehab centers, and nursing homes across Los Angeles](/services/notary.html) can make the process faster, easier, and less stressful.
