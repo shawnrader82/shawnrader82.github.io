@@ -43,7 +43,7 @@ body {
   color: var(--text-main);
   position: relative;
   z-index: 0;
-  padding-top: 72px;  /* adjust 64–80px until content starts just below header */
+  padding-top: 58px;  /* adjust 64–80px until content starts just below header */
 }
 /* ========== /BODY & GLOBAL BACKGROUND ========== */
 
@@ -284,11 +284,11 @@ img {
 .main-header {
   background: var(--bg-nav);
   border-bottom: 1px solid #e5e7eb;
-  padding: 14px 24px;
+  padding: 8px 18px;        /* shorter header, less left/right padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   position: fixed;
   top: 0;
   left: 0;
@@ -302,9 +302,11 @@ img {
   gap: 10px;
 }
 
+/* Brand logo: fixed size, never flex-shrink */
 .brand-logo {
   height: 40px;
   width: auto;
+  flex: 0 0 auto;
 }
 
 .brand-name {
@@ -342,13 +344,8 @@ img {
   background: var(--text-main);
 }
 
-.nav-toggle-icon::before {
-  top: -6px;
-}
-
-.nav-toggle-icon::after {
-  top: 6px;
-}
+.nav-toggle-icon::before { top: -6px; }
+.nav-toggle-icon::after  { top: 6px;  }
 
 .main-nav {
   display: flex;
@@ -390,19 +387,23 @@ img {
   background: var(--accent);
 }
 
+/* Call / Text pill: fixed size, no flex shrinking */
 .header-call {
   background: var(--accent);
   color: #ffffff;
-  padding: 8px 14px;
+  padding: 10px 22px;       /* was 8px 18px – taller & wider */
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 14px;          /* slightly larger text like hero buttons */
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   box-shadow: 0 8px 22px rgba(234, 88, 12, 0.55);
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 /* ========== /HEADER ========== */
+
 
 
 /* ========== HEADER DROPDOWNS (SERVICES, LOCATIONS) ========== */
@@ -1324,22 +1325,28 @@ img {
 }
 /* ========== /CUSTOMER REVIEWS LAYOUT ========== */
 
-
-/* ========== RESPONSIVE: SMALL PHONES ========== */
-@media (max-width: 640px) {
-  /* Header + nav on small phones */
+/* ========== RESPONSIVE: SMALL SCREENS (HEADER + HERO) ========== */
+@media (max-width: 1050px) {
+  /* Header row: slightly shorter, still centered */
   .main-header {
+    display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
+    padding: 10px 18px;
   }
 
+  /* Show hamburger, hide desktop nav */
   .nav-toggle {
     display: inline-flex;
-  }
-
-  .header-cta-block {
-    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 999px;
+    margin-right: 6px;
   }
 
   .main-nav {
@@ -1348,7 +1355,7 @@ img {
     top: 100%;
     right: 0;
     left: 0;
-    background: #f9fafb; /* slightly off-white so it pops */
+    background: #f9fafb;
     border-bottom: 1px solid #e5e7eb;
     padding: 10px 16px 12px;
     flex-direction: column;
@@ -1363,70 +1370,26 @@ img {
     display: flex;
   }
 
-  /* Top-level items: clearer, spaced rows */
-  .main-nav > a,
-  .main-nav > .nav-item > .nav-link {
-    display: block;
-    padding: 10px 14px;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-main);
+  .header-cta-block {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 8px;
+    font-size: 13px;
+    white-space: nowrap;
   }
-
-  .main-nav > a + a,
-  .main-nav > .nav-item + .nav-item {
-    border-top: 1px solid #f3f4f6;
-  }
-
-  .main-nav > a:hover,
-  .main-nav > .nav-item > .nav-link:hover {
-    background: #f9fafb;
-  }
-
-  /* Option 1: accent bar + color for open dropdown item */
-  .main-nav > .nav-item.open > .nav-link {
-    position: relative;
-    color: var(--accent);
-  }
-
-  .main-nav > .nav-item.open > .nav-link::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
-    width: 3px;
-    border-radius: 999px;
-    background: var(--accent);
-  }
-
-  /* Dropdown lists (Services / Locations) */
-  .main-nav .nav-item .nav-dropdown {
-    margin-top: 4px;
-    padding: 4px 0 6px 18px;
-    border-left: 2px solid rgba(148, 163, 184, 0.6);
-  }
-
-  .main-nav .nav-item .nav-dropdown a {
-    display: block;
-    padding: 4px 0;
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  .main-nav .nav-item .nav-dropdown a:hover {
-    color: var(--accent);
-  }
-
-  /* Existing mobile layout below */
 
   .header-call {
-    width: 100%;
+    width: auto;
     justify-content: center;
+    white-space: nowrap;
   }
 
+  /* existing hero + Rotary rules stay here */
   .hero-inner {
-    padding: 44px 18px 40px;
+    padding: 44px 18px 64px;
   }
 
   .hero-title {
@@ -1452,50 +1415,412 @@ img {
     padding: 8px 14px;
   }
 
-  .service-card {
-    width: 100%;
-    max-width: 320px;
-    min-width: 0;
-    margin-inline: auto;
+  .hero-trust--rotary {
+    left: 18px;
+    bottom: 20px;
+    gap: 6px;
+    font-size: 11px;
+    max-width: 70%;
   }
 
-  .service-detail-grid,
-  .apostille-grid,
-  .contact-columns {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .hero-trust--rotary .rotary-wheel {
+    width: 22px;
+    height: 22px;
   }
 
-  .notary-cell {
-    grid-template-columns: 1fr;
-    align-items: flex-start;
-    padding: 10px 12px;
-  }
-
-  .notary-cell-action .btn {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .livescan-figure {
-    text-align: center;
-    margin-top: 16px;
-  }
-
-  .livescan-figure img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .page-shell {
-    padding: 0 16px 24px;
-  }
-
-  .service-detail {
-    padding: 32px 16px 32px;
+  .hero-trust--rotary .rotary-text {
+    line-height: 1.3;
   }
 }
-/* ========== /RESPONSIVE: SMALL PHONES ========== */
+/* ========== /RESPONSIVE: SMALL SCREENS (HEADER + HERO) ========== */
+
+
+
+
+
+/* ========== INTAKE FORM STEPS ========== */
+/* Step 1: About you – layout */
+#step-1-about-you .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+
+#step-1-about-you .full-field {
+  grid-column: 1 / -1;
+}
+
+#step-1-about-you .address-row {
+  display: flex;
+  gap: 12px;
+}
+
+#step-1-about-you .slim-field-left,
+#step-1-about-you .slim-field-right {
+  flex: 1;
+}
+
+/* Step 1 card container */
+.intake-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 24px 24px 28px;
+  max-width: 780px;
+  margin: 16px auto 24px;
+  box-shadow:
+    0 22px 50px rgba(15, 23, 42, 0.6),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+  position: relative;
+}
+
+/* Step 1 typography */
+#step-1-about-you .step-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+#step-1-about-you .service-detail-title {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+#step-1-about-you .service-detail-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* Ensure labels behave as blocks */
+#step-1-about-you label {
+  display: block;
+}
+
+/* Mobile: single column (Step 1) */
+@media (max-width: 640px) {
+  #step-1-about-you .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intake-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    padding: 24px 24px 28px;
+    max-width: 780px;
+    margin: 16px auto 24px;
+    box-shadow:
+      0 22px 50px rgba(15, 23, 42, 0.6),
+      0 0 0 1px rgba(15, 23, 42, 0.05);
+  }
+}
+
+/* Make the intake band dark so the white card stands out */
+#step-1-about-you .form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#step-1-about-you input,
+#step-1-about-you select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* Give each field some vertical breathing room */
+#step-1-about-you .full-field,
+#step-1-about-you .address-row {
+  margin-top: 4px;
+}
+
+#step-1-about-you .form-actions {
+  margin-top: 16px;
+  text-align: right;
+}
+
+#step-1-about-you .btn.btn-primary {
+  background: #8b1a1a;
+  color: #ffffff;
+  border-color: #8b1a1a;
+  box-shadow: 0 10px 24px rgba(139, 26, 26, 0.6);
+}
+
+#step-1-about-you .btn.btn-primary:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: 0 14px 30px rgba(185, 28, 28, 0.7);
+}
+
+/* Intake steps share the same background image/band */
+#step-1-about-you.service-detail--white,
+#step-2-documents.service-detail--white,
+#step-3-review.service-detail--white {
+  background-color: #020617;
+  background-image:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.75)),
+    url("images/apostille-intake-form.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Step 2: Your documents – layout */
+#step-2-documents .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+
+#step-2-documents .full-field {
+  grid-column: 1 / -1;
+}
+
+/* Step 2 typography and fields (reuse Step 1 look) */
+#step-2-documents .step-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+#step-2-documents .service-detail-title {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+#step-2-documents .service-detail-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+#step-2-documents .form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#step-2-documents input,
+#step-2-documents select,
+#step-2-documents textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#step-2-documents .full-field {
+  margin-top: 4px;
+}
+
+/* Actions row (default: align buttons to the right) */
+#step-2-documents .form-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Step 2 primary button: red with white text */
+#step-2-documents .btn.btn-primary {
+  background: #8b1a1a;
+  color: #ffffff;
+  border-color: #8b1a1a;
+  box-shadow: 0 10px 24px rgba(139, 26, 26, 0.6);
+}
+
+#step-2-documents .btn.btn-primary:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: 0 14px 30px rgba(185, 28, 28, 0.7);
+}
+
+/* Step 2 toggle pills */
+.toggle-pill {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.toggle-pill--active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+/* ========== /INTAKE FORM STEPS ========== */
+
+/* ========== BLOG SECTIONS ========== */
+
+/* Page wrapper with subtle watermark */
+.blog-page-wrap {
+  position: relative;
+  background: transparent;
+}
+.blog-page-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/brand/watermark.webp");
+  background-repeat: no-repeat;
+  background-position: center 120px;
+  background-size: 500px auto;
+  opacity: 0.06;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Blog listing container */
+.blog-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards */
+.blog-card {
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+  margin: 0;
+}
+.blog-card + .blog-card {
+  margin-top: 24px;
+}
+
+/* Alternate backgrounds */
+.blog-card--white {
+  background: #ffffff;
+  color: #0f172a;
+}
+.blog-card--gray {
+  background: #e5e7eb;
+  color: #0f172a;
+}
+.blog-card--blue {
+  background: #0b1120;
+  color: #f9fafb;
+}
+
+/* Card text styles */
+.blog-card h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.6rem;
+}
+.blog-card h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+.blog-card h2 a:hover {
+  color: var(--accent);
+}
+.blog-card .date {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+.blog-card--blue .date {
+  color: #9ca3af;
+}
+.blog-card .excerpt {
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.blog-card .read-more {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Thumbnail image */
+.blog-thumb {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+  opacity: 1 !important;
+}
+
+/* Full post container */
+.blog-post-shell {
+  max-width: 900px;
+  margin: 40px auto 56px;
+  padding: 32px 26px 40px;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+  position: relative;
+  z-index: 1;
+}
+.blog-post-shell h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+.blog-post-shell h2 {
+  margin-top: 28px;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+.blog-post-meta {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.blog-post-shell p {
+  color: #111827;
+  font-size: 1.03rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.blog-post-shell ul,
+.blog-post-shell ol {
+  color: #111827;
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+.blog-post-shell li {
+  margin-bottom: 6px;
+}
+.blog-post-shell img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+  opacity: 1 !important;
+}
+.blog-post-shell a {
+  color: var(--accent);
+}
+.blog-back-link {
+  display: inline-block;
+  margin-top: 26px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
 
 
 
