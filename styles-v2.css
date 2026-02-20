@@ -402,7 +402,25 @@ img {
   flex: 0 0 auto;
   white-space: nowrap;
 }
+
+/* Mobile header fix so Call / Text doesn’t get cut off */
+@media (max-width: 480px) {
+  .main-header {
+    gap: 4px;
+    padding-inline: 10px;
+  }
+
+  .brand-name {
+    font-size: 13px;
+  }
+
+  .header-call {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}
 /* ========== /HEADER ========== */
+
 
 
 
