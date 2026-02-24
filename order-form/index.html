@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RG90RK03WJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RG90RK03WJ');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RG90RK03WJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RG90RK03WJ');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apostille / Legalization & Translation Intake</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Online Apostille Order Form | Mobile American Notary</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-  <!-- External CSS -->
+  <!-- Main site styles for header + footer -->
+  <link rel="stylesheet" href="https://mobileamericannotary.com/styles-v2.css" />
+
+  <!-- Apostille form-specific styles -->
   <link rel="stylesheet" href="apostille-form.css" />
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
 </head>
+
 <body>
 
-<!-- ========== APOSTILLE INTAKE WRAPPER ========== -->
-<div class="page-wrap">
-  <div class="intake-shell">
+  <!-- Shared header injected by /header.js -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main apostille intake content -->
+  <main class="page-shell">
+    <!-- ========== APOSTILLE INTAKE WRAPPER ========== -->
+    <div class="page-wrap">
+      <div class="intake-shell">
+
 
     <!-- ========== INTAKE HEADER / STEP INDICATOR ========== -->
     <div class="intake-header">
-      <h1>Apostille / Legalization & Translation Intake</h1>
+      <h1>Apostille / Legalization & Translation Order Form</h1>
       <p>Tell us what you need so we can confirm requirements, pricing, and timing.</p>
     </div>
 
@@ -63,7 +73,7 @@
     <!-- ========== INTAKE FORM (ALL STEPS) ========== -->
     <form id="apostille-intake-form"
           method="POST"
-          action="/api/apostille-intake"
+          action="http://192.168.1.23:8080/apostille-intake.php"
           enctype="multipart/form-data">
 
       <!-- ========== STEP 1 · WHAT YOU NEED ========== -->
@@ -79,58 +89,67 @@
             </p>
           </div>
 
-          <!-- Services -->
-          <div class="full-field">
-            <div class="form-label">Services for this order</div>
-            <div class="service-tiles" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <!-- Services card -->
+          <div class="intake-card" style="margin-top:12px;">
+            <div class="full-field">
+              <div class="form-label">Services for this order</div>
+              <div class="service-tiles" style="display:flex;gap:12px;flex-wrap:wrap;">
 
-              <label class="service-tile" style="flex:1;min-width:220px;cursor:pointer;">
-                <input type="checkbox" name="services" value="apostille" id="svc-apostille">
-                <div class="service-tile-body"
-                     style="border-radius:10px;border:1px solid #d1d5db;padding:10px 12px;background:#f9fafb;">
-                  <div class="service-tile-title" style="font-weight:600;font-size:14px;">
-                    Apostille / authentication
+                <!-- Apostille tile -->
+                <label class="service-tile" style="flex:1;min-width:220px;cursor:pointer;">
+                  <input type="checkbox" name="services" value="apostille" id="svc-apostille">
+                  <div class="service-tile-body"
+                       style="border-radius:10px;border:1px solid #d1d5db;padding:10px 12px;background:#f9fafb;">
+                    <div class="service-tile-title" style="font-weight:600;font-size:14px;">
+                      Apostille / authentication
+                    </div>
+                    <div class="service-tile-text" style="font-size:13px;color:#4b5563;">
+                      For documents that need to be used abroad and require an apostille or authentication.
+                    </div>
                   </div>
-                  <div class="service-tile-text" style="font-size:13px;color:#4b5563;">
-                    For documents that need to be used abroad and require an apostille or authentication.
-                  </div>
-                </div>
-              </label>
+                </label>
 
-              <label class="service-tile" style="flex:1;min-width:220px;cursor:pointer;">
-                <input type="checkbox" name="services" value="translation" id="svc-translation">
-                <div class="service-tile-body"
-                     style="border-radius:10px;border:1px solid #d1d5db;padding:10px 12px;background:#f9fafb;">
-                  <div class="service-tile-title" style="font-weight:600;font-size:14px;">
-                    Certified document translation
+                <!-- Translation tile -->
+                <label class="service-tile" style="flex:1;min-width:220px;cursor:pointer;">
+                  <input type="checkbox" name="services" value="translation" id="svc-translation">
+                  <div class="service-tile-body"
+                       style="border-radius:10px;border:1px solid #d1d5db;padding:10px 12px;background:#f9fafb;">
+                    <div class="service-tile-title" style="font-weight:600;font-size:14px;">
+                      Certified document translation
+                    </div>
+                    <div class="service-tile-text" style="font-size:13px;color:#4b5563;">
+                      Certified translations for use with foreign authorities or consulates.
+                    </div>
                   </div>
-                  <div class="service-tile-text" style="font-size:13px;color:#4b5563;">
-                    Certified translations for use with foreign authorities or consulates.
-                  </div>
-                </div>
-              </label>
+                </label>
 
+              </div>
+              <span class="form-help">Select one or both services.</span>
+              <span id="services-error" class="form-help" style="color:#b91c1c;display:none;">
+                Please select Apostille and/or Translation to continue.
+              </span>
             </div>
-            <span class="form-help">Select one or both services.</span>
           </div>
 
-          <!-- Personal vs business -->
-          <div class="full-field" style="margin-top:16px;">
-            <span class="form-label">Are these documents for personal or business use?</span>
-            <input type="hidden" name="usagetype" id="usage_type" value="business">
-            <div class="usage-toggle" style="margin-top:6px;">
-              <button type="button"
-                      class="toggle-pill"
-                      data-usage-value="personal"
-                      id="usage-personal">
-                Personal
-              </button>
-              <button type="button"
-                      class="toggle-pill toggle-pill--active"
-                      data-usage-value="business"
-                      id="usage-business">
-                Business
-              </button>
+          <!-- Personal vs business card -->
+          <div class="intake-card" style="margin-top:12px;">
+            <div class="full-field">
+              <span class="form-label">Are these documents for personal or business use?</span>
+              <input type="hidden" name="usagetype" id="usage_type" value="business">
+              <div class="usage-toggle" style="margin-top:6px;">
+                <button type="button"
+                        class="toggle-pill"
+                        data-usage-value="personal"
+                        id="usage-personal">
+                  Personal
+                </button>
+                <button type="button"
+                        class="toggle-pill toggle-pill--active"
+                        data-usage-value="business"
+                        id="usage-business">
+                  Business
+                </button>
+              </div>
             </div>
           </div>
 
@@ -169,631 +188,878 @@
       </section>
       <!-- ========== /STEP 1 · WHAT YOU NEED ========== -->
 
-
-
       <!-- ========== STEP 2 · YOUR DOCUMENTS ========== -->
-      <section class="intake-step" data-step="1">
-        <div class="intake-card">
+<section class="intake-step" data-step="1">
+  <div class="intake-card">
+    <!-- Top header card -->
+    <div class="intake-card" style="margin-bottom:12px;">
+      <p class="step-label">Step 2 of 5 · Your documents</p>
+      <h2 class="service-detail-title">Tell us about your documents</h2>
+      <p class="service-detail-subtitle">
+        We only ask for details we need to calculate pricing and confirm requirements.
+      </p>
+    </div>
 
-          <!-- Step header -->
-          <div class="intake-card" style="margin-bottom:16px;">
-            <p class="step-label">Step 2 of 5 · Your documents</p>
-            <h2 class="service-detail-title">Tell us about your documents</h2>
-            <p class="service-detail-subtitle">
-              We only ask for details we need to calculate pricing and confirm requirements.
-            </p>
+    <!-- Apostille / authentication documents card -->
+    <div class="intake-card" id="apostille-documents-block" style="display:none;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Apostille / authentication documents
+      </h3>
+      <p class="service-detail-subtitle">
+        Only needed if you selected apostille or authentication in the previous step.
+      </p>
 
-            <!-- Apostille bubble -->
-            <div class="intake-card" id="apostille-documents-block" style="margin-bottom:16px;">
-              <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-                Apostille / authentication documents
-              </h3>
-              <p class="service-detail-subtitle" style="margin-bottom:10px;">
-                Only needed if you selected apostille or authentication in the previous step.
-              </p>
+      <div id="document-list">
+        <div class="document-row">
+          <div class="document-row-header">
+            <span>Document #1</span>
+            <button type="button" class="btn-pill btn-pill--danger remove-doc-btn" disabled>
+              Remove
+            </button>
+          </div>
 
+          <div class="document-row-body">
+            <div class="form-grid form-grid--two">
+              <!-- Issuing state/federal with full list -->
               <div class="full-field">
-                <span class="form-label">What documents do you need apostilled or authenticated?</span>
-                <span class="form-help" style="margin-bottom:8px;">
-                  For each document group, choose the issuing state or federal, document type, quantity, and destination country.
-                </span>
-
-                <div id="document-list">
-                  <!-- First row -->
-                  <div class="document-row">
-                    <div class="document-row-header">
-                      <span>Document #1</span>
-                      <button type="button" class="btn-pill btn-pill--danger remove-doc-btn">Remove</button>
-                    </div>
-
-                    <div class="form-grid form-grid--two">
-                      <!-- Issuing state -->
-                      <div class="full-field">
-                        <span class="form-label">Issuing state or federal *</span>
-                        <select name="document_state[]" required>
-                          <option value="">Select state or federal...</option>
-                          <option value="AL">Alabama</option>
-                          <option value="AK">Alaska</option>
-                          <option value="AZ">Arizona</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="CA">California</option>
-                          <option value="CO">Colorado</option>
-                          <option value="CT">Connecticut</option>
-                          <option value="DE">Delaware</option>
-                          <option value="DC">District of Columbia</option>
-                          <option value="FL">Florida</option>
-                          <option value="GA">Georgia</option>
-                          <option value="HI">Hawaii</option>
-                          <option value="ID">Idaho</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IN">Indiana</option>
-                          <option value="IA">Iowa</option>
-                          <option value="KS">Kansas</option>
-                          <option value="KY">Kentucky</option>
-                          <option value="LA">Louisiana</option>
-                          <option value="ME">Maine</option>
-                          <option value="MD">Maryland</option>
-                          <option value="MA">Massachusetts</option>
-                          <option value="MI">Michigan</option>
-                          <option value="MN">Minnesota</option>
-                          <option value="MS">Mississippi</option>
-                          <option value="MO">Missouri</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NV">Nevada</option>
-                          <option value="NH">New Hampshire</option>
-                          <option value="NJ">New Jersey</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="NY">New York</option>
-                          <option value="NC">North Carolina</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="OH">Ohio</option>
-                          <option value="OK">Oklahoma</option>
-                          <option value="OR">Oregon</option>
-                          <option value="PA">Pennsylvania</option>
-                          <option value="RI">Rhode Island</option>
-                          <option value="SC">South Carolina</option>
-                          <option value="SD">South Dakota</option>
-                          <option value="TN">Tennessee</option>
-                          <option value="TX">Texas</option>
-                          <option value="UT">Utah</option>
-                          <option value="VT">Vermont</option>
-                          <option value="VA">Virginia</option>
-                          <option value="WA">Washington</option>
-                          <option value="WV">West Virginia</option>
-                          <option value="WI">Wisconsin</option>
-                          <option value="WY">Wyoming</option>
-                          <option value="FEDERAL">U.S. Federal (State Dept)</option>
-                        </select>
-                      </div>
-
-                      <!-- Document type -->
-                      <div class="full-field">
-                        <span class="form-label">Document type *</span>
-                        <select name="document_type[]" required>
-                          <option value="">Select document type...</option>
-                          <option value="birth_certificate">Birth certificate</option>
-                          <option value="marriage_certificate">Marriage certificate</option>
-                          <option value="death_certificate">Death certificate</option>
-                          <option value="divorce_decree">Divorce decree</option>
-                          <option value="single_status">Single status / affidavit</option>
-                          <option value="power_of_attorney">Power of attorney</option>
-                          <option value="corporate_documents">Corporate documents (incorporation, bylaws, etc.)</option>
-                          <option value="school_records">School records / transcripts / diplomas</option>
-                          <option value="criminal_record">Criminal record / background check</option>
-                          <option value="court_documents">Court documents</option>
-                          <option value="notarized_letter">Notarized letter</option>
-                          <option value="other">Other (explain in notes later)</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-grid form-grid--two" style="margin-top:8px;">
-                      <div class="full-field">
-                        <span class="form-label">Quantity *</span>
-                        <input
-                          type="number"
-                          name="document_quantity[]"
-                          min="1"
-                          value="1"
-                          required
-                          class="doc-quantity"
-                        >
-                      </div>
-
-                      <!-- Destination country (per document group) -->
-                      <div class="full-field">
-                        <span class="form-label">Destination country for this document *</span>
-                        <select
-                          name="document_country[]"
-                          class="document-country-select"
-                          required
-                        >
-                          <option value="">Select a country...</option>
-                          <!-- JS will populate options -->
-                        </select>
-                        <span class="form-help">
-                          Used to apply Hague vs non‑Hague rules and any country‑specific fees for this document group.
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  class="btn-pill"
-                  id="add-document-btn"
-                  style="margin-top:10px;"
-                >
-                  + Add another document group
-                </button>
+                <span class="form-label">Issuing state or federal *</span>
+                <select name="document_state[]" required>
+                  <option value="">Select state or federal...</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                  <option value="US_FEDERAL">U.S. Federal</option>
+                </select>
               </div>
 
-              <!-- Total documents -->
-              <div class="full-field" style="margin-top:12px;">
-                <span class="form-label">Total documents</span>
+              <!-- Document type -->
+              <div class="full-field">
+                <span class="form-label">Document type *</span>
+                <select name="document_type[]" required>
+                  <option value="">Select document type...</option>
+                  <option value="birth_certificate">Birth certificate</option>
+                  <option value="marriage_certificate">Marriage certificate</option>
+                  <option value="death_certificate">Death certificate</option>
+                  <option value="divorce_decree">Divorce decree</option>
+                  <option value="single_status">Single status / affidavit</option>
+                  <option value="power_of_attorney">Power of attorney</option>
+                  <option value="corporate_documents">Corporate documents (incorporation, bylaws, etc.)</option>
+                  <option value="school_records">School records / transcripts / diplomas</option>
+                  <option value="criminal_record">Criminal record / background check</option>
+                  <option value="court_documents">Court documents</option>
+                  <option value="notarized_letter">Notarized letter</option>
+                  <option value="other">Other (explain in notes later)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid form-grid--two" style="margin-top:8px;">
+              <div class="full-field">
+                <span class="form-label">Quantity *</span>
                 <input
                   type="number"
-                  id="total_documents"
-                  name="total_documents"
+                  name="document_quantity[]"
+                  min="1"
                   value="1"
-                  readonly
-                  style="background:#f3f4f6; cursor:not-allowed;"
+                  required
+                  class="doc-quantity"
                 >
-                <span class="form-help">
-                  This updates automatically as you adjust quantity for each group.
-                </span>
               </div>
-            </div>
 
-            <!-- Translation bubble -->
-            <div class="intake-card hidden" id="translation-documents-block" style="margin-bottom:16px;">
-              <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-                Translation details
-              </h3>
-              <p class="service-detail-subtitle" style="margin-bottom:10px;">
-                Only needed if you also want certified translation.
-              </p>
-
-              <div style="margin-top:6px;">
-                <div class="form-grid form-grid--two">
-                  <div class="full-field">
-                    <span class="form-label">Original language *</span>
-                    <select name="translation_source_language" id="translation_from_language">
-                      <option value="">Select original language...</option>
-                      <!-- JS will populate from pricing table -->
-                    </select>
-                  </div>
-
-                  <div class="full-field">
-                    <span class="form-label">Language needed *</span>
-                    <select name="translation_target_language" id="translation_to_language">
-                      <option value="">Select target language...</option>
-                      <!-- JS will populate from pricing table -->
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-grid form-grid--two" style="margin-top:10px;">
-                  <div class="full-field">
-                    <span class="form-label">Approximate number of words *</span>
-                    <input type="number" name="translation_words" id="translation_words" min="1">
-                    <span class="form-help">
-                      We estimate pages at 250 words per page for pricing.
-                    </span>
-                  </div>
-
-                  <div class="full-field">
-                    <span class="form-label">Upload document(s) for translation</span>
-                    <input type="file" name="translation_files[]" multiple>
-                    <span class="form-help">You can also send files later if you prefer.</span>
-                  </div>
-                </div>
-
-                <!-- Visible translation estimate -->
-                <div class="full-field" style="margin-top:10px;">
-                  <span class="form-label">Estimated translation total (USD)</span>
-                  <input
-                    type="text"
-                    id="translation_total"
-                    name="translation_total"
-                    readonly
-                    style="background:#f3f4f6; cursor:not-allowed;"
-                  >
-                  <span class="form-help">
-                    This is an estimate based on your languages, word count, and add‑ons. We’ll confirm before you approve anything.
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Other names (applies to either service) -->
-            <div class="full-field" style="margin-top:4px;">
-              <span class="form-label">
-                Other names that appear on these documents
-              </span>
-              <textarea
-                name="other_names"
-                rows="2"
-                placeholder="If you are submitting documents for another person (child, spouse, client), list their full name as it appears on the documents. If these are your own documents, you can leave this blank or type N/A."
-              ></textarea>
-              <span class="form-help">
-                Required when you are submitting documents for another person so we can match each document to the correct individual.
-              </span>
-            </div>
-          </div>
-
-          <!-- Order total summary (Step 2) -->
-          <div class="intake-card order-summary-card" style="margin-top:12px;">
-            <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-              Estimated order total
-            </h3>
-            <p class="service-detail-subtitle" style="margin-bottom:8px;">
-              This total reflects apostille, translation, and add‑ons selected so far.
-            </p>
-            <div class="full-field">
-              <span class="form-label">Current estimate (USD)</span>
-              <input
-                type="text"
-                id="order_estimated_total"
-                name="order_estimated_total"
-                readonly
-                style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
-              >
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" class="btn btn--secondary" data-prev-step="0">← Back</button>
-            <button type="button" class="btn btn-primary" data-next-step="2">
-              Continue to speed & add‑ons →
-            </button>
-          </div>
-        </div>
-      </section>
-      <!-- ========== /STEP 2 · YOUR DOCUMENTS ========== -->
-
-
-      <!-- ========== STEP 3 · SPEED & ADD-ONS ========== -->
-      <section class="intake-step" data-step="2">
-        <div class="intake-card">
-
-          <!-- Step header -->
-          <div class="intake-card" style="margin-bottom:16px;">
-            <p class="step-label">Step 3 of 5 · Speed & add‑ons</p>
-            <h2 class="service-detail-title">How fast do you need this?</h2>
-            <p class="service-detail-subtitle">
-              Choose your preferred turnaround. Options may vary depending on your issuing state and destination country.
-            </p>
-
-            <!-- Apostille speed bubble -->
-            <div class="intake-card" id="apostille-speed-block" style="margin-bottom:16px;">
-              <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-                Apostille / authentication speed
-              </h3>
-              <p class="service-detail-subtitle" style="margin-bottom:10px;">
-                These options apply to apostille or authentication services.
-              </p>
-
+              <!-- Destination country (per document group) -->
               <div class="full-field">
-                <span class="form-label">How fast do you need apostille service? *</span>
-                <div class="usage-toggle speed-options-container" style="margin-top:6px;">
-                  <!-- JS will inject available speed options here based on the issuing state -->
-                </div>
+                <span class="form-label">Destination country for this document *</span>
+                <select
+                  name="document_country[]"
+                  class="document-country-select"
+                  required
+                >
+                  <option value="">Select a country...</option>
+                  <!-- JS will populate options -->
+                </select>
                 <span class="form-help">
-                  We'll confirm exact timing and pricing for your specific documents before you approve anything.
-                </span>
-              </div>
-            </div>
-
-            <!-- Translation add-ons bubble (only if translation selected) -->
-            <div class="intake-card hidden" id="translation-addons-block" style="margin-bottom:16px;">
-              <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-                Translation add‑ons
-              </h3>
-              <p class="service-detail-subtitle" style="margin-bottom:10px;">
-                Optional extras for certified translation.
-              </p>
-
-              <div class="full-field">
-                <span class="form-label">Do you need any of these translation add‑ons?</span>
-                <div class="usage-toggle" style="margin-top:6px;flex-wrap:wrap;">
-                  <label class="toggle-pill">
-                    <input
-                      type="checkbox"
-                      id="addon_notarization"
-                      name="translation_addons[]"
-                      value="notarization"
-                    >
-                    Notarization of translation
-                  </label>
-                  <label class="toggle-pill">
-                    <input
-                      type="checkbox"
-                      id="addon_shipped_hard_copy"
-                      name="translation_addons[]"
-                      value="shipped_hard_copy"
-                    >
-                    Shipped hard copy (FedEx with tracking)
-                  </label>
-                  <label class="toggle-pill">
-                    <input
-                      type="checkbox"
-                      id="addon_expedited_turnaround"
-                      name="translation_addons[]"
-                      value="expedited_turnaround"
-                    >
-                    Expedited translation turnaround
-                  </label>
-                </div>
-                <span class="form-help">
-                  If you're not sure, you can leave these blank and we'll advise based on your destination country.
+                  Used to apply Hague vs non‑Hague rules and any country‑specific fees for this document group.
                 </span>
               </div>
             </div>
           </div>
-
-          <!-- Order total summary (Step 3) -->
-          <div class="intake-card order-summary-card" style="margin-top:12px;">
-            <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-              Estimated order total
-            </h3>
-            <p class="service-detail-subtitle" style="margin-bottom:8px;">
-              Includes apostille speed selection and any translation add‑ons.
-            </p>
-            <div class="full-field">
-              <span class="form-label">Current estimate (USD)</span>
-              <input
-                type="text"
-                id="order_estimated_total"
-                name="order_estimated_total"
-                readonly
-                style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
-              >
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" class="btn btn--secondary" data-prev-step="1">← Back</button>
-            <button type="button" class="btn btn-primary" data-next-step="3">
-              Continue to delivery & shipping →
-            </button>
-          </div>
         </div>
-      </section>
-      <!-- ========== /STEP 3 · SPEED & ADD-ONS ========== -->
+      </div>
 
-      <!-- ========== STEP 4 · DELIVERY & SHIPPING ========== -->
-      <section class="intake-step" data-step="3">
-        <div class="intake-card">
+      <button
+        type="button"
+        class="btn-pill"
+        id="add-document-btn"
+        style="margin-top:10px;"
+      >
+        + Add another document group
+      </button>
 
-          <!-- How you get docs to us -->
-          <div class="intake-card" style="margin-bottom:16px;">
-            <p class="step-label">Step 4 of 5 · Delivery & shipping</p>
-            <h2 class="service-detail-title">How will we receive your documents?</h2>
-            <p class="service-detail-subtitle">
-              First choose how you’ll get your documents to us.
-            </p>
+      <div class="full-field" style="margin-top:12px;">
+        <span class="form-label">Total documents</span>
+        <input
+          type="number"
+          id="total_documents"
+          name="total_documents"
+          value="1"
+          readonly
+          style="background:#f3f4f6; cursor:not-allowed;"
+        >
+        <span class="form-help">
+          This updates automatically as you adjust quantity for each group.
+        </span>
+      </div>
 
-          <!-- Appointment / delivery -->
-            <div class="full-field" style="margin-top:8px;">
-              <span class="form-label">How will you get your documents to us? *</span>
-              <div class="usage-toggle" style="margin-top:6px; flex-wrap:wrap; gap:8px;">
-                <button type="button"
-                        class="toggle-pill"
-                        data-delivery-value="home_visit"
-                        id="delivery-home-visit">
-                  In‑person at your home/office
-                </button>
+      <!-- Apostille subtotal -->
+      <div class="full-field" style="margin-top:12px;">
+        <span class="form-label">Estimated apostille total (USD)</span>
+        <input
+          type="text"
+          id="apostille_estimated_total"
+          name="apostille_estimated_total"
+          readonly
+          style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
+        >
+      </div>
+    </div>
 
-                <button type="button"
-                        class="toggle-pill"
-                        data-delivery-value="office_visit"
-                        id="delivery-office-visit">
-                  In‑person at our office
-                </button>
+    <!-- Translation documents card -->
+    <div class="intake-card" id="translation-documents-block" style="display:none; margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Translation documents
+      </h3>
+      <p class="service-detail-subtitle">
+        Only needed if you selected certified document translation in the previous step.
+      </p>
 
-                <button type="button"
-                        class="toggle-pill"
-                        data-delivery-value="mail_in"
-                        id="delivery-mail-in">
-                  Mailing documents to our office
-                </button>
-
-                <button type="button"
-                        class="toggle-pill"
-                        data-delivery-value="upload_only"
-                        id="delivery-upload-only">
-                  Document upload only
-                </button>
-              </div>
-              <input type="hidden" name="delivery_method" id="delivery_method">
-              <span class="form-help">
-                If you’re outside the U.S., you’ll likely use mailing or document upload.
-              </span>
-            </div>
-          </div>
-
-          <!-- Shipping recipient card -->
-          <div class="intake-card">
-            <h3 class="service-detail-title" style="margin-top:0;">Where should completed documents go?</h3>
-            <p class="service-detail-subtitle">
-              Tell us who should receive the finished documents.
-            </p>
-
-            <!-- Shipping recipient -->
-            <div class="full-field" style="margin-top:8px;">
-              <span class="form-label">Once completed, who should we ship the documents to? *</span>
-              <div class="usage-toggle" style="margin-top:6px; flex-direction:column; align-items:flex-start; gap:6px;">
-                <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-                  <input type="radio"
-                         name="shipping_recipient_type"
-                         value="international_recipient"
-                         style="margin-right:8px;">
-                  To an international recipient
-                </label>
-
-                <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-                  <input type="radio"
-                         name="shipping_recipient_type"
-                         value="other_us_recipient"
-                         style="margin-right:8px;">
-                  To another US recipient
-                </label>
-
-                <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-                  <input type="radio"
-                         name="shipping_recipient_type"
-                         value="back_to_you"
-                         style="margin-right:8px;">
-                  Back to you
-                </label>
-
-                <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-                  <input type="radio"
-                         name="shipping_recipient_type"
-                         value="pickup_at_office"
-                         style="margin-right:8px;">
-                  I will pick up the document from your office
-                </label>
-
-                <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-                  <input type="radio"
-                         name="shipping_recipient_type"
-                         value="same_day_courier_la"
-                         style="margin-right:8px;">
-                  Same day courier (Los Angeles County)
-                </label>
-
-                <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-                  <input type="radio"
-                         name="shipping_recipient_type"
-                         value="same_day_courier_oc"
-                         style="margin-right:8px;">
-                  Same day courier (Orange County)
-                </label>
-              </div>
-              <span class="form-help">
-                We’ll confirm exact shipping costs based on the final destination and carrier.
-              </span>
-            </div>
-          </div>
-
-          <!-- Order total summary (Step 4) -->
-          <div class="intake-card order-summary-card" style="margin-top:12px;">
-            <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-              Estimated order total
-            </h3>
-            <p class="service-detail-subtitle" style="margin-bottom:8px;">
-              Your estimated total so far, before any final shipping fees are confirmed.
-            </p>
-            <div class="full-field">
-              <span class="form-label">Current estimate (USD)</span>
-              <input
-                type="text"
-                id="order_estimated_total"
-                name="order_estimated_total"
-                readonly
-                style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
-              >
-            </div>
-          </div>
-
-          <div class="form-actions" style="margin-top:16px;">
-            <button type="button" class="btn btn--secondary" data-prev-step="2">← Back</button>
-            <button type="button" class="btn btn-primary" data-next-step="4">Continue to your details →</button>
-          </div>
+      <div class="form-grid form-grid--two">
+        <div class="full-field">
+          <span class="form-label">From language *</span>
+          <select id="translation_from_language" name="translation_from_language" required>
+            <option value="">Select language...</option>
+            <!-- JS / JSON will populate options -->
+          </select>
         </div>
-      </section>
-      <!-- ========== /STEP 4 · DELIVERY & SHIPPING ========== -->
+
+        <div class="full-field">
+          <span class="form-label">To language *</span>
+          <select id="translation_to_language" name="translation_to_language" required>
+            <option value="">Select language...</option>
+            <!-- JS / JSON will populate options -->
+          </select>
+        </div>
+      </div>
+
+      <div class="full-field" style="margin-top:8px;">
+        <span class="form-label">Approximate pages to translate *</span>
+        <input
+          type="number"
+          id="translation_words"
+          name="translation_words"
+          min="1"
+          value="1"
+          required
+        >
+      </div>
+
+      <!-- Hidden canonical translation total used by pricing JS -->
+      <input type="hidden" id="translation_total" name="translation_total" value="">
+
+      <!-- Translation subtotal (display only) -->
+      <div class="full-field" style="margin-top:12px;">
+        <span class="form-label">Estimated translation total (USD)</span>
+        <input
+          type="text"
+          id="translation_estimated_total"
+          name="translation_estimated_total"
+          readonly
+          style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
+        >
+      </div>
+
+      <span class="form-help">
+        We’ll confirm exact page count and languages when we review your documents.
+      </span>
+    </div>
+
+    <!-- Other names card -->
+    <div class="intake-card" style="margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Other names on these documents
+      </h3>
+      <p class="service-detail-subtitle">
+        Applies whether you are using apostille/authentication, translation, or both.
+      </p>
+
+      <label class="full-field">
+        <span class="form-label">Other names that appear on these documents</span>
+        <textarea
+          id="other_names"
+          name="other_names"
+          rows="3"
+        ></textarea>
+        <span class="form-help">
+          If you are submitting documents for another person (child, spouse, client), list their full
+          name as it appears on the documents. If these are your own documents, you can leave this
+          blank or type N/A.
+        </span>
+      </label>
+    </div>
+
+    <!-- Estimated total card -->
+    <div class="intake-card order-summary-card" style="margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Estimated order total
+      </h3>
+      <p class="service-detail-subtitle" style="margin-bottom:8px;">
+        This total reflects apostille, translation, and add‑ons selected so far.
+      </p>
+      <div class="full-field">
+        <span class="form-label">Current estimate (USD)</span>
+        <input
+          type="text"
+          id="order_estimated_total"
+          name="order_estimated_total"
+          readonly
+          style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
+        >
+      </div>
+    </div>
+
+    <div class="form-actions" style="margin-top:16px;">
+      <button type="button" class="btn btn--secondary" data-prev-step="0">← Back</button>
+      <button type="button" class="btn btn-primary" data-next-step="2">
+        Continue to speed & add‑ons →
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ========== /STEP 2 · YOUR DOCUMENTS ========== -->
+
+
+<!-- ========== STEP 3 · SPEED & ADD‑ONS ========== -->
+<section class="intake-step" data-step="2">
+  <div class="intake-card">
+    <!-- Header card -->
+    <div class="intake-card" style="margin-bottom:12px;">
+      <p class="step-label">Step 3 of 5 · Speed & add‑ons</p>
+      <h2 class="service-detail-title">Choose your turnaround and extras</h2>
+      <p class="service-detail-subtitle">
+        Speed options vary by issuing state and destination country. Add any optional extras you need.
+      </p>
+    </div>
+
+    <!-- Apostille speed options -->
+    <div class="intake-card" id="apostille-speed-block">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Apostille / authentication speed
+      </h3>
+      <p class="service-detail-subtitle">
+        These options apply to apostille or authentication services. We’ll confirm exact timing before you approve.
+      </p>
+
+      <div class="speed-options-container">
+        <!-- JS (updateSpeedOptionsForState) populates radio options here -->
+        <div class="form-help" style="color:#6b7280;">
+          Select an issuing state in Step 2 to see available speed options.
+        </div>
+      </div>
+    </div>
+
+    <!-- Translation add‑ons only -->
+    <div class="intake-card" id="translation-addons-block" style="margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Translation add‑ons (optional)
+      </h3>
+      <p class="service-detail-subtitle">
+        Applies only if you also selected certified translation in Step 1.
+      </p>
+
+      <div class="full-field">
+        <span class="form-label">Optional translation add‑ons</span>
+        <div class="usage-toggle">
+          <label class="toggle-pill">
+            <input type="checkbox" id="addon_shipped_hard_copy">
+            Shipped hard copy (+$35)
+          </label>
+          <label class="toggle-pill">
+            <input type="checkbox" id="addon_notarization">
+            Notarization (+$75)
+          </label>
+          <label class="toggle-pill">
+            <input type="checkbox" id="addon_expedited_turnaround">
+            Expedited turnaround (+$25/page)
+          </label>
+        </div>
+        <span class="form-help">
+          These apply only to translated documents. Leave unchecked if you don’t need them.
+        </span>
+      </div>
+    </div>
+
+    <!-- Estimated total card -->
+    <div class="intake-card order-summary-card" style="margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Estimated order total
+      </h3>
+      <p class="service-detail-subtitle" style="margin-bottom:8px;">
+        Includes apostille speed selection and any translation add‑ons chosen so far.
+      </p>
+      <div class="full-field">
+        <span class="form-label">Current estimate (USD)</span>
+        <input
+          type="text"
+          id="order_estimated_total"
+          name="order_estimated_total"
+          readonly
+          style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
+        >
+      </div>
+    </div>
+
+    <div class="form-actions" style="margin-top:16px;">
+      <button type="button" class="btn btn--secondary" data-prev-step="1">← Back</button>
+      <button type="button" class="btn btn-primary" data-next-step="3">
+        Continue to delivery →
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ========== /STEP 3 · SPEED & ADD‑ONS ========== -->
+
+
+<!-- ========== STEP 4 · DELIVERY & SHIPPING ========== -->
+<section class="intake-step" data-step="3">
+  <div class="intake-card">
+    <!-- Header card -->
+    <div class="intake-card" style="margin-bottom:12px;">
+      <p class="step-label">Step 4 of 5 · Delivery & shipping</p>
+      <h2 class="service-detail-title">How will we receive and return your documents?</h2>
+      <p class="service-detail-subtitle">
+        First choose how you’ll get your documents to us, then tell us who should receive the completed documents.
+      </p>
+    </div>
+
+    <!-- How will we receive your documents? -->
+    <div class="intake-card">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        How will we receive your documents?
+      </h3>
+      <p class="service-detail-subtitle">
+        First choose how you’ll get your documents to us.
+      </p>
+
+      <input type="hidden" id="delivery_method" name="delivery_method" value="in_person_office">
+
+      <div class="usage-toggle">
+        <label class="toggle-pill" data-delivery-value="in_person_home">
+          <input type="radio">
+          In‑person at your home/office
+        </label>
+        <label class="toggle-pill" data-delivery-value="in_person_office">
+          <input type="radio">
+          In‑person at our office
+        </label>
+        <label class="toggle-pill" data-delivery-value="mail_to_office">
+          <input type="radio">
+          Mailing documents to our office
+        </label>
+        <label class="toggle-pill" data-delivery-value="upload_only">
+          <input type="radio">
+          Document upload only
+        </label>
+      </div>
+
+      <span class="form-help">
+        If you’re outside the US, you’ll likely use mailing or document upload.
+      </span>
+    </div>
+
+    <!-- Document upload card (only used when "Document upload only" is selected) -->
+    <div class="intake-card" id="document-upload-card" style="margin-top:16px; display:none;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Upload your documents (optional)
+      </h3>
+      <p class="service-detail-subtitle">
+        If you choose “Document upload only”, you can upload clear scans or photos of your documents here.
+      </p>
+
+      <div class="full-field file-upload-field" style="margin-top:8px;">
+        <span class="form-label">Upload document files</span>
+
+        <!-- Hidden real input -->
+        <input
+          type="file"
+          id="intake_upload_files"
+          name="intake_upload_files[]"
+          multiple
+          accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff"
+          style="display:none;"
+        >
+
+        <!-- Styled trigger -->
+        <label for="intake_upload_files" class="file-upload-trigger">
+          Choose files
+        </label>
+        <span class="file-upload-filename" id="intake_upload_files_name">No files chosen</span>
+
+        <span class="form-help">
+          You can upload multiple files (PDF, JPG, PNG, TIFF). If it’s easier, you can also send files later.
+        </span>
+      </div>
+    </div>
+
+    <!-- Where should completed documents go? -->
+    <div class="intake-card" style="margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Where should completed documents go?
+      </h3>
+      <p class="service-detail-subtitle">
+        Tell us who should receive the finished documents.
+      </p>
+
+      <div class="full-field">
+        <span class="form-label">Once completed, whom should we ship the documents to? *</span>
+
+        <div class="usage-toggle" style="flex-direction:column; gap:6px;">
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="international_recipient"
+              style="margin-right:8px;"
+            >
+            To an international recipient
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="other_us_recipient"
+              style="margin-right:8px;"
+            >
+            To another US recipient
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="back_to_you"
+              style="margin-right:8px;"
+            >
+            Back to you
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="pickup_office"
+              style="margin-right:8px;"
+            >
+            I will pick up the document from your office
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="same_day_courier_la"
+              style="margin-right:8px;"
+            >
+            Same day courier (Los Angeles County)
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="same_day_courier_oc"
+              style="margin-right:8px;"
+            >
+            Same day courier (Orange / Ventura County)
+          </label>
+        </div>
+
+        <span class="form-help">
+          We’ll confirm exact shipping costs based on the final destination and carrier. Same‑day courier fees are added to your estimate.
+        </span>
+      </div>
+    </div>
+
+    <!-- Estimated total card -->
+    <div class="intake-card order-summary-card" style="margin-top:16px;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Estimated order total
+      </h3>
+      <p class="service-detail-subtitle" style="margin-bottom:8px;">
+        Your estimated total so far, before any final shipping fees are confirmed.
+      </p>
+      <div class="full-field">
+        <span class="form-label">Current estimate (USD)</span>
+        <input
+          type="text"
+          id="order_estimated_total"
+          name="order_estimated_total"
+          readonly
+          style="background:#f3f4f6; cursor:not-allowed; font-weight:600;"
+        >
+      </div>
+    </div>
+
+    <div class="form-actions" style="margin-top:16px;">
+      <button type="button" class="btn btn--secondary" data-prev-step="2">← Back</button>
+      <button type="button" class="btn btn-primary" data-next-step="4">
+        Continue to your details →
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ========== /STEP 4 · DELIVERY & SHIPPING ========== -->
+
 
       <!-- ========== STEP 5 · YOUR DETAILS ========== -->
       <section class="intake-step" data-step="4">
         <div class="intake-card">
-          <p class="step-label">Step 5 of 5 · Your details</p>
-          <h2 class="service-detail-title">How can we reach you?</h2>
-          <p class="service-detail-subtitle">
-            We’ll use this to send your quote, confirm details, and return your completed documents.
-          </p>
-
-          <div class="form-grid form-grid--two">
-            <label class="full-field">
-              <span class="form-label">First name *</span>
-              <input id="first_name" name="first_name" autocomplete="given-name" required>
-            </label>
-
-            <label class="full-field">
-              <span class="form-label">Last name *</span>
-              <input id="last_name" name="last_name" autocomplete="family-name" required>
-            </label>
-
-            <label class="full-field">
-              <span class="form-label">Company (optional)</span>
-              <input id="company" name="company" autocomplete="organization">
-              <span class="form-help">For personal documents, you can leave this blank.</span>
-            </label>
-
-            <label class="full-field">
-              <span class="form-label">Email address *</span>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </label>
-
-            <label class="full-field">
-              <span class="form-label">Phone number *</span>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-            </label>
-
-            <label class="full-field">
-              <span class="form-label">Mailing / return address *</span>
-              <input id="pac-input-mailing"
-                     name="mailing_address_1"
-                     autocomplete="address-line1"
-                     required>
-            </label>
-
-            <label class="full-field">
-              <span class="form-label">Address line 2</span>
-              <input id="mailing_address_2" name="mailing_address_2" autocomplete="address-line2">
-            </label>
+          <!-- Header card -->
+          <div class="intake-card" style="margin-bottom:12px;">
+            <p class="step-label">Step 5 of 5 · Your details</p>
+            <h2 class="service-detail-title">Where should everything go, and how can we reach you?</h2>
+            <p class="service-detail-subtitle">
+              First tell us who should receive the completed documents, then tell us how to contact you.
+            </p>
           </div>
 
-          <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-            <label class="full-field" style="flex:1;min-width:160px;">
-              <span class="form-label">City *</span>
-              <input id="mailing_city" name="mailing_city" autocomplete="address-level2" required>
-            </label>
+          <!-- INTERNATIONAL RECIPIENT CARD -->
+          <div class="intake-card hidden" id="international-recipient-card" style="margin-bottom:16px;">
+            <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+              International recipient – contact & address
+            </h3>
+            <p class="service-detail-subtitle">
+              This is the person or organization outside the US who will receive the completed documents.
+            </p>
 
-            <label class="full-field" style="flex:0 0 120px;">
-              <span class="form-label">State *</span>
-              <input id="mailing_state" name="mailing_state" maxlength="2" autocomplete="address-level1" required>
-            </label>
+            <div class="form-grid form-grid--two">
+              <label class="full-field">
+                <span class="form-label">Recipient first name *</span>
+                <input id="intl_recipient_first_name" name="intl_recipient_first_name" type="text">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient last name *</span>
+                <input id="intl_recipient_last_name" name="intl_recipient_last_name" type="text">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient company (optional)</span>
+                <input id="intl_recipient_company" name="intl_recipient_company" type="text">
+                <span class="form-help">Leave this blank if the documents are for a private individual.</span>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient email address *</span>
+                <input id="intl_recipient_email" name="intl_recipient_email" type="email">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient phone number *</span>
+                <input id="intl_recipient_phone" name="intl_recipient_phone" type="tel" inputmode="tel">
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+              <label class="full-field">
+                <span class="form-label">Address line 1 *</span>
+                <input id="intl_recipient_address_1" name="intl_recipient_address_1" type="text">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Address line 2</span>
+                <input id="intl_recipient_address_2" name="intl_recipient_address_2" type="text">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Address line 3</span>
+                <input id="intl_recipient_address_3" name="intl_recipient_address_3" type="text">
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <label class="full-field" style="flex:1;min-width:150px;">
+                <span class="form-label">City / town *</span>
+                <input id="intl_recipient_city" name="intl_recipient_city" type="text">
+              </label>
+
+              <label class="full-field" style="flex:1;min-width:150px;">
+                <span class="form-label">State / province / region</span>
+                <input id="intl_recipient_state" name="intl_recipient_state" type="text">
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <label class="full-field" style="flex:1;min-width:150px;">
+                <span class="form-label">Postal / ZIP code</span>
+                <input id="intl_recipient_postal" name="intl_recipient_postal" type="text">
+              </label>
+
+              <label class="full-field" style="flex:1;min-width:150px;">
+                <span class="form-label">Country *</span>
+                <input id="intl_recipient_country" name="intl_recipient_country" type="text">
+              </label>
+            </div>
+
+            <span class="form-help">
+              Please enter the address exactly as it should appear on an international courier label (FedEx, DHL, etc.).
+            </span>
           </div>
 
-          <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
-            <label class="full-field" style="flex:1;min-width:160px;">
-              <span class="form-label">ZIP code *</span>
-              <input id="mailing_zip" name="mailing_zip" autocomplete="postal-code" required>
-            </label>
+          <!-- US RECIPIENT CARD -->
+          <div class="intake-card hidden" id="us-recipient-card" style="margin-bottom:16px;">
+            <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+              US recipient – contact & address
+            </h3>
+            <p class="service-detail-subtitle">
+              This is another US‑based person or organization who will receive the completed documents.
+            </p>
 
-            <label class="full-field" style="flex:1;min-width:160px;">
-              <span class="form-label">Country *</span>
-              <input id="mailing_country" name="mailing_country"
-                     value="United States" autocomplete="country-name" required>
-            </label>
+            <div class="form-grid form-grid--two">
+              <label class="full-field">
+                <span class="form-label">Recipient first name *</span>
+                <input id="us_recipient_first_name" name="us_recipient_first_name" type="text">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient last name *</span>
+                <input id="us_recipient_last_name" name="us_recipient_last_name" type="text">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient company (optional)</span>
+                <input id="us_recipient_company" name="us_recipient_company" type="text">
+                <span class="form-help">Only needed if the documents are going to a business or firm.</span>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient email address *</span>
+                <input id="us_recipient_email" name="us_recipient_email" type="email">
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Recipient phone number *</span>
+                <input id="us_recipient_phone" name="us_recipient_phone" type="tel" inputmode="tel">
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <label class="full-field" style="flex:1;min-width:200px;">
+                <span class="form-label">Address line 1 *</span>
+                <input id="us_recipient_address_1" name="us_recipient_address_1" type="text">
+              </label>
+
+              <label class="full-field" style="flex:1;min-width:200px;">
+                <span class="form-label">Address line 2</span>
+                <input id="us_recipient_address_2" name="us_recipient_address_2" type="text">
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <label class="full-field" style="flex:1;min-width:160px;">
+                <span class="form-label">City *</span>
+                <input id="us_recipient_city" name="us_recipient_city" type="text">
+              </label>
+
+              <label class="full-field" style="flex:0 0 140px;">
+                <span class="form-label">State *</span>
+                <input id="us_recipient_state" name="us_recipient_state" type="text" maxlength="32">
+              </label>
+
+              <label class="full-field" style="flex:0 0 140px;">
+                <span class="form-label">ZIP code *</span>
+                <input id="us_recipient_zip" name="us_recipient_zip" type="text">
+              </label>
+
+              <label class="full-field" style="flex:1;min-width:160px;">
+                <span class="form-label">Country *</span>
+                <input
+                  id="us_recipient_country"
+                  name="us_recipient_country"
+                  type="text"
+                  value="United States"
+                >
+              </label>
+            </div>
+          </div>
+
+          <!-- YOUR CONTACT DETAILS -->
+          <div class="intake-card" id="your-contact-card">
+            <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+              How can we reach you?
+            </h3>
+            <p class="service-detail-subtitle">
+              We’ll use this to send your quote, confirm details, and coordinate shipping.
+            </p>
+
+            <div class="form-grid form-grid--two">
+              <label class="full-field">
+                <span class="form-label">First name *</span>
+                <input id="first_name" name="given_name" type="text" autocomplete="given-name" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Last name *</span>
+                <input id="last_name" name="family_name" type="text" autocomplete="family-name" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Company (optional)</span>
+                <input id="company" name="organization" type="text" autocomplete="organization">
+                <span class="form-help">Leave this blank if this is a personal request.</span>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Email address *</span>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </label>
+
+              <label class="full-field">
+                <span class="form-label">Phone number *</span>
+                <input id="phone" name="tel" type="tel" inputmode="tel" autocomplete="tel-national" required>
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <label class="full-field" style="flex:1;min-width:200px;">
+                <span class="form-label">Your mailing / return address *</span>
+                <input
+                  id="mailing_address_1"
+                  name="street_address"
+                  type="text"
+                  autocomplete="street-address address-line1"
+                  required
+                >
+              </label>
+
+              <label class="full-field" style="flex:1;min-width:200px;">
+                <span class="form-label">Address line 2</span>
+                <input
+                  id="mailing_address_2"
+                  name="address_line2"
+                  type="text"
+                  autocomplete="address-line2"
+                >
+              </label>
+            </div>
+
+            <div class="address-row" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+              <label class="full-field" style="flex:1;min-width:160px;">
+                <span class="form-label">City *</span>
+                <input
+                  id="mailing_city"
+                  name="address_level2"
+                  type="text"
+                  autocomplete="address-level2"
+                  required
+                >
+              </label>
+
+              <label class="full-field" style="flex:0 0 140px;">
+                <span class="form-label">State / province *</span>
+                <input
+                  id="mailing_state"
+                  name="address_level1"
+                  type="text"
+                  maxlength="32"
+                  autocomplete="address-level1"
+                  required
+                >
+              </label>
+
+              <label class="full-field" style="flex:0 0 140px;">
+                <span class="form-label">ZIP / postal code *</span>
+                <input
+                  id="mailing_zip"
+                  name="postal_code"
+                  type="text"
+                  autocomplete="postal-code"
+                  required
+                >
+              </label>
+
+              <label class="full-field" style="flex:1;min-width:160px;">
+                <span class="form-label">Country *</span>
+                <input
+                  id="mailing_country"
+                  name="country_name"
+                  type="text"
+                  value="United States"
+                  autocomplete="country-name"
+                  required
+                >
+              </label>
+            </div>
           </div>
 
           <!-- Hidden internal tags -->
           <input type="hidden" name="form_source" value="website-apostille-intake">
           <input type="hidden" name="lead_type" value="apostille">
 
-          <!-- Order total summary (Step 5) -->
-          <div class="intake-card order-summary-card" style="margin-top:12px;">
+          <!-- Order total summary -->
+          <div class="intake-card order-summary-card" style="margin-top:16px;">
             <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
               Estimated order total
             </h3>
             <p class="service-detail-subtitle" style="margin-bottom:8px;">
-              This is the total we’ll confirm with you before starting your order.
+              This is the total we’ll confirm with you before starting your order, including any courier fees.
             </p>
             <div class="full-field">
               <span class="form-label">Current estimate (USD)</span>
@@ -818,24 +1084,76 @@
       <!-- ========== /STEP 5 · YOUR DETAILS ========== -->
 
     </form>
+
     <!-- ========== /INTAKE FORM (ALL STEPS) ========== -->
 
-  </div>
-</div>
-<!-- ========== /APOSTILLE INTAKE WRAPPER ========== -->
+      </div> <!-- .intake-shell -->
+    </div>   <!-- .page-wrap -->
+  </main>
 
-<!-- Load pricing data first -->
-<script src="apostille-pricing-rules.js"></script>
-<script src="apostille-country-rules.js"></script>
-<script src="county-pricing-rules.js"></script>
-<script src="state-pricing-rules.js"></script>  <!-- ADD THIS -->
-<script src="translation-pricing-rules.js"></script>
+  <!-- Shared footer -->
+  <div id="footer-placeholder"></div>
 
-<!-- Then load main intake logic -->
-<script src="apostille-intake.js"></script>
+  <!-- Pricing / rules data (load before main intake logic) -->
+  <script src="apostille-pricing-rules.js"></script>
+  <!-- <script src="apostille-country-rules.js"></script> -->
+  <script src="county-pricing-rules.js"></script>
+  <script src="state-pricing-rules.js"></script>
+  <script src="translation-pricing-rules.js"></script>
+  <script src="country-pricing-rules.js"></script>
 
+  <!-- Main intake logic -->
+  <script src="apostille-intake.js"></script>
 
+  <!-- Step 1: require at least one service -->
+  <script>
+    (function () {
+      const stepOneSection = document.querySelector('.intake-step[data-step="0"]');
+      const nextBtn = stepOneSection?.querySelector('button.btn.btn-primary[data-next-step="1"]');
+      if (!nextBtn) return;
 
+      nextBtn.addEventListener('click', function (e) {
+        const apostille = document.getElementById('svc-apostille')?.checked;
+        const translation = document.getElementById('svc-translation')?.checked;
+        const errorEl = document.getElementById('services-error');
+
+        if (!apostille && !translation) {
+          if (errorEl) errorEl.style.display = 'inline';
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          return false;
+        }
+
+        if (errorEl) errorEl.style.display = 'none';
+      }, true);
+    })();
+  </script>
+
+  <!-- Wire Step‑1 services to Step‑2 cards -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const apostilleCheckbox   = document.getElementById('svc-apostille');
+      const translationCheckbox = document.getElementById('svc-translation');
+
+      const apostilleBlock   = document.getElementById('apostille-documents-block');
+      const translationBlock = document.getElementById('translation-documents-block');
+
+      if (!apostilleCheckbox || !translationCheckbox || !apostilleBlock || !translationBlock) return;
+
+      const syncServiceBlocks = () => {
+        apostilleBlock.style.display   = apostilleCheckbox.checked   ? 'block' : 'none';
+        translationBlock.style.display = translationCheckbox.checked ? 'block' : 'none';
+      };
+
+      apostilleCheckbox.addEventListener('change', syncServiceBlocks);
+      translationCheckbox.addEventListener('change', syncServiceBlocks);
+      syncServiceBlocks();
+    });
+  </script>
+
+  <!-- Shared header/footer injection scripts (relative to this folder) -->
+  <script src="header.js" defer></script>
+  <script src="footer.js" defer></script>
 </body>
 </html>
 

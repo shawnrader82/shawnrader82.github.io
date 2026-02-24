@@ -1,9 +1,47 @@
 // ========== STEP 3 · SCRIPTS (LOCAL TO THIS STEP) ==========
 
-// Helper to read rules from apostille-country-rules.js
+// Build translation language selects from TRANSLATION_PRICING_RULES
+function populateTranslationLanguageSelects() {
+  const rules = window.TRANSLATION_PRICING_RULES;
+  if (!rules || !rules.pairs) return;
+
+  const fromSelect = document.getElementById("translation_from_language");
+  const toSelect   = document.getElementById("translation_to_language");
+  if (!fromSelect || !toSelect) return;
+
+  // Collect unique language names from all pairs
+  const langs = new Set();
+  Object.values(rules.pairs).forEach(pair => {
+    if (pair.source) langs.add(pair.source);
+    if (pair.target) langs.add(pair.target);
+  });
+
+  const sortedLangs = Array.from(langs).sort();
+
+  function fillSelect(select) {
+    // Keep the first placeholder option, remove the rest
+    while (select.options.length > 1) {
+      select.remove(1);
+    }
+    sortedLangs.forEach(lang => {
+      const opt = document.createElement("option");
+      opt.value = lang;
+      opt.textContent = lang;
+      select.appendChild(opt);
+    });
+  }
+
+  fillSelect(fromSelect);
+  fillSelect(toSelect);
+}
+
+
+// Helper to read rules from country-pricing-rules.js
 function getCountryRule(countryName) {
-  if (!window.APOSTILLE_COUNTRY_RULES) return null;
-  return window.APOSTILLE_COUNTRY_RULES[countryName] || null;
+  if (typeof window.COUNTRY_PRICING_RULES === "object" && window.COUNTRY_PRICING_RULES !== null) {
+    return window.COUNTRY_PRICING_RULES[countryName] || null;
+  }
+  return null;
 }
 
 // Helper to read county rules from county-pricing-rules.js
@@ -21,25 +59,10 @@ function getCountyCostsForState(stateName, docCount) {
 
 // Build the master country list once
 function getAllCountriesFromRulesOrFallback() {
-  let countries = [];
-  if (window.APOSTILLE_COUNTRY_RULES) {
-    countries = Object.keys(window.APOSTILLE_COUNTRY_RULES).sort();
-  } else {
-    countries = [
-      "Afghanistan", "Albania", "Algeria", "Argentina", "Australia", "Austria",
-      "Bahrain", "Bangladesh", "Belgium", "Brazil", "Canada", "Chile", "China",
-      "Colombia", "Costa Rica", "Croatia", "Cyprus", "Czech Republic", "Denmark",
-      "Dominican Republic", "Ecuador", "Egypt", "France", "Germany", "Greece",
-      "Hong Kong", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel",
-      "Italy", "Japan", "Jordan", "Kuwait", "Lebanon", "Malaysia", "Mexico",
-      "Morocco", "Netherlands", "New Zealand", "Norway", "Pakistan", "Peru",
-      "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia",
-      "Saudi Arabia", "Singapore", "South Africa", "South Korea", "Spain",
-      "Sweden", "Switzerland", "Taiwan", "Thailand", "Turkey", "Ukraine",
-      "United Arab Emirates", "United Kingdom", "United States", "Vietnam"
-    ];
+  if (typeof window.COUNTRY_PRICING_RULES === "object" && window.COUNTRY_PRICING_RULES !== null) {
+    return Object.keys(window.COUNTRY_PRICING_RULES).sort();
   }
-  return countries;
+  return [];
 }
 
 // Populate all per-document country selects
@@ -52,10 +75,28 @@ function populateDocumentCountrySelects() {
   selects.forEach(select => {
     if (select.dataset.populated === "true") return;
 
+    while (select.options.length > 1) {
+      select.remove(1);
+    }
+
     countries.forEach(country => {
       const opt = document.createElement("option");
       opt.value = country;
-      opt.textContent = country;
+
+      const rule = getCountryRule(country);
+
+      let isAvailable = true;
+      if (rule && typeof rule.serviceAvailable === "boolean") {
+        isAvailable = rule.serviceAvailable;
+      }
+
+      if (!isAvailable) {
+        opt.disabled = true;
+        opt.textContent = country + " (not currently serviceable)";
+      } else {
+        opt.textContent = country;
+      }
+
       select.appendChild(opt);
     });
 
@@ -68,15 +109,19 @@ function populateDocumentCountrySelects() {
 
       if (helpEl) {
         if (!rule) {
-          helpEl.textContent = "Used to apply Hague vs non-Hague rules and any country-specific fees for this document group.";
-        } else if (rule.type === "non_hague") {
-          const consulate = rule.consulateFee || 0;
-          helpEl.textContent = "Non-Hague destination: additional consulate/authentication steps apply. " +
+          helpEl.textContent =
+            "Used to apply Hague vs non-Hague rules and any country-specific fees for this document group.";
+        } else if (rule.type === "non_hague" || rule.type === "nonhague") {
+          const personalFees = rule.fees && rule.fees.personal ? rule.fees.personal : null;
+          const consulate = personalFees ? (personalFees.consulateFee || 0) : 0;
+          helpEl.textContent =
+            "Non-Hague destination: additional consulate/authentication steps apply. " +
             (consulate > 0
               ? `Estimated consulate fee around $${consulate} per document in this group (plus service/chamber fees where required).`
               : "Additional fees vary by country and document type.");
         } else {
-          helpEl.textContent = "Hague Convention member: standard apostille is usually sufficient for this document group.";
+          helpEl.textContent =
+            "Hague Convention member: standard apostille is usually sufficient for this document group.";
         }
       }
 
@@ -116,16 +161,14 @@ if (addDocBtn && docListEl) {
     const header = newRow.querySelector(".document-row-header");
     header.innerHTML = `
       <span>Document #${docCounter}</span>
-      <button type="button" class="btn-pill btn-pill--danger remove-doc-btn">Remove</button>
+      <button type="button" class="btn-pill btn-pill--danger remove-doc_btn">Remove</button>
     `;
 
     newRow.querySelectorAll(".doc-quantity").forEach(i => (i.value = 1));
     newRow.querySelectorAll("select").forEach(sel => (sel.selectedIndex = 0));
 
-    // Reset the country select populated flag so it gets repopulated
     newRow.querySelectorAll(".document-country-select").forEach(sel => {
       sel.dataset.populated = "false";
-      // Clear existing options except the first placeholder
       while (sel.options.length > 1) {
         sel.remove(1);
       }
@@ -155,95 +198,44 @@ if (addDocBtn && docListEl) {
   updateTotalDocuments();
 }
 
-// ========== TRANSLATION PRICING (from translation-pricing-rules.js) ==========
-
-// Build unique language list from translation-pricing-rules.js
-function getUniqueLanguages() {
-  if (!window.TRANSLATION_PRICING_RULES?.pairs) {
-    console.warn("TRANSLATION_PRICING_RULES not loaded");
-    return [];
-  }
-  const set = new Set();
-  Object.values(window.TRANSLATION_PRICING_RULES.pairs).forEach(pair => {
-    set.add(pair.source);
-    set.add(pair.target);
-  });
-  return Array.from(set).sort();
-}
-
-function populateTranslationLanguageSelects() {
-  const fromSel = document.getElementById("translation_from_language");
-  const toSel = document.getElementById("translation_to_language");
-  if (!fromSel || !toSel) return;
-
-  const langs = getUniqueLanguages();
-  langs.forEach(lang => {
-    const o1 = document.createElement("option");
-    o1.value = o1.textContent = lang;
-    fromSel.appendChild(o1);
-
-    const o2 = document.createElement("option");
-    o2.value = o2.textContent = lang;
-    toSel.appendChild(o2);
-  });
-}
-
-// Look up translation rate from external rules
-function findRateRow(sourceLang, targetLang) {
-  if (!window.TRANSLATION_PRICING_RULES?.pairs) return null;
-  const key = `${sourceLang}__${targetLang}`;
-  return window.TRANSLATION_PRICING_RULES.pairs[key] || null;
-}
+// ========== TRANSLATION PRICING (flat per page) ==========
 
 function calculateTranslationTotal() {
-  const fromSel = document.getElementById("translation_from_language");
-  const toSel = document.getElementById("translation_to_language");
   const usage = document.getElementById("usage_type");
-  const wordsEl = document.getElementById("translation_words");
+  const pagesEl = document.getElementById("translation_words");
   const totalField = document.getElementById("translation_total");
 
-  if (!fromSel || !toSel || !usage || !wordsEl) return 0;
+  if (!usage || !pagesEl) return 0;
 
-  const source = fromSel.value;
-  const target = toSel.value;
-  if (!source || !target || source === target) {
-    if (totalField) totalField.value = "";
-    return 0;
-  }
+  const raw = parseInt(pagesEl.value || "0", 10) || 0;
+  const pages = Math.max(1, raw);
 
-  const row = findRateRow(source, target);
-  if (!row) {
-    if (totalField) totalField.value = "";
-    return 0;
-  }
+  const isBusiness = usage.value === "business";
+  const baseRatePerPage = isBusiness ? 55 : 45;
+  let total = pages * baseRatePerPage;
 
-  const totalWords = parseInt(wordsEl.value || "0", 10) || 0;
-  const pages = Math.max(1, Math.ceil(totalWords / 250));
-
-  // Use field names from external rules
-  const baseRate = usage.value === "business" ? row.businessPerPage : row.personalPerPage;
-  let total = pages * baseRate;
-
-  // Check expedited checkbox - uses rushPerPage from rules
   const expediteCheckbox = document.getElementById("addon_expedited_turnaround");
   if (expediteCheckbox && expediteCheckbox.checked) {
-    total += pages * row.rushPerPage;
+    const rushPerPage = 25;
+    total += pages * rushPerPage;
   }
 
-  // Process other addons from external rules
-  const addons = window.TRANSLATION_PRICING_RULES?.addons || {};
+  const addonsConfig = {
+    shipped_hard_copy: { price: 35, type: "per_transaction" },
+    notarization: { price: 75, type: "per_transaction" },
+  };
 
   ["shipped_hard_copy", "notarization"].forEach(code => {
     const checkbox = document.getElementById(`addon_${code}`);
     if (!checkbox || !checkbox.checked) return;
 
-    const addon = addons[code];
-    if (!addon) return;
+    const cfg = addonsConfig[code];
+    if (!cfg) return;
 
-    if (addon.priceType === "per_page") {
-      total += addon.price * pages;
-    } else if (addon.priceType === "per_transaction") {
-      total += addon.price;
+    if (cfg.type === "per_page") {
+      total += cfg.price * pages;
+    } else {
+      total += cfg.price;
     }
   });
 
@@ -277,12 +269,13 @@ function calculateBaseTotal() {
   const needApostille = apostilleInput && apostilleInput.checked;
   const needTranslation = translationInput && translationInput.checked;
 
-  let total = 0;
+  let apostilleTotal = 0;
+  let translationTotal = 0;
 
+  // ----- Apostille portion -----
   if (needApostille) {
-    total += getApostillePrice(usageType, docCount);
+    apostilleTotal += getApostillePrice(usageType, docCount);
 
-    // ========== COUNTY FEES (per document row) ==========
     const allRows = document.querySelectorAll("#document-list .document-row");
     const statesAlreadyCharged = new Set();
 
@@ -297,16 +290,14 @@ function calculateBaseTotal() {
 
       const countyRule = window.COUNTY_PRICING_RULES ? window.COUNTY_PRICING_RULES[stateName] : null;
       if (countyRule && countyRule.requiresCountyAuth) {
-        total += (countyRule.countyPerDocFee || 0) * qty;
+        apostilleTotal += (countyRule.countyPerDocFee || 0) * qty;
         if (!statesAlreadyCharged.has(stateName)) {
-          total += countyRule.countyServiceFee || 0;
+          apostilleTotal += countyRule.countyServiceFee || 0;
           statesAlreadyCharged.add(stateName);
         }
       }
     });
-    // ========== /COUNTY FEES ==========
 
-    // ========== MULTI-STATE FEE ==========
     const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
     const uniqueStates = new Set();
     allStateSelects.forEach(sel => {
@@ -317,11 +308,9 @@ function calculateBaseTotal() {
       const additionalStateFee = typeof window.getAdditionalStateFee === "function"
         ? window.getAdditionalStateFee()
         : 75;
-      total += additionalStateFee * (uniqueStates.size - 1);
+      apostilleTotal += additionalStateFee * (uniqueStates.size - 1);
     }
-    // ========== /MULTI-STATE FEE ==========
 
-    // ========== NON-HAGUE COUNTRY FEES ==========
     const rows = document.querySelectorAll("#document-list .document-row");
     rows.forEach(row => {
       const qtyInput = row.querySelector(".doc-quantity");
@@ -335,31 +324,62 @@ function calculateBaseTotal() {
       const rule = getCountryRule(country);
       if (!rule || rule.type !== "non_hague") return;
 
-      const consulatePerDoc = parseFloat(rule.consulateFee || 0);
-      const serviceFee = parseFloat(rule.serviceFee || 0);
-      const chamberFee = parseFloat(rule.chamberFee || 0);
+      const fees = rule.fees || {};
+      const feeSet = fees[usageType] || fees.personal || fees.business || null;
+      if (!feeSet) return;
 
-      if (consulatePerDoc) total += consulatePerDoc * qty;
-      if (serviceFee) total += serviceFee;
-      if (chamberFee) total += chamberFee;
+      const consulatePerDoc = parseFloat(feeSet.consulateFee || 0);
+      const serviceFee = parseFloat(feeSet.serviceFee || 0);
+      const chamberFee = parseFloat(feeSet.chamberFee || 0);
+
+      if (consulatePerDoc) apostilleTotal += consulatePerDoc * qty;
+      if (serviceFee) apostilleTotal += serviceFee;
+      if (chamberFee) apostilleTotal += chamberFee;
     });
-    // ========== /NON-HAGUE COUNTRY FEES ==========
   }
 
+  // Write apostille subtotal into Step 2 field
+  const apostilleSubtotalField = document.getElementById("apostille_estimated_total");
+  if (apostilleSubtotalField) {
+    apostilleSubtotalField.value = needApostille && apostilleTotal > 0
+      ? "$" + apostilleTotal.toFixed(2)
+      : "";
+  }
+
+  // ----- Translation portion -----
   if (needTranslation) {
     const translationField = document.getElementById("translation_total");
+    const usageFieldForTrans = document.getElementById("usage_type");
+    const pagesEl = document.getElementById("translation_words");
+
+    const usageTypeForTranslation = usageFieldForTrans ? usageFieldForTrans.value : "personal";
+    const isBusiness = usageTypeForTranslation === "business";
+    const baseRatePerPage = isBusiness ? 55 : 45;
+
     if (translationField && translationField.value) {
-      total += parseFloat(translationField.value || "0");
+      translationTotal += parseFloat(translationField.value || "0");
+    } else {
+      const raw = pagesEl ? parseInt(pagesEl.value || "0", 10) || 0 : 0;
+      const pages = Math.max(1, raw);
+      translationTotal += pages * baseRatePerPage;
     }
   }
 
-  return total;
+  // Write translation subtotal into Step 2 field
+  const translationSubtotalField = document.getElementById("translation_estimated_total");
+  if (translationSubtotalField) {
+    translationSubtotalField.value = needTranslation && translationTotal > 0
+      ? "$" + translationTotal.toFixed(2)
+      : "";
+  }
+
+  // Combined base total for overall estimate
+  return apostilleTotal + translationTotal;
 }
 
 function updateOrderEstimate() {
   const base = calculateBaseTotal();
 
-  // Sum speed prices from ALL state speed selections
   let speedPrice = 0;
   const speedContainer = document.querySelector("#apostille-speed-block .speed-options-container");
   if (speedContainer) {
@@ -374,6 +394,10 @@ function updateOrderEstimate() {
     el.value = grandTotal > 0 ? "$" + grandTotal.toFixed(2) : "";
   });
 }
+
+// make sure listeners can see it
+window.updateOrderEstimate = updateOrderEstimate;
+
 
 // ========== INTAKE FORM SCRIPTS (GLOBAL) ==========
 
@@ -400,12 +424,52 @@ function updateServiceTiles() {
   if (translationAddons) translationAddons.classList.toggle("hidden", !translationInput.checked);
 }
 
+function updateRequiredFieldsForServices() {
+  const apostilleInput = document.getElementById("svc-apostille");
+  const translationInput = document.getElementById("svc-translation");
+
+  const apostilleSelected = apostilleInput && apostilleInput.checked;
+  const translationSelected = translationInput && translationInput.checked;
+
+  // Apostille: all issuing state / doc type / quantity / country fields
+  document.querySelectorAll("#apostille-documents-block .document-row").forEach(row => {
+    const stateSel   = row.querySelector('select[name="document_state[]"]');
+    const typeSel    = row.querySelector('select[name="document_type[]"]');
+    const qtyInput   = row.querySelector('.doc-quantity');
+    const countrySel = row.querySelector('.document-country-select');
+
+    [stateSel, typeSel, qtyInput, countrySel].forEach(el => {
+      if (!el) return;
+      if (apostilleSelected) {
+        el.setAttribute("required", "required");
+      } else {
+        el.removeAttribute("required");
+      }
+    });
+  });
+
+  // Translation: from / to / pages in Step 2
+  const fromLang = document.getElementById("translation_from_language");
+  const toLang   = document.getElementById("translation_to_language");
+  const pages    = document.getElementById("translation_words");
+
+  [fromLang, toLang, pages].forEach(el => {
+    if (!el) return;
+    if (translationSelected) {
+      el.setAttribute("required", "required");
+    } else {
+      el.removeAttribute("required");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const steps = Array.from(document.querySelectorAll(".intake-step"));
   const pills = Array.from(document.querySelectorAll(".intake-step-pill"));
 
   populateTranslationLanguageSelects();
   populateDocumentCountrySelects();
+  updateRequiredFieldsForServices();
 
   ["translation_from_language", "translation_to_language", "translation_words"].forEach(id => {
     const el = document.getElementById(id);
@@ -430,6 +494,118 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+
+  // ========== SHIPPING RECIPIENT CARDS & COURIER FEES ==========
+  function updateRecipientCardsAndCourierFees() {
+    const intlCard = document.getElementById("international-recipient-card");
+    const usCard = document.getElementById("us-recipient-card");
+    const radios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+    if (!radios.length) return;
+
+    let selected = null;
+    radios.forEach(r => {
+      if (r.checked) selected = r.value;
+    });
+
+    // Hide both by default
+    if (intlCard) intlCard.classList.add("hidden");
+    if (usCard) usCard.classList.add("hidden");
+
+    // Show the correct card based on Step 4 selection
+    if (selected === "international_recipient") {
+      if (intlCard) intlCard.classList.remove("hidden");
+    } else if (selected === "other_us_recipient") {
+      if (usCard) usCard.classList.remove("hidden");
+    }
+
+    // Same‑day courier fees
+    let courierFee = 0;
+    if (selected === "same_day_courier_la") {
+      courierFee = 65;
+    } else if (selected === "same_day_courier_oc") {
+      courierFee = 130;
+    }
+    window._courierFee = courierFee || 0;
+
+    if (typeof updateOrderEstimate === "function") {
+      updateOrderEstimate();
+    }
+  }
+
+  // Watch for changes on Step‑4 shipping-recipient radios
+  document.querySelectorAll('input[name="shipping_recipient_type"]').forEach(radio => {
+    radio.addEventListener("change", updateRecipientCardsAndCourierFees);
+  });
+
+  // Initialize once on load
+  updateRecipientCardsAndCourierFees();
+
+  // ========== GOOGLE PLACES AUTOCOMPLETE (US ADDRESSES) ==========
+  function attachUsAddressAutocomplete(config) {
+    const addressInput = document.getElementById(config.addressId);
+    if (!addressInput || !window.google || !window.google.maps || !window.google.maps.places) {
+      return;
+    }
+
+    const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+      types: ["address"],
+      componentRestrictions: { country: ["us"] }
+    });
+
+    autocomplete.addListener("place_changed", () => {
+      const place = autocomplete.getPlace();
+      if (!place || !place.address_components) return;
+
+      const components = {
+        street_number: "",
+        route: "",
+        locality: "",
+        administrative_area_level_1: "",
+        postal_code: "",
+        country: ""
+      };
+
+      place.address_components.forEach(c => {
+        const type = c.types[0];
+        if (components.hasOwnProperty(type)) {
+          components[type] = c.long_name;
+        }
+      });
+
+      const line1 = [components.street_number, components.route].filter(Boolean).join(" ").trim();
+
+      const cityEl = document.getElementById(config.cityId);
+      const stateEl = document.getElementById(config.stateId);
+      const zipEl = document.getElementById(config.zipId);
+      const countryEl = document.getElementById(config.countryId);
+
+      if (addressInput && line1) addressInput.value = line1;
+      if (cityEl && components.locality) cityEl.value = components.locality;
+      if (stateEl && components.administrative_area_level_1) stateEl.value = components.administrative_area_level_1;
+      if (zipEl && components.postal_code) zipEl.value = components.postal_code;
+      if (countryEl && components.country) countryEl.value = components.country;
+    });
+  }
+
+  function initUsAutocompletes() {
+    attachUsAddressAutocomplete({
+      addressId: "mailing_address_1",
+      cityId: "mailing_city",
+      stateId: "mailing_state",
+      zipId: "mailing_zip",
+      countryId: "mailing_country"
+    });
+
+    attachUsAddressAutocomplete({
+      addressId: "us_recipient_address_1",
+      cityId: "us_recipient_city",
+      stateId: "us_recipient_state",
+      zipId: "us_recipient_zip",
+      countryId: "us_recipient_country"
+    });
+  }
+
+  setTimeout(initUsAutocompletes, 800);
 
   function updateStepPillVisibility(activeIndex) {
     const total = pills.length;
@@ -482,10 +658,68 @@ document.addEventListener("DOMContentLoaded", function () {
     updateOrderEstimate();
   }
 
+  // expose for other code (if needed)
+  window.setActiveStep = setActiveStep;
+
+  // Generic next-step handler, except Step 2 (uses custom validation)
   document.querySelectorAll("[data-next-step]").forEach(btn => {
-    btn.addEventListener("click", () => setActiveStep(parseInt(btn.getAttribute("data-next-step"), 10)));
+    const target = parseInt(btn.getAttribute("data-next-step"), 10);
+    if (target === 2) return; // Step 2 handled separately
+    btn.addEventListener("click", () => setActiveStep(target));
   });
 
+  // Step-2 validation before moving to Step 3
+  const step2NextBtn = document.querySelector('button[data-next-step="2"]');
+  if (step2NextBtn) {
+    step2NextBtn.addEventListener("click", () => {
+      const apostilleInput = document.getElementById("svc-apostille");
+      const translationInput = document.getElementById("svc-translation");
+      const apostilleSelected = apostilleInput && apostilleInput.checked;
+      const translationSelected = translationInput && translationInput.checked;
+
+      let valid = true;
+
+      document.querySelectorAll(".field-error").forEach(el => el.classList.remove("field-error"));
+
+      if (apostilleSelected) {
+        document.querySelectorAll("#apostille-documents-block .document-row").forEach(row => {
+          ["document_state[]", "document_type[]", "document_quantity[]", "document_country[]"].forEach(name => {
+            const el = row.querySelector(`[name="${name}"]`);
+            if (!el) return;
+            const empty = !el.value || (el.type === "number" && Number(el.value) <= 0);
+            if (empty) {
+              valid = false;
+              el.classList.add("field-error");
+            }
+          });
+        });
+      }
+
+      if (translationSelected) {
+        const fromLang = document.getElementById("translation_from_language");
+        const toLang   = document.getElementById("translation_to_language");
+        const pages    = document.getElementById("translation_words");
+
+        [fromLang, toLang, pages].forEach(el => {
+          if (!el) return;
+          const empty = !el.value || (el.type === "number" && Number(el.value) <= 0);
+          if (empty) {
+            valid = false;
+            el.classList.add("field-error");
+          }
+        });
+      }
+
+      if (!valid) {
+        alert("Please complete all required fields in Step 2 before continuing.");
+        return;
+      }
+
+      setActiveStep(2);
+    });
+  }
+
+  // Previous-step buttons
   document.querySelectorAll("[data-prev-step]").forEach(btn => {
     btn.addEventListener("click", () => setActiveStep(parseInt(btn.getAttribute("data-prev-step"), 10)));
   });
@@ -511,6 +745,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (apostilleInput) {
     apostilleInput.addEventListener("change", () => {
       updateServiceTiles();
+      updateRequiredFieldsForServices();
       updateOrderEstimate();
     });
   }
@@ -518,32 +753,60 @@ document.addEventListener("DOMContentLoaded", function () {
   if (translationInput) {
     translationInput.addEventListener("change", () => {
       updateServiceTiles();
+      updateRequiredFieldsForServices();
       calculateTranslationTotal();
       updateOrderEstimate();
     });
   }
 
+  // Delivery method pills → set hidden input + toggle upload card
   const deliveryField = document.getElementById("delivery_method");
+  const uploadCard = document.getElementById("document-upload-card");
+
   if (deliveryField) {
-    document.querySelectorAll("[data-delivery-value]").forEach(btn => {
+    const deliveryPills = document.querySelectorAll("[data-delivery-value]");
+    deliveryPills.forEach(btn => {
       btn.addEventListener("click", () => {
-        deliveryField.value = btn.getAttribute("data-delivery-value");
-        document.querySelectorAll("[data-delivery-value]").forEach(b =>
+        const value = btn.getAttribute("data-delivery-value");
+        deliveryField.value = value;
+
+        deliveryPills.forEach(b =>
           b.classList.toggle("toggle-pill--active", b === btn)
         );
+
+        // Show upload card only when "Document upload only" is selected
+        if (uploadCard) {
+          uploadCard.style.display = (value === "upload_only") ? "" : "none";
+        }
+
+        updateOrderEstimate();
       });
     });
   }
 
+  // File upload filename display
+  const uploadInput = document.getElementById("intake_upload_files");
+  const uploadNameSpan = document.getElementById("intake_upload_files_name");
+  if (uploadInput && uploadNameSpan) {
+    uploadInput.addEventListener("change", () => {
+      if (!uploadInput.files || uploadInput.files.length === 0) {
+        uploadNameSpan.textContent = "No files chosen";
+      } else if (uploadInput.files.length === 1) {
+        uploadNameSpan.textContent = uploadInput.files[0].name;
+      } else {
+        uploadNameSpan.textContent = uploadInput.files.length + " files selected";
+      }
+    });
+  }
+
   updateServiceTiles();
+  updateRequiredFieldsForServices();
   setActiveStep(0);
 
-  // ========== SPEED OPTIONS (reads from state-pricing-rules.js) ==========
   function updateSpeedOptionsForState() {
     const container = document.querySelector("#apostille-speed-block .speed-options-container");
     if (!container) return;
 
-    // Get all unique states from document rows
     const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
     const uniqueStates = new Set();
     allStateSelects.forEach(sel => {
@@ -605,7 +868,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     container.innerHTML = html;
 
-    // Attach change listeners to update estimate
     container.querySelectorAll('input[type="radio"]').forEach(radio => {
       radio.addEventListener("change", () => {
         updateOrderEstimate();
@@ -613,7 +875,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Make updateSpeedOptionsForState available globally
   window.updateSpeedOptionsForState = updateSpeedOptionsForState;
 });
 
