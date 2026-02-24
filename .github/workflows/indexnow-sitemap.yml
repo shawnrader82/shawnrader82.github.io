@@ -1,0 +1,19 @@
+name: Submit sitemap to IndexNow
+
+on:
+  workflow_run:
+    workflows: [pages-build-deployment]
+    types: [completed]
+  schedule:
+    - cron: '0 3 * * *'  # daily at 03:00 UTC
+
+jobs:
+  submit-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap to IndexNow
+        uses: bojieyang/indexnow-action@v2
+        with:
+          sitemap-location: 'https://mobileamericannotary.com/sitemap.xml'
+          key: ${{ secrets.INDEXNOW_KEY }}
+          key-location: 'https://mobileamericannotary.com/d955b1e687a546196bf4b734aa73d2b.txt'
