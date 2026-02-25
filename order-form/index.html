@@ -1114,9 +1114,9 @@
       if (!nextBtn) return;
 
       nextBtn.addEventListener('click', function (e) {
-        const apostille = document.getElementById('svc-apostille')?.checked;
+        const apostille   = document.getElementById('svc-apostille')?.checked;
         const translation = document.getElementById('svc-translation')?.checked;
-        const errorEl = document.getElementById('services-error');
+        const errorEl     = document.getElementById('services-error');
 
         if (!apostille && !translation) {
           if (errorEl) errorEl.style.display = 'inline';
@@ -1156,128 +1156,146 @@
   <script src="header.js" defer></script>
   <script src="footer.js" defer></script>
 
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHuZHT66BR3KKAmVWiQhkuJBea2lJbMgA&libraries=places"
-  async
-  defer
-></script>
+  <!-- Google Maps Places API for address autocompletes -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHuZHT66BR3KKAmVWiQhkuJBea2lJbMgA&libraries=places"
+    async
+    defer
+  ></script>
 
-<script>
-  function initAddressAutocompletes() {
-    if (!window.google || !google.maps || !google.maps.places) return;
+  <script>
+    function initAddressAutocompletes() {
+      if (!window.google || !google.maps || !google.maps.places) return;
 
-    // Helper to wire a single field
-    function setupAutocomplete(id) {
-      var input = document.getElementById(id);
-      if (!input) return;
+      function setupAutocomplete(id) {
+        var input = document.getElementById(id);
+        if (!input) return;
 
-      var autocomplete = new google.maps.places.Autocomplete(input, {
-        fields: ["address_components", "geometry"],
-        types: ["address"]
-      });
+        var autocomplete = new google.maps.places.Autocomplete(input, {
+          fields: ["address_components", "geometry"],
+          types: ["address"]
+        });
 
-      autocomplete.addListener("place_changed", function () {
-        var place = autocomplete.getPlace();
-        if (!place || !place.address_components) return;
+        autocomplete.addListener("place_changed", function () {
+          var place = autocomplete.getPlace();
+          if (!place || !place.address_components) return;
 
-        // Small helper for components
-        function getComponent(type, attr) {
-          var comp = place.address_components.find(function (c) {
-            return c.types.indexOf(type) !== -1;
+          function getComponent(type, attr) {
+            var comp = place.address_components.find(function (c) {
+              return c.types.indexOf(type) !== -1;
+            });
+            return comp ? comp[attr] : "";
+          }
+
+          var streetNumber = getComponent("street_number", "short_name");
+          var route        = getComponent("route", "long_name");
+          var cityLocality = getComponent("locality", "long_name") ||
+                             getComponent("postal_town", "long_name") ||
+                             getComponent("sublocality", "long_name");
+          var adminArea    = getComponent("administrative_area_level_1", "short_name") ||
+                             getComponent("administrative_area_level_1", "long_name");
+          var postalCode   = getComponent("postal_code", "short_name");
+          var countryLong  = getComponent("country", "long_name");
+
+          var streetLine1 = (streetNumber + " " + route).trim();
+
+          // US recipient fields
+          if (id === "us_recipient_address_1") {
+            if (streetLine1) document.getElementById("us_recipient_address_1").value = streetLine1;
+            if (cityLocality && document.getElementById("us_recipient_city")) {
+              document.getElementById("us_recipient_city").value = cityLocality;
+            }
+            if (adminArea && document.getElementById("us_recipient_state")) {
+              document.getElementById("us_recipient_state").value = adminArea;
+            }
+            if (postalCode && document.getElementById("us_recipient_zip")) {
+              document.getElementById("us_recipient_zip").value = postalCode;
+            }
+            if (countryLong && document.getElementById("us_recipient_country")) {
+              document.getElementById("us_recipient_country").value = countryLong;
+            }
+          }
+
+          // International recipient fields
+          if (id === "intl_recipient_address_1") {
+            if (streetLine1) document.getElementById("intl_recipient_address_1").value = streetLine1;
+            if (cityLocality && document.getElementById("intl_recipient_city")) {
+              document.getElementById("intl_recipient_city").value = cityLocality;
+            }
+            if (adminArea && document.getElementById("intl_recipient_state")) {
+              document.getElementById("intl_recipient_state").value = adminArea;
+            }
+            if (postalCode && document.getElementById("intl_recipient_postal")) {
+              document.getElementById("intl_recipient_postal").value = postalCode;
+            }
+            if (countryLong && document.getElementById("intl_recipient_country")) {
+              document.getElementById("intl_recipient_country").value = countryLong;
+            }
+          }
+
+          // Your mailing / return address fields
+          if (id === "mailing_address_1") {
+            if (streetLine1) document.getElementById("mailing_address_1").value = streetLine1;
+            if (cityLocality && document.getElementById("mailing_city")) {
+              document.getElementById("mailing_city").value = cityLocality;
+            }
+            if (adminArea && document.getElementById("mailing_state")) {
+              document.getElementById("mailing_state").value = adminArea;
+            }
+            if (postalCode && document.getElementById("mailing_zip")) {
+              document.getElementById("mailing_zip").value = postalCode;
+            }
+            if (countryLong && document.getElementById("mailing_country")) {
+              document.getElementById("mailing_country").value = countryLong;
+            }
+          }
+        });
+      }
+
+      setupAutocomplete("us_recipient_address_1");
+      setupAutocomplete("intl_recipient_address_1");
+      setupAutocomplete("mailing_address_1");
+    }
+
+    window.addEventListener("load", function () {
+      if (window.google && google.maps && google.maps.places) {
+        initAddressAutocompletes();
+      } else {
+        var tries = 0;
+        var timer = setInterval(function () {
+          tries++;
+          if (window.google && google.maps && google.maps.places) {
+            clearInterval(timer);
+            initAddressAutocompletes();
+          }
+          if (tries > 20) clearInterval(timer);
+        }, 250);
+      }
+    });
+  </script>
+
+  <!-- NEW: keep delivery_method in sync with the pills on Step 4 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var deliveryInput = document.getElementById('delivery_method');
+      var deliveryPills = document.querySelectorAll('[data-step="3"] .toggle-pill[data-delivery-value]');
+
+      if (!deliveryInput || !deliveryPills.length) return;
+
+      deliveryPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          var value = pill.getAttribute('data-delivery-value');
+          deliveryInput.value = value;
+
+          deliveryPills.forEach(function (p) {
+            p.classList.remove('toggle-pill--active');
           });
-          return comp ? comp[attr] : "";
-        }
-
-        var streetNumber = getComponent("street_number", "short_name");
-        var route        = getComponent("route", "long_name");
-        var cityLocality = getComponent("locality", "long_name") ||
-                           getComponent("postal_town", "long_name") ||
-                           getComponent("sublocality", "long_name");
-        var adminArea    = getComponent("administrative_area_level_1", "short_name") ||
-                           getComponent("administrative_area_level_1", "long_name");
-        var postalCode   = getComponent("postal_code", "short_name");
-        var countryLong  = getComponent("country", "long_name");
-
-        var streetLine1 = (streetNumber + " " + route).trim();
-
-        // US recipient fields
-        if (id === "us_recipient_address_1") {
-          if (streetLine1) document.getElementById("us_recipient_address_1").value = streetLine1;
-          if (cityLocality && document.getElementById("us_recipient_city")) {
-            document.getElementById("us_recipient_city").value = cityLocality;
-          }
-          if (adminArea && document.getElementById("us_recipient_state")) {
-            document.getElementById("us_recipient_state").value = adminArea;
-          }
-          if (postalCode && document.getElementById("us_recipient_zip")) {
-            document.getElementById("us_recipient_zip").value = postalCode;
-          }
-          if (countryLong && document.getElementById("us_recipient_country")) {
-            document.getElementById("us_recipient_country").value = countryLong;
-          }
-        }
-
-        // International recipient fields
-        if (id === "intl_recipient_address_1") {
-          if (streetLine1) document.getElementById("intl_recipient_address_1").value = streetLine1;
-          if (cityLocality && document.getElementById("intl_recipient_city")) {
-            document.getElementById("intl_recipient_city").value = cityLocality;
-          }
-          if (adminArea && document.getElementById("intl_recipient_state")) {
-            document.getElementById("intl_recipient_state").value = adminArea;
-          }
-          if (postalCode && document.getElementById("intl_recipient_postal")) {
-            document.getElementById("intl_recipient_postal").value = postalCode;
-          }
-          if (countryLong && document.getElementById("intl_recipient_country")) {
-            document.getElementById("intl_recipient_country").value = countryLong;
-          }
-        }
-
-        // Your mailing / return address fields
-        if (id === "mailing_address_1") {
-          if (streetLine1) document.getElementById("mailing_address_1").value = streetLine1;
-          if (cityLocality && document.getElementById("mailing_city")) {
-            document.getElementById("mailing_city").value = cityLocality;
-          }
-          if (adminArea && document.getElementById("mailing_state")) {
-            document.getElementById("mailing_state").value = adminArea;
-          }
-          if (postalCode && document.getElementById("mailing_zip")) {
-            document.getElementById("mailing_zip").value = postalCode;
-          }
-          if (countryLong && document.getElementById("mailing_country")) {
-            document.getElementById("mailing_country").value = countryLong;
-          }
-        }
+          pill.classList.add('toggle-pill--active');
+        });
       });
-    }
-
-    // Wire up all applicable address-line‑1 fields
-    setupAutocomplete("us_recipient_address_1");
-    setupAutocomplete("intl_recipient_address_1");
-    setupAutocomplete("mailing_address_1");
-  }
-
-  // When Maps JS is loaded, run init
-  window.addEventListener("load", function () {
-    if (window.google && google.maps && google.maps.places) {
-      initAddressAutocompletes();
-    } else {
-      // Poll a bit in case script is still loading
-      var tries = 0;
-      var timer = setInterval(function () {
-        tries++;
-        if (window.google && google.maps && google.maps.places) {
-          clearInterval(timer);
-          initAddressAutocompletes();
-        }
-        if (tries > 20) clearInterval(timer);
-      }, 250);
-    }
-  });
-</script>
-
+    });
+  </script>
+  
 </body>
 </html>
 
