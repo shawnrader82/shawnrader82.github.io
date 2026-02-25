@@ -17,7 +17,6 @@
   display: none !important;
 }
 
-
 /* Base reset */
 * {
   box-sizing: border-box;
@@ -30,7 +29,7 @@ body {
   color: var(--text-main);
 }
 
-/* Page shell */
+/* Page shell: desktop default */
 .page-wrap {
   min-height: 100vh;
   padding: 32px 16px 40px;
@@ -39,9 +38,11 @@ body {
   align-items: flex-start;
 }
 
+/* Main form column */
 .intake-shell {
   width: 100%;
-  max-width: 960px;
+  max-width: 1100px;   /* wide, desktop-friendly */
+  margin: 0 auto;
 }
 
 /* Header + steps */
@@ -253,7 +254,6 @@ textarea {
   gap: 10px;
 }
 
-
 /* Buttons */
 .form-actions {
   display: flex;
@@ -363,6 +363,17 @@ textarea {
   justify-content: space-between;
 }
 
+/* Step 2: force document fields to white inside gray document card */
+.document-row select,
+.document-row input[type="number"],
+.document-row input[type="text"] {
+  background-color: #ffffff !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
 /* Service tiles (Step 2) */
 .service-tiles {
   display: grid;
@@ -390,7 +401,6 @@ textarea {
 }
 
 .service-tile input[type="checkbox"] {
-  /* Let the checkbox be small and hidden, but don't cover the whole tile */
   position: absolute;
   left: -9999px;
   opacity: 0;
@@ -439,16 +449,50 @@ textarea {
   margin-bottom: 4px;
 }
 
-/* Center the intake panel horizontally on desktop */
-.page-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  justify-content: center;   /* keep children centered */
+/* Mobile: let it go full width */
+@media (max-width: 768px) {
+  .page-wrap {
+    display: block;
+    padding: 16px 12px 24px;
+  }
+
+  .intake-shell {
+    max-width: 100%;
+  }
 }
 
-/* Keep the white form column centered */
-.intake-shell {
-  max-width: 960px;
-  margin: 0 auto;
+/* Step 3: give the speed options a clear outer border box */
+#apostille-speed-block {
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
 }
+
+/* Step 4: ensure the whole step uses the same centered card width */
+.intake-step[data-step="3"],
+.intake-step[data-step="4"] {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Make each document card pop a bit more */
+.document-row {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+/* Emphasize the four key fields inside the document card */
+.document-row .full-field.required-field input,
+.document-row .full-field.required-field select {
+  border-color: #f97316;
+}
+
+/* On focus, make them very obvious but consistent with the rest of the form */
+.document-row .full-field.required-field input:focus,
+.document-row .full-field.required-field select:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.6);
+}
+
 
