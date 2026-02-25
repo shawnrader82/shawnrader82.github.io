@@ -305,12 +305,12 @@ $displayName  = $customerName !== '' ? $customerName : 'Customer';
           <p class="service-detail-subtitle">
             Please send your original documents and a printed copy of your confirmation email to:
           </p>
-          <div class="full-field" style="margin-top:8px;">
-            <p style="margin:0;font-weight:600;">Mobile American Notary – Apostille Intake</p>
-            <p style="margin:0;">1234 Example Street, Suite 200</p>
-            <p style="margin:0;">Los Angeles, CA 90000</p>
-            <p style="margin:8px 0 0 0;">Include tracking on your shipment for your records.</p>
-          </div>
+              <div class="full-field" style="margin-top:8px;">
+      <p style="margin:0;font-weight:600;">Mobile American Notary</p>
+      <p style="margin:0;">10336 Woodley Ave</p>
+      <p style="margin:0;">Granada Hills, CA 91344</p>
+      <p style="margin:8px 0 0 0;">Include tracking on your shipment for your records.</p>
+    </div>
         </div>
       <?php else: ?>
         <div class="intake-card" style="margin-top:12px;">
