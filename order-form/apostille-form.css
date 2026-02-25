@@ -439,3 +439,16 @@ textarea {
   margin-bottom: 4px;
 }
 
+/* Center the intake panel horizontally on desktop */
+.page-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;   /* keep children centered */
+}
+
+/* Keep the white form column centered */
+.intake-shell {
+  max-width: 960px;
+  margin: 0 auto;
+}
+

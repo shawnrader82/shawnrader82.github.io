@@ -1,13 +1,19 @@
 <?php
 // api/apostille-intake.php
 
+require __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer-master/src/SMTP.php';
+require __DIR__ . '/PHPMailer-master/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 // ================= NEXTCLOUD WEBDAV CONFIG =================
 $ncBaseUrl = 'https://cloud.mobileamericannotary.com/remote.php/dav/files/shawn/';
 $ncUser    = 'shawn@mobileamericannotary.com';
-$ncPass    = 'ezNG4-gzF8H-BY3BZ-tXYzD-LAxaN'; // create app password in Nextcloud
+$ncPass    = 'ezNG4-gzF8H-BY3BZ-tXYzD-LAxaN'; // Nextcloud app password
 
 function nc_mkdir_if_missing($path, $baseUrl, $user, $pass) {
-    // Ensure a folder exists in Nextcloud (safe even if it already exists)
     $url = rtrim($baseUrl, '/') . '/' . ltrim($path, '/');
     $ch = curl_init($url);
     curl_setopt_array($ch, [
@@ -23,22 +29,26 @@ function nc_mkdir_if_missing($path, $baseUrl, $user, $pass) {
 }
 
 // ================= READ INTAKE FIELDS =================
-// Names from Step 5 – your HTML uses givenname / familyname.[file:117]
+
+// TEMP: debug what delivery_method we actually get
+error_log('INTAKE_POST_DELIVERY=' . ($_POST['delivery_method'] ?? '(missing)'));
+file_put_contents('/tmp/apostille-debug.txt', print_r($_POST, true));
+
+// Basic identity fields (used for folder naming and display)
 $given  = trim($_POST['given_name']  ?? $_POST['givenname']  ?? '');
 $family = trim($_POST['family_name'] ?? $_POST['familyname'] ?? '');
-$year   = date('Y'); // e.g. 2026
+$year   = date('Y');
 
-$customerName = ($family !== '' || $given !== '')
-    ? ($family . ', ' . $given)
-    : 'Unknown';
+$customerName = ($given !== '' || $family !== '')
+    ? trim($given . ' ' . $family)
+    : 'Customer';
 
 // ================= BUILD FOLDER PATH =================
-// Temporarily upload directly into the year folder:
+
 // Documents/01 Mobile American Notary/(01) Apostilles/Clients/{YEAR}/
 $baseFolder = 'Documents/01 Mobile American Notary/(01) Apostilles/Clients';
 $yearFolder = $baseFolder . '/' . $year;
 
-// Make sure these exist in Nextcloud
 nc_mkdir_if_missing($baseFolder, $ncBaseUrl, $ncUser, $ncPass);
 nc_mkdir_if_missing($yearFolder, $ncBaseUrl, $ncUser, $ncPass);
 
@@ -52,11 +62,8 @@ if (!empty($_FILES['intake_upload_files']['name'][0])) {
         }
 
         $tmpPath  = $_FILES['intake_upload_files']['tmp_name'][$idx];
-
-        // Clean filename to avoid weird characters in WebDAV path
         $safeName = preg_replace('/[^\w.\- ]+/', '_', $origName);
         $remotePath = $yearFolder . '/' . time() . '-' . $safeName;
-
 
         $url = rtrim($ncBaseUrl, '/') . '/' . ltrim($remotePath, '/');
 
@@ -83,16 +90,14 @@ if (!empty($_FILES['intake_upload_files']['name'][0])) {
 
 // ================= SAVE / EMAIL INTAKE & SHOW THANK-YOU =================
 
-// Helper to safely get a trimmed POST value
+// Helper to safely get a trimmed POST value (always returns a string)
 function p($key) {
-  return isset($_POST[$key]) && $_POST[$key] !== '' ? trim($_POST[$key]) : '';
+  if (!isset($_POST[$key]) || $_POST[$key] === null) {
+    return '';
+  }
+  return trim((string)$_POST[$key]);
 }
 
-// TEMP: debug what delivery_method we actually get
-file_put_contents('/tmp/apostille-debug.txt', print_r($_POST, true));
-
-// We already have $customerName and $year above.
-// Build key sections from the form POST. Adjust field names if needed.
 
 // Primary contact (your details, Step 5)
 $givenName  = p('given_name');
@@ -104,26 +109,58 @@ $phone      = p('tel');
 // Services & usage
 $rawServices = $_POST['services'] ?? [];
 if (is_string($rawServices)) {
-  // Single value from a non-array input
   $services = [$rawServices];
 } else {
   $services = $rawServices;
 }
 
-$usageType         = p('usagetype');           // "personal" / "business"
-$deliveryMethod    = p('delivery_method');     // "in_person_home", "in_person_office", "mail_to_office", "upload_only"
-$documentsSummary  = p('documents_summary');   // optional free‑text summary
+// Usage and delivery (from hidden fields)
+$usageType        = (string)p('usagetype');        // "personal" / "business"
+$deliveryMethod   = (string)p('delivery_method');  // "in_person_home", "in_person_office", "mail_to_office", "upload_only"
+$documentsSummary = (string)p('documents_summary');
+
+
+// Document details (Step 2)
+$documentStates     = $_POST['document_state']     ?? [];  // array
+$documentTypes      = $_POST['document_type']      ?? [];  // array
+$documentQuantities = $_POST['document_quantity']  ?? [];  // array
+$documentCountries  = $_POST['document_country']   ?? [];  // array
+
+$totalDocuments           = p('total_documents');
+$apostilleEstimatedTotal  = p('apostille_estimated_total');
+
+// Translation details (Step 2 – translation block)
+$translationFromLanguage      = p('translation_from_language');
+$translationToLanguage        = p('translation_to_language');
+$translationApproxPages       = p('translation_words');
+$translationEstimatedTotal    = p('translation_estimated_total');
+
+// Other names
+$otherNames = p('other_names');
+
+// Shipping / delivery choices (Step 3 & 4)
+$shippingRecipientType  = p('shipping_recipient_type');     // international_recipient / other_us_recipient / back_to_you / pickup_office / same_day_courier_la / same_day_courier_oc
+$orderEstimatedTotal    = p('order_estimated_total');       // final live estimate
+
+// Step 3 speed & add-ons
+$apostilleSpeedOption       = p('apostille_speed_option');
+$apostilleRushNotes         = p('apostille_speed_notes');
+$addonShippedHardCopy       = p('addon_shipped_hard_copy');
+$addonNotarization          = p('addon_notarization');
+$addonExpeditedTurnaround   = p('addon_expedited_turnaround');
 
 
 // Mailing / return address (your address)
 $mailing = [
-  'address_1' => p('mailing_address_1'),
-  'address_2' => p('mailing_address_2'),
-  'city'      => p('mailing_city'),
-  'state'     => p('mailing_state'),
-  'zip'       => p('mailing_zip'),
-  'country'   => p('mailing_country'),
+  // Names must match your HTML form
+  'address_1' => p('street_address'),
+  'address_2' => p('address_line2'),
+  'city'      => p('address_level2'),
+  'state'     => p('address_level1'),
+  'zip'       => p('postal_code'),
+  'country'   => p('country_name'),
 ];
+
 
 // US recipient (if provided)
 $usRecipient = [
@@ -185,9 +222,9 @@ $usageLabel = $usageType === 'business'
 if ($deliveryMethod === 'mail_to_office') {
   $deliveryLabel = 'Mail documents to Mobile American Notary office';
 } elseif ($deliveryMethod === 'in_person_home') {
-  $deliveryLabel = 'In‑person at your home/office';
+  $deliveryLabel = 'In-person at your home/office';
 } elseif ($deliveryMethod === 'in_person_office') {
-  $deliveryLabel = 'In‑person at our office';
+  $deliveryLabel = 'In-person at our office';
 } elseif ($deliveryMethod === 'upload_only') {
   $deliveryLabel = 'Document upload only';
 } else {
@@ -197,8 +234,8 @@ if ($deliveryMethod === 'mail_to_office') {
 // Used later to decide whether to show the mailing-address box
 $willMailDocs = ($deliveryMethod === 'mail_to_office');
 
-// Build main email body
-$body  = "Apostille order request – {$year}\n";
+// Build main text email body (for logging / admin)
+$body  = "Apostille order request - {$year}\n";
 $body .= "================================\n\n";
 
 $body .= sectionBlock('Primary contact', [
@@ -213,6 +250,14 @@ $body .= sectionBlock('Services & usage', [
   'Usage type'         => $usageLabel,
   'Delivery method'    => $deliveryLabel,
   'Documents summary'  => $documentsSummary,
+]);
+
+$body .= sectionBlock('Speed & add-ons', [
+  'Apostille speed option'           => $apostilleSpeedOption,
+  'Apostille rush notes'             => $apostilleRushNotes,
+  'Translation add-on: hard copy'    => $addonShippedHardCopy     ? 'Yes' : '',
+  'Translation add-on: notarization' => $addonNotarization        ? 'Yes' : '',
+  'Translation add-on: expedited'    => $addonExpeditedTurnaround ? 'Yes' : '',
 ]);
 
 $body .= sectionBlock('Your mailing / return address', [
@@ -251,43 +296,387 @@ $body .= sectionBlock('International recipient (if provided)', [
   'Country'       => $intlRecipient['country'],
 ]);
 
-// Attach uploaded file list, if any
 if (!empty($uploadedFiles)) {
   $body .= "Uploaded files\n";
   $body .= "--------------\n";
   foreach ($uploadedFiles as $f) {
     $body .= '- ' . ($f['originalName'] ?? 'File') .
-             ' → ' . ($f['nextcloudPath'] ?? '') . "\n";
+             ' -> ' . ($f['nextcloudPath'] ?? '') . "\n";
   }
   $body .= "\n";
 }
 
-// ========== SEND EMAILS ==========
+// Build a simple HTML version for customer
+$htmlBody  = '<h2 style="margin:0 0 12px 0;font-family:system-ui,Arial,sans-serif;">';
+$htmlBody .= 'Apostille order request - ' . htmlspecialchars($year) . '</h2>';
 
-// To you
-$toAdmin = 'orders@mobileamericannotary.com';
-$subject = 'New apostille order request from ' . $customerName;
+$htmlBody .= '<p style="margin:0 0 12px 0;font-family:system-ui,Arial,sans-serif;">'
+          . 'Here is a copy of your answers for your records:</p>';
 
-$headers  = "From: no-reply@mobileamericannotary.com\r\n";
-if ($email !== '') {
-  $headers .= "Reply-To: {$email}\r\n";
+$htmlBody .= '<h3 style="margin:16px 0 6px 0;font-family:system-ui,Arial,sans-serif;">Primary contact</h3>';
+$htmlBody .= '<p style="margin:0 0 8px 0;font-family:system-ui,Arial,sans-serif;">'
+          . 'Name: '    . htmlspecialchars(trim($givenName . " " . $familyName)) . '<br>'
+          . 'Company: ' . htmlspecialchars($company) . '<br>'
+          . 'Email: '   . htmlspecialchars($email) . '<br>'
+          . 'Phone: '   . htmlspecialchars($phone) . '</p>';
+
+$htmlBody .= '<h3 style="margin:16px 0 6px 0;font-family:system-ui,Arial,sans-serif;">Services &amp; usage</h3>';
+$htmlBody .= '<p style="margin:0 0 8px 0;font-family:system-ui,Arial,sans-serif;">'
+          . 'Services requested: ' . htmlspecialchars($servicesText) . '<br>'
+          . 'Usage type: '         . htmlspecialchars($usageLabel) . '<br>'
+          . 'Delivery method: '    . htmlspecialchars($deliveryLabel) . '</p>';
+
+$htmlBody .= '<h3 style="margin:16px 0 6px 0;font-family:system-ui,Arial,sans-serif;">Your mailing / return address</h3>';
+$htmlBody .= '<p style="margin:0 0 8px 0;font-family:system-ui,Arial,sans-serif;">'
+          . htmlspecialchars($mailing['address_1']) . '<br>'
+          . htmlspecialchars($mailing['address_2']) . '<br>'
+          . htmlspecialchars($mailing['city']) . ', '
+          . htmlspecialchars($mailing['state']) . ' '
+          . htmlspecialchars($mailing['zip']) . '<br>'
+          . htmlspecialchars($mailing['country']) . '</p>';
+
+// ========== SEND EMAILS VIA GMAIL SMTP ==========
+
+function send_via_gmail($to, $subject, $body, $replyToEmail = '', $replyToName = '')
+{
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'shawn@mobileamericannotary.com';
+        $mail->Password   = 'cwii bwin uefw vmqy'; // app password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        $mail->setFrom('no-reply@mobileamericannotary.com', 'Mobile American Notary');
+        if ($replyToEmail !== '') {
+            $mail->addReplyTo($replyToEmail, $replyToName ?: $replyToEmail);
+        }
+
+        $mail->clearAllRecipients();
+        $mail->addAddress($to);
+
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $body;
+        $mail->AltBody = strip_tags($body);
+
+        $mail->send();
+    } catch (Exception $e) {
+        error_log('PHPMailer error: ' . $mail->ErrorInfo);
+    }
 }
 
-@mail($toAdmin, $subject, $body, $headers);
+// Internal notification (to your alias inbox)
+$toAdmin   = 'orders@mobileamericannotary.com';
+$subject   = 'New apostille order request from ' . $customerName;
+$replyTo   = $email;
+$replyName = $givenName;
 
-// To customer
+// Admin body: text summary but with basic HTML line breaks
+$adminBody = nl2br(htmlspecialchars((string)$body));
+send_via_gmail($toAdmin, $subject, $adminBody, $replyTo, $replyName);
+
+// Customer receipt
 if ($email !== '') {
-  $custSubject = 'We received your apostille order request';
-  $custBody    = "Thank you for your request.\n\n"
-               . "Here is a summary of what you submitted:\n\n"
-               . $body
-               . "We will follow up with you shortly.\n";
-  @mail($email, $custSubject, $custBody, $headers);
+    $custSubject = 'We received your apostille request';
+
+    // Build a Jotform-style HTML table email
+    $custBody = '
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Apostille order summary</title>
+</head>
+<body style="margin:0;padding:0;background:#f4f4f8;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f4f8;padding:20px 0;">
+    <tr>
+      <td align="center">
+        <table width="700" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border:1px solid #e0e0e0;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#222;">
+          <tr>
+            <td colspan="2" style="padding:16px 20px;border-bottom:2px solid #f37021;background:#fafafa;">
+              <h2 style="margin:0;font-size:18px;font-weight:600;">Apostille Order Summary</h2>
+              <p style="margin:4px 0 0 0;font-size:12px;color:#555;">Submitted ' . htmlspecialchars(date("F j, Y, g:i a")) . '</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" style="padding:14px 20px;border-bottom:1px solid #e0e0e0;">
+              <p style="margin:0 0 6px 0;">Hi ' . htmlspecialchars($givenName) . ',</p>
+              <p style="margin:0;">We have received your apostille/translation request. Below is a copy of your answers for your records.</p>
+            </td>
+          </tr>
+
+          <!-- Primary contact -->
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Primary contact
+            </td>
+          </tr>
+          <tr>
+            <td width="220" style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(trim($givenName . " " . $familyName)) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($company) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Email</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;"><a href="mailto:' . htmlspecialchars($email) . '" style="color:#0066cc;">' . htmlspecialchars($email) . '</a></td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Phone</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">' . htmlspecialchars($phone) . '</td>
+          </tr>
+
+          <!-- Services & usage -->
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Services &amp; usage
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Services requested</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($servicesText) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Usage type</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($usageLabel) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Delivery method</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($deliveryLabel) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document state(s)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars(implode(", ", $documentStates)) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Destination country(ies)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars(implode(", ", $documentCountries)) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Total documents</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars($totalDocuments) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Apostille estimated total (USD)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars($apostilleEstimatedTotal) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Translation from → to</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars($translationFromLanguage) . ' → ' .
+              htmlspecialchars($translationToLanguage) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Approx. pages to translate</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars($translationApproxPages) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Translation estimated total (USD)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">' .
+              htmlspecialchars($translationEstimatedTotal) . '</td>
+          </tr>
+
+          <!-- Speed & add-ons -->
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Speed &amp; add-ons
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Apostille speed option</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars($apostilleSpeedOption) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Apostille rush notes</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars($apostilleRushNotes) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Translation add-ons</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
+              htmlspecialchars(
+                trim(
+                  ($addonShippedHardCopy     ? 'Shipped hard copy; ' : '') .
+                  ($addonNotarization        ? 'Notarization; ' : '') .
+                  ($addonExpeditedTurnaround ? 'Expedited turnaround' : '')
+                )
+              ) . '</td>
+          </tr>
+
+
+          <!-- Mailing address -->
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Your mailing / return address
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($mailing["address_1"]) . '<br>'
+              . htmlspecialchars($mailing["address_2"]) . '<br>'
+              . htmlspecialchars($mailing["city"]) . ', '
+              . htmlspecialchars($mailing["state"]) . ' '
+              . htmlspecialchars($mailing["zip"]) . '<br>'
+              . htmlspecialchars($mailing["country"]) .
+            '</td>
+          </tr>';
+
+    // US recipient (optional)
+// Only show US recipient if any key fields are filled
+$hasUs = (
+    $usRecipient['first_name'] !== '' ||
+    $usRecipient['last_name']  !== '' ||
+    $usRecipient['email']      !== '' ||
+    $usRecipient['phone']      !== '' ||
+    $usRecipient['address_1']  !== ''
+);
+
+    if ($hasUs) {
+        $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              US recipient (if provided)
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars(trim($usRecipient["first_name"] . " " . $usRecipient["last_name"])) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($usRecipient["company"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($usRecipient["address_1"]) . '<br>'
+              . htmlspecialchars($usRecipient["address_2"]) . '<br>'
+              . htmlspecialchars($usRecipient["city"]) . ', '
+              . htmlspecialchars($usRecipient["state"]) . ' '
+              . htmlspecialchars($usRecipient["zip"]) . '<br>'
+              . htmlspecialchars($usRecipient["country"]) .
+            '</td>
+          </tr>';
+    }
+
+    // International recipient (optional)
+    $hasIntl = implode('', $intlRecipient) !== '';
+    if ($hasIntl) {
+        $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              International recipient (if provided)
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars(trim($intlRecipient["first_name"] . " " . $intlRecipient["last_name"])) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($intlRecipient["company"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($intlRecipient["address_1"]) . '<br>'
+              . htmlspecialchars($intlRecipient["address_2"]) . '<br>'
+              . htmlspecialchars($intlRecipient["address_3"]) . '<br>'
+              . htmlspecialchars($intlRecipient["city"]) . ', '
+              . htmlspecialchars($intlRecipient["state"]) . ' '
+              . htmlspecialchars($intlRecipient["postal"]) . '<br>'
+              . htmlspecialchars($intlRecipient["country"]) .
+            '</td>
+          </tr>';
+    }
+
+    // Documents summary
+    if ($documentsSummary !== '') {
+        $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Documents summary
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Details</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . nl2br(htmlspecialchars($documentsSummary)) . '</td>
+          </tr>';
+    }
+
+    // Other names
+    if ($otherNames !== '') {
+        $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Other names on these documents
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Names</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . nl2br(htmlspecialchars($otherNames)) . '</td>
+          </tr>';
+    }
+
+    // Final estimated total
+    if ($orderEstimatedTotal !== '') {
+        $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:10px 20px;background:#f9f9fb;border-bottom:1px solid #e0e0e0;font-weight:600;">
+              Final estimated total
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Current estimate (USD)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . htmlspecialchars($orderEstimatedTotal) . '</td>
+          </tr>';
+    }
+
+    // Footer note
+    $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:14px 20px;border-top:1px solid #e0e0e0;font-size:12px;color:#666;">
+              If anything looks incorrect, just reply to this email and we will update your order.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>';
+
+    send_via_gmail(
+        $email,
+        $custSubject,
+        $custBody,
+        'orders@mobileamericannotary.com',
+        'Mobile American Notary'
+    );
 }
 
 // ========== THANK-YOU PAGE ==========
 
-$willMailDocs = ($deliveryMethod === 'mail');
+$willMailDocs = ($deliveryMethod === 'mail_to_office');
 $displayName  = $customerName !== '' ? $customerName : 'Customer';
 
 ?>
@@ -323,12 +712,12 @@ $displayName  = $customerName !== '' ? $customerName : 'Customer';
           <p class="service-detail-subtitle">
             Please send your original documents and a printed copy of your confirmation email to:
           </p>
-              <div class="full-field" style="margin-top:8px;">
-      <p style="margin:0;font-weight:600;">Mobile American Notary</p>
-      <p style="margin:0;">10336 Woodley Ave</p>
-      <p style="margin:0;">Granada Hills, CA 91344</p>
-      <p style="margin:8px 0 0 0;">Include tracking on your shipment for your records.</p>
-    </div>
+          <div class="full-field" style="margin-top:8px;">
+            <p style="margin:0;font-weight:600;">Mobile American Notary</p>
+            <p style="margin:0;">10336 Woodley Ave</p>
+            <p style="margin:0;">Granada Hills, CA 91344</p>
+            <p style="margin:8px 0 0 0;">Include tracking on your shipment for your records.</p>
+          </div>
         </div>
       <?php else: ?>
         <div class="intake-card" style="margin-top:12px;">
