@@ -99,7 +99,14 @@ $email      = p('email');
 $phone      = p('tel');
 
 // Services & usage
-$services          = $_POST['services'] ?? []; // e.g. ["apostille","translation"]
+$rawServices = $_POST['services'] ?? [];
+if (is_string($rawServices)) {
+  // Single value from a non-array input
+  $services = [$rawServices];
+} else {
+  $services = $rawServices;
+}
+
 $usageType         = p('usagetype');           // e.g. "personal" / "business"
 $deliveryMethod    = p('delivery_method');     // e.g. "mail" / "in_person"
 $documentsSummary  = p('documents_summary');   // optional free‑text summary if you have one
