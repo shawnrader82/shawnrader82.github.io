@@ -88,6 +88,9 @@ function p($key) {
   return isset($_POST[$key]) && $_POST[$key] !== '' ? trim($_POST[$key]) : '';
 }
 
+// TEMP: debug what delivery_method we actually get
+file_put_contents('/tmp/apostille-debug.txt', print_r($_POST, true));
+
 // We already have $customerName and $year above.
 // Build key sections from the form POST. Adjust field names if needed.
 
