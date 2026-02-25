@@ -107,9 +107,10 @@ if (is_string($rawServices)) {
   $services = $rawServices;
 }
 
-$usageType         = p('usagetype');           // e.g. "personal" / "business"
-$deliveryMethod    = p('delivery_method');     // e.g. "mail" / "in_person"
-$documentsSummary  = p('documents_summary');   // optional free‑text summary if you have one
+$usageType         = p('usagetype');           // "personal" / "business"
+$deliveryMethod    = p('delivery_method');     // "in_person_home", "in_person_office", "mail_to_office", "upload_only"
+$documentsSummary  = p('documents_summary');   // optional free‑text summary
+
 
 // Mailing / return address (your address)
 $mailing = [
@@ -174,10 +175,24 @@ if (in_array('translation', $services, true)) $serviceLabels[] = 'Certified docu
 $servicesText = implode(', ', $serviceLabels);
 
 // Usage & delivery
-$usageLabel    = $usageType === 'business' ? 'Business' : ($usageType === 'personal' ? 'Personal' : '');
-$deliveryLabel = $deliveryMethod === 'mail'
-  ? 'Mail documents to Mobile American Notary'
-  : ($deliveryMethod === 'in_person' ? 'In‑person appointment' : '');
+$usageLabel = $usageType === 'business'
+  ? 'Business'
+  : ($usageType === 'personal' ? 'Personal' : '');
+
+if ($deliveryMethod === 'mail_to_office') {
+  $deliveryLabel = 'Mail documents to Mobile American Notary office';
+} elseif ($deliveryMethod === 'in_person_home') {
+  $deliveryLabel = 'In‑person at your home/office';
+} elseif ($deliveryMethod === 'in_person_office') {
+  $deliveryLabel = 'In‑person at our office';
+} elseif ($deliveryMethod === 'upload_only') {
+  $deliveryLabel = 'Document upload only';
+} else {
+  $deliveryLabel = '';
+}
+
+// Used later to decide whether to show the mailing-address box
+$willMailDocs = ($deliveryMethod === 'mail_to_office');
 
 // Build main email body
 $body  = "Apostille order request – {$year}\n";
