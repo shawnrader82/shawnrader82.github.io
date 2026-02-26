@@ -54,6 +54,7 @@ def load_addons():
     df = pd.read_excel(INPUT_XLSX, sheet_name="Translation Add-ons")
     df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
 
+    # We still read the same columns, but we'll output simpler fields.
     required = ["addon_code", "label", "price", "price_type", "description"]
     missing = [c for c in required if c not in df.columns]
     if missing:
@@ -61,35 +62,37 @@ def load_addons():
             f"Missing columns in Translation Add-ons: {missing}"
         )
 
-    addons = {}
+    addons_list = []
     for _, row in df.iterrows():
         code = str(row["addon_code"]).strip()
         if not code or code.upper() == "LEGEND:":
             continue
 
-        label = str(row["label"]).strip()
+        label = str(row["label"]).strip()          # will become our title
         price = float(row["price"] or 0)
         price_type = str(row["price_type"]).strip()
-        desc = str(row.get("description", "") or "").replace('"', '\\"')
+        desc_raw = str(row.get("description", "") or "")
+        desc = desc_raw.replace('"', '\\"')
 
-        addons[code] = {
-            "label": label,
+        addons_list.append({
+            "code": code,
+            "title": label,          # simple, human‑readable title
             "price": price,
-            "priceType": price_type,
+            "priceType": price_type, # keep if you want "per order" vs "per page"
             "description": desc,
-        }
+        })
 
-    return addons
+    return addons_list
 
 
-def write_json_and_js(pairs, addons):
+def write_json_and_js(pairs, addons_list):
     data = {
         "pairs": pairs,
-        "addons": addons,
+        "addons": addons_list,
     }
 
-    # JSON
-    OUTPUT_JSON.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    # JSON (now has addons as an array)
+    # OUTPUT_JSON.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
     # JS
     lines = []
@@ -98,6 +101,7 @@ def write_json_and_js(pairs, addons):
     lines.append("")
     lines.append("const TRANSLATION_PRICING_RULES = {")
     lines.append("  pairs: {")
+
     for key, vals in pairs.items():
         lines.append(
             f'    "{key}": {{ '
@@ -107,17 +111,22 @@ def write_json_and_js(pairs, addons):
             f'businessPerPage: {vals["businessPerPage"]}, '
             f'rushPerPage: {vals["rushPerPage"]} }},'
         )
+
     lines.append("  },")
-    lines.append("  addons: {")
-    for code, vals in addons.items():
+    lines.append("  addons: [")
+
+    for addon in addons_list:
         lines.append(
-            f'    "{code}": {{ '
-            f'label: "{vals["label"]}", '
-            f'price: {vals["price"]}, '
-            f'priceType: "{vals["priceType"]}", '
-            f'description: "{vals["description"]}" }},'
+            '    { '
+            f'code: "{addon["code"]}", '
+            f'title: "{addon["title"]}", '
+            f'price: {addon["price"]}, '
+            f'priceType: "{addon["priceType"]}", '
+            f'description: "{addon["description"]}" '
+            '},'
         )
-    lines.append("  },")
+
+    lines.append("  ],")
     lines.append("};")
     lines.append("")
     lines.append("function getTranslationRate(source, target) {")
@@ -126,7 +135,7 @@ def write_json_and_js(pairs, addons):
     lines.append("}")
     lines.append("")
     lines.append("function getTranslationAddon(code) {")
-    lines.append("  return TRANSLATION_PRICING_RULES.addons[code] || null;")
+    lines.append("  return TRANSLATION_PRICING_RULES.addons.find(a => a.code === code) || null;")
     lines.append("}")
     lines.append("")
     lines.append("if (typeof window !== 'undefined') {")
@@ -135,15 +144,16 @@ def write_json_and_js(pairs, addons):
     lines.append("  window.getTranslationAddon = getTranslationAddon;")
     lines.append("}")
     lines.append("")
+
+    # fixed
     js_text = "\n".join(lines)
     OUTPUT_JS.write_text(js_text, encoding="utf-8")
 
-
 def main():
     pairs = load_language_pairs()
-    addons = load_addons()
-    write_json_and_js(pairs, addons)
-    print(f"Wrote: {OUTPUT_JSON}")
+    addons_list = load_addons()
+    write_json_and_js(pairs, addons_list)
+    # print(f"Wrote: {OUTPUT_JSON}")
     print(f"Wrote: {OUTPUT_JS}")
 
 

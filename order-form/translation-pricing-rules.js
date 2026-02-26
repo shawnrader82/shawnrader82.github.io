@@ -146,11 +146,11 @@ const TRANSLATION_PRICING_RULES = {
     "Uzbek__English": { source: "Uzbek", target: "English", personalPerPage: 45.0, businessPerPage: 55.0, rushPerPage: 25.0 },
     "Vietnamese__English": { source: "Vietnamese", target: "English", personalPerPage: 45.0, businessPerPage: 55.0, rushPerPage: 25.0 },
   },
-  addons: {
-    "shipped_hard_copy": { label: "Shipped Hard Copy", price: 35.0, priceType: "per_transaction", description: "Original translation with certification, featuring wet ink stamps and signatures, shipped worldwide via FedEx with tracking" },
-    "notarization": { label: "Notarization", price: 75.0, priceType: "per_transaction", description: "Stamp, signature, and tamper-evident digital certificate verifying the translation certification, valid in all 50 states" },
-    "expedited_turnaround": { label: "Expedited Turnaround", price: 25.0, priceType: "per_page", description: "Your order receives priority, reducing translation time by an average of 50% to expedite processing and ensure faster delivery" },
-  },
+  addons: [
+    { code: "shipped_hard_copy", title: "Shipped Hard Copy", price: 35.0, priceType: "per_transaction", description: "Original translation with certification, featuring wet ink stamps and signatures, shipped worldwide via FedEx with tracking" },
+    { code: "notarization", title: "Notarization", price: 75.0, priceType: "per_transaction", description: "Stamp, signature, and tamper-evident digital certificate verifying the translation certification, valid in all 50 states" },
+    { code: "expedited_turnaround", title: "Expedited Turnaround", price: 25.0, priceType: "per_page", description: "Your order receives priority, reducing translation time by an average of 50% to expedite processing and ensure faster delivery" },
+  ],
 };
 
 function getTranslationRate(source, target) {
@@ -159,7 +159,7 @@ function getTranslationRate(source, target) {
 }
 
 function getTranslationAddon(code) {
-  return TRANSLATION_PRICING_RULES.addons[code] || null;
+  return TRANSLATION_PRICING_RULES.addons.find(a => a.code === code) || null;
 }
 
 if (typeof window !== 'undefined') {

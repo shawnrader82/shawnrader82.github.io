@@ -9,7 +9,6 @@ function populateTranslationLanguageSelects() {
   const toSelect   = document.getElementById("translation_to_language");
   if (!fromSelect || !toSelect) return;
 
-  // Collect unique language names from all pairs
   const langs = new Set();
   Object.values(rules.pairs).forEach(pair => {
     if (pair.source) langs.add(pair.source);
@@ -19,7 +18,6 @@ function populateTranslationLanguageSelects() {
   const sortedLangs = Array.from(langs).sort();
 
   function fillSelect(select) {
-    // Keep the first placeholder option, remove the rest
     while (select.options.length > 1) {
       select.remove(1);
     }
@@ -34,7 +32,6 @@ function populateTranslationLanguageSelects() {
   fillSelect(fromSelect);
   fillSelect(toSelect);
 }
-
 
 // Helper to read rules from country-pricing-rules.js
 function getCountryRule(countryName) {
@@ -161,7 +158,7 @@ if (addDocBtn && docListEl) {
     const header = newRow.querySelector(".document-row-header");
     header.innerHTML = `
       <span>Document #${docCounter}</span>
-      <button type="button" class="btn-pill btn-pill--danger remove-doc_btn">Remove</button>
+      <button type="button" class="btn-pill btn-pill--danger remove-doc-btn">Remove</button>
     `;
 
     newRow.querySelectorAll(".doc-quantity").forEach(i => (i.value = 1));
@@ -199,7 +196,6 @@ if (addDocBtn && docListEl) {
 }
 
 // ========== TRANSLATION PRICING (flat per page) ==========
-
 function calculateTranslationTotal() {
   const usage = document.getElementById("usage_type");
   const pagesEl = document.getElementById("translation_words");
@@ -214,37 +210,24 @@ function calculateTranslationTotal() {
   const baseRatePerPage = isBusiness ? 55 : 45;
   let total = pages * baseRatePerPage;
 
-  const expediteCheckbox = document.getElementById("addon_expedited_turnaround");
-  if (expediteCheckbox && expediteCheckbox.checked) {
-    const rushPerPage = 25;
-    total += pages * rushPerPage;
-  }
+  document
+    .querySelectorAll('#translation-addons-block input[type="checkbox"]:checked')
+    .forEach(cb => {
+      const code = cb.value;
+      const price = parseFloat(cb.getAttribute("data-addon-price") || "0") || 0;
 
-  const addonsConfig = {
-    shipped_hard_copy: { price: 35, type: "per_transaction" },
-    notarization: { price: 75, type: "per_transaction" },
-  };
-
-  ["shipped_hard_copy", "notarization"].forEach(code => {
-    const checkbox = document.getElementById(`addon_${code}`);
-    if (!checkbox || !checkbox.checked) return;
-
-    const cfg = addonsConfig[code];
-    if (!cfg) return;
-
-    if (cfg.type === "per_page") {
-      total += cfg.price * pages;
-    } else {
-      total += cfg.price;
-    }
-  });
+      if (code === "expedited_turnaround") {
+        total += price * pages; // per page add‑on
+      } else {
+        total += price; // per order add‑on
+      }
+    });
 
   if (totalField) totalField.value = total.toFixed(2);
   return total;
 }
 
 // ========== APOSTILLE PRICING ==========
-
 function getApostillePrice(usageType, quantity) {
   if (typeof window.getApostillePricing === "function") {
     const result = window.getApostillePricing(usageType, quantity);
@@ -256,7 +239,6 @@ function getApostillePrice(usageType, quantity) {
 }
 
 // ========== PRICING CALCULATION ==========
-
 function calculateBaseTotal() {
   const usageField = document.getElementById("usage_type");
   const usageType = usageField ? usageField.value : "personal";
@@ -272,7 +254,7 @@ function calculateBaseTotal() {
   let apostilleTotal = 0;
   let translationTotal = 0;
 
-  // ----- Apostille portion -----
+  // Apostille portion
   if (needApostille) {
     apostilleTotal += getApostillePrice(usageType, docCount);
 
@@ -300,9 +282,7 @@ function calculateBaseTotal() {
 
     const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
     const uniqueStates = new Set();
-    allStateSelects.forEach(sel => {
-      if (sel.value) uniqueStates.add(sel.value);
-    });
+    allStateSelects.forEach(sel => { if (sel.value) uniqueStates.add(sel.value); });
 
     if (uniqueStates.size > 1) {
       const additionalStateFee = typeof window.getAdditionalStateFee === "function"
@@ -338,7 +318,6 @@ function calculateBaseTotal() {
     });
   }
 
-  // Write apostille subtotal into Step 2 field
   const apostilleSubtotalField = document.getElementById("apostille_estimated_total");
   if (apostilleSubtotalField) {
     apostilleSubtotalField.value = needApostille && apostilleTotal > 0
@@ -346,7 +325,7 @@ function calculateBaseTotal() {
       : "";
   }
 
-  // ----- Translation portion -----
+  // Translation portion
   if (needTranslation) {
     const translationField = document.getElementById("translation_total");
     const usageFieldForTrans = document.getElementById("usage_type");
@@ -365,7 +344,6 @@ function calculateBaseTotal() {
     }
   }
 
-  // Write translation subtotal into Step 2 field
   const translationSubtotalField = document.getElementById("translation_estimated_total");
   if (translationSubtotalField) {
     translationSubtotalField.value = needTranslation && translationTotal > 0
@@ -373,34 +351,43 @@ function calculateBaseTotal() {
       : "";
   }
 
-  // Combined base total for overall estimate
   return apostilleTotal + translationTotal;
 }
 
+// ===== GLOBAL ORDER ESTIMATE (includes shipping) =====
 function updateOrderEstimate() {
   const base = calculateBaseTotal();
 
   let speedPrice = 0;
-  const speedContainer = document.querySelector("#apostille-speed-block .speed-options-container");
+  const speedContainer =
+    document.querySelector("#apostille-speed-block .speed-options-container");
   if (speedContainer) {
-    speedContainer.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
-      speedPrice += parseFloat(radio.getAttribute("data-speed-price") || "0");
-    });
+    speedContainer
+      .querySelectorAll('input[type="radio"]:checked')
+      .forEach(radio => {
+        speedPrice += parseFloat(radio.getAttribute("data-speed-price") || "0");
+      });
   }
 
-  const grandTotal = base + speedPrice;
+  let shippingPrice = 0;
+  const shippingHidden = document.getElementById("shipping_option_price");
+  if (shippingHidden) {
+    let raw =
+      shippingHidden.value || shippingHidden.getAttribute("value") || "0";
+    raw = String(raw).replace(/[^0-9.\-]/g, "");
+    shippingPrice = parseFloat(raw) || 0;
+  }
+
+  const grandTotal = base + speedPrice + shippingPrice;
 
   document.querySelectorAll("#order_estimated_total").forEach(el => {
     el.value = grandTotal > 0 ? "$" + grandTotal.toFixed(2) : "";
   });
 }
 
-// make sure listeners can see it
 window.updateOrderEstimate = updateOrderEstimate;
 
-
 // ========== INTAKE FORM SCRIPTS (GLOBAL) ==========
-
 function updateServiceTiles() {
   const apostilleInput = document.getElementById("svc-apostille");
   const translationInput = document.getElementById("svc-translation");
@@ -431,7 +418,6 @@ function updateRequiredFieldsForServices() {
   const apostilleSelected = apostilleInput && apostilleInput.checked;
   const translationSelected = translationInput && translationInput.checked;
 
-  // Apostille: all issuing state / doc type / quantity / country fields
   document.querySelectorAll("#apostille-documents-block .document-row").forEach(row => {
     const stateSel   = row.querySelector('select[name="document_state[]"]');
     const typeSel    = row.querySelector('select[name="document_type[]"]');
@@ -448,7 +434,6 @@ function updateRequiredFieldsForServices() {
     });
   });
 
-  // Translation: from / to / pages in Step 2
   const fromLang = document.getElementById("translation_from_language");
   const toLang   = document.getElementById("translation_to_language");
   const pages    = document.getElementById("translation_words");
@@ -463,6 +448,7 @@ function updateRequiredFieldsForServices() {
   });
 }
 
+// MAIN INITIALIZER
 document.addEventListener("DOMContentLoaded", function () {
   const steps = Array.from(document.querySelectorAll(".intake-step"));
   const pills = Array.from(document.querySelectorAll(".intake-step-pill"));
@@ -485,21 +471,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  ["addon_shipped_hard_copy", "addon_notarization", "addon_expedited_turnaround"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener("change", () => {
+  // TRANSLATION ADD‑ONS RENDERER
+  function updateTranslationAddOns() {
+    const container = document.querySelector(
+      "#translation-addons-block .translation-addons-container"
+    );
+    if (!container || !window.TRANSLATION_PRICING_RULES) return;
+
+    const addons = window.TRANSLATION_PRICING_RULES.addons || [];
+    container.innerHTML = "";
+
+    addons.forEach((addon, idx) => {
+      const id = `translation_addon_${idx}`;
+      const priceLabel =
+        addon.price > 0 ? `+$${addon.price.toFixed(0)}` : "Included";
+
+      const row = document.createElement("label");
+      row.className = "toggle-pill";
+      row.style.display = "flex";
+      row.style.alignItems = "center";
+      row.style.marginBottom = "4px";
+      row.style.cursor = "pointer";
+
+      row.innerHTML = `
+        <input
+          type="checkbox"
+          id="${id}"
+          name="translation_addons[]"
+          value="${addon.code}"
+          data-addon-price="${addon.price}"
+          style="position:absolute; opacity:0;"
+        >
+        <div style="display:flex; align-items:center; width:100%; gap:8px; padding:6px 10px;">
+          <span style="flex:1 1 auto; text-align:left; font-weight:600;">
+            ${addon.title}
+          </span>
+          <span style="flex:0 0 auto; white-space:nowrap; font-weight:600;">
+            ${priceLabel}
+          </span>
+        </div>
+      `;
+
+      container.appendChild(row);
+    });
+
+    container.querySelectorAll('#translation-addons-block input[type="checkbox"]').forEach(cb => {
+      const pill = cb.closest(".toggle-pill");
+
+      if (pill && cb.checked) {
+        pill.classList.add("toggle-pill--active");
+      }
+
+      cb.addEventListener("change", () => {
+        if (!pill) return;
+        pill.classList.toggle("toggle-pill--active", cb.checked);
         calculateTranslationTotal();
         updateOrderEstimate();
       });
-    }
-  });
+    });
+  }
 
-  // ========== SHIPPING RECIPIENT CARDS & COURIER FEES ==========
+  // SHIPPING RECIPIENT CARDS & COURIER FEES
   function updateRecipientCardsAndCourierFees() {
     const intlCard = document.getElementById("international-recipient-card");
-    const usCard = document.getElementById("us-recipient-card");
-    const radios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+    const usCard   = document.getElementById("us-recipient-card");
+    const radios   = document.querySelectorAll('input[name="shipping_recipient_type"]');
     if (!radios.length) return;
 
     let selected = null;
@@ -507,22 +543,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (r.checked) selected = r.value;
     });
 
-    // Hide both by default
     if (intlCard) intlCard.classList.add("hidden");
-    if (usCard) usCard.classList.add("hidden");
+    if (usCard)   usCard.classList.add("hidden");
 
-    // Show the correct card based on Step 4 selection
-    if (selected === "international_recipient") {
+    if (selected === "internationalrecipient") {
       if (intlCard) intlCard.classList.remove("hidden");
-    } else if (selected === "other_us_recipient") {
+    } else if (selected === "otherusrecipient") {
       if (usCard) usCard.classList.remove("hidden");
     }
 
-    // Same‑day courier fees
     let courierFee = 0;
-    if (selected === "same_day_courier_la") {
+    if (selected === "samedaycourierla") {
       courierFee = 65;
-    } else if (selected === "same_day_courier_oc") {
+    } else if (selected === "samedaycourieroc") {
       courierFee = 130;
     }
     window._courierFee = courierFee || 0;
@@ -532,15 +565,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Watch for changes on Step‑4 shipping-recipient radios
-  document.querySelectorAll('input[name="shipping_recipient_type"]').forEach(radio => {
-    radio.addEventListener("change", updateRecipientCardsAndCourierFees);
-  });
-
-  // Initialize once on load
+  document
+    .querySelectorAll('input[name="shipping_recipient_type"]')
+    .forEach(radio => {
+      radio.addEventListener("change", updateRecipientCardsAndCourierFees);
+    });
   updateRecipientCardsAndCourierFees();
 
-  // ========== GOOGLE PLACES AUTOCOMPLETE (US ADDRESSES) ==========
+  // GOOGLE PLACES AUTOCOMPLETE (US)
   function attachUsAddressAutocomplete(config) {
     const addressInput = document.getElementById(config.addressId);
     if (!addressInput || !window.google || !window.google.maps || !window.google.maps.places) {
@@ -644,6 +676,109 @@ document.addEventListener("DOMContentLoaded", function () {
     container.scrollTo({ left: container.scrollLeft + centerOffset, behavior: "smooth" });
   }
 
+  function updateSpeedOptionsForState() {
+    const container = document.querySelector("#apostille-speed-block .speed-options-container");
+    if (!container) return;
+
+    const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
+    const uniqueStates = new Set();
+    allStateSelects.forEach(sel => { if (sel.value) uniqueStates.add(sel.value); });
+
+    if (uniqueStates.size === 0) {
+      container.innerHTML = `
+        <div class="form-help" style="color:#6b7280;">
+          Select an issuing state in Step 2 to see available speed options.
+        </div>
+      `;
+      return;
+    }
+
+    let html = "";
+
+    uniqueStates.forEach(stateCode => {
+      const stateRule = window.STATE_PRICING_RULES ? window.STATE_PRICING_RULES[stateCode] : null;
+
+      if (!stateRule || !stateRule.options || stateRule.options.length === 0) {
+        html += `
+          <div class="form-help" style="color:#6b7280; margin-bottom: 8px;">
+            <strong>${stateCode}:</strong> Timing will be confirmed after review.
+          </div>
+        `;
+        return;
+      }
+
+      html += `<div class="state-speed-group" style="margin-bottom:16px;">`;
+      html += `<div style="font-weight:600; margin-bottom:6px;">${stateRule.stateName}</div>`;
+
+      stateRule.options.forEach((opt, idx) => {
+        const inputName = `speed_${stateCode}`;
+        const inputId = `speed_${stateCode}_${idx}`;
+        const checkedAttr = idx === 0 ? "checked" : "";
+
+        const displayTitle = opt.title || opt.label || "";
+        const displaySpeed = opt.speed || "";
+        const priceLabel = opt.price > 0
+          ? `+$${opt.price.toFixed(0)}`
+          : "Included";
+
+        html += `
+          <label class="toggle-pill" style="display:flex; align-items:center; margin-bottom:4px; cursor:pointer;">
+            <input type="radio"
+                   name="${inputName}"
+                   id="${inputId}"
+                   value="${opt.label}"
+                   data-speed-price="${opt.price}"
+                   ${checkedAttr}
+                   style="margin-right:8px;">
+
+            <div style="display:flex; align-items:center; width:100%; gap:8px;">
+              <span style="flex:0 0 30%; text-align:left; font-weight:600;">
+                ${displayTitle}
+              </span>
+              <span style="
+                flex:1 1 auto;
+                text-align:center;
+                color:#4b5563;
+                padding:0 24px;
+              ">
+                ${displaySpeed}
+              </span>
+              <span style="flex:0 0 auto; white-space:nowrap; font-weight:600;">
+                ${priceLabel}
+              </span>
+            </div>
+          </label>
+        `;
+      });
+
+      if (stateRule.notes && stateRule.notes !== "nan") {
+        html += `<div class="form-help" style="color:#6b7280; font-size:12px; margin-top:4px;">${stateRule.notes}</div>`;
+      }
+
+      html += `</div>`;
+    });
+
+    container.innerHTML = html;
+
+    const radios = container.querySelectorAll('input[type="radio"]');
+
+    const firstChecked = container.querySelector('input[type="radio"]:checked');
+    if (firstChecked) {
+      const initialPill = firstChecked.closest('label.toggle-pill');
+      if (initialPill) initialPill.classList.add('toggle-pill--active');
+    }
+
+    radios.forEach(radio => {
+      radio.addEventListener("change", () => {
+        const allPills = container.querySelectorAll('.toggle-pill');
+        allPills.forEach(p => p.classList.remove('toggle-pill--active'));
+        const pill = radio.closest('label.toggle-pill');
+        if (pill) pill.classList.add('toggle-pill--active');
+        updateOrderEstimate();
+      });
+    });
+  }
+
   function setActiveStep(index) {
     steps.forEach((step, i) => step.classList.toggle("intake-step--active", i === index));
     pills.forEach((pill, i) => pill.classList.toggle("intake-step-pill--active", i === index));
@@ -658,17 +793,15 @@ document.addEventListener("DOMContentLoaded", function () {
     updateOrderEstimate();
   }
 
-  // expose for other code (if needed)
   window.setActiveStep = setActiveStep;
+  window.updateSpeedOptionsForState = updateSpeedOptionsForState;
 
-  // Generic next-step handler, except Step 2 (uses custom validation)
   document.querySelectorAll("[data-next-step]").forEach(btn => {
     const target = parseInt(btn.getAttribute("data-next-step"), 10);
-    if (target === 2) return; // Step 2 handled separately
+    if (target === 2) return;
     btn.addEventListener("click", () => setActiveStep(target));
   });
 
-  // Step-2 validation before moving to Step 3
   const step2NextBtn = document.querySelector('button[data-next-step="2"]');
   if (step2NextBtn) {
     step2NextBtn.addEventListener("click", () => {
@@ -678,7 +811,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const translationSelected = translationInput && translationInput.checked;
 
       let valid = true;
-
       document.querySelectorAll(".field-error").forEach(el => el.classList.remove("field-error"));
 
       if (apostilleSelected) {
@@ -719,7 +851,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Previous-step buttons
   document.querySelectorAll("[data-prev-step]").forEach(btn => {
     btn.addEventListener("click", () => setActiveStep(parseInt(btn.getAttribute("data-prev-step"), 10)));
   });
@@ -759,7 +890,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Delivery method pills → set hidden input + toggle upload card
   const deliveryField = document.getElementById("delivery_method");
   const uploadCard = document.getElementById("document-upload-card");
 
@@ -774,7 +904,6 @@ document.addEventListener("DOMContentLoaded", function () {
           b.classList.toggle("toggle-pill--active", b === btn)
         );
 
-        // Show upload card only when "Document upload only" is selected
         if (uploadCard) {
           uploadCard.style.display = (value === "upload_only") ? "" : "none";
         }
@@ -784,7 +913,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // File upload filename display
   const uploadInput = document.getElementById("intake_upload_files");
   const uploadNameSpan = document.getElementById("intake_upload_files_name");
   if (uploadInput && uploadNameSpan) {
@@ -801,80 +929,196 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateServiceTiles();
   updateRequiredFieldsForServices();
-  setActiveStep(0);
+  updateTranslationAddOns();
 
-  function updateSpeedOptionsForState() {
-    const container = document.querySelector("#apostille-speed-block .speed-options-container");
-    if (!container) return;
+      // Step 4 dynamic shipping options based on shipping_recipient_type
+  var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  var card            = document.getElementById("shipping-options-card");
+  var container       = document.getElementById("shipping-options-container");
+  var hiddenId        = document.getElementById("shipping_option_id");
+  var hiddenLabel     = document.getElementById("shipping_option_label");
+  var hiddenPrice     = document.getElementById("shipping_option_price");
 
-    const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
-    const uniqueStates = new Set();
-    allStateSelects.forEach(sel => {
-      if (sel.value) uniqueStates.add(sel.value);
-    });
-
-    if (uniqueStates.size === 0) {
-      container.innerHTML = `
-        <div class="form-help" style="color:#6b7280;">
-          Select an issuing state in Step 2 to see available speed options.
-        </div>
-      `;
-      return;
+  if (recipientRadios.length && card && container) {
+    function clearHidden() {
+      if (hiddenId)    hiddenId.value = "";
+      if (hiddenLabel) hiddenLabel.value = "";
+      if (hiddenPrice) hiddenPrice.value = "0";
     }
 
-    let html = "";
-
-    uniqueStates.forEach(stateCode => {
-      const stateRule = window.STATE_PRICING_RULES ? window.STATE_PRICING_RULES[stateCode] : null;
-
-      if (!stateRule || !stateRule.options || stateRule.options.length === 0) {
-        html += `
-          <div class="form-help" style="color:#6b7280; margin-bottom: 8px;">
-            <strong>${stateCode}:</strong> Timing will be confirmed after review.
-          </div>
-        `;
+    function renderOptions(type) {
+      var getOpts = window.getShippingOptionsForRecipient;
+      if (typeof getOpts !== "function") {
+        card.style.display = "none";
+        container.innerHTML = "";
+        clearHidden();
+        if (typeof updateOrderEstimate === "function") updateOrderEstimate();
         return;
       }
 
-      html += `<div class="state-speed-group" style="margin-bottom:16px;">`;
-      html += `<div style="font-weight:600; margin-bottom:6px;">${stateRule.stateName}</div>`;
-
-      stateRule.options.forEach((opt, idx) => {
-        const inputName = `speed_${stateCode}`;
-        const inputId = `speed_${stateCode}_${idx}`;
-        const priceLabel = opt.price > 0 ? ` (+$${opt.price.toFixed(0)})` : " (included)";
-        const checkedAttr = idx === 0 ? "checked" : "";
-
-        html += `
-          <label class="toggle-pill" style="display:flex; align-items:center; margin-bottom:4px; cursor:pointer;">
-            <input type="radio"
-                   name="${inputName}"
-                   id="${inputId}"
-                   value="${opt.label}"
-                   data-speed-price="${opt.price}"
-                   ${checkedAttr}
-                   style="margin-right:8px;">
-            ${opt.label}${priceLabel}
-          </label>
-        `;
-      });
-
-      if (stateRule.notes && stateRule.notes !== "nan") {
-        html += `<div class="form-help" style="color:#6b7280; font-size:12px; margin-top:4px;">${stateRule.notes}</div>`;
+      var options = getOpts(type) || [];
+      if (!options.length) {
+        card.style.display = "none";
+        container.innerHTML = "";
+        clearHidden();
+        if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+        return;
       }
 
-      html += `</div>`;
-    });
+      card.style.display = "block";
+      container.innerHTML = "";
+      clearHidden();
 
-    container.innerHTML = html;
-
-    container.querySelectorAll('input[type="radio"]').forEach(radio => {
-      radio.addEventListener("change", () => {
-        updateOrderEstimate();
+      var groups = {};
+      options.forEach(function (opt) {
+        var carrier = opt.carrier || "Other";
+        if (!groups[carrier]) groups[carrier] = [];
+        groups[carrier].push(opt);
       });
+
+      var firstOptionSet = false;
+
+Object.keys(groups).forEach(function (carrierName) {
+  var carrierOpts = groups[carrierName];
+  if (!carrierOpts.length) return;
+
+  var heading = document.createElement("div");
+  heading.textContent = carrierName;
+  heading.style.fontWeight = "600";
+  heading.style.fontSize = "13px";
+  heading.style.margin = "10px 0 4px 0";
+  container.appendChild(heading);
+
+  carrierOpts.forEach(function (opt) {
+    var id = "shippingopt-" + type + "-" + opt.id;
+
+    var label = document.createElement("label");
+    label.className = "toggle-pill";
+    label.style.width = "100%";
+    label.style.justifyContent = "flex-start";
+
+    var input = document.createElement("input");
+    input.type = "radio";
+    input.name = "shippingoptionchoice";
+    input.value = opt.id;
+    input.id = id;
+    input.style.marginRight = "8px";
+
+    var row = document.createElement("div");
+    row.style.display = "flex";
+    row.style.alignItems = "center";
+    row.style.gap = "6px";
+    row.style.width = "100%";
+
+    // Left: service name
+var svcSpan = document.createElement("span");
+svcSpan.textContent = opt.service;
+svcSpan.style.flex = "1 1 0";          // equal column
+svcSpan.style.whiteSpace = "nowrap";
+svcSpan.style.overflow = "hidden";
+svcSpan.style.textOverflow = "ellipsis";
+
+// Business days (just number/range)
+var daysSpan = document.createElement("span");
+var daysText = opt.days ? String(opt.days) : "";
+daysSpan.textContent = daysText;
+daysSpan.style.flex = "1 1 0";         // equal column
+daysSpan.style.textAlign = "center";
+daysSpan.style.whiteSpace = "nowrap";
+daysSpan.style.fontSize = "12px";
+daysSpan.style.color = "#4b5563";
+
+// Time window
+var timeSpan = document.createElement("span");
+timeSpan.textContent = opt.timeWindow || "";
+timeSpan.style.flex = "1 1 0";         // equal column
+timeSpan.style.textAlign = "center";
+timeSpan.style.whiteSpace = "nowrap";
+timeSpan.style.fontSize = "12px";
+timeSpan.style.color = "#4b5563";
+
+// Price / Included
+var priceSpan = document.createElement("span");
+if (opt.price != null) {
+  var normalized = parseFloat(opt.price);
+  priceSpan.textContent =
+    !isNaN(normalized) && normalized === 0
+      ? "Included"
+      : normalized.toFixed(2);
+} else {
+  priceSpan.textContent = "";
+}
+priceSpan.style.flex = "1 1 0";        // equal column
+priceSpan.style.textAlign = "right";
+priceSpan.style.whiteSpace = "nowrap";
+priceSpan.style.fontWeight = "600";
+
+// Append in order
+row.appendChild(svcSpan);
+row.appendChild(daysSpan);
+row.appendChild(timeSpan);
+row.appendChild(priceSpan);
+
+    label.appendChild(input);
+    label.appendChild(row);
+    container.appendChild(label);
+
+    function selectOption() {
+      if (hiddenId) hiddenId.value = opt.id;
+      if (hiddenLabel) hiddenLabel.value = carrierName + " - " + opt.service;
+      if (hiddenPrice)
+        hiddenPrice.value = opt.price != null ? String(opt.price) : "0";
+
+      var allPills = container.querySelectorAll(".toggle-pill");
+      allPills.forEach(function (p) {
+        p.classList.remove("toggle-pill--active");
+      });
+      label.classList.add("toggle-pill--active");
+
+      if (typeof updateOrderEstimate === "function") {
+        updateOrderEstimate();
+      }
+    }
+
+    input.addEventListener("change", selectOption);
+    label.addEventListener("click", function (e) {
+      if (e.target === input) return;
+      input.checked = true;
+      selectOption();
     });
+
+    if (!firstOptionSet) {
+      input.checked = true;
+      firstOptionSet = true;
+      selectOption();
+    }
+  });
+});
+
+    }
+
+    function handleRecipientChange() {
+      var selected = null;
+      recipientRadios.forEach(function (r) {
+        if (r.checked) selected = r.value;
+      });
+      if (!selected) {
+        card.style.display = "none";
+        container.innerHTML = "";
+        clearHidden();
+        if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+        return;
+      }
+      renderOptions(selected);
+    }
+
+    recipientRadios.forEach(function (radio) {
+      radio.addEventListener("change", handleRecipientChange);
+    });
+
+    handleRecipientChange();
   }
 
-  window.updateSpeedOptionsForState = updateSpeedOptionsForState;
+  setActiveStep(0);
 });
 

@@ -224,7 +224,7 @@
               <!-- Issuing state or federal -->
               <div class="full-field required-field">
                 <label class="form-label">Issuing state or federal *</label>
-                <select name="document_state_1" required>
+                <select name="document_state[]" required>
                   <option value="">Select state or federal...</option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -284,7 +284,7 @@
               <!-- Document type -->
               <div class="full-field required-field">
                 <label class="form-label">Document type *</label>
-                <select name="document_type_1" required>
+                <select name="document_type[]" required>
                   <option value="">Select document type...</option>
                   <option value="birth_certificate">Birth certificate</option>
                   <option value="marriage_certificate">Marriage certificate</option>
@@ -294,7 +294,8 @@
                   <option value="power_of_attorney">Power of attorney</option>
                   <option value="corporate_documents">Corporate documents (incorporation, bylaws, etc.)</option>
                   <option value="school_records">School records / transcripts / diplomas</option>
-                  <option value="criminal_record">Criminal record / background check</option>
+                  <option value="criminal_record">Criminal record / background 
+check</option>
                   <option value="court_documents">Court documents</option>
                   <option value="notarized_letter">Notarized letter</option>
                   <option value="other">Other (explain in notes later)</option>
@@ -304,9 +305,20 @@
 
             <!-- Quantity -->
             <div class="full-field required-field" style="margin-top:10px;">
-              <label class="form-label">Quantity *</label>
-              <input type="number" name="document_quantity_1" min="1" required>
+              <label class="form-label" for="document_quantity_1">
+                How many documents ine to be Apostilled
+              </label>
+              <input
+                type="number"
+                id="document_quantity_1"
+                name="document_quantity[]"
+                class="doc-quantity"
+                min="1"
+                value="1"
+                required
+              >
             </div>
+
 
             <!-- Destination country (per document group) -->
             <div class="full-field required-field" style="margin-top:10px;">
@@ -482,63 +494,52 @@
 <section class="intake-step" data-step="2">
   <div class="intake-card">
     <!-- Header -->
-    <p class="step-label">Step 3 of 5 · Speed & add‑ons</p>
-    <h2 class="service-detail-title">Choose your turnaround and extras</h2>
-    <p class="service-detail-subtitle">
-      Speed options vary by issuing state and destination country. Add any optional extras you need.
-    </p>
-
-    <!-- Hidden fields for PHP -->
-    <input type="hidden" id="apostille_speed_option" name="apostille_speed_option">
-    <input type="hidden" id="apostille_speed_notes"  name="apostille_speed_notes">
-
-    <!-- Apostille speed options -->
-    <div class="intake-card" id="apostille-speed-block" style="margin-top:16px;">
-      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-        Apostille / authentication speed
-      </h3>
+    <div class="intake-card" style="margin-bottom:12px;">
+      <p class="step-label">Step 3 of 5 · Speed & add‑ons</p>
+      <h2 class="service-detail-title">How fast do you need this, and any extras?</h2>
       <p class="service-detail-subtitle">
-        These options apply to apostille or authentication services. We’ll confirm exact timing before you approve.
+        Choose processing speed for apostille services and any add‑ons for translation.
       </p>
-
-      <div class="speed-options-container">
-        <!-- JS (updateSpeedOptionsForState) populates radio options here -->
-        <div class="form-help" style="color:#6b7280;">
-          Select an issuing state in Step 2 to see available speed options.
-        </div>
-      </div>
     </div>
 
-    <!-- Translation add‑ons only -->
-    <div class="intake-card" id="translation-addons-block" style="margin-top:16px;">
+    <!-- Apostille speed options -->
+    <div class="intake-card" id="apostille-speed-block">
       <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-        Translation add‑ons (optional)
+        Apostille / authentication speed options
       </h3>
       <p class="service-detail-subtitle">
-        Applies only if you also selected certified translation in Step 1.
+        Options are based on the issuing state(s) you selected in Step 2.
       </p>
 
       <div class="full-field">
-        <span class="form-label">Optional translation add‑ons</span>
-        <div class="usage-toggle">
-          <label class="toggle-pill">
-            <input type="checkbox" id="addon_shipped_hard_copy" name="addon_shipped_hard_copy">
-            Shipped hard copy (+$35)
-          </label>
-          <label class="toggle-pill">
-            <input type="checkbox" id="addon_notarization" name="addon_notarization">
-            Notarization (+$75)
-          </label>
-          <label class="toggle-pill">
-            <input type="checkbox" id="addon_expedited_turnaround" name="addon_expedited_turnaround">
-            Expedited turnaround (+$25/page)
-          </label>
+        <span class="form-label">Processing speed</span>
+        <div class="speed-options-container">
+          <!-- JS (updateSpeedOptionsForState) will inject state‑specific radios here -->
         </div>
-        <span class="form-help">
-          These apply only to translated documents. Leave unchecked if you don’t need them.
-        </span>
       </div>
     </div>
+
+<!-- Translation add‑ons (only when translation selected) -->
+<div class="intake-card" id="translation-addons-block">
+  <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+    Translation add‑ons
+  </h3>
+  <p class="service-detail-subtitle">
+    Optional add‑ons for certified translations.
+  </p>
+
+  <div class="full-field">
+    <span class="form-label">Choose any add‑ons</span>
+
+    <!-- Dynamic container populated by JS -->
+    <div class="translation-addons-container"></div>
+
+    <span class="form-help">
+      Add‑ons apply only if you selected translation in Step 1. They’re included in your estimate above.
+    </span>
+  </div>
+</div>
+
 
     <!-- Estimated total card -->
     <div class="intake-card order-summary-card" style="margin-top:16px;">
@@ -546,7 +547,7 @@
         Estimated order total
       </h3>
       <p class="service-detail-subtitle" style="margin-bottom:8px;">
-        Includes apostille speed selection and any translation add‑ons chosen so far.
+        Your current estimate, including apostille speed and any translation add‑ons.
       </p>
       <div class="full-field">
         <span class="form-label">Current estimate (USD)</span>
@@ -560,7 +561,7 @@
       </div>
     </div>
 
-    <!-- Buttons: inside the same OUTER card as everything above -->
+    <!-- Step 3 actions -->
     <div class="form-actions" style="margin-top:16px;">
       <button type="button" class="btn btn--secondary" data-prev-step="1">← Back</button>
       <button type="button" class="btn btn-primary" data-next-step="3">
@@ -585,64 +586,64 @@
     </div>
 
     <!-- How will we receive your documents? -->
-    <div class="intake-card">
-      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-        How will we receive your documents?
-      </h3>
-      <p class="service-detail-subtitle">
-        First choose how you’ll get your documents to us.
-      </p>
+<div class="intake-card">
+  <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+    How will we receive your documents?
+  </h3>
+  <p class="service-detail-subtitle">
+    First choose how you’ll get your documents to us.
+  </p>
 
-      <input type="hidden" id="delivery_method" name="delivery_method" value="in_person_office">
+  <input type="hidden" id="delivery_method" name="delivery_method" value="in_person_home">
 
-      <div class="usage-toggle">
-  <label class="toggle-pill" data-delivery-value="in_person_home">
-    <input type="radio" name="delivery_method" value="in_person_home">
-    In-person at your home/office
-  </label>
+  <div class="usage-toggle">
+    <label class="toggle-pill" data-delivery-value="in_person_home">
+      <input type="radio" name="delivery_method" value="in_person_home" checked>
+      In-person at your home/office
+    </label>
 
-  <label class="toggle-pill" data-delivery-value="in_person_office">
-    <input type="radio" name="delivery_method" value="in_person_office">
-    In-person at our office
-  </label>
+    <label class="toggle-pill" data-delivery-value="in_person_office">
+      <input type="radio" name="delivery_method" value="in_person_office">
+      In-person at our office
+    </label>
 
-  <label class="toggle-pill" data-delivery-value="mail_to_office">
-    <input type="radio" name="delivery_method" value="mail_to_office">
-    Mailing documents to our office
-  </label>
+    <label class="toggle-pill" data-delivery-value="mail_to_office">
+      <input type="radio" name="delivery_method" value="mail_to_office">
+      Mailing documents to our office
+    </label>
 
-  <label class="toggle-pill" data-delivery-value="upload_only">
-    <input type="radio" name="delivery_method" value="upload_only">
-    Document upload only
-  </label>
+    <label class="toggle-pill" data-delivery-value="upload_only">
+      <input type="radio" name="delivery_method" value="upload_only">
+      Document upload only
+    </label>
+  </div>
+
+  <span class="form-help">
+    If you’re outside the US, you’ll likely use mailing or document upload.
+  </span>
 </div>
 
-      <span class="form-help">
-        If you’re outside the US, you’ll likely use mailing or document upload.
-      </span>
-    </div>
+<!-- Document upload card (only used when "Document upload only" is selected) -->
+<div class="intake-card" id="document-upload-card" style="margin-top:16px; display:none;">
+  <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+    Upload your documents (optional)
+  </h3>
+  <p class="service-detail-subtitle">
+    If you choose “Document upload only”, you can upload clear scans or photos of your documents here.
+  </p>
 
-    <!-- Document upload card (only used when "Document upload only" is selected) -->
-    <div class="intake-card" id="document-upload-card" style="margin-top:16px; display:none;">
-      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-        Upload your documents (optional)
-      </h3>
-      <p class="service-detail-subtitle">
-        If you choose “Document upload only”, you can upload clear scans or photos of your documents here.
-      </p>
+  <div class="full-field file-upload-field" style="margin-top:8px;">
+    <span class="form-label">Upload document files</span>
 
-      <div class="full-field file-upload-field" style="margin-top:8px;">
-        <span class="form-label">Upload document files</span>
-
-        <!-- Hidden real input -->
-        <input
-          type="file"
-          id="intake_upload_files"
-          name="intake_upload_files[]"
-          multiple
-          accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff"
-          style="display:none;"
-        >
+    <!-- Hidden real input -->
+    <input
+      type="file"
+      id="intake_upload_files"
+      name="intake_upload_files[]"
+      multiple
+      accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff"
+      style="display:none;"
+    >
 
         <!-- Styled trigger -->
         <label for="intake_upload_files" class="file-upload-trigger">
@@ -673,7 +674,7 @@
             <input
               type="radio"
               name="shipping_recipient_type"
-              value="international_recipient"
+              value="internationalrecipient"
               style="margin-right:8px;"
             >
             To an international recipient
@@ -683,27 +684,28 @@
             <input
               type="radio"
               name="shipping_recipient_type"
-              value="other_us_recipient"
+              value="otherusrecipient"
               style="margin-right:8px;"
             >
             To another US recipient
           </label>
 
-          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
-            <input
-              type="radio"
-              name="shipping_recipient_type"
-              value="back_to_you"
-              style="margin-right:8px;"
-            >
-            Back to you
-          </label>
+          <label class="toggle-pill">
+              <input
+                type="radio"
+                name="shipping_recipient_type"
+                value="backtoyou"
+                style="margin-right:8px;"
+                checked
+              >
+              Back to you
+           </label>
 
           <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
             <input
               type="radio"
               name="shipping_recipient_type"
-              value="pickup_office"
+              value="pickupoffice"
               style="margin-right:8px;"
             >
             I will pick up the document from your office
@@ -713,7 +715,7 @@
             <input
               type="radio"
               name="shipping_recipient_type"
-              value="same_day_courier_la"
+              value="samedaycourierla"
               style="margin-right:8px;"
             >
             Same day courier (Los Angeles County)
@@ -723,7 +725,7 @@
             <input
               type="radio"
               name="shipping_recipient_type"
-              value="same_day_courier_oc"
+              value="samedaycourieroc"
               style="margin-right:8px;"
             >
             Same day courier (Orange / Ventura County)
@@ -735,6 +737,39 @@
         </span>
       </div>
     </div>
+
+    <!-- Shipping options (dynamic, based on recipient choice) -->
+    <div class="intake-card" id="shipping-options-card" style="margin-top:16px; display:none;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Shipping options for completed documents
+      </h3>
+      <p class="service-detail-subtitle">
+        Select how you want us to ship the completed documents.
+      </p>
+      <div class="full-field">
+        <span class="form-label">Choose a shipping method</span>
+
+<div class="pill-headings">
+  <span>Service</span>
+  <span>Business days</span>
+  <span>Time</span>
+  <span>Fee</span>
+</div>
+
+<div id="shipping-options-container" class="usage-toggle" style="flex-direction:column; gap:6px;">
+  <!-- JS will insert radio buttons here -->
+</div>
+
+        <span class="form-help">
+          International, US, or same‑day courier options appear automatically based on your selection above.
+        </span>
+      </div>
+    </div>
+
+    <!-- Hidden shipping option fields for PHP/email -->
+    <input type="hidden" id="shipping_option_id" name="shipping_option_id">
+    <input type="hidden" id="shipping_option_label" name="shipping_option_label">
+    <input type="hidden" id="shipping_option_price" name="shipping_option_price">
 
     <!-- Estimated total card -->
     <div class="intake-card order-summary-card" style="margin-top:16px;">
@@ -1095,43 +1130,46 @@
   <!-- Shared footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- Pricing / rules data (load before main intake logic) -->
+  <!-- Pricing rules data load before main intake logic -->
   <script src="apostille-pricing-rules.js"></script>
   <!-- <script src="apostille-country-rules.js"></script> -->
   <script src="county-pricing-rules.js"></script>
   <script src="state-pricing-rules.js"></script>
   <script src="translation-pricing-rules.js"></script>
   <script src="country-pricing-rules.js"></script>
+  <script src="shipping-options-rules.js"></script>
 
   <!-- Main intake logic -->
   <script src="apostille-intake.js"></script>
 
-  <!-- Step 1: require at least one service -->
-  <script>
-    (function () {
-      const stepOneSection = document.querySelector('.intake-step[data-step="0"]');
-      const nextBtn = stepOneSection?.querySelector('button.btn.btn-primary[data-next-step="1"]');
-      if (!nextBtn) return;
+<!-- ========== /SCRIPTS ========== -->
 
-      nextBtn.addEventListener('click', function (e) {
-        const apostille   = document.getElementById('svc-apostille')?.checked;
-        const translation = document.getElementById('svc-translation')?.checked;
-        const errorEl     = document.getElementById('services-error');
+<!-- Step 1: require at least one service -->
+<script>
+  (function () {
+    const stepOneSection = document.querySelector('.intake-step[data-step="0"]');
+    const nextBtn = stepOneSection?.querySelector('button.btn.btn-primary[data-next-step="1"]');
+    if (!nextBtn) return;
 
-        if (!apostille && !translation) {
-          if (errorEl) errorEl.style.display = 'inline';
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          return false;
-        }
+    nextBtn.addEventListener('click', function (e) {
+      const apostille   = document.getElementById('svc-apostille')?.checked;
+      const translation = document.getElementById('svc-translation')?.checked;
+      const errorEl     = document.getElementById('services-error');
 
-        if (errorEl) errorEl.style.display = 'none';
-      }, true);
-    })();
-  </script>
+      if (!apostille && !translation) {
+        if (errorEl) errorEl.style.display = 'inline';
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return false;
+      }
+
+      if (errorEl) errorEl.style.display = 'none';
+    }, true);
+  })();
+</script>
 
 <script>
-  // Capture selected speed label into hidden field for PHP/email
+  // Capture selected speed label into hidden field for PHP/email (old name, keep for safety)
   document.addEventListener('change', function (e) {
     if (!e.target.matches('input[name="apostille_speed_choice"]')) return;
 
@@ -1143,174 +1181,184 @@
   });
 </script>
 
+<!-- Wire Step‑1 services to Step‑2 cards -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const apostilleCheckbox   = document.getElementById('svc-apostille');
+    const translationCheckbox = document.getElementById('svc-translation');
 
-  <!-- Wire Step‑1 services to Step‑2 cards -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const apostilleCheckbox   = document.getElementById('svc-apostille');
-      const translationCheckbox = document.getElementById('svc-translation');
+    const apostilleBlock   = document.getElementById('apostille-documents-block');
+    const translationBlock = document.getElementById('translation-documents-block');
 
-      const apostilleBlock   = document.getElementById('apostille-documents-block');
-      const translationBlock = document.getElementById('translation-documents-block');
+    if (!apostilleCheckbox || !translationCheckbox || !apostilleBlock || !translationBlock) return;
 
-      if (!apostilleCheckbox || !translationCheckbox || !apostilleBlock || !translationBlock) return;
+    const syncServiceBlocks = () => {
+      apostilleBlock.style.display   = apostilleCheckbox.checked   ? 'block' : 'none';
+      translationBlock.style.display = translationCheckbox.checked ? 'block' : 'none';
+    };
 
-      const syncServiceBlocks = () => {
-        apostilleBlock.style.display   = apostilleCheckbox.checked   ? 'block' : 'none';
-        translationBlock.style.display = translationCheckbox.checked ? 'block' : 'none';
-      };
+    apostilleCheckbox.addEventListener('change', syncServiceBlocks);
+    translationCheckbox.addEventListener('change', syncServiceBlocks);
+    syncServiceBlocks();
+  });
+</script>
 
-      apostilleCheckbox.addEventListener('change', syncServiceBlocks);
-      translationCheckbox.addEventListener('change', syncServiceBlocks);
-      syncServiceBlocks();
-    });
-  </script>
+<!-- Shared header/footer injection scripts (relative to this folder) -->
+<script src="header.js" defer></script>
+<script src="footer.js" defer></script>
 
-  <!-- Shared header/footer injection scripts (relative to this folder) -->
-  <script src="header.js" defer></script>
-  <script src="footer.js" defer></script>
+<!-- Google Maps Places API for address autocompletes -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHuZHT66BR3KKAmVWiQhkuJBea2lJbMgA&libraries=places"
+  async
+  defer
+></script>
 
-  <!-- Google Maps Places API for address autocompletes -->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHuZHT66BR3KKAmVWiQhkuJBea2lJbMgA&libraries=places"
-    async
-    defer
-  ></script>
+<script>
+  function initAddressAutocompletes() {
+    if (!window.google || !google.maps || !google.maps.places) return;
 
-  <script>
-    function initAddressAutocompletes() {
-      if (!window.google || !google.maps || !google.maps.places) return;
+    function setupAutocomplete(id) {
+      var input = document.getElementById(id);
+      if (!input) return;
 
-      function setupAutocomplete(id) {
-        var input = document.getElementById(id);
-        if (!input) return;
+      var autocomplete = new google.maps.places.Autocomplete(input, {
+        fields: ["address_components", "geometry"],
+        types: ["address"]
+      });
 
-        var autocomplete = new google.maps.places.Autocomplete(input, {
-          fields: ["address_components", "geometry"],
-          types: ["address"]
-        });
+      autocomplete.addListener("place_changed", function () {
+        var place = autocomplete.getPlace();
+        if (!place || !place.address_components) return;
 
-        autocomplete.addListener("place_changed", function () {
-          var place = autocomplete.getPlace();
-          if (!place || !place.address_components) return;
+        function getComponent(type, attr) {
+          var comp = place.address_components.find(function (c) {
+            return c.types.indexOf(type) !== -1;
+          });
+          return comp ? comp[attr] : "";
+        }
 
-          function getComponent(type, attr) {
-            var comp = place.address_components.find(function (c) {
-              return c.types.indexOf(type) !== -1;
-            });
-            return comp ? comp[attr] : "";
+        var streetNumber = getComponent("street_number", "short_name");
+        var route        = getComponent("route", "long_name");
+        var cityLocality = getComponent("locality", "long_name") ||
+                           getComponent("postal_town", "long_name") ||
+                           getComponent("sublocality", "long_name");
+        var adminArea    = getComponent("administrative_area_level_1", "short_name") ||
+                           getComponent("administrative_area_level_1", "long_name");
+        var postalCode   = getComponent("postal_code", "short_name");
+        var countryLong  = getComponent("country", "long_name");
+
+        var streetLine1 = (streetNumber + " " + route).trim();
+
+        // US recipient fields
+        if (id === "us_recipient_address_1") {
+          if (streetLine1) document.getElementById("us_recipient_address_1").value = streetLine1;
+          if (cityLocality && document.getElementById("us_recipient_city")) {
+            document.getElementById("us_recipient_city").value = cityLocality;
           }
-
-          var streetNumber = getComponent("street_number", "short_name");
-          var route        = getComponent("route", "long_name");
-          var cityLocality = getComponent("locality", "long_name") ||
-                             getComponent("postal_town", "long_name") ||
-                             getComponent("sublocality", "long_name");
-          var adminArea    = getComponent("administrative_area_level_1", "short_name") ||
-                             getComponent("administrative_area_level_1", "long_name");
-          var postalCode   = getComponent("postal_code", "short_name");
-          var countryLong  = getComponent("country", "long_name");
-
-          var streetLine1 = (streetNumber + " " + route).trim();
-
-          // US recipient fields
-          if (id === "us_recipient_address_1") {
-            if (streetLine1) document.getElementById("us_recipient_address_1").value = streetLine1;
-            if (cityLocality && document.getElementById("us_recipient_city")) {
-              document.getElementById("us_recipient_city").value = cityLocality;
-            }
-            if (adminArea && document.getElementById("us_recipient_state")) {
-              document.getElementById("us_recipient_state").value = adminArea;
-            }
-            if (postalCode && document.getElementById("us_recipient_zip")) {
-              document.getElementById("us_recipient_zip").value = postalCode;
-            }
-            if (countryLong && document.getElementById("us_recipient_country")) {
-              document.getElementById("us_recipient_country").value = countryLong;
-            }
+          if (adminArea && document.getElementById("us_recipient_state")) {
+            document.getElementById("us_recipient_state").value = adminArea;
           }
-
-          // International recipient fields
-          if (id === "intl_recipient_address_1") {
-            if (streetLine1) document.getElementById("intl_recipient_address_1").value = streetLine1;
-            if (cityLocality && document.getElementById("intl_recipient_city")) {
-              document.getElementById("intl_recipient_city").value = cityLocality;
-            }
-            if (adminArea && document.getElementById("intl_recipient_state")) {
-              document.getElementById("intl_recipient_state").value = adminArea;
-            }
-            if (postalCode && document.getElementById("intl_recipient_postal")) {
-              document.getElementById("intl_recipient_postal").value = postalCode;
-            }
-            if (countryLong && document.getElementById("intl_recipient_country")) {
-              document.getElementById("intl_recipient_country").value = countryLong;
-            }
+          if (postalCode && document.getElementById("us_recipient_zip")) {
+            document.getElementById("us_recipient_zip").value = postalCode;
           }
-
-          // Your mailing / return address fields
-          if (id === "mailing_address_1") {
-            if (streetLine1) document.getElementById("mailing_address_1").value = streetLine1;
-            if (cityLocality && document.getElementById("mailing_city")) {
-              document.getElementById("mailing_city").value = cityLocality;
-            }
-            if (adminArea && document.getElementById("mailing_state")) {
-              document.getElementById("mailing_state").value = adminArea;
-            }
-            if (postalCode && document.getElementById("mailing_zip")) {
-              document.getElementById("mailing_zip").value = postalCode;
-            }
-            if (countryLong && document.getElementById("mailing_country")) {
-              document.getElementById("mailing_country").value = countryLong;
-            }
+          if (countryLong && document.getElementById("us_recipient_country")) {
+            document.getElementById("us_recipient_country").value = countryLong;
           }
-        });
-      }
+        }
 
-      setupAutocomplete("us_recipient_address_1");
-      setupAutocomplete("intl_recipient_address_1");
-      setupAutocomplete("mailing_address_1");
+        // International recipient fields
+        if (id === "intl_recipient_address_1") {
+          if (streetLine1) document.getElementById("intl_recipient_address_1").value = streetLine1;
+          if (cityLocality && document.getElementById("intl_recipient_city")) {
+            document.getElementById("intl_recipient_city").value = cityLocality;
+          }
+          if (adminArea && document.getElementById("intl_recipient_state")) {
+            document.getElementById("intl_recipient_state").value = adminArea;
+          }
+          if (postalCode && document.getElementById("intl_recipient_postal")) {
+            document.getElementById("intl_recipient_postal").value = postalCode;
+          }
+          if (countryLong && document.getElementById("intl_recipient_country")) {
+            document.getElementById("intl_recipient_country").value = countryLong;
+          }
+        }
+
+        // Your mailing / return address fields
+        if (id === "mailing_address_1") {
+          if (streetLine1) document.getElementById("mailing_address_1").value = streetLine1;
+          if (cityLocality && document.getElementById("mailing_city")) {
+            document.getElementById("mailing_city").value = cityLocality;
+          }
+          if (adminArea && document.getElementById("mailing_state")) {
+            document.getElementById("mailing_state").value = adminArea;
+          }
+          if (postalCode && document.getElementById("mailing_zip")) {
+            document.getElementById("mailing_zip").value = postalCode;
+          }
+          if (countryLong && document.getElementById("mailing_country")) {
+            document.getElementById("mailing_country").value = countryLong;
+          }
+        }
+      });
     }
 
-    window.addEventListener("load", function () {
-      if (window.google && google.maps && google.maps.places) {
-        initAddressAutocompletes();
-      } else {
-        var tries = 0;
-        var timer = setInterval(function () {
-          tries++;
-          if (window.google && google.maps && google.maps.places) {
-            clearInterval(timer);
-            initAddressAutocompletes();
-          }
-          if (tries > 20) clearInterval(timer);
-        }, 250);
-      }
-    });
-  </script>
+    setupAutocomplete("us_recipient_address_1");
+    setupAutocomplete("intl_recipient_address_1");
+    setupAutocomplete("mailing_address_1");
+  }
 
-  <!-- NEW: keep delivery_method in sync with the pills on Step 4 -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var deliveryInput = document.getElementById('delivery_method');
-      var deliveryPills = document.querySelectorAll('[data-step="3"] .toggle-pill[data-delivery-value]');
+  window.addEventListener("load", function () {
+    if (window.google && google.maps && google.maps.places) {
+      initAddressAutocompletes();
+    } else {
+      var tries = 0;
+      var timer = setInterval(function () {
+        tries++;
+        if (window.google && google.maps && google.maps.places) {
+          clearInterval(timer);
+          initAddressAutocompletes();
+        }
+        if (tries > 20) clearInterval(timer);
+      }, 250);
+    }
+  });
+</script>
 
-      if (!deliveryInput || !deliveryPills.length) return;
+<!-- Keep delivery_method in sync with the pills on Step 4 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var deliveryInput = document.getElementById('delivery_method');
+    var deliveryPills = document.querySelectorAll('[data-step="3"] .toggle-pill[data-delivery-value]');
 
-      deliveryPills.forEach(function (pill) {
-        pill.addEventListener('click', function () {
-          var value = pill.getAttribute('data-delivery-value');
-          deliveryInput.value = value;
+    if (!deliveryInput || !deliveryPills.length) return;
 
-          deliveryPills.forEach(function (p) {
-            p.classList.remove('toggle-pill--active');
-          });
-          pill.classList.add('toggle-pill--active');
-        });
+    function syncDeliveryPills(activeValue) {
+      deliveryPills.forEach(function (p) {
+        var val = p.getAttribute('data-delivery-value');
+        if (val === activeValue) {
+          p.classList.add('toggle-pill--active');
+        } else {
+          p.classList.remove('toggle-pill--active');
+        }
+      });
+    }
+
+    deliveryPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        var value = pill.getAttribute('data-delivery-value');
+        deliveryInput.value = value;
+        syncDeliveryPills(value);
       });
     });
-  </script>
-  <script>
-  // Capture selected speed label into hidden field for PHP/email
+
+    // Initialize from current hidden value
+    syncDeliveryPills(deliveryInput.value || 'in_person_office');
+  });
+</script>
+
+<script>
+  // Capture selected speed label into hidden field for PHP/email (new speed radios)
   document.addEventListener('change', function (e) {
     if (!e.target.matches('.speed-options-container input[type="radio"]')) return;
 
@@ -1322,6 +1370,36 @@
   });
 </script>
 
+
+<script>
+  // Highlight selected pill for "Where should completed documents go?"
+  document.addEventListener('DOMContentLoaded', function () {
+    var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+    if (!recipientRadios.length) return;
+
+    function syncRecipientPills() {
+      recipientRadios.forEach(function (radio) {
+        var pill = radio.closest('.toggle-pill');
+        if (!pill) return;
+        if (radio.checked) {
+          pill.classList.add('toggle-pill--active');
+        } else {
+          pill.classList.remove('toggle-pill--active');
+        }
+      });
+    }
+
+    recipientRadios.forEach(function (radio) {
+      radio.addEventListener('change', syncRecipientPills);
+    });
+
+    // Initialize once on load
+    syncRecipientPills();
+  });
+</script>
+
 </body>
 </html>
+
+
 

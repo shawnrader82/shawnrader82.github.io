@@ -495,4 +495,139 @@ textarea {
   box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.6);
 }
 
+/* Hide native radio inside all toggle pills; make whole pill clickable */
+.toggle-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.translation-addon-pill .translation-addon-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Step 4: Delivery method pills – always vertical, full-width */
+.intake-card .usage-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.intake-card .usage-toggle .toggle-pill[data-delivery-value] {
+  width: 100%;
+  justify-content: flex-start;
+  display: flex;
+}
+
+/* Step 4 + speed pills: allow wrapping on narrow screens */
+@media (max-width: 480px) {
+  .toggle-pill {
+    display: block;           /* full-width block on mobile */
+  }
+
+  .toggle-pill > div {
+    flex-wrap: wrap;          /* row inside pill can wrap */
+  }
+
+  .toggle-pill > div span {
+    white-space: normal;      /* allow spans to wrap */
+  }
+}
+
+/* Mobile layout for speed + shipping pills */
+@media (max-width: 480px) {
+  /* Make each pill a vertical stack */
+  #apostille-speed-block .toggle-pill,
+  #shipping-options-card .toggle-pill {
+    display: block;
+    padding: 8px 10px;
+  }
+
+  /* Inner row becomes a column */
+  #apostille-speed-block .toggle-pill > div,
+  #shipping-options-card .toggle-pill > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  /* First line: service name goes full width */
+  #apostille-speed-block .toggle-pill > div span:first-child,
+  #shipping-options-card .toggle-pill > div span:first-child {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* Second line: days + time + price wrap nicely */
+  #apostille-speed-block .toggle-pill > div span:nth-child(n+2),
+  #shipping-options-card .toggle-pill > div span:nth-child(n+2) {
+    white-space: normal !important;
+    flex: 0 0 auto;
+    font-size: 11px;
+  }
+
+  /* Tighten price so it doesn't hug the edge */
+  #apostille-speed-block .toggle-pill > div span:last-child,
+  #shipping-options-card .toggle-pill > div span:last-child {
+    align-self: flex-end;
+    padding-right: 2px;
+  }
+}
+
+.pill-headings {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #6b7280;
+  padding: 0 6px 4px;
+}
+
+/* Four equal columns: Service | Business days | Time | Fee */
+.pill-headings span {
+  flex: 1 1 0;
+}
+
+/* Left align first, center middle two, right align last */
+.pill-headings span:nth-child(1) {
+  text-align: left;
+}
+
+.pill-headings span:nth-child(2),
+.pill-headings span:nth-child(3) {
+  text-align: center;
+}
+
+.pill-headings span:nth-child(4) {
+  text-align: right;
+}
+
+
+/* Mobile: hide Time column in headings and pills */
+@media (max-width: 480px) {
+  /* In the header row: hide the 3rd label (Time) */
+  .pill-headings span:nth-child(3) {
+    display: none;
+  }
+
+  /* In each pill row: hide the 3rd span (Time) */
+  #shipping-options-card .toggle-pill > div span:nth-child(3) {
+    display: none;
+  }
+}
+
+/* Mobile: hide Time column completely in headings + shipping pills */
+@media (max-width: 480px) {
+  /* Heading row: hide the "Time" label (3rd span) */
+  .pill-headings span:nth-child(3) {
+    display: none !important;
+  }
+
+  /* Shipping pills: hide the Time value (3rd span in the inner row) */
+  #shipping-options-card .toggle-pill > div span:nth-child(3) {
+    display: none !important;
+  }
+}
 
