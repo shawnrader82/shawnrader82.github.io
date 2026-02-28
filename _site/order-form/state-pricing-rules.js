@@ -3,450 +3,1115 @@
 
 const STATE_PRICING_RULES = {
   "AL": {
-    stateName: "Alabama",
-    options: [
-      { label: "Standard · 10–15 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Alabama",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–15 business days",
+        "price": 0.0,
+        "label": "Standard · 10–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "AK": {
-    stateName: "Alaska",
-    options: [
-      { label: "Standard · 15–20 business days", price: 0.0 },
+    "stateName": "Alaska",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–20 business days",
+        "price": 0.0,
+        "label": "Standard · 15–20 business days"
+      }
     ],
-    notes: "Remote location - limited expedite options"
+    "notes": "Remote location - limited expedite options"
   },
   "AZ": {
-    stateName: "Arizona",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Arizona",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "AR": {
-    stateName: "Arkansas",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Arkansas",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "CA": {
-    stateName: "California",
-    options: [
-      { label: "Standard · 5–7 business days", price: 0.0 },
-      { label: "Rush · 2–3 business days", price: 50.0 },
-      { label: "Next business day", price: 100.0 },
-      { label: "Same‑day service", price: 150.0 },
+    "stateName": "California",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "5–7 business days",
+        "price": 0.0,
+        "label": "Standard · 5–7 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "2–3 business days",
+        "price": 50.0,
+        "label": "Expedited · 2–3 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "1 business day",
+        "price": 100.0,
+        "label": "Rush · 1 business day"
+      },
+      {
+        "title": "Priority",
+        "speed": "Same‑day service",
+        "price": 150.0,
+        "label": "Priority · Same‑day service"
+      }
     ],
-    notes: "High volume state - 4 speed tiers"
+    "notes": "High volume state - 4 speed tiers"
   },
   "CO": {
-    stateName: "Colorado",
-    options: [
-      { label: "Standard · 8–12 business days", price: 0.0 },
-      { label: "Expedited · 4–6 business days", price: 50.0 },
-      { label: "Rush · 1–2 business days", price: 75.0 },
+    "stateName": "Colorado",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "8–12 business days",
+        "price": 0.0,
+        "label": "Standard · 8–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "4–6 business days",
+        "price": 50.0,
+        "label": "Expedited · 4–6 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "1–2 business days",
+        "price": 75.0,
+        "label": "Rush · 1–2 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "CT": {
-    stateName: "Connecticut",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
+    "stateName": "Connecticut",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "DE": {
-    stateName: "Delaware",
-    options: [
-      { label: "Standard · 10–12 business days", price: 0.0 },
-      { label: "Expedited · 4–6 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Delaware",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–12 business days",
+        "price": 0.0,
+        "label": "Standard · 10–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "4–6 business days",
+        "price": 50.0,
+        "label": "Expedited · 4–6 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "DC": {
-    stateName: "District of Columbia",
-    options: [
-      { label: "Standard · 8–12 business days", price: 0.0 },
-      { label: "Expedited · 4–6 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "District of Columbia",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "8–12 business days",
+        "price": 0.0,
+        "label": "Standard · 8–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "4–6 business days",
+        "price": 50.0,
+        "label": "Expedited · 4–6 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "Federal documents"
+    "notes": "Federal documents"
   },
   "FL": {
-    stateName: "Florida",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
-      { label: "Rush · 3–4 business days", price: 75.0 },
+    "stateName": "Florida",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "3–4 business days",
+        "price": 75.0,
+        "label": "Rush · 3–4 business days"
+      }
     ],
-    notes: "High volume state"
+    "notes": "High volume state"
   },
   "GA": {
-    stateName: "Georgia",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Georgia",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "HI": {
-    stateName: "Hawaii",
-    options: [
-      { label: "Standard · 15–20 business days", price: 0.0 },
-      { label: "Expedited · 8–10 business days", price: 50.0 },
+    "stateName": "Hawaii",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–20 business days",
+        "price": 0.0,
+        "label": "Standard · 15–20 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "8–10 business days",
+        "price": 50.0,
+        "label": "Expedited · 8–10 business days"
+      }
     ],
-    notes: "Remote location"
+    "notes": "Remote location"
   },
   "ID": {
-    stateName: "Idaho",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Idaho",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "IL": {
-    stateName: "Illinois",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Illinois",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "IN": {
-    stateName: "Indiana",
-    options: [
-      { label: "Standard · 10–12 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Indiana",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–12 business days",
+        "price": 0.0,
+        "label": "Standard · 10–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "IA": {
-    stateName: "Iowa",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Iowa",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "KS": {
-    stateName: "Kansas",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
+    "stateName": "Kansas",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "KY": {
-    stateName: "Kentucky",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
-      { label: "Rush · 3–4 business days", price: 75.0 },
+    "stateName": "Kentucky",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "3–4 business days",
+        "price": 75.0,
+        "label": "Rush · 3–4 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "LA": {
-    stateName: "Louisiana",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Louisiana",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "ME": {
-    stateName: "Maine",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Maine",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MD": {
-    stateName: "Maryland",
-    options: [
-      { label: "Standard · 8–12 business days", price: 0.0 },
-      { label: "Expedited · 4–6 business days", price: 50.0 },
-      { label: "Rush · 1–2 business days", price: 75.0 },
+    "stateName": "Maryland",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "8–12 business days",
+        "price": 0.0,
+        "label": "Standard · 8–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "4–6 business days",
+        "price": 50.0,
+        "label": "Expedited · 4–6 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "1–2 business days",
+        "price": 75.0,
+        "label": "Rush · 1–2 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MA": {
-    stateName: "Massachusetts",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Massachusetts",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MI": {
-    stateName: "Michigan",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
+    "stateName": "Michigan",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MN": {
-    stateName: "Minnesota",
-    options: [
-      { label: "Standard · 10–12 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Minnesota",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–12 business days",
+        "price": 0.0,
+        "label": "Standard · 10–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MS": {
-    stateName: "Mississippi",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Mississippi",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MO": {
-    stateName: "Missouri",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Missouri",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "MT": {
-    stateName: "Montana",
-    options: [
-      { label: "Standard · 15–18 business days", price: 0.0 },
-      { label: "Expedited · 8–10 business days", price: 50.0 },
+    "stateName": "Montana",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–18 business days",
+        "price": 0.0,
+        "label": "Standard · 15–18 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "8–10 business days",
+        "price": 50.0,
+        "label": "Expedited · 8–10 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "NE": {
-    stateName: "Nebraska",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Nebraska",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "NV": {
-    stateName: "Nevada",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Nevada",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "NH": {
-    stateName: "New Hampshire",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "New Hampshire",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "NJ": {
-    stateName: "New Jersey",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "New Jersey",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "High volume state"
+    "notes": "High volume state"
   },
   "NM": {
-    stateName: "New Mexico",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "New Mexico",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "NY": {
-    stateName: "New York",
-    options: [
-      { label: "Standard · 8–12 business days", price: 0.0 },
-      { label: "Expedited · 4–6 business days", price: 50.0 },
-      { label: "Rush · 1–2 business days", price: 75.0 },
+    "stateName": "New York",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "8–12 business days",
+        "price": 0.0,
+        "label": "Standard · 8–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "4–6 business days",
+        "price": 50.0,
+        "label": "Expedited · 4–6 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "1–2 business days",
+        "price": 75.0,
+        "label": "Rush · 1–2 business days"
+      }
     ],
-    notes: "High volume state"
+    "notes": "High volume state"
   },
   "NC": {
-    stateName: "North Carolina",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "North Carolina",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "ND": {
-    stateName: "North Dakota",
-    options: [
-      { label: "Standard · 15–18 business days", price: 0.0 },
-      { label: "Expedited · 8–10 business days", price: 50.0 },
+    "stateName": "North Dakota",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–18 business days",
+        "price": 0.0,
+        "label": "Standard · 15–18 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "8–10 business days",
+        "price": 50.0,
+        "label": "Expedited · 8–10 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "OH": {
-    stateName: "Ohio",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Ohio",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "OK": {
-    stateName: "Oklahoma",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Oklahoma",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "OR": {
-    stateName: "Oregon",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Oregon",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "PA": {
-    stateName: "Pennsylvania",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Pennsylvania",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "RI": {
-    stateName: "Rhode Island",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Rhode Island",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "SC": {
-    stateName: "South Carolina",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "South Carolina",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "SD": {
-    stateName: "South Dakota",
-    options: [
-      { label: "Standard · 15–18 business days", price: 0.0 },
+    "stateName": "South Dakota",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–18 business days",
+        "price": 0.0,
+        "label": "Standard · 15–18 business days"
+      }
     ],
-    notes: "Limited expedite options"
+    "notes": "Limited expedite options"
   },
   "TN": {
-    stateName: "Tennessee",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Tennessee",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "TX": {
-    stateName: "Texas",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
-      { label: "Rush · 3–4 business days", price: 75.0 },
+    "stateName": "Texas",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "3–4 business days",
+        "price": 75.0,
+        "label": "Rush · 3–4 business days"
+      }
     ],
-    notes: "High volume state"
+    "notes": "High volume state"
   },
   "UT": {
-    stateName: "Utah",
-    options: [
-      { label: "Standard · 10–12 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Utah",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–12 business days",
+        "price": 0.0,
+        "label": "Standard · 10–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "VT": {
-    stateName: "Vermont",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "Vermont",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "VA": {
-    stateName: "Virginia",
-    options: [
-      { label: "Standard · 8–12 business days", price: 0.0 },
-      { label: "Expedited · 4–6 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Virginia",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "8–12 business days",
+        "price": 0.0,
+        "label": "Standard · 8–12 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "4–6 business days",
+        "price": 50.0,
+        "label": "Expedited · 4–6 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "WA": {
-    stateName: "Washington",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Washington",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "WV": {
-    stateName: "West Virginia",
-    options: [
-      { label: "Standard · 12–15 business days", price: 0.0 },
-      { label: "Expedited · 6–8 business days", price: 50.0 },
+    "stateName": "West Virginia",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "12–15 business days",
+        "price": 0.0,
+        "label": "Standard · 12–15 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "6–8 business days",
+        "price": 50.0,
+        "label": "Expedited · 6–8 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "WI": {
-    stateName: "Wisconsin",
-    options: [
-      { label: "Standard · 10–14 business days", price: 0.0 },
-      { label: "Expedited · 5–7 business days", price: 50.0 },
-      { label: "Rush · 2–3 business days", price: 75.0 },
+    "stateName": "Wisconsin",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "10–14 business days",
+        "price": 0.0,
+        "label": "Standard · 10–14 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "5–7 business days",
+        "price": 50.0,
+        "label": "Expedited · 5–7 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "2–3 business days",
+        "price": 75.0,
+        "label": "Rush · 2–3 business days"
+      }
     ],
-    notes: "nan"
+    "notes": ""
   },
   "WY": {
-    stateName: "Wyoming",
-    options: [
-      { label: "Standard · 15–20 business days", price: 0.0 },
+    "stateName": "Wyoming",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–20 business days",
+        "price": 0.0,
+        "label": "Standard · 15–20 business days"
+      }
     ],
-    notes: "Limited expedite options"
+    "notes": "Limited expedite options"
   },
   "FEDERAL": {
-    stateName: "U.S. Federal (State Dept)",
-    options: [
-      { label: "Standard · 15–20 business days", price: 0.0 },
-      { label: "Expedited · 8–10 business days", price: 50.0 },
-      { label: "Rush · 3–5 business days", price: 75.0 },
+    "stateName": "U.S. Federal (State Dept)",
+    "options": [
+      {
+        "title": "Standard",
+        "speed": "15–20 business days",
+        "price": 0.0,
+        "label": "Standard · 15–20 business days"
+      },
+      {
+        "title": "Expedited",
+        "speed": "8–10 business days",
+        "price": 50.0,
+        "label": "Expedited · 8–10 business days"
+      },
+      {
+        "title": "Rush",
+        "speed": "3–5 business days",
+        "price": 75.0,
+        "label": "Rush · 3–5 business days"
+      }
     ],
-    notes: "For federal documents only"
-  },
+    "notes": "For federal documents only"
+  }
 };
 
 function getStateSpeedOptions(stateCode) {

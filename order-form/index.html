@@ -71,11 +71,10 @@
     <!-- ========== /INTAKE HEADER / STEP INDICATOR ========== -->
 
     <!-- ========== INTAKE FORM (ALL STEPS) ========== -->
-    <form id="apostille-intake-form"
-      method="POST"
-      action="https://apostille.mobileamericannotary.com/apostille-intake.php"
-      enctype="multipart/form-data">
-
+<form id="apostille-intake-form"
+  method="POST"
+  action="https://apostille.mobileamericannotary.com/apostille-intake.php"
+  enctype="multipart/form-data">
 
       <!-- ========== STEP 1 · WHAT YOU NEED ========== -->
       <section class="intake-step intake-step--active" data-step="0">
@@ -496,19 +495,19 @@ check</option>
     <!-- Header -->
     <div class="intake-card" style="margin-bottom:12px;">
       <p class="step-label">Step 3 of 5 · Speed & add‑ons</p>
-      <h2 class="service-detail-title">How fast do you need this, and any extras?</h2>
+      <h2 class="service-detail-title">How fast do you need this?</h2>
       <p class="service-detail-subtitle">
-        Choose processing speed for apostille services and any add‑ons for translation.
+        Choose your apostille speed and any translation add‑ons.
       </p>
     </div>
 
     <!-- Apostille speed options -->
     <div class="intake-card" id="apostille-speed-block">
       <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-        Apostille / authentication speed options
+        Processing speed
       </h3>
       <p class="service-detail-subtitle">
-        Options are based on the issuing state(s) you selected in Step 2.
+        Options are based on the state(s) you chose in Step 2.
       </p>
 
       <div class="full-field">
@@ -519,27 +518,26 @@ check</option>
       </div>
     </div>
 
-<!-- Translation add‑ons (only when translation selected) -->
-<div class="intake-card" id="translation-addons-block">
-  <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-    Translation add‑ons
-  </h3>
-  <p class="service-detail-subtitle">
-    Optional add‑ons for certified translations.
-  </p>
+    <!-- Translation add‑ons (only when translation selected) -->
+    <div class="intake-card" id="translation-addons-block">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Translation add‑ons
+      </h3>
+      <p class="service-detail-subtitle">
+        Optional add‑ons for certified translations (if selected).
+      </p>
 
-  <div class="full-field">
-    <span class="form-label">Choose any add‑ons</span>
+      <div class="full-field">
+        <span class="form-label">Choose any add‑ons</span>
 
-    <!-- Dynamic container populated by JS -->
-    <div class="translation-addons-container"></div>
+        <!-- Dynamic container populated by JS -->
+        <div class="translation-addons-container"></div>
 
-    <span class="form-help">
-      Add‑ons apply only if you selected translation in Step 1. They’re included in your estimate above.
-    </span>
-  </div>
-</div>
-
+        <span class="form-help">
+          Add‑ons apply only if you selected translation in Step 1. They’re included in your estimate above.
+        </span>
+      </div>
+    </div>
 
     <!-- Estimated total card -->
     <div class="intake-card order-summary-card" style="margin-top:16px;">
@@ -573,6 +571,7 @@ check</option>
 <!-- ========== /STEP 3 · SPEED & ADD‑ONS ========== -->
 
 
+
 <!-- ========== STEP 4 · DELIVERY & SHIPPING ========== -->
 <section class="intake-step" data-step="3">
   <div class="intake-card">
@@ -586,64 +585,64 @@ check</option>
     </div>
 
     <!-- How will we receive your documents? -->
-<div class="intake-card">
-  <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-    How will we receive your documents?
-  </h3>
-  <p class="service-detail-subtitle">
-    First choose how you’ll get your documents to us.
-  </p>
+    <div class="intake-card">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        How will we receive your documents?
+      </h3>
+      <p class="service-detail-subtitle">
+        First choose how you’ll get your documents to us.
+      </p>
 
-  <input type="hidden" id="delivery_method" name="delivery_method" value="in_person_home">
+      <input type="hidden" id="delivery_method" name="delivery_method" value="in_person_home">
 
-  <div class="usage-toggle">
-    <label class="toggle-pill" data-delivery-value="in_person_home">
-      <input type="radio" name="delivery_method" value="in_person_home" checked>
-      In-person at your home/office
-    </label>
+      <div class="usage-toggle">
+        <label class="toggle-pill" data-delivery-value="in_person_home">
+          <input type="radio" name="delivery_method" value="in_person_home" checked>
+          In-person at your home/office
+        </label>
 
-    <label class="toggle-pill" data-delivery-value="in_person_office">
-      <input type="radio" name="delivery_method" value="in_person_office">
-      In-person at our office
-    </label>
+        <label class="toggle-pill" data-delivery-value="in_person_office">
+          <input type="radio" name="delivery_method" value="in_person_office">
+          In-person at our office
+        </label>
 
-    <label class="toggle-pill" data-delivery-value="mail_to_office">
-      <input type="radio" name="delivery_method" value="mail_to_office">
-      Mailing documents to our office
-    </label>
+        <label class="toggle-pill" data-delivery-value="mail_to_office">
+          <input type="radio" name="delivery_method" value="mail_to_office">
+          Mailing documents to our office
+        </label>
 
-    <label class="toggle-pill" data-delivery-value="upload_only">
-      <input type="radio" name="delivery_method" value="upload_only">
-      Document upload only
-    </label>
-  </div>
+        <label class="toggle-pill" data-delivery-value="upload_only">
+          <input type="radio" name="delivery_method" value="upload_only">
+          Document upload only
+        </label>
+      </div>
 
-  <span class="form-help">
-    If you’re outside the US, you’ll likely use mailing or document upload.
-  </span>
-</div>
+      <span class="form-help">
+        If you’re outside the US, you’ll likely use mailing or document upload.
+      </span>
+    </div>
 
-<!-- Document upload card (only used when "Document upload only" is selected) -->
-<div class="intake-card" id="document-upload-card" style="margin-top:16px; display:none;">
-  <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
-    Upload your documents (optional)
-  </h3>
-  <p class="service-detail-subtitle">
-    If you choose “Document upload only”, you can upload clear scans or photos of your documents here.
-  </p>
+    <!-- Document upload card (only used when "Document upload only" is selected) -->
+    <div class="intake-card" id="document-upload-card" style="margin-top:16px; display:none;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Upload your documents (optional)
+      </h3>
+      <p class="service-detail-subtitle">
+        If you choose “Document upload only”, you can upload clear scans or photos of your documents here.
+      </p>
 
-  <div class="full-field file-upload-field" style="margin-top:8px;">
-    <span class="form-label">Upload document files</span>
+      <div class="full-field file-upload-field" style="margin-top:8px;">
+        <span class="form-label">Upload document files</span>
 
-    <!-- Hidden real input -->
-    <input
-      type="file"
-      id="intake_upload_files"
-      name="intake_upload_files[]"
-      multiple
-      accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff"
-      style="display:none;"
-    >
+        <!-- Hidden real input -->
+        <input
+          type="file"
+          id="intake_upload_files"
+          name="intake_upload_files[]"
+          multiple
+          accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff"
+          style="display:none;"
+        >
 
         <!-- Styled trigger -->
         <label for="intake_upload_files" class="file-upload-trigger">
@@ -691,15 +690,25 @@ check</option>
           </label>
 
           <label class="toggle-pill">
-              <input
-                type="radio"
-                name="shipping_recipient_type"
-                value="backtoyou"
-                style="margin-right:8px;"
-                checked
-              >
-              Back to you
-           </label>
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="backtoyou"
+              style="margin-right:8px;"
+              checked
+            >
+            Back to you
+          </label>
+
+          <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
+            <input
+              type="radio"
+              name="shipping_recipient_type"
+              value="backtoyou_label"
+              style="margin-right:8px;"
+            >
+            Back to you – I will provide my own prepaid shipping label
+          </label>
 
           <label class="toggle-pill" style="width:100%; justify-content:flex-start;">
             <input
@@ -749,19 +758,45 @@ check</option>
       <div class="full-field">
         <span class="form-label">Choose a shipping method</span>
 
-<div class="pill-headings">
-  <span>Service</span>
-  <span>Business days</span>
-  <span>Time</span>
-  <span>Fee</span>
-</div>
-
-<div id="shipping-options-container" class="usage-toggle" style="flex-direction:column; gap:6px;">
-  <!-- JS will insert radio buttons here -->
-</div>
+        <div id="shipping-options-container" class="usage-toggle" style="flex-direction:column; gap:6px;">
+          <!-- JS will insert radio buttons here -->
+        </div>
 
         <span class="form-help">
           International, US, or same‑day courier options appear automatically based on your selection above.
+        </span>
+      </div>
+    </div>
+
+    <!-- Shipping label upload card (only when user provides their own prepaid label) -->
+    <div class="intake-card" id="shipping-label-upload-card" style="margin-top:16px; display:none;">
+      <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
+        Upload your prepaid shipping label
+      </h3>
+      <p class="service-detail-subtitle">
+        Upload a prepaid label from your carrier. We’ll use this label to return your completed documents.
+      </p>
+
+      <div class="full-field file-upload-field" style="margin-top:8px;">
+        <span class="form-label">Upload shipping label file</span>
+
+        <!-- Hidden real input -->
+        <input
+          type="file"
+          id="shippinglabelupload"
+          name="shippinglabelupload"
+          accept=".pdf,.jpg,.jpeg,.png"
+          style="display:none;"
+        >
+
+        <!-- Styled trigger -->
+        <label for="shippinglabelupload" class="file-upload-trigger">
+          Choose label file
+        </label>
+        <span class="file-upload-filename" id="shippinglabeluploadname">No file chosen</span>
+
+        <span class="form-help">
+          You can upload your prepaid label as a PDF or image (JPG/PNG). If it’s easier, you can also send it later.
         </span>
       </div>
     </div>
@@ -771,7 +806,7 @@ check</option>
     <input type="hidden" id="shipping_option_label" name="shipping_option_label">
     <input type="hidden" id="shipping_option_price" name="shipping_option_price">
 
-    <!-- Estimated total card -->
+    <!-- Estimated order total card -->
     <div class="intake-card order-summary-card" style="margin-top:16px;">
       <h3 class="service-detail-title" style="margin-top:0;margin-bottom:4px;">
         Estimated order total
