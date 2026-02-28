@@ -1,9 +1,68 @@
-// ========== STEP 3 · SCRIPTS (LOCAL TO THIS STEP) ==========
+// =========================================================
+//  APOSTILLE / TRANSLATION INTAKE – JS CONTROLLER
+// =========================================================
+//
+//  SECTION INDEX
+//  01. Helpers & Pricing Rules Access
+//  02. Document List (Step 2)
+//  03. Translation Pricing (Step 3)
+//  04. Apostille Pricing & Base Total
+//  05. Global Order Estimate (incl. speed + shipping)
+//  06. Service Tiles & Required Fields
+//  07. Translation Add‑Ons (UI renderer)
+//  08. Shipping Recipient Cards & Courier Fees
+//  09. Google Places Autocomplete
+//  10. Step Pills Navigation (1–5)
+//  11. Step 3 Speed Options (per‑state, pill layout)
+//  12. Step Navigation, Validation & Toggles
+//  13. Delivery Method + Upload UI
+//  14. Step 4 Shipping Options (live rates)
+//  15. Shipping Label Upload Validation
+//  16. Main Initializer
+//
+// =========================================================
+//  01. HELPERS & PRICING RULES ACCESS
+// =========================================================
 
-// Helper to read rules from apostille-country-rules.js
+// Build translation language selects from TRANSLATION_PRICING_RULES
+function populateTranslationLanguageSelects() {
+  const rules = window.TRANSLATION_PRICING_RULES;
+  if (!rules || !rules.pairs) return;
+
+  const fromSelect = document.getElementById("translation_from_language");
+  const toSelect   = document.getElementById("translation_to_language");
+  if (!fromSelect || !toSelect) return;
+
+  const langs = new Set();
+  Object.values(rules.pairs).forEach(pair => {
+    if (pair.source) langs.add(pair.source);
+    if (pair.target) langs.add(pair.target);
+  });
+
+  const sortedLangs = Array.from(langs).sort();
+
+  function fillSelect(select) {
+    while (select.options.length > 1) {
+      select.remove(1);
+    }
+    sortedLangs.forEach(lang => {
+      const opt = document.createElement("option");
+      opt.value = lang;
+      opt.textContent = lang;
+      select.appendChild(opt);
+    });
+  }
+
+  fillSelect(fromSelect);
+  fillSelect(toSelect);
+}
+
+// Helper to read rules from country-pricing-rules.js
 function getCountryRule(countryName) {
-  if (!window.APOSTILLE_COUNTRY_RULES) return null;
-  return window.APOSTILLE_COUNTRY_RULES[countryName] || null;
+  if (typeof window.COUNTRY_PRICING_RULES === "object" && window.COUNTRY_PRICING_RULES !== null) {
+    return window.COUNTRY_PRICING_RULES[countryName] || null;
+  }
+  return null;
 }
 
 // Helper to read county rules from county-pricing-rules.js
@@ -21,25 +80,10 @@ function getCountyCostsForState(stateName, docCount) {
 
 // Build the master country list once
 function getAllCountriesFromRulesOrFallback() {
-  let countries = [];
-  if (window.APOSTILLE_COUNTRY_RULES) {
-    countries = Object.keys(window.APOSTILLE_COUNTRY_RULES).sort();
-  } else {
-    countries = [
-      "Afghanistan", "Albania", "Algeria", "Argentina", "Australia", "Austria",
-      "Bahrain", "Bangladesh", "Belgium", "Brazil", "Canada", "Chile", "China",
-      "Colombia", "Costa Rica", "Croatia", "Cyprus", "Czech Republic", "Denmark",
-      "Dominican Republic", "Ecuador", "Egypt", "France", "Germany", "Greece",
-      "Hong Kong", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel",
-      "Italy", "Japan", "Jordan", "Kuwait", "Lebanon", "Malaysia", "Mexico",
-      "Morocco", "Netherlands", "New Zealand", "Norway", "Pakistan", "Peru",
-      "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia",
-      "Saudi Arabia", "Singapore", "South Africa", "South Korea", "Spain",
-      "Sweden", "Switzerland", "Taiwan", "Thailand", "Turkey", "Ukraine",
-      "United Arab Emirates", "United Kingdom", "United States", "Vietnam"
-    ];
+  if (typeof window.COUNTRY_PRICING_RULES === "object" && window.COUNTRY_PRICING_RULES !== null) {
+    return Object.keys(window.COUNTRY_PRICING_RULES).sort();
   }
-  return countries;
+  return [];
 }
 
 // Populate all per-document country selects
@@ -52,10 +96,28 @@ function populateDocumentCountrySelects() {
   selects.forEach(select => {
     if (select.dataset.populated === "true") return;
 
+    while (select.options.length > 1) {
+      select.remove(1);
+    }
+
     countries.forEach(country => {
       const opt = document.createElement("option");
       opt.value = country;
-      opt.textContent = country;
+
+      const rule = getCountryRule(country);
+
+      let isAvailable = true;
+      if (rule && typeof rule.serviceAvailable === "boolean") {
+        isAvailable = rule.serviceAvailable;
+      }
+
+      if (!isAvailable) {
+        opt.disabled = true;
+        opt.textContent = country + " (not currently serviceable)";
+      } else {
+        opt.textContent = country;
+      }
+
       select.appendChild(opt);
     });
 
@@ -68,15 +130,19 @@ function populateDocumentCountrySelects() {
 
       if (helpEl) {
         if (!rule) {
-          helpEl.textContent = "Used to apply Hague vs non-Hague rules and any country-specific fees for this document group.";
-        } else if (rule.type === "non_hague") {
-          const consulate = rule.consulateFee || 0;
-          helpEl.textContent = "Non-Hague destination: additional consulate/authentication steps apply. " +
+          helpEl.textContent =
+            "Used to apply Hague vs non-Hague rules and any country-specific fees for this document group.";
+        } else if (rule.type === "non_hague" || rule.type === "nonhague") {
+          const personalFees = rule.fees && rule.fees.personal ? rule.fees.personal : null;
+          const consulate = personalFees ? (personalFees.consulateFee || 0) : 0;
+          helpEl.textContent =
+            "Non-Hague destination: additional consulate/authentication steps apply. " +
             (consulate > 0
               ? `Estimated consulate fee around $${consulate} per document in this group (plus service/chamber fees where required).`
               : "Additional fees vary by country and document type.");
         } else {
-          helpEl.textContent = "Hague Convention member: standard apostille is usually sufficient for this document group.";
+          helpEl.textContent =
+            "Hague Convention member: standard apostille is usually sufficient for this document group.";
         }
       }
 
@@ -87,7 +153,10 @@ function populateDocumentCountrySelects() {
   });
 }
 
-// Document list + total
+// =========================================================
+//  02. DOCUMENT LIST (STEP 2)
+// =========================================================
+
 let docCounter = 1;
 const docListEl = document.getElementById("document-list");
 const addDocBtn = document.getElementById("add-document-btn");
@@ -122,13 +191,9 @@ if (addDocBtn && docListEl) {
     newRow.querySelectorAll(".doc-quantity").forEach(i => (i.value = 1));
     newRow.querySelectorAll("select").forEach(sel => (sel.selectedIndex = 0));
 
-    // Reset the country select populated flag so it gets repopulated
     newRow.querySelectorAll(".document-country-select").forEach(sel => {
       sel.dataset.populated = "false";
-      // Clear existing options except the first placeholder
-      while (sel.options.length > 1) {
-        sel.remove(1);
-      }
+      while (sel.options.length > 1) sel.remove(1);
     });
 
     docListEl.appendChild(newRow);
@@ -155,103 +220,44 @@ if (addDocBtn && docListEl) {
   updateTotalDocuments();
 }
 
-// ========== TRANSLATION PRICING (from translation-pricing-rules.js) ==========
-
-// Build unique language list from translation-pricing-rules.js
-function getUniqueLanguages() {
-  if (!window.TRANSLATION_PRICING_RULES?.pairs) {
-    console.warn("TRANSLATION_PRICING_RULES not loaded");
-    return [];
-  }
-  const set = new Set();
-  Object.values(window.TRANSLATION_PRICING_RULES.pairs).forEach(pair => {
-    set.add(pair.source);
-    set.add(pair.target);
-  });
-  return Array.from(set).sort();
-}
-
-function populateTranslationLanguageSelects() {
-  const fromSel = document.getElementById("translation_from_language");
-  const toSel = document.getElementById("translation_to_language");
-  if (!fromSel || !toSel) return;
-
-  const langs = getUniqueLanguages();
-  langs.forEach(lang => {
-    const o1 = document.createElement("option");
-    o1.value = o1.textContent = lang;
-    fromSel.appendChild(o1);
-
-    const o2 = document.createElement("option");
-    o2.value = o2.textContent = lang;
-    toSel.appendChild(o2);
-  });
-}
-
-// Look up translation rate from external rules
-function findRateRow(sourceLang, targetLang) {
-  if (!window.TRANSLATION_PRICING_RULES?.pairs) return null;
-  const key = `${sourceLang}__${targetLang}`;
-  return window.TRANSLATION_PRICING_RULES.pairs[key] || null;
-}
+// =========================================================
+//  03. TRANSLATION PRICING (STEP 3)
+// =========================================================
 
 function calculateTranslationTotal() {
-  const fromSel = document.getElementById("translation_from_language");
-  const toSel = document.getElementById("translation_to_language");
   const usage = document.getElementById("usage_type");
-  const wordsEl = document.getElementById("translation_words");
+  const pagesEl = document.getElementById("translation_words");
   const totalField = document.getElementById("translation_total");
 
-  if (!fromSel || !toSel || !usage || !wordsEl) return 0;
+  if (!usage || !pagesEl) return 0;
 
-  const source = fromSel.value;
-  const target = toSel.value;
-  if (!source || !target || source === target) {
-    if (totalField) totalField.value = "";
-    return 0;
-  }
+  const raw = parseInt(pagesEl.value || "0", 10) || 0;
+  const pages = Math.max(1, raw);
 
-  const row = findRateRow(source, target);
-  if (!row) {
-    if (totalField) totalField.value = "";
-    return 0;
-  }
+  const isBusiness = usage.value === "business";
+  const baseRatePerPage = isBusiness ? 55 : 45;
+  let total = pages * baseRatePerPage;
 
-  const totalWords = parseInt(wordsEl.value || "0", 10) || 0;
-  const pages = Math.max(1, Math.ceil(totalWords / 250));
+  document
+    .querySelectorAll('#translation-addons-block input[type="checkbox"]:checked')
+    .forEach(cb => {
+      const code = cb.value;
+      const price = parseFloat(cb.getAttribute("data-addon-price") || "0") || 0;
 
-  // Use field names from external rules
-  const baseRate = usage.value === "business" ? row.businessPerPage : row.personalPerPage;
-  let total = pages * baseRate;
-
-  // Check expedited checkbox - uses rushPerPage from rules
-  const expediteCheckbox = document.getElementById("addon_expedited_turnaround");
-  if (expediteCheckbox && expediteCheckbox.checked) {
-    total += pages * row.rushPerPage;
-  }
-
-  // Process other addons from external rules
-  const addons = window.TRANSLATION_PRICING_RULES?.addons || {};
-
-  ["shipped_hard_copy", "notarization"].forEach(code => {
-    const checkbox = document.getElementById(`addon_${code}`);
-    if (!checkbox || !checkbox.checked) return;
-
-    const addon = addons[code];
-    if (!addon) return;
-
-    if (addon.priceType === "per_page") {
-      total += addon.price * pages;
-    } else if (addon.priceType === "per_transaction") {
-      total += addon.price;
-    }
-  });
+      if (code === "expedited_turnaround") {
+        total += price * pages; // per page add‑on
+      } else {
+        total += price; // per order add‑on
+      }
+    });
 
   if (totalField) totalField.value = total.toFixed(2);
   return total;
 }
 
-// ========== APOSTILLE PRICING ==========
+// =========================================================
+//  04. APOSTILLE PRICING & BASE TOTAL
+// =========================================================
 
 function getApostillePrice(usageType, quantity) {
   if (typeof window.getApostillePricing === "function") {
@@ -262,8 +268,6 @@ function getApostillePrice(usageType, quantity) {
   }
   return usageType === "business" ? 250 : 175;
 }
-
-// ========== PRICING CALCULATION ==========
 
 function calculateBaseTotal() {
   const usageField = document.getElementById("usage_type");
@@ -277,12 +281,13 @@ function calculateBaseTotal() {
   const needApostille = apostilleInput && apostilleInput.checked;
   const needTranslation = translationInput && translationInput.checked;
 
-  let total = 0;
+  let apostilleTotal = 0;
+  let translationTotal = 0;
 
+  // Apostille portion
   if (needApostille) {
-    total += getApostillePrice(usageType, docCount);
+    apostilleTotal += getApostillePrice(usageType, docCount);
 
-    // ========== COUNTY FEES (per document row) ==========
     const allRows = document.querySelectorAll("#document-list .document-row");
     const statesAlreadyCharged = new Set();
 
@@ -297,31 +302,25 @@ function calculateBaseTotal() {
 
       const countyRule = window.COUNTY_PRICING_RULES ? window.COUNTY_PRICING_RULES[stateName] : null;
       if (countyRule && countyRule.requiresCountyAuth) {
-        total += (countyRule.countyPerDocFee || 0) * qty;
+        apostilleTotal += (countyRule.countyPerDocFee || 0) * qty;
         if (!statesAlreadyCharged.has(stateName)) {
-          total += countyRule.countyServiceFee || 0;
+          apostilleTotal += countyRule.countyServiceFee || 0;
           statesAlreadyCharged.add(stateName);
         }
       }
     });
-    // ========== /COUNTY FEES ==========
 
-    // ========== MULTI-STATE FEE ==========
     const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
     const uniqueStates = new Set();
-    allStateSelects.forEach(sel => {
-      if (sel.value) uniqueStates.add(sel.value);
-    });
+    allStateSelects.forEach(sel => { if (sel.value) uniqueStates.add(sel.value); });
 
     if (uniqueStates.size > 1) {
       const additionalStateFee = typeof window.getAdditionalStateFee === "function"
         ? window.getAdditionalStateFee()
         : 75;
-      total += additionalStateFee * (uniqueStates.size - 1);
+      apostilleTotal += additionalStateFee * (uniqueStates.size - 1);
     }
-    // ========== /MULTI-STATE FEE ==========
 
-    // ========== NON-HAGUE COUNTRY FEES ==========
     const rows = document.querySelectorAll("#document-list .document-row");
     rows.forEach(row => {
       const qtyInput = row.querySelector(".doc-quantity");
@@ -335,47 +334,95 @@ function calculateBaseTotal() {
       const rule = getCountryRule(country);
       if (!rule || rule.type !== "non_hague") return;
 
-      const consulatePerDoc = parseFloat(rule.consulateFee || 0);
-      const serviceFee = parseFloat(rule.serviceFee || 0);
-      const chamberFee = parseFloat(rule.chamberFee || 0);
+      const fees = rule.fees || {};
+      const feeSet = fees[usageType] || fees.personal || fees.business || null;
+      if (!feeSet) return;
 
-      if (consulatePerDoc) total += consulatePerDoc * qty;
-      if (serviceFee) total += serviceFee;
-      if (chamberFee) total += chamberFee;
+      const consulatePerDoc = parseFloat(feeSet.consulateFee || 0);
+      const serviceFee = parseFloat(feeSet.serviceFee || 0);
+      const chamberFee = parseFloat(feeSet.chamberFee || 0);
+
+      if (consulatePerDoc) apostilleTotal += consulatePerDoc * qty;
+      if (serviceFee) apostilleTotal += serviceFee;
+      if (chamberFee) apostilleTotal += chamberFee;
     });
-    // ========== /NON-HAGUE COUNTRY FEES ==========
   }
 
+  const apostilleSubtotalField = document.getElementById("apostille_estimated_total");
+  if (apostilleSubtotalField) {
+    apostilleSubtotalField.value = needApostille && apostilleTotal > 0
+      ? "$" + apostilleTotal.toFixed(2)
+      : "";
+  }
+
+  // Translation portion
   if (needTranslation) {
     const translationField = document.getElementById("translation_total");
+    const usageFieldForTrans = document.getElementById("usage_type");
+    const pagesEl = document.getElementById("translation_words");
+
+    const usageTypeForTranslation = usageFieldForTrans ? usageFieldForTrans.value : "personal";
+    const isBusiness = usageTypeForTranslation === "business";
+    const baseRatePerPage = isBusiness ? 55 : 45;
+
     if (translationField && translationField.value) {
-      total += parseFloat(translationField.value || "0");
+      translationTotal += parseFloat(translationField.value || "0");
+    } else {
+      const raw = pagesEl ? parseInt(pagesEl.value || "0", 10) || 0 : 0;
+      const pages = Math.max(1, raw);
+      translationTotal += pages * baseRatePerPage;
     }
   }
 
-  return total;
+  const translationSubtotalField = document.getElementById("translation_estimated_total");
+  if (translationSubtotalField) {
+    translationSubtotalField.value = needTranslation && translationTotal > 0
+      ? "$" + translationTotal.toFixed(2)
+      : "";
+  }
+
+  return apostilleTotal + translationTotal;
 }
+
+// =========================================================
+//  05. GLOBAL ORDER ESTIMATE
+// =========================================================
 
 function updateOrderEstimate() {
   const base = calculateBaseTotal();
 
-  // Sum speed prices from ALL state speed selections
   let speedPrice = 0;
-  const speedContainer = document.querySelector("#apostille-speed-block .speed-options-container");
+  const speedContainer =
+    document.querySelector("#apostille-speed-block .speed-options-container");
   if (speedContainer) {
-    speedContainer.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
-      speedPrice += parseFloat(radio.getAttribute("data-speed-price") || "0");
-    });
+    speedContainer
+      .querySelectorAll('input[type="radio"]:checked')
+      .forEach(radio => {
+        speedPrice += parseFloat(radio.getAttribute("data-speed-price") || "0");
+      });
   }
 
-  const grandTotal = base + speedPrice;
+  let shippingPrice = 0;
+  const shippingHidden = document.getElementById("shipping_option_price");
+  if (shippingHidden) {
+    let raw =
+      shippingHidden.value || shippingHidden.getAttribute("value") || "0";
+    raw = String(raw).replace(/[^0-9.\-]/g, "");
+    shippingPrice = parseFloat(raw) || 0;
+  }
+
+  const grandTotal = base + speedPrice + shippingPrice;
 
   document.querySelectorAll("#order_estimated_total").forEach(el => {
     el.value = grandTotal > 0 ? "$" + grandTotal.toFixed(2) : "";
   });
 }
 
-// ========== INTAKE FORM SCRIPTS (GLOBAL) ==========
+window.updateOrderEstimate = updateOrderEstimate;
+
+// =========================================================
+//  06. SERVICE TILES & REQUIRED FIELDS
+// =========================================================
 
 function updateServiceTiles() {
   const apostilleInput = document.getElementById("svc-apostille");
@@ -400,12 +447,691 @@ function updateServiceTiles() {
   if (translationAddons) translationAddons.classList.toggle("hidden", !translationInput.checked);
 }
 
+function updateRequiredFieldsForServices() {
+  const apostilleInput = document.getElementById("svc-apostille");
+  const translationInput = document.getElementById("svc-translation");
+
+  const apostilleSelected = apostilleInput && apostilleInput.checked;
+  const translationSelected = translationInput && translationInput.checked;
+
+  document.querySelectorAll("#apostille-documents-block .document-row").forEach(row => {
+    const stateSel   = row.querySelector('select[name="document_state[]"]');
+    const typeSel    = row.querySelector('select[name="document_type[]"]');
+    const qtyInput   = row.querySelector('.doc-quantity');
+    const countrySel = row.querySelector('.document-country-select');
+
+    [stateSel, typeSel, qtyInput, countrySel].forEach(el => {
+      if (!el) return;
+      if (apostilleSelected) {
+        el.setAttribute("required", "required");
+      } else {
+        el.removeAttribute("required");
+      }
+    });
+  });
+
+  const fromLang = document.getElementById("translation_from_language");
+  const toLang   = document.getElementById("translation_to_language");
+  const pages    = document.getElementById("translation_words");
+
+  [fromLang, toLang, pages].forEach(el => {
+    if (!el) return;
+    if (translationSelected) {
+      el.setAttribute("required", "required");
+    } else {
+      el.removeAttribute("required");
+    }
+  });
+}
+
+// =========================================================
+//  07. TRANSLATION ADD‑ONS (UI)
+// =========================================================
+
+function updateTranslationAddOns() {
+  const container = document.querySelector(
+    "#translation-addons-block .translation-addons-container"
+  );
+  if (!container || !window.TRANSLATION_PRICING_RULES) return;
+
+  const addons = window.TRANSLATION_PRICING_RULES.addons || [];
+  container.innerHTML = "";
+
+  addons.forEach((addon, idx) => {
+    const id = `translation_addon_${idx}`;
+    const priceLabel =
+      addon.price > 0 ? `+$${addon.price.toFixed(0)}` : "Included";
+
+    const row = document.createElement("label");
+    row.className = "toggle-pill";
+    row.style.display = "flex";
+    row.style.alignItems = "center";
+    row.style.marginBottom = "4px";
+    row.style.cursor = "pointer";
+
+    row.innerHTML = `
+      <input
+        type="checkbox"
+        id="${id}"
+        name="translation_addons[]"
+        value="${addon.code}"
+        data-addon-price="${addon.price}"
+        style="position:absolute; opacity:0;"
+      >
+      <div style="display:flex; align-items:center; width:100%; gap:8px; padding:6px 10px;">
+        <span style="flex:1 1 auto; text-align:left; font-weight:600;">
+          ${addon.title}
+        </span>
+        <span style="flex:0 0 auto; white-space:nowrap; font-weight:600;">
+          ${priceLabel}
+        </span>
+      </div>
+    `;
+
+    container.appendChild(row);
+  });
+
+  container.querySelectorAll('#translation-addons-block input[type="checkbox"]').forEach(cb => {
+    const pill = cb.closest(".toggle-pill");
+
+    if (pill && cb.checked) {
+      pill.classList.add("toggle-pill--active");
+    }
+
+    cb.addEventListener("change", () => {
+      if (!pill) return;
+      pill.classList.toggle("toggle-pill--active", cb.checked);
+      calculateTranslationTotal();
+      updateOrderEstimate();
+    });
+  });
+}
+
+// =========================================================
+//  08. SHIPPING RECIPIENT CARDS & COURIER FEES
+// =========================================================
+
+function updateRecipientCardsAndCourierFees() {
+  const intlCard = document.getElementById("international-recipient-card");
+  const usCard   = document.getElementById("us-recipient-card");
+  const radios   = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  if (!radios.length) return;
+
+  let selected = null;
+  radios.forEach(r => {
+    if (r.checked) selected = r.value;
+  });
+
+  if (intlCard) intlCard.classList.add("hidden");
+  if (usCard)   usCard.classList.add("hidden");
+
+  if (selected === "internationalrecipient") {
+    if (intlCard) intlCard.classList.remove("hidden");
+  } else if (selected === "otherusrecipient") {
+    if (usCard) usCard.classList.remove("hidden");
+  }
+
+  let courierFee = 0;
+  if (selected === "samedaycourierla") {
+    courierFee = 65;
+  } else if (selected === "samedaycourieroc") {
+    courierFee = 130;
+  }
+  window._courierFee = courierFee || 0;
+
+  if (typeof updateOrderEstimate === "function") {
+    updateOrderEstimate();
+  }
+}
+
+// =========================================================
+//  09. GOOGLE PLACES AUTOCOMPLETE
+// =========================================================
+
+function attachUsAddressAutocomplete(config) {
+  const addressInput = document.getElementById(config.addressId);
+  if (!addressInput || !window.google || !window.google.maps || !window.google.maps.places) {
+    return;
+  }
+
+  const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+    types: ["address"],
+    componentRestrictions: { country: ["us"] }
+  });
+
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (!place || !place.address_components) return;
+
+    const components = {
+      street_number: "",
+      route: "",
+      locality: "",
+      administrative_area_level_1: "",
+      postal_code: "",
+      country: ""
+    };
+
+    place.address_components.forEach(c => {
+      const type = c.types[0];
+      if (components.hasOwnProperty(type)) {
+        components[type] = c.long_name;
+      }
+    });
+
+    const line1 = [components.street_number, components.route].filter(Boolean).join(" ").trim();
+
+    const cityEl = document.getElementById(config.cityId);
+    const stateEl = document.getElementById(config.stateId);
+    const zipEl = document.getElementById(config.zipId);
+    const countryEl = document.getElementById(config.countryId);
+
+    if (addressInput && line1) addressInput.value = line1;
+    if (cityEl && components.locality) cityEl.value = components.locality;
+    if (stateEl && components.administrative_area_level_1) stateEl.value = components.administrative_area_level_1;
+    if (zipEl && components.postal_code) zipEl.value = components.postal_code;
+    if (countryEl && components.country) countryEl.value = components.country;
+  });
+}
+
+function initUsAutocompletes() {
+  attachUsAddressAutocomplete({
+    addressId: "mailing_address_1",
+    cityId: "mailing_city",
+    stateId: "mailing_state",
+    zipId: "mailing_zip",
+    countryId: "mailing_country"
+  });
+
+  attachUsAddressAutocomplete({
+    addressId: "us_recipient_address_1",
+    cityId: "us_recipient_city",
+    stateId: "us_recipient_state",
+    zipId: "us_recipient_zip",
+    countryId: "us_recipient_country"
+  });
+}
+
+// =========================================================
+//  10. STEP PILLS NAVIGATION (1–5)
+// =========================================================
+
+function updateStepPillVisibility(activeIndex, pills) {
+  const total = pills.length;
+  const visible = new Set();
+
+  if (activeIndex <= 1) {
+    visible.add(0);
+    if (total > 1) visible.add(1);
+    if (total > 2) visible.add(2);
+  } else if (activeIndex >= total - 2) {
+    if (total >= 3) {
+      visible.add(total - 3);
+      visible.add(total - 2);
+      visible.add(total - 1);
+    }
+  } else {
+    visible.add(activeIndex - 1);
+    visible.add(activeIndex);
+    visible.add(activeIndex + 1);
+  }
+
+  pills.forEach((pill, i) => {
+    pill.style.display = visible.has(i) ? "flex" : "none";
+  });
+}
+
+function scrollActiveStepIntoView(index, pills) {
+  const container = document.querySelector(".intake-steps");
+  const pill = pills[index];
+  if (!container || !pill || pill.style.display === "none") return;
+
+  const containerRect = container.getBoundingClientRect();
+  const pillRect = pill.getBoundingClientRect();
+  const offset = pillRect.left - containerRect.left;
+  const centerOffset = offset - (containerRect.width / 2 - pillRect.width / 2);
+  container.scrollTo({ left: container.scrollLeft + centerOffset, behavior: "smooth" });
+}
+
+// =========================================================
+//  11. STEP 3 SPEED OPTIONS (PER‑STATE, PILL LAYOUT)
+// =========================================================
+
+function updateSpeedOptionsForState() {
+  const container = document.querySelector("#apostille-speed-block .speed-options-container");
+  if (!container) return;
+
+  const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
+  const uniqueStates = new Set();
+  allStateSelects.forEach(sel => { if (sel.value) uniqueStates.add(sel.value); });
+
+  if (uniqueStates.size === 0) {
+    container.innerHTML = `
+      <div class="form-help" style="color:#6b7280;">
+        Select an issuing state in Step 2 to see available speed options.
+      </div>
+    `;
+    return;
+  }
+
+  let html = "";
+
+  uniqueStates.forEach(stateCode => {
+    const stateRule = window.STATE_PRICING_RULES ? window.STATE_PRICING_RULES[stateCode] : null;
+
+    if (!stateRule || !stateRule.options || stateRule.options.length === 0) {
+      html += `
+        <div class="form-help" style="color:#6b7280; margin-bottom: 8px;">
+          <strong>${stateCode}:</strong> Timing will be confirmed after review.
+        </div>
+      `;
+      return;
+    }
+
+    html += `
+      <div class="speed-state-card">
+        <div class="speed-state-label">
+          ${stateRule.stateName || stateCode}
+        </div>
+        <div class="speed-state-block">
+    `;
+
+    stateRule.options.forEach((opt, idx) => {
+      const inputId   = `speed_${stateCode}_${idx}`;
+      const inputName = `apostille_speed_choice_${stateCode}`;
+
+      // Prefer any option whose label/title contains "standard"
+      const labelText = (opt.title || opt.label || "").toLowerCase();
+      const isStandard = labelText.includes("standard");
+      const checkedAttr = (isStandard || idx === 0) ? "checked" : "";
+
+      const displayTitle = opt.title || opt.label || "";
+      const daysLabel    = opt.businessDaysLabel || opt.speed || "";
+      const timeLabel    = opt.cutoffLabel || "";
+      const priceNumber  = parseFloat(opt.price || 0);
+      const priceLabel =
+        priceNumber === 0
+          ? "Included"
+          : (priceNumber > 0 ? "+$" : "-$") + Math.abs(priceNumber).toFixed(2);
+
+      html += `
+        <div class="speed-option-row">
+          <div class="speed-option-info">
+            <div class="speed-option-name">${displayTitle}</div>
+            <div class="speed-option-meta">
+              ${daysLabel ? daysLabel : ""}${daysLabel && timeLabel ? " · " : ""}${timeLabel ? timeLabel : ""}
+            </div>
+          </div>
+
+          <label class="toggle-pill speed-price-pill">
+            <input
+              type="radio"
+              name="${inputName}"
+              id="${inputId}"
+              value="${opt.label}"
+              data-speed-price="${priceNumber}"
+              ${checkedAttr}
+            >
+            <div>
+              <span>${priceLabel}</span>
+            </div>
+          </label>
+        </div>
+      `;
+    });
+
+    html += `
+        </div> <!-- .speed-state-block -->
+      </div> <!-- .speed-state-card -->
+    `;
+  });
+
+  container.innerHTML = html;
+
+  const radios = container.querySelectorAll('input[type="radio"]');
+
+  // For each state block, highlight its checked option
+  const stateBlocks = container.querySelectorAll('.speed-state-block');
+  stateBlocks.forEach(block => {
+    const checked = block.querySelector('input[type="radio"]:checked');
+    if (checked) {
+      const pill = checked.closest('label.toggle-pill');
+      if (pill) pill.classList.add('toggle-pill--active');
+    }
+  });
+
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      // Only clear pills inside this state’s block
+      const stateBlock = radio.closest('.speed-state-block');
+      if (!stateBlock) return;
+
+      const pillsInState = stateBlock.querySelectorAll('.toggle-pill');
+      pillsInState.forEach(p => p.classList.remove('toggle-pill--active'));
+
+      const pill = radio.closest('label.toggle-pill');
+      if (pill) pill.classList.add('toggle-pill--active');
+
+      updateOrderEstimate();
+    });
+  });
+}
+
+window.updateSpeedOptionsForState = updateSpeedOptionsForState;
+
+// =========================================================
+//  12. STEP NAVIGATION, VALIDATION & TOGGLES
+// =========================================================
+
+function setActiveStep(index, steps, pills) {
+  steps.forEach((step, i) => step.classList.toggle("intake-step--active", i === index));
+  pills.forEach((pill, i) => pill.classList.toggle("intake-step-pill--active", i === index));
+  updateStepPillVisibility(index, pills);
+
+  const active = steps[index];
+  if (active) window.scrollTo({ top: active.offsetTop - 40, behavior: "smooth" });
+  scrollActiveStepIntoView(index, pills);
+
+  updateServiceTiles();
+  updateSpeedOptionsForState();
+  updateOrderEstimate();
+}
+
+// =========================================================
+//  13. DELIVERY METHOD + UPLOAD UI
+// =========================================================
+
+function initDeliveryToggles() {
+  const deliveryField = document.getElementById("delivery_method");
+  const uploadCard    = document.getElementById("document-upload-card");
+
+  if (!deliveryField) return;
+
+  const deliveryPills = document.querySelectorAll("[data-delivery-value]");
+  deliveryPills.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-delivery-value");
+      deliveryField.value = value;
+
+      deliveryPills.forEach(b =>
+        b.classList.toggle("toggle-pill--active", b === btn)
+      );
+
+      if (uploadCard) {
+        uploadCard.style.display = (value === "upload_only") ? "" : "none";
+      }
+
+      updateOrderEstimate();
+    });
+  });
+
+  // Document upload filename display (Step 4 "Upload your documents")
+  const uploadInput    = document.getElementById("intake_upload_files");
+  const uploadNameSpan = document.getElementById("intake_upload_files_name");
+  if (uploadInput && uploadNameSpan) {
+    uploadInput.addEventListener("change", () => {
+      if (!uploadInput.files || uploadInput.files.length === 0) {
+        uploadNameSpan.textContent = "No files chosen";
+      } else if (uploadInput.files.length === 1) {
+        uploadNameSpan.textContent = uploadInput.files[0].name;
+      } else {
+        uploadNameSpan.textContent = uploadInput.files.length + " files selected";
+      }
+    });
+  }
+
+  // Shipping label upload filename display (Step 4 "Upload your prepaid shipping label")
+  const labelUploadInput    = document.getElementById("shippinglabelupload");
+  const labelUploadNameSpan = document.getElementById("shippinglabeluploadname");
+  if (labelUploadInput && labelUploadNameSpan) {
+    labelUploadInput.addEventListener("change", () => {
+      if (!labelUploadInput.files || labelUploadInput.files.length === 0) {
+        labelUploadNameSpan.textContent = "No file chosen";
+      } else if (labelUploadInput.files.length === 1) {
+        labelUploadNameSpan.textContent = labelUploadInput.files[0].name;
+      } else {
+        labelUploadNameSpan.textContent =
+          labelUploadInput.files.length + " files selected";
+      }
+    });
+  }
+}
+
+// =========================================================
+//  14. STEP 4 SHIPPING OPTIONS (LIVE RATES)
+// =========================================================
+
+function initShippingOptionsCard() {
+  var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  var card            = document.getElementById("shipping-options-card");
+  var container       = document.getElementById("shipping-options-container");
+  var hiddenId        = document.getElementById("shipping_option_id");
+  var hiddenLabel     = document.getElementById("shipping_option_label");
+  var hiddenPrice     = document.getElementById("shipping_option_price");
+  var labelUploadCard = document.getElementById("shipping-label-upload-card");
+
+  if (!(recipientRadios.length && card && container)) return;
+
+  function clearHidden() {
+    if (hiddenId)    hiddenId.value = "";
+    if (hiddenLabel) hiddenLabel.value = "";
+    if (hiddenPrice) hiddenPrice.value = "0";
+  }
+
+  function renderOptions(type) {
+    var getOpts = window.getShippingOptionsForRecipient;
+    if (typeof getOpts !== "function") {
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    var options = getOpts(type) || [];
+    if (!options.length) {
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    card.style.display = "block";
+    container.innerHTML = "";
+    clearHidden();
+
+    // Group by carrier
+    var groups = {};
+    options.forEach(function (opt) {
+      var carrier = opt.carrier || "Other";
+      if (!groups[carrier]) groups[carrier] = [];
+      groups[carrier].push(opt);
+    });
+
+    var firstOptionSet = false;
+
+    Object.keys(groups).forEach(function (carrierName) {
+      var carrierOpts = groups[carrierName];
+      if (!carrierOpts.length) return;
+
+      var carrierKey  = carrierName.toLowerCase();
+      var carrierCard = document.createElement("div");
+      carrierCard.className = "shipping-carrier-card shipping-carrier-card--" + carrierKey;
+
+      var heading = document.createElement("div");
+      heading.className = "shipping-carrier-heading";
+      heading.textContent = carrierName;
+      carrierCard.appendChild(heading);
+
+      carrierOpts.forEach(function (opt) {
+        var optCarrierKey = String(opt.carrier || carrierName).toLowerCase();
+
+        var row = document.createElement("div");
+        row.className = "shipping-option-row" +
+          (optCarrierKey ? " shipping-option-row--" + optCarrierKey : "");
+
+        var info = document.createElement("div");
+        info.className = "shipping-option-info";
+
+        var nameDiv = document.createElement("div");
+        nameDiv.className = "shipping-option-name";
+        nameDiv.textContent = opt.service || opt.label || "";
+
+        var metaDiv = document.createElement("div");
+        metaDiv.className = "shipping-option-meta";
+
+        var daysText = "";
+        if (opt.days) {
+          var str = String(opt.days);
+          if (str.indexOf("-") !== -1) {
+            daysText = str + " business days";
+          } else {
+            var n = parseInt(str, 10);
+            daysText = str + " business day" + (n === 1 ? "" : "s");
+          }
+        }
+        var timeText = opt.timeWindow || "";
+        metaDiv.textContent =
+          (daysText ? daysText : "") +
+          (daysText && timeText ? " · " : "") +
+          (timeText ? timeText : "");
+
+        info.appendChild(nameDiv);
+        info.appendChild(metaDiv);
+
+        var label = document.createElement("label");
+        label.className = "toggle-pill shipping-price-pill";
+
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "shippingoptionchoice";
+        input.value = opt.id;
+
+        var priceNum  = opt.price != null ? Number(opt.price) : 0;
+        var priceText = priceNum === 0 ? "Included" : "$" + priceNum.toFixed(2);
+
+        var pillInner = document.createElement("div");
+        var priceSpan = document.createElement("span");
+        priceSpan.textContent = priceText;
+        pillInner.appendChild(priceSpan);
+
+        label.appendChild(input);
+        label.appendChild(pillInner);
+
+        row.appendChild(info);
+        row.appendChild(label);
+        carrierCard.appendChild(row);
+
+        function selectOption() {
+          if (hiddenId)    hiddenId.value = opt.id;
+          if (hiddenLabel) hiddenLabel.value =
+            carrierName + " - " + (opt.service || "");
+          if (hiddenPrice) hiddenPrice.value =
+            opt.price != null ? String(opt.price) : "0";
+
+          var allPills = container.querySelectorAll(".shipping-price-pill");
+          allPills.forEach(function (p) {
+            p.classList.remove("toggle-pill--active");
+          });
+          label.classList.add("toggle-pill--active");
+
+          if (typeof updateOrderEstimate === "function") {
+            updateOrderEstimate();
+          }
+        }
+
+        input.addEventListener("change", selectOption);
+        label.addEventListener("click", function (e) {
+          if (e.target === input) return;
+          input.checked = true;
+          selectOption();
+        });
+
+        if (!firstOptionSet) {
+          input.checked = true;
+          firstOptionSet = true;
+          selectOption();
+        }
+      });
+
+      container.appendChild(carrierCard);
+    });
+  }
+
+  function handleRecipientChange() {
+    var selected = null;
+    recipientRadios.forEach(function (r) {
+      if (r.checked) selected = r.value;
+    });
+
+    // Reset both UI areas
+    if (labelUploadCard) labelUploadCard.style.display = "none";
+
+    if (!selected) {
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    if (selected === "backtoyou_label") {
+      // User will provide own label: hide live options, show upload card
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (labelUploadCard) labelUploadCard.style.display = "block";
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    // Normal flow
+    if (labelUploadCard) labelUploadCard.style.display = "none";
+    renderOptions(selected);
+  }
+
+  recipientRadios.forEach(function (radio) {
+    radio.addEventListener("change", handleRecipientChange);
+  });
+
+  handleRecipientChange();
+}
+
+// =========================================================
+//  15. SHIPPING LABEL UPLOAD VALIDATION
+// =========================================================
+
+function validateShippingUploadBeforeNext() {
+  var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  var selected = null;
+  recipientRadios.forEach(function (r) {
+    if (r.checked) selected = r.value;
+  });
+
+  // Only enforce when they chose "use my own label"
+  if (selected === "backtoyou_label") {
+    var labelInput = document.querySelector('input[name="shippinglabelupload"]');
+    if (!labelInput || !labelInput.files || labelInput.files.length === 0) {
+      alert("Please upload your prepaid shipping label before continuing.");
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// =========================================================
+//  16. MAIN INITIALIZER
+// =========================================================
+
 document.addEventListener("DOMContentLoaded", function () {
   const steps = Array.from(document.querySelectorAll(".intake-step"));
   const pills = Array.from(document.querySelectorAll(".intake-step-pill"));
 
   populateTranslationLanguageSelects();
   populateDocumentCountrySelects();
+  updateRequiredFieldsForServices();
 
   ["translation_from_language", "translation_to_language", "translation_words"].forEach(id => {
     const el = document.getElementById(id);
@@ -421,73 +1147,92 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  ["addon_shipped_hard_copy", "addon_notarization", "addon_expedited_turnaround"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener("change", () => {
-        calculateTranslationTotal();
-        updateOrderEstimate();
-      });
+  document
+    .querySelectorAll('input[name="shipping_recipient_type"]')
+    .forEach(radio => {
+      radio.addEventListener("change", updateRecipientCardsAndCourierFees);
+    });
+  updateRecipientCardsAndCourierFees();
+
+  setTimeout(initUsAutocompletes, 800);
+
+// Navigation buttons
+document.querySelectorAll("[data-next-step]").forEach(btn => {
+  const target = parseInt(btn.getAttribute("data-next-step"), 10);
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Let the dedicated Step 2 handler control validation and navigation.
+    if (target === 2) {
+      return; // do nothing here; step2NextBtn listener will run separately
     }
-  });
 
-  function updateStepPillVisibility(activeIndex) {
-    const total = pills.length;
-    const visible = new Set();
-
-    if (activeIndex <= 1) {
-      visible.add(0);
-      if (total > 1) visible.add(1);
-      if (total > 2) visible.add(2);
-    } else if (activeIndex >= total - 2) {
-      if (total >= 3) {
-        visible.add(total - 3);
-        visible.add(total - 2);
-        visible.add(total - 1);
+    // If we are moving past the shipping step (step index 3 -> 4 or beyond),
+    // enforce that a shipping label is uploaded when "backtoyou_label" is selected.
+    if (target > 3) {
+      if (!validateShippingUploadBeforeNext()) {
+        return; // stay on current step
       }
-    } else {
-      visible.add(activeIndex - 1);
-      visible.add(activeIndex);
-      visible.add(activeIndex + 1);
     }
 
-    pills.forEach((pill, i) => {
-      pill.style.display = visible.has(i) ? "flex" : "none";
+    setActiveStep(target, steps, pills);
+  });
+});
+
+  const step2NextBtn = document.querySelector('button[data-next-step="2"]');
+  if (step2NextBtn) {
+    step2NextBtn.addEventListener("click", () => {
+      const apostilleInput = document.getElementById("svc-apostille");
+      const translationInput = document.getElementById("svc-translation");
+      const apostilleSelected = apostilleInput && apostilleInput.checked;
+      const translationSelected = translationInput && translationInput.checked;
+
+      let valid = true;
+      document.querySelectorAll(".field-error").forEach(el => el.classList.remove("field-error"));
+
+      if (apostilleSelected) {
+        document.querySelectorAll("#apostille-documents-block .document-row").forEach(row => {
+          ["document_state[]", "document_type[]", "document_quantity[]", "document_country[]"].forEach(name => {
+            const el = row.querySelector(`[name="${name}"]`);
+            if (!el) return;
+            const empty = !el.value || (el.type === "number" && Number(el.value) <= 0);
+            if (empty) {
+              valid = false;
+              el.classList.add("field-error");
+            }
+          });
+        });
+      }
+
+      if (translationSelected) {
+        const fromLang = document.getElementById("translation_from_language");
+        const toLang   = document.getElementById("translation_to_language");
+        const pages    = document.getElementById("translation_words");
+
+        [fromLang, toLang, pages].forEach(el => {
+          if (!el) return;
+          const empty = !el.value || (el.type === "number" && Number(el.value) <= 0);
+          if (empty) {
+            valid = false;
+            el.classList.add("field-error");
+          }
+        });
+      }
+
+      if (!valid) {
+        alert("Please complete all required fields in Step 2 before continuing.");
+        return;
+      }
+
+      setActiveStep(2, steps, pills);
     });
   }
 
-  function scrollActiveStepIntoView(index) {
-    const container = document.querySelector(".intake-steps");
-    const pill = pills[index];
-    if (!container || !pill || pill.style.display === "none") return;
-
-    const containerRect = container.getBoundingClientRect();
-    const pillRect = pill.getBoundingClientRect();
-    const offset = pillRect.left - containerRect.left;
-    const centerOffset = offset - (containerRect.width / 2 - pillRect.width / 2);
-    container.scrollTo({ left: container.scrollLeft + centerOffset, behavior: "smooth" });
-  }
-
-  function setActiveStep(index) {
-    steps.forEach((step, i) => step.classList.toggle("intake-step--active", i === index));
-    pills.forEach((pill, i) => pill.classList.toggle("intake-step-pill--active", i === index));
-    updateStepPillVisibility(index);
-
-    const active = steps[index];
-    if (active) window.scrollTo({ top: active.offsetTop - 40, behavior: "smooth" });
-    scrollActiveStepIntoView(index);
-
-    updateServiceTiles();
-    updateSpeedOptionsForState();
-    updateOrderEstimate();
-  }
-
-  document.querySelectorAll("[data-next-step]").forEach(btn => {
-    btn.addEventListener("click", () => setActiveStep(parseInt(btn.getAttribute("data-next-step"), 10)));
-  });
-
   document.querySelectorAll("[data-prev-step]").forEach(btn => {
-    btn.addEventListener("click", () => setActiveStep(parseInt(btn.getAttribute("data-prev-step"), 10)));
+    btn.addEventListener("click", () =>
+      setActiveStep(parseInt(btn.getAttribute("data-prev-step"), 10), steps, pills)
+    );
   });
 
   const usageField = document.getElementById("usage_type");
@@ -511,6 +1256,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (apostilleInput) {
     apostilleInput.addEventListener("change", () => {
       updateServiceTiles();
+      updateRequiredFieldsForServices();
       updateOrderEstimate();
     });
   }
@@ -518,102 +1264,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (translationInput) {
     translationInput.addEventListener("change", () => {
       updateServiceTiles();
+      updateRequiredFieldsForServices();
       calculateTranslationTotal();
       updateOrderEstimate();
     });
   }
 
-  const deliveryField = document.getElementById("delivery_method");
-  if (deliveryField) {
-    document.querySelectorAll("[data-delivery-value]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        deliveryField.value = btn.getAttribute("data-delivery-value");
-        document.querySelectorAll("[data-delivery-value]").forEach(b =>
-          b.classList.toggle("toggle-pill--active", b === btn)
-        );
-      });
-    });
-  }
+  initDeliveryToggles();
+  initShippingOptionsCard();
 
   updateServiceTiles();
-  setActiveStep(0);
+  updateRequiredFieldsForServices();
+  updateTranslationAddOns();
 
-  // ========== SPEED OPTIONS (reads from state-pricing-rules.js) ==========
-  function updateSpeedOptionsForState() {
-    const container = document.querySelector("#apostille-speed-block .speed-options-container");
-    if (!container) return;
-
-    // Get all unique states from document rows
-    const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
-    const uniqueStates = new Set();
-    allStateSelects.forEach(sel => {
-      if (sel.value) uniqueStates.add(sel.value);
-    });
-
-    if (uniqueStates.size === 0) {
-      container.innerHTML = `
-        <div class="form-help" style="color:#6b7280;">
-          Select an issuing state in Step 2 to see available speed options.
-        </div>
-      `;
-      return;
-    }
-
-    let html = "";
-
-    uniqueStates.forEach(stateCode => {
-      const stateRule = window.STATE_PRICING_RULES ? window.STATE_PRICING_RULES[stateCode] : null;
-
-      if (!stateRule || !stateRule.options || stateRule.options.length === 0) {
-        html += `
-          <div class="form-help" style="color:#6b7280; margin-bottom: 8px;">
-            <strong>${stateCode}:</strong> Timing will be confirmed after review.
-          </div>
-        `;
-        return;
-      }
-
-      html += `<div class="state-speed-group" style="margin-bottom:16px;">`;
-      html += `<div style="font-weight:600; margin-bottom:6px;">${stateRule.stateName}</div>`;
-
-      stateRule.options.forEach((opt, idx) => {
-        const inputName = `speed_${stateCode}`;
-        const inputId = `speed_${stateCode}_${idx}`;
-        const priceLabel = opt.price > 0 ? ` (+$${opt.price.toFixed(0)})` : " (included)";
-        const checkedAttr = idx === 0 ? "checked" : "";
-
-        html += `
-          <label class="toggle-pill" style="display:flex; align-items:center; margin-bottom:4px; cursor:pointer;">
-            <input type="radio"
-                   name="${inputName}"
-                   id="${inputId}"
-                   value="${opt.label}"
-                   data-speed-price="${opt.price}"
-                   ${checkedAttr}
-                   style="margin-right:8px;">
-            ${opt.label}${priceLabel}
-          </label>
-        `;
-      });
-
-      if (stateRule.notes && stateRule.notes !== "nan") {
-        html += `<div class="form-help" style="color:#6b7280; font-size:12px; margin-top:4px;">${stateRule.notes}</div>`;
-      }
-
-      html += `</div>`;
-    });
-
-    container.innerHTML = html;
-
-    // Attach change listeners to update estimate
-    container.querySelectorAll('input[type="radio"]').forEach(radio => {
-      radio.addEventListener("change", () => {
-        updateOrderEstimate();
-      });
-    });
-  }
-
-  // Make updateSpeedOptionsForState available globally
-  window.updateSpeedOptionsForState = updateSpeedOptionsForState;
+  setActiveStep(0, steps, pills);
 });
 

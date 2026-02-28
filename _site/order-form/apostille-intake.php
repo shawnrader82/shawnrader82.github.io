@@ -1,23 +1,10 @@
 <?php
-session_start();
-
-function e(string $v): string {
-    return htmlspecialchars($v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-}
-
-$errors = [];
-
-function intake_log($msg) {
-    $line = date('c') . ' ' . $msg . "\n";
-    file_put_contents(__DIR__ . '/apostille-upload.log', $line, FILE_APPEND);
-}
-
-
 file_put_contents('/tmp/apostille-ping.txt', date('c') . " PING\n", FILE_APPEND);
 
 // api/apostille-intake.php
 
 error_log('DEBUG TOP OF SCRIPT REACHED');
+
 
 require __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer-master/src/SMTP.php';
@@ -26,13 +13,9 @@ require __DIR__ . '/PHPMailer-master/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-date_default_timezone_set('America/Los_Angeles');
-
-
 // ==================================================================== 
 // NEXTCLOUD WEBDAV CONFIG 
-// ====================================================================
-
+// ==================================================================== 
 $ncBaseUrl = 'https://cloud.mobileamericannotary.com/remote.php/dav/files/shawn/';
 $ncUser    = 'shawn@mobileamericannotary.com';
 $ncPass    = 'ezNG4-gzF8H-BY3BZ-tXYzD-LAxaN'; // Nextcloud app password
@@ -75,17 +58,15 @@ function nc_put_file($remotePath, $content, $baseUrl, $user, $pass) {
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $curlErr  = curl_error($ch);
-
-    intake_log("NC PUT HTTP $httpCode for $remotePath");
+    error_log("NC PUT HTTP $httpCode for $remotePath");
     if ($curlErr !== '') {
-        intake_log("NC PUT CURL error: $curlErr for $remotePath");
+        error_log("NC PUT CURL error: $curlErr for $remotePath");
     }
-
     curl_close($ch);
 
     if ($httpCode >= 400 || $httpCode === 0 || $response === false) {
-        intake_log("NC PUT upload error $httpCode for $remotePath");
-        intake_log("NC PUT response: " . substr((string)$response, 0, 200));
+        error_log("NC PUT upload error $httpCode for $remotePath");
+        error_log("NC PUT response: " . substr((string)$response, 0, 200));
         return false;
     }
     return true;
@@ -95,24 +76,10 @@ function nc_put_file($remotePath, $content, $baseUrl, $user, $pass) {
 // READ INTAKE FIELDS 
 // ==================================================================== 
 
-// Only allow POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    exit('Method not allowed');
-}
-
-// CSRF protection: check token from form
-$token = $_POST['csrf_token'] ?? '';
-if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
-    http_response_code(400);
-    exit('Invalid request.');
-}
-
 file_put_contents('/tmp/apostille-hit.txt', date('c') . "\n", FILE_APPEND);
-// file_put_contents('/tmp/apostille-debug.txt', print_r($_POST, true));
-// file_put_contents('/tmp/apostille-files.txt', print_r($_FILES, true));
-// file_put_contents('/tmp/apostille-files-debug.json', json_encode($_FILES, JSON_PRETTY_PRINT));
-
+file_put_contents('/tmp/apostille-debug.txt', print_r($_POST, true));
+file_put_contents('/tmp/apostille-files.txt', print_r($_FILES, true));
+file_put_contents('/tmp/apostille-files-debug.json', json_encode($_FILES, JSON_PRETTY_PRINT));
 
 // Quick debug: what does PHP see in $_FILES?
 error_log('DEBUG FILES RAW=' . json_encode($_FILES));
@@ -130,45 +97,14 @@ if (isset($_FILES['shippinglabelupload'])) {
 // TEMP: debug what delivery_method we actually get
 error_log('INTAKE_POST_DELIVERY=' . ($_POST['delivery_method'] ?? '(missing)'));
 
-// --------------------------------------------------------------------
-// CORE FIELD VALIDATION (identity and contact)
-// --------------------------------------------------------------------
-
 // Basic identity fields (used for folder naming and display)
-$givenName  = trim($_POST['given_name']  ?? $_POST['givenname']  ?? '');
-$familyName = trim($_POST['family_name'] ?? $_POST['familyname'] ?? '');
-$email      = trim($_POST['email']       ?? '');
-$phone      = trim($_POST['tel']         ?? '');
-
-if ($givenName === '' || mb_strlen($givenName) > 100) {
-    $errors[] = 'Invalid given name.';
-}
-
-if ($familyName === '' || mb_strlen($familyName) > 100) {
-    $errors[] = 'Invalid family name.';
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 255) {
-    $errors[] = 'Invalid email.';
-}
-
-if (!preg_match('/^[0-9\-\+\s\(\)]{7,25}$/', $phone)) {
-    $errors[] = 'Invalid phone.';
-}
-
-// If anything failed, stop with a generic error.
-if (!empty($errors)) {
-    http_response_code(400);
-    echo 'There was a problem with your submission. Please go back and check your entries.';
-    exit;
-}
-
-// At this point, core fields are safe to use.
-$year = date('Y');
+$given  = trim($_POST['given_name']  ?? $_POST['givenname']  ?? '');
+$family = trim($_POST['family_name'] ?? $_POST['familyname'] ?? '');
+$year   = date('Y');
 
 // Build customer name + slug (used for folder)
 // Folder name: "Last, First" with only letters, numbers, spaces, and comma
-$customerName = trim($familyName . ', ' . $givenName);
+$customerName = trim($family . ', ' . $given);
 
 $clientNameSlug = preg_replace('/[^A-Za-z0-9 ,]+/', '', $customerName);
 $clientNameSlug = trim($clientNameSlug);
@@ -178,10 +114,9 @@ if ($clientNameSlug === '') {
 
 file_put_contents(
     '/tmp/apostille-slug.txt',
-    date('c') . " SLUG=" . $clientNameSlug . "\n",
+    date('c') . " SLUG=" . $clientNameSlug . "\\n",
     FILE_APPEND
 );
-
 
 // ==================================================================== 
 // BUILD FOLDER PATH
@@ -191,15 +126,6 @@ file_put_contents(
 $baseFolder   = 'Documents/01 Mobile American Notary/(01) Apostilles/Clients';
 $yearFolder   = $baseFolder . '/' . $year;
 $clientFolder = $yearFolder . '/' . $clientNameSlug;
-
-// ==================================================================== 
-// ENSURE NEXTCLOUD FOLDERS EXIST
-// ==================================================================== 
-
-// Always make sure the folder tree exists before uploading any files.
-nc_mkdir_if_missing($baseFolder,   $ncBaseUrl, $ncUser, $ncPass);
-nc_mkdir_if_missing($yearFolder,   $ncBaseUrl, $ncUser, $ncPass);
-nc_mkdir_if_missing($clientFolder, $ncBaseUrl, $ncUser, $ncPass);
 
 // ================= HANDLE UPLOADED FILES =================
 
@@ -213,15 +139,8 @@ if (!empty($_FILES['intake_upload_files']['name'][0])) {
         }
 
         $tmpPath  = $_FILES['intake_upload_files']['tmp_name'][$idx];
-        $safeName = preg_replace('/[^\w.\- ]+/', '_', $origName);
-
-        // Example: "Rader, Shawn-DOC-2026-02-28_23-41-passport.pdf"
-        $remotePath  = $clientFolder . '/'
-                     . $clientNameSlug
-                     . '-DOC-'
-                     . date('Y-m-d_H-i')
-                     . '-' . $safeName;
-
+        $safeName = preg_replace('/[^\\w.\\- ]+/', '_', $origName);
+        $remotePath  = $clientFolder . '/' . $clientNameSlug . '-DOC-' . time() . '-' . $safeName;
         $encodedPath = nc_encode_path($remotePath);
         $url         = rtrim($ncBaseUrl, '/') . '/' . $encodedPath;
 
@@ -238,15 +157,13 @@ if (!empty($_FILES['intake_upload_files']['name'][0])) {
             CURLOPT_HEADER         => true,
             CURLOPT_SSL_VERIFYPEER => true,
         ]);
-        $response = curl_exec($ch);
+        $response = curl_exec($ch);   // fix $$response bug
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curlErr  = curl_error($ch);
-
-        intake_log("NC doc HTTP $httpCode for $remotePath");
+        error_log("NC doc HTTP $httpCode for $remotePath");
         if ($curlErr !== '') {
-            intake_log("NC doc CURL error: $curlErr for $remotePath");
+            error_log("NC doc CURL error: $curlErr for $remotePath");
         }
-
         curl_close($ch);
         fclose($fp);
 
@@ -271,14 +188,8 @@ if (!empty($_FILES['shippinglabelupload']['name'])
     $origName = $_FILES['shippinglabelupload']['name'];
     $tmpPath  = $_FILES['shippinglabelupload']['tmp_name'];
 
-    $safeName   = preg_replace('/[^\w.\- ]+/', '_', $origName);
-    // Example: "Rader, Shawn-SHIPPING-LABEL-2026-02-28_23-41-fedex-label.pdf"
-    $remotePath  = $clientFolder . '/'
-                 . $clientNameSlug
-                 . '-SHIPPING-LABEL-'
-                 . date('Y-m-d_H-i')
-                 . '-' . $safeName;
-
+    $safeName   = preg_replace('/[^\\w.\\- ]+/', '_', $origName);
+    $remotePath  = $clientFolder . '/' . $clientNameSlug . '-SHIPPING-LABEL-' . time() . '-' . $safeName;
     $encodedPath = nc_encode_path($remotePath);
     $url         = rtrim($ncBaseUrl, '/') . '/' . $encodedPath;
 
@@ -298,12 +209,10 @@ if (!empty($_FILES['shippinglabelupload']['name'])
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $curlErr  = curl_error($ch);
-
-    intake_log("NC label HTTP $httpCode for $remotePath");
+    error_log("NC label HTTP $httpCode for $remotePath");
     if ($curlErr !== '') {
-        intake_log("NC label CURL error: $curlErr for $remotePath");
+        error_log("NC label CURL error: $curlErr for $remotePath");
     }
-
     curl_close($ch);
     fclose($fp);
 
@@ -318,20 +227,43 @@ if (!empty($_FILES['shippinglabelupload']['name'])
     }
 }
 
+// ===================================================================
+// BUILD FOLDER PATH  
+// ===================================================================
+
+// Documents/01 Mobile American Notary/(01) Apostilles/Clients/{YEAR}/{CLIENT}/
+$baseFolder   = 'Documents/01 Mobile American Notary/(01) Apostilles/Clients';
+$yearFolder   = $baseFolder . '/' . $year;
+$clientFolder = $yearFolder . '/' . $clientNameSlug;
+
+
 // ==================================================================== 
-// FAIL IF USER TRIED TO UPLOAD BUT NOTHING SUCCEEDED
-// ==================================================================== 
+// CREATE NEXTCLOUD FOLDERS (ONLY IF REAL UPLOADS) 
+// ====================================================================
 
-$userTriedDocUpload   = !empty($_FILES['intake_upload_files']['name'][0]);
-$userTriedLabelUpload = !empty($_FILES['shippinglabelupload']['name']);
+// Check if we have at least one successfully uploaded document
+$hasDocUpload = false;
+if (!empty($_FILES['intake_upload_files']['name'][0])) {
+    foreach ($_FILES['intake_upload_files']['error'] as $err) {
+        if ($err === UPLOAD_ERR_OK) {
+            $hasDocUpload = true;
+            break;
+        }
+    }
+}
 
-$noSuccessfulUploads = empty($uploadedFiles) && $shippingLabelFile === null;
-$userTriedAnyUpload  = $userTriedDocUpload || $userTriedLabelUpload;
+// Check if prepaid label was successfully uploaded
+$hasLabelUpload = (
+    !empty($_FILES['shippinglabelupload']['name']) &&
+    $_FILES['shippinglabelupload']['error'] === UPLOAD_ERR_OK
+);
 
-if ($userTriedAnyUpload && $noSuccessfulUploads) {
-    http_response_code(500);
-    echo 'We were unable to upload your file(s). Please try again or email them to orders@mobileamericannotary.com.';
-    exit;
+$hasUploads = $hasDocUpload || $hasLabelUpload;
+
+if ($hasUploads) {
+    nc_mkdir_if_missing($baseFolder,   $ncBaseUrl, $ncUser, $ncPass);
+    nc_mkdir_if_missing($yearFolder,   $ncBaseUrl, $ncUser, $ncPass);
+    nc_mkdir_if_missing($clientFolder, $ncBaseUrl, $ncUser, $ncPass);
 }
 
 // ==================================================================== 
@@ -348,11 +280,11 @@ function p($key) {
 
 
 // Primary contact (your details, Step 5)
-// Name, email, and phone were already validated above and stored in
-// $givenName, $familyName, $email, $phone.
-// Here we only pull company via p().
-$company = p('organization');
-
+$givenName  = p('given_name');
+$familyName = p('family_name');
+$company    = p('organization');
+$email      = p('email');
+$phone      = p('tel');
 
 // Services & usage
 $rawServices = $_POST['services'] ?? [];
@@ -632,7 +564,8 @@ function send_via_gmail($to, $subject, $body, $replyToEmail = '', $replyToName =
 // BUILD SHARED HTML EMAIL BODY 
 // ==================================================================== 
 
-$custBody = '<!doctype html>
+$custBody = '
+<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -752,9 +685,9 @@ if ($hasSpeedOrAddons) {
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' .
               htmlspecialchars(
                 trim(
-                  ($addonShippedHardCopy     ? "Shipped hard copy; " : "") .
-                  ($addonNotarization        ? "Notarization; " : "") .
-                  ($addonExpeditedTurnaround ? "Expedited turnaround" : "")
+                  ($addonShippedHardCopy     ? 'Shipped hard copy; ' : '') .
+                  ($addonNotarization        ? 'Notarization; ' : '') .
+                  ($addonExpeditedTurnaround ? 'Expedited turnaround' : '')
                 )
               ) . '</td>
           </tr>';
@@ -778,14 +711,13 @@ $custBody .= '
               . htmlspecialchars($mailing["country"]) .
             '</td>
           </tr>';
-
 // US recipient (optional)
 $hasUs = (
-    $usRecipient["first_name"] !== "" ||
-    $usRecipient["last_name"]  !== "" ||
-    $usRecipient["email"]      !== "" ||
-    $usRecipient["phone"]      !== "" ||
-    $usRecipient["address_1"]  !== ""
+    $usRecipient['first_name'] !== '' ||
+    $usRecipient['last_name']  !== '' ||
+    $usRecipient['email']      !== '' ||
+    $usRecipient['phone']      !== '' ||
+    $usRecipient['address_1']  !== ''
 );
 
 if ($hasUs) {
@@ -818,7 +750,7 @@ if ($hasUs) {
 }
 
 // International recipient (optional)
-$hasIntl = implode("", $intlRecipient) !== "";
+$hasIntl = implode('', $intlRecipient) !== '';
 if ($hasIntl) {
     $custBody .= '
           <tr>
@@ -850,7 +782,7 @@ if ($hasIntl) {
 }
 
 // Documents summary
-if ($documentsSummary !== "") {
+if ($documentsSummary !== '') {
     $custBody .= '
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
@@ -865,7 +797,7 @@ if ($documentsSummary !== "") {
 }
 
 // Other names
-if ($otherNames !== "") {
+if ($otherNames !== '') {
     $custBody .= '
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
@@ -880,7 +812,7 @@ if ($otherNames !== "") {
 }
 
 // Final estimated total
-if ($orderEstimatedTotal !== "") {
+if ($orderEstimatedTotal !== '') {
     $custBody .= '
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
@@ -943,10 +875,9 @@ send_via_gmail(
 // ==================================================================== 
 
 $willMailDocs = ($deliveryMethod === 'mail_to_office');
-$displayName = isset($givenName) && $givenName !== ''
-    ? (string)$givenName
+$displayName = isset($customerName) && $customerName !== ''
+    ? (string)$customerName
     : 'Customer';
-
 
 ?>
 <!doctype html>

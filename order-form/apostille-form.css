@@ -1,11 +1,18 @@
+/* =========================================
+GLOBAL THEME & RESETS
+========================================= */
 :root {
   --bg-page: #0f172a;
   --bg-card: #ffffff;
   --bg-card-alt: #f9fafb;
   --text-main: #0f172a;
   --text-muted: #6b7280;
-  --accent: #f97373;
-  --accent-dark: #ef4444;
+
+  /* THEMED REDS – softer for big buttons, current for accents */
+  --accent: #f97373;        /* lighter red (for buttons, highlights) */
+  --accent-dark: #ef4444;   /* slightly deeper red for gradient end */
+  --accent-soft: #fee2e2;   /* soft red background for active pills */
+
   --border-subtle: #e5e7eb;
   --border-strong: #111827;
   --radius-card: 14px;
@@ -29,6 +36,11 @@ body {
   color: var(--text-main);
 }
 
+
+/* =========================================
+PAGE SHELL & MAIN LAYOUT
+========================================= */
+
 /* Page shell: desktop default */
 .page-wrap {
   min-height: 100vh;
@@ -45,7 +57,23 @@ body {
   margin: 0 auto;
 }
 
-/* Header + steps */
+/* Mobile: let it go full width */
+@media (max-width: 768px) {
+  .page-wrap {
+    display: block;
+    padding: 16px 12px 24px;
+  }
+
+  .intake-shell {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================
+HEADER & STEP INDICATOR (TOP OF FORM)
+========================================= */
+
 .intake-header {
   color: #e5e7eb;
   margin-bottom: 16px;
@@ -114,7 +142,11 @@ body {
   white-space: nowrap;
 }
 
-/* Card + layout */
+
+/* =========================================
+CARD SHELL & SECTION TITLES
+========================================= */
+
 .service-detail-inner {
   max-width: 960px;
   margin: 0 auto;
@@ -153,7 +185,11 @@ body {
   margin: 0 0 18px;
 }
 
-/* Form layout */
+
+/* =========================================
+FORM GRID & FIELDS
+========================================= */
+
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -193,7 +229,7 @@ textarea {
   font-size: 14px;
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle); /* neutral gray */
   outline: none;
   background: #f9fafb;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
@@ -202,8 +238,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(248, 113, 113, 0.45);
+  border-color: #2563eb; /* blue for every field */
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.45);
   background: #ffffff;
 }
 
@@ -211,6 +247,33 @@ textarea {
   resize: vertical;
   min-height: 80px;
 }
+
+.address-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* Always-highlight key required fields (apostille + translation) in orange */
+.document-row .full-field.required-field input,
+.document-row .full-field.required-field select,
+#translation-documents-block .full-field input[required],
+#translation-documents-block .full-field select[required] {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35);
+  background: #ffffff;
+}
+
+/* Error state when validation fails */
+.field-error {
+  border-color: #b91c1c !important;
+  box-shadow: 0 0 0 1px rgba(185, 28, 28, 0.6) !important;
+  background: #fef2f2;
+}
+
+/* =========================================
+FILE UPLOAD FIELD
+========================================= */
 
 /* File upload field styling */
 .full-field.file-upload-field input[type="file"] {
@@ -248,13 +311,11 @@ textarea {
   text-overflow: ellipsis;
 }
 
-.address-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
 
-/* Buttons */
+/* =========================================
+FORM BUTTONS / CTAs
+========================================= */
+
 .form-actions {
   display: flex;
   flex-wrap: wrap;
@@ -311,7 +372,11 @@ textarea {
   background: #fef2f2;
 }
 
-/* Toggle pills */
+
+/* =========================================
+TOGGLE PILLS (GENERIC)
+========================================= */
+
 .usage-toggle {
   display: inline-flex;
   flex-wrap: wrap;
@@ -329,12 +394,29 @@ textarea {
 }
 
 .toggle-pill--active {
-  background: #fee2e2;
+  background: var(--accent-soft);
   border-color: var(--accent);
-  color: #991b1b;
+  color: var(--accent-dark);
 }
 
-/* Steps + document rows */
+/* Hide native radio inside all toggle pills; make whole pill clickable */
+.toggle-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.translation-addon-pill .translation-addon-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* =========================================
+STEP CONTAINERS & DOCUMENT ROWS
+========================================= */
+
 .intake-step {
   display: none;
   margin-bottom: 20px;
@@ -349,6 +431,13 @@ textarea {
   background: var(--bg-card-alt);
   padding: 10px 12px 12px;
   border: 1px solid #e5e7eb;
+}
+
+/* Make each document card pop a bit more */
+.document-row {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
 }
 
 .document-row + .document-row {
@@ -373,6 +462,9 @@ textarea {
   appearance: none;
 }
 
+/* =========================================
+STEP 2 – SERVICE TILES
+========================================= */
 
 /* Service tiles (Step 2) */
 .service-tiles {
@@ -424,9 +516,11 @@ textarea {
 }
 
 /* Selected state */
+/* Selected state – blue accent but more in line with cards */
 .service-tile:has(input[type="checkbox"]:checked) {
   border-color: #2563eb;
-  background: #eff6ff;
+  background: #f3f4ff;              /* a bit closer to your card gray */
+  box-shadow: 0 4px 10px rgba(15,23,42,0.12);
 }
 
 .service-tile:has(input[type="checkbox"]:checked) .service-tile-title {
@@ -437,6 +531,7 @@ textarea {
   color: #1e40af;
 }
 
+/* “Selected” badge – keeps blue, but pill shape matches other pills */
 .service-tile:has(input[type="checkbox"]:checked) .service-tile-body::before {
   content: "Selected";
   display: inline-block;
@@ -445,21 +540,15 @@ textarea {
   color: #1d4ed8;
   background: #dbeafe;
   border-radius: 999px;
-  padding: 1px 8px;
-  margin-bottom: 4px;
+  padding: 2px 10px;
+  margin-bottom: 6px;
 }
 
-/* Mobile: let it go full width */
-@media (max-width: 768px) {
-  .page-wrap {
-    display: block;
-    padding: 16px 12px 24px;
-  }
 
-  .intake-shell {
-    max-width: 100%;
-  }
-}
+
+/* =========================================
+STEP 3 & 4 – SHELL & SPEED BLOCK
+========================================= */
 
 /* Step 3: give the speed options a clear outer border box */
 #apostille-speed-block {
@@ -475,38 +564,84 @@ textarea {
   margin-left: auto;
   margin-right: auto;
 }
-/* Make each document card pop a bit more */
-.document-row {
+
+/* Outer card per state */
+.speed-state-card {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
   background: #f9fafb;
-  border: 1px solid #d1d5db;
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+  padding: 12px 16px;
+  margin-bottom: 12px;
 }
 
-/* Emphasize the four key fields inside the document card */
-.document-row .full-field.required-field input,
-.document-row .full-field.required-field select {
-  border-color: #f97316;
+/* Inner layout for options inside the card */
+.speed-state-block {
+  margin-bottom: 10px;
 }
 
-/* On focus, make them very obvious but consistent with the rest of the form */
-.document-row .full-field.required-field input:focus,
-.document-row .full-field.required-field select:focus {
-  border-color: #f97316;
-  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.6);
+/* State name at top of each card */
+.speed-state-card .speed-state-label {
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--accent) !important;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  letter-spacing: 0.05em;
 }
 
-/* Hide native radio inside all toggle pills; make whole pill clickable */
-.toggle-pill input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+/* Speed option row layout */
+.speed-option-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
-.translation-addon-pill .translation-addon-input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+.speed-option-info {
+  flex: 1 1 auto;
+  min-width: 0;
 }
+
+.speed-option-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.speed-option-meta {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Price pill on the right */
+.speed-price-pill {
+  flex: 0 0 auto;
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+}
+
+/* Mobile: stack info above pill */
+@media (max-width: 600px) {
+  .speed-option-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .speed-price-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* =========================================
+STEP 4 – DELIVERY METHOD PILL LAYOUT
+========================================= */
 
 /* Step 4: Delivery method pills – always vertical, full-width */
 .intake-card .usage-toggle {
@@ -521,7 +656,120 @@ textarea {
   display: flex;
 }
 
-/* Step 4 + speed pills: allow wrapping on narrow screens */
+/* =========================================
+STEP 4 – SHIPPING OPTION ROWS (BRANDED)
+========================================= */
+/* Base row (same as Step 3 style) */
+.shipping-option-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.shipping-option-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.shipping-option-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.shipping-option-meta {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.shipping-price-pill {
+  flex: 0 0 auto;
+  min-width: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+}
+
+/* Brand accents */
+.shipping-option-row--usps .shipping-option-name::before,
+.shipping-option-row--fedex .shipping-option-name::before,
+.shipping-option-row--dhl .shipping-option-name::before,
+.shipping-option-row--ups .shipping-option-name::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  margin-right: 6px;
+}
+
+/* Specific colors (tweak as you like) */
+.shipping-option-row--usps .shipping-option-name::before {
+  background: #0b5394;
+}
+
+.shipping-option-row--fedex .shipping-option-name::before {
+  background: #4b0082;
+}
+
+.shipping-option-row--dhl .shipping-option-name::before {
+  background: #facc15;
+}
+
+.shipping-option-row--ups .shipping-option-name::before {
+  background: #92400e;
+}
+
+/* Carrier cards: box around each brand group, like state cards */
+.shipping-carrier-card {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+
+/* Carrier heading style */
+.shipping-carrier-heading {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Brand-specific heading colors (subtle, but clear) */
+.shipping-carrier-card--usps .shipping-carrier-heading {
+  color: #0b5394;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.shipping-carrier-card--fedex .shipping-carrier-heading {
+  color: #4b0082;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.shipping-carrier-card--dhl .shipping-carrier-heading {
+  color: #b45309;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.shipping-carrier-card--ups .shipping-carrier-heading {
+  color: #92400e;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* =========================================
+MOBILE PILL WRAPPING (GENERIC)
+========================================= */
+
 @media (max-width: 480px) {
   .toggle-pill {
     display: block;           /* full-width block on mobile */
@@ -536,7 +784,11 @@ textarea {
   }
 }
 
-/* Mobile layout for speed + shipping pills */
+
+/* =========================================
+MOBILE LAYOUT FOR SPEED + SHIPPING PILLS
+========================================= */
+
 @media (max-width: 480px) {
   /* Make each pill a vertical stack */
   #apostille-speed-block .toggle-pill,
@@ -577,6 +829,11 @@ textarea {
   }
 }
 
+
+/* =========================================
+PILL HEADER ROW (SERVICE | DAYS | TIME | FEE)
+========================================= */
+
 .pill-headings {
   display: flex;
   justify-content: space-between;
@@ -605,20 +862,10 @@ textarea {
 }
 
 
-/* Mobile: hide Time column in headings and pills */
-@media (max-width: 480px) {
-  /* In the header row: hide the 3rd label (Time) */
-  .pill-headings span:nth-child(3) {
-    display: none;
-  }
+/* =========================================
+MOBILE: HIDE TIME COLUMN (HEADERS + SHIPPING PILLS)
+========================================= */
 
-  /* In each pill row: hide the 3rd span (Time) */
-  #shipping-options-card .toggle-pill > div span:nth-child(3) {
-    display: none;
-  }
-}
-
-/* Mobile: hide Time column completely in headings + shipping pills */
 @media (max-width: 480px) {
   /* Heading row: hide the "Time" label (3rd span) */
   .pill-headings span:nth-child(3) {
@@ -628,6 +875,44 @@ textarea {
   /* Shipping pills: hide the Time value (3rd span in the inner row) */
   #shipping-options-card .toggle-pill > div span:nth-child(3) {
     display: none !important;
+  }
+}
+
+
+/* =========================================
+MOBILE – GENERAL PILL & SECTION TWEAKS
+========================================= */
+
+@media (max-width: 600px) {
+  /* Overall form padding/titles on small screens */
+  .apostille-form-section {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .apostille-form-section h2,
+  .apostille-form-section h3 {
+    font-size: 1rem;
+  }
+
+  /* Generic pill groups */
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pill-button {
+    flex: 1 1 calc(50% - 0.5rem); /* 2 per row on mobile */
+    min-height: 44px;
+    padding: 0.6rem 0.4rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .pill-helper-text {
+    font-size: 0.8rem;
+    color: #666666;
+    margin-top: 0.25rem;
   }
 }
 

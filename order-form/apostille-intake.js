@@ -1,4 +1,28 @@
-// ========== STEP 3 · SCRIPTS (LOCAL TO THIS STEP) ==========
+// =========================================================
+//  APOSTILLE / TRANSLATION INTAKE – JS CONTROLLER
+// =========================================================
+//
+//  SECTION INDEX
+//  01. Helpers & Pricing Rules Access
+//  02. Document List (Step 2)
+//  03. Translation Pricing (Step 3)
+//  04. Apostille Pricing & Base Total
+//  05. Global Order Estimate (incl. speed + shipping)
+//  06. Service Tiles & Required Fields
+//  07. Translation Add‑Ons (UI renderer)
+//  08. Shipping Recipient Cards & Courier Fees
+//  09. Google Places Autocomplete
+//  10. Step Pills Navigation (1–5)
+//  11. Step 3 Speed Options (per‑state, pill layout)
+//  12. Step Navigation, Validation & Toggles
+//  13. Delivery Method + Upload UI
+//  14. Step 4 Shipping Options (live rates)
+//  15. Shipping Label Upload Validation
+//  16. Main Initializer
+//
+// =========================================================
+//  01. HELPERS & PRICING RULES ACCESS
+// =========================================================
 
 // Build translation language selects from TRANSLATION_PRICING_RULES
 function populateTranslationLanguageSelects() {
@@ -129,7 +153,10 @@ function populateDocumentCountrySelects() {
   });
 }
 
-// Document list + total
+// =========================================================
+//  02. DOCUMENT LIST (STEP 2)
+// =========================================================
+
 let docCounter = 1;
 const docListEl = document.getElementById("document-list");
 const addDocBtn = document.getElementById("add-document-btn");
@@ -166,9 +193,7 @@ if (addDocBtn && docListEl) {
 
     newRow.querySelectorAll(".document-country-select").forEach(sel => {
       sel.dataset.populated = "false";
-      while (sel.options.length > 1) {
-        sel.remove(1);
-      }
+      while (sel.options.length > 1) sel.remove(1);
     });
 
     docListEl.appendChild(newRow);
@@ -195,7 +220,10 @@ if (addDocBtn && docListEl) {
   updateTotalDocuments();
 }
 
-// ========== TRANSLATION PRICING (flat per page) ==========
+// =========================================================
+//  03. TRANSLATION PRICING (STEP 3)
+// =========================================================
+
 function calculateTranslationTotal() {
   const usage = document.getElementById("usage_type");
   const pagesEl = document.getElementById("translation_words");
@@ -227,7 +255,10 @@ function calculateTranslationTotal() {
   return total;
 }
 
-// ========== APOSTILLE PRICING ==========
+// =========================================================
+//  04. APOSTILLE PRICING & BASE TOTAL
+// =========================================================
+
 function getApostillePrice(usageType, quantity) {
   if (typeof window.getApostillePricing === "function") {
     const result = window.getApostillePricing(usageType, quantity);
@@ -238,7 +269,6 @@ function getApostillePrice(usageType, quantity) {
   return usageType === "business" ? 250 : 175;
 }
 
-// ========== PRICING CALCULATION ==========
 function calculateBaseTotal() {
   const usageField = document.getElementById("usage_type");
   const usageType = usageField ? usageField.value : "personal";
@@ -354,7 +384,10 @@ function calculateBaseTotal() {
   return apostilleTotal + translationTotal;
 }
 
-// ===== GLOBAL ORDER ESTIMATE (includes shipping) =====
+// =========================================================
+//  05. GLOBAL ORDER ESTIMATE
+// =========================================================
+
 function updateOrderEstimate() {
   const base = calculateBaseTotal();
 
@@ -387,7 +420,10 @@ function updateOrderEstimate() {
 
 window.updateOrderEstimate = updateOrderEstimate;
 
-// ========== INTAKE FORM SCRIPTS (GLOBAL) ==========
+// =========================================================
+//  06. SERVICE TILES & REQUIRED FIELDS
+// =========================================================
+
 function updateServiceTiles() {
   const apostilleInput = document.getElementById("svc-apostille");
   const translationInput = document.getElementById("svc-translation");
@@ -448,7 +484,647 @@ function updateRequiredFieldsForServices() {
   });
 }
 
-// MAIN INITIALIZER
+// =========================================================
+//  07. TRANSLATION ADD‑ONS (UI)
+// =========================================================
+
+function updateTranslationAddOns() {
+  const container = document.querySelector(
+    "#translation-addons-block .translation-addons-container"
+  );
+  if (!container || !window.TRANSLATION_PRICING_RULES) return;
+
+  const addons = window.TRANSLATION_PRICING_RULES.addons || [];
+  container.innerHTML = "";
+
+  addons.forEach((addon, idx) => {
+    const id = `translation_addon_${idx}`;
+    const priceLabel =
+      addon.price > 0 ? `+$${addon.price.toFixed(0)}` : "Included";
+
+    const row = document.createElement("label");
+    row.className = "toggle-pill";
+    row.style.display = "flex";
+    row.style.alignItems = "center";
+    row.style.marginBottom = "4px";
+    row.style.cursor = "pointer";
+
+    row.innerHTML = `
+      <input
+        type="checkbox"
+        id="${id}"
+        name="translation_addons[]"
+        value="${addon.code}"
+        data-addon-price="${addon.price}"
+        style="position:absolute; opacity:0;"
+      >
+      <div style="display:flex; align-items:center; width:100%; gap:8px; padding:6px 10px;">
+        <span style="flex:1 1 auto; text-align:left; font-weight:600;">
+          ${addon.title}
+        </span>
+        <span style="flex:0 0 auto; white-space:nowrap; font-weight:600;">
+          ${priceLabel}
+        </span>
+      </div>
+    `;
+
+    container.appendChild(row);
+  });
+
+  container.querySelectorAll('#translation-addons-block input[type="checkbox"]').forEach(cb => {
+    const pill = cb.closest(".toggle-pill");
+
+    if (pill && cb.checked) {
+      pill.classList.add("toggle-pill--active");
+    }
+
+    cb.addEventListener("change", () => {
+      if (!pill) return;
+      pill.classList.toggle("toggle-pill--active", cb.checked);
+      calculateTranslationTotal();
+      updateOrderEstimate();
+    });
+  });
+}
+
+// =========================================================
+//  08. SHIPPING RECIPIENT CARDS & COURIER FEES
+// =========================================================
+
+function updateRecipientCardsAndCourierFees() {
+  const intlCard = document.getElementById("international-recipient-card");
+  const usCard   = document.getElementById("us-recipient-card");
+  const radios   = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  if (!radios.length) return;
+
+  let selected = null;
+  radios.forEach(r => {
+    if (r.checked) selected = r.value;
+  });
+
+  if (intlCard) intlCard.classList.add("hidden");
+  if (usCard)   usCard.classList.add("hidden");
+
+  if (selected === "internationalrecipient") {
+    if (intlCard) intlCard.classList.remove("hidden");
+  } else if (selected === "otherusrecipient") {
+    if (usCard) usCard.classList.remove("hidden");
+  }
+
+  let courierFee = 0;
+  if (selected === "samedaycourierla") {
+    courierFee = 65;
+  } else if (selected === "samedaycourieroc") {
+    courierFee = 130;
+  }
+  window._courierFee = courierFee || 0;
+
+  if (typeof updateOrderEstimate === "function") {
+    updateOrderEstimate();
+  }
+}
+
+// =========================================================
+//  09. GOOGLE PLACES AUTOCOMPLETE
+// =========================================================
+
+function attachUsAddressAutocomplete(config) {
+  const addressInput = document.getElementById(config.addressId);
+  if (!addressInput || !window.google || !window.google.maps || !window.google.maps.places) {
+    return;
+  }
+
+  const autocomplete = new google.maps.places.Autocomplete(addressInput, {
+    types: ["address"],
+    componentRestrictions: { country: ["us"] }
+  });
+
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (!place || !place.address_components) return;
+
+    const components = {
+      street_number: "",
+      route: "",
+      locality: "",
+      administrative_area_level_1: "",
+      postal_code: "",
+      country: ""
+    };
+
+    place.address_components.forEach(c => {
+      const type = c.types[0];
+      if (components.hasOwnProperty(type)) {
+        components[type] = c.long_name;
+      }
+    });
+
+    const line1 = [components.street_number, components.route].filter(Boolean).join(" ").trim();
+
+    const cityEl = document.getElementById(config.cityId);
+    const stateEl = document.getElementById(config.stateId);
+    const zipEl = document.getElementById(config.zipId);
+    const countryEl = document.getElementById(config.countryId);
+
+    if (addressInput && line1) addressInput.value = line1;
+    if (cityEl && components.locality) cityEl.value = components.locality;
+    if (stateEl && components.administrative_area_level_1) stateEl.value = components.administrative_area_level_1;
+    if (zipEl && components.postal_code) zipEl.value = components.postal_code;
+    if (countryEl && components.country) countryEl.value = components.country;
+  });
+}
+
+function initUsAutocompletes() {
+  attachUsAddressAutocomplete({
+    addressId: "mailing_address_1",
+    cityId: "mailing_city",
+    stateId: "mailing_state",
+    zipId: "mailing_zip",
+    countryId: "mailing_country"
+  });
+
+  attachUsAddressAutocomplete({
+    addressId: "us_recipient_address_1",
+    cityId: "us_recipient_city",
+    stateId: "us_recipient_state",
+    zipId: "us_recipient_zip",
+    countryId: "us_recipient_country"
+  });
+}
+
+// =========================================================
+//  10. STEP PILLS NAVIGATION (1–5)
+// =========================================================
+
+function updateStepPillVisibility(activeIndex, pills) {
+  const total = pills.length;
+  const visible = new Set();
+
+  if (activeIndex <= 1) {
+    visible.add(0);
+    if (total > 1) visible.add(1);
+    if (total > 2) visible.add(2);
+  } else if (activeIndex >= total - 2) {
+    if (total >= 3) {
+      visible.add(total - 3);
+      visible.add(total - 2);
+      visible.add(total - 1);
+    }
+  } else {
+    visible.add(activeIndex - 1);
+    visible.add(activeIndex);
+    visible.add(activeIndex + 1);
+  }
+
+  pills.forEach((pill, i) => {
+    pill.style.display = visible.has(i) ? "flex" : "none";
+  });
+}
+
+function scrollActiveStepIntoView(index, pills) {
+  const container = document.querySelector(".intake-steps");
+  const pill = pills[index];
+  if (!container || !pill || pill.style.display === "none") return;
+
+  const containerRect = container.getBoundingClientRect();
+  const pillRect = pill.getBoundingClientRect();
+  const offset = pillRect.left - containerRect.left;
+  const centerOffset = offset - (containerRect.width / 2 - pillRect.width / 2);
+  container.scrollTo({ left: container.scrollLeft + centerOffset, behavior: "smooth" });
+}
+
+// =========================================================
+//  11. STEP 3 SPEED OPTIONS (PER‑STATE, PILL LAYOUT)
+// =========================================================
+
+function updateSpeedOptionsForState() {
+  const container = document.querySelector("#apostille-speed-block .speed-options-container");
+  if (!container) return;
+
+  const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
+  const uniqueStates = new Set();
+  allStateSelects.forEach(sel => { if (sel.value) uniqueStates.add(sel.value); });
+
+  if (uniqueStates.size === 0) {
+    container.innerHTML = `
+      <div class="form-help" style="color:#6b7280;">
+        Select an issuing state in Step 2 to see available speed options.
+      </div>
+    `;
+    return;
+  }
+
+  let html = "";
+
+  uniqueStates.forEach(stateCode => {
+    const stateRule = window.STATE_PRICING_RULES ? window.STATE_PRICING_RULES[stateCode] : null;
+
+    if (!stateRule || !stateRule.options || stateRule.options.length === 0) {
+      html += `
+        <div class="form-help" style="color:#6b7280; margin-bottom: 8px;">
+          <strong>${stateCode}:</strong> Timing will be confirmed after review.
+        </div>
+      `;
+      return;
+    }
+
+    html += `
+      <div class="speed-state-card">
+        <div class="speed-state-label">
+          ${stateRule.stateName || stateCode}
+        </div>
+        <div class="speed-state-block">
+    `;
+
+    stateRule.options.forEach((opt, idx) => {
+      const inputId   = `speed_${stateCode}_${idx}`;
+      const inputName = `apostille_speed_choice_${stateCode}`;
+
+      // Prefer any option whose label/title contains "standard"
+      const labelText = (opt.title || opt.label || "").toLowerCase();
+      const isStandard = labelText.includes("standard");
+      const checkedAttr = (isStandard || idx === 0) ? "checked" : "";
+
+      const displayTitle = opt.title || opt.label || "";
+      const daysLabel    = opt.businessDaysLabel || opt.speed || "";
+      const timeLabel    = opt.cutoffLabel || "";
+      const priceNumber  = parseFloat(opt.price || 0);
+      const priceLabel =
+        priceNumber === 0
+          ? "Included"
+          : (priceNumber > 0 ? "+$" : "-$") + Math.abs(priceNumber).toFixed(2);
+
+      html += `
+        <div class="speed-option-row">
+          <div class="speed-option-info">
+            <div class="speed-option-name">${displayTitle}</div>
+            <div class="speed-option-meta">
+              ${daysLabel ? daysLabel : ""}${daysLabel && timeLabel ? " · " : ""}${timeLabel ? timeLabel : ""}
+            </div>
+          </div>
+
+          <label class="toggle-pill speed-price-pill">
+            <input
+              type="radio"
+              name="${inputName}"
+              id="${inputId}"
+              value="${opt.label}"
+              data-speed-price="${priceNumber}"
+              ${checkedAttr}
+            >
+            <div>
+              <span>${priceLabel}</span>
+            </div>
+          </label>
+        </div>
+      `;
+    });
+
+    html += `
+        </div> <!-- .speed-state-block -->
+      </div> <!-- .speed-state-card -->
+    `;
+  });
+
+  container.innerHTML = html;
+
+  const radios = container.querySelectorAll('input[type="radio"]');
+
+  // For each state block, highlight its checked option
+  const stateBlocks = container.querySelectorAll('.speed-state-block');
+  stateBlocks.forEach(block => {
+    const checked = block.querySelector('input[type="radio"]:checked');
+    if (checked) {
+      const pill = checked.closest('label.toggle-pill');
+      if (pill) pill.classList.add('toggle-pill--active');
+    }
+  });
+
+  radios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      // Only clear pills inside this state’s block
+      const stateBlock = radio.closest('.speed-state-block');
+      if (!stateBlock) return;
+
+      const pillsInState = stateBlock.querySelectorAll('.toggle-pill');
+      pillsInState.forEach(p => p.classList.remove('toggle-pill--active'));
+
+      const pill = radio.closest('label.toggle-pill');
+      if (pill) pill.classList.add('toggle-pill--active');
+
+      updateOrderEstimate();
+    });
+  });
+}
+
+window.updateSpeedOptionsForState = updateSpeedOptionsForState;
+
+// =========================================================
+//  12. STEP NAVIGATION, VALIDATION & TOGGLES
+// =========================================================
+
+function setActiveStep(index, steps, pills) {
+  steps.forEach((step, i) => step.classList.toggle("intake-step--active", i === index));
+  pills.forEach((pill, i) => pill.classList.toggle("intake-step-pill--active", i === index));
+  updateStepPillVisibility(index, pills);
+
+  const active = steps[index];
+  if (active) window.scrollTo({ top: active.offsetTop - 40, behavior: "smooth" });
+  scrollActiveStepIntoView(index, pills);
+
+  updateServiceTiles();
+  updateSpeedOptionsForState();
+  updateOrderEstimate();
+}
+
+// =========================================================
+//  13. DELIVERY METHOD + UPLOAD UI
+// =========================================================
+
+function initDeliveryToggles() {
+  const deliveryField = document.getElementById("delivery_method");
+  const uploadCard    = document.getElementById("document-upload-card");
+
+  if (!deliveryField) return;
+
+  const deliveryPills = document.querySelectorAll("[data-delivery-value]");
+  deliveryPills.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-delivery-value");
+      deliveryField.value = value;
+
+      deliveryPills.forEach(b =>
+        b.classList.toggle("toggle-pill--active", b === btn)
+      );
+
+      if (uploadCard) {
+        uploadCard.style.display = (value === "upload_only") ? "" : "none";
+      }
+
+      updateOrderEstimate();
+    });
+  });
+
+  // Document upload filename display (Step 4 "Upload your documents")
+  const uploadInput    = document.getElementById("intake_upload_files");
+  const uploadNameSpan = document.getElementById("intake_upload_files_name");
+  if (uploadInput && uploadNameSpan) {
+    uploadInput.addEventListener("change", () => {
+      if (!uploadInput.files || uploadInput.files.length === 0) {
+        uploadNameSpan.textContent = "No files chosen";
+      } else if (uploadInput.files.length === 1) {
+        uploadNameSpan.textContent = uploadInput.files[0].name;
+      } else {
+        uploadNameSpan.textContent = uploadInput.files.length + " files selected";
+      }
+    });
+  }
+
+  // Shipping label upload filename display (Step 4 "Upload your prepaid shipping label")
+  const labelUploadInput    = document.getElementById("shippinglabelupload");
+  const labelUploadNameSpan = document.getElementById("shippinglabeluploadname");
+  if (labelUploadInput && labelUploadNameSpan) {
+    labelUploadInput.addEventListener("change", () => {
+      if (!labelUploadInput.files || labelUploadInput.files.length === 0) {
+        labelUploadNameSpan.textContent = "No file chosen";
+      } else if (labelUploadInput.files.length === 1) {
+        labelUploadNameSpan.textContent = labelUploadInput.files[0].name;
+      } else {
+        labelUploadNameSpan.textContent =
+          labelUploadInput.files.length + " files selected";
+      }
+    });
+  }
+}
+
+// =========================================================
+//  14. STEP 4 SHIPPING OPTIONS (LIVE RATES)
+// =========================================================
+
+function initShippingOptionsCard() {
+  var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  var card            = document.getElementById("shipping-options-card");
+  var container       = document.getElementById("shipping-options-container");
+  var hiddenId        = document.getElementById("shipping_option_id");
+  var hiddenLabel     = document.getElementById("shipping_option_label");
+  var hiddenPrice     = document.getElementById("shipping_option_price");
+  var labelUploadCard = document.getElementById("shipping-label-upload-card");
+
+  if (!(recipientRadios.length && card && container)) return;
+
+  function clearHidden() {
+    if (hiddenId)    hiddenId.value = "";
+    if (hiddenLabel) hiddenLabel.value = "";
+    if (hiddenPrice) hiddenPrice.value = "0";
+  }
+
+  function renderOptions(type) {
+    var getOpts = window.getShippingOptionsForRecipient;
+    if (typeof getOpts !== "function") {
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    var options = getOpts(type) || [];
+    if (!options.length) {
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    card.style.display = "block";
+    container.innerHTML = "";
+    clearHidden();
+
+    // Group by carrier
+    var groups = {};
+    options.forEach(function (opt) {
+      var carrier = opt.carrier || "Other";
+      if (!groups[carrier]) groups[carrier] = [];
+      groups[carrier].push(opt);
+    });
+
+    var firstOptionSet = false;
+
+    Object.keys(groups).forEach(function (carrierName) {
+      var carrierOpts = groups[carrierName];
+      if (!carrierOpts.length) return;
+
+      var carrierKey  = carrierName.toLowerCase();
+      var carrierCard = document.createElement("div");
+      carrierCard.className = "shipping-carrier-card shipping-carrier-card--" + carrierKey;
+
+      var heading = document.createElement("div");
+      heading.className = "shipping-carrier-heading";
+      heading.textContent = carrierName;
+      carrierCard.appendChild(heading);
+
+      carrierOpts.forEach(function (opt) {
+        var optCarrierKey = String(opt.carrier || carrierName).toLowerCase();
+
+        var row = document.createElement("div");
+        row.className = "shipping-option-row" +
+          (optCarrierKey ? " shipping-option-row--" + optCarrierKey : "");
+
+        var info = document.createElement("div");
+        info.className = "shipping-option-info";
+
+        var nameDiv = document.createElement("div");
+        nameDiv.className = "shipping-option-name";
+        nameDiv.textContent = opt.service || opt.label || "";
+
+        var metaDiv = document.createElement("div");
+        metaDiv.className = "shipping-option-meta";
+
+        var daysText = "";
+        if (opt.days) {
+          var str = String(opt.days);
+          if (str.indexOf("-") !== -1) {
+            daysText = str + " business days";
+          } else {
+            var n = parseInt(str, 10);
+            daysText = str + " business day" + (n === 1 ? "" : "s");
+          }
+        }
+        var timeText = opt.timeWindow || "";
+        metaDiv.textContent =
+          (daysText ? daysText : "") +
+          (daysText && timeText ? " · " : "") +
+          (timeText ? timeText : "");
+
+        info.appendChild(nameDiv);
+        info.appendChild(metaDiv);
+
+        var label = document.createElement("label");
+        label.className = "toggle-pill shipping-price-pill";
+
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "shippingoptionchoice";
+        input.value = opt.id;
+
+        var priceNum  = opt.price != null ? Number(opt.price) : 0;
+        var priceText = priceNum === 0 ? "Included" : "$" + priceNum.toFixed(2);
+
+        var pillInner = document.createElement("div");
+        var priceSpan = document.createElement("span");
+        priceSpan.textContent = priceText;
+        pillInner.appendChild(priceSpan);
+
+        label.appendChild(input);
+        label.appendChild(pillInner);
+
+        row.appendChild(info);
+        row.appendChild(label);
+        carrierCard.appendChild(row);
+
+        function selectOption() {
+          if (hiddenId)    hiddenId.value = opt.id;
+          if (hiddenLabel) hiddenLabel.value =
+            carrierName + " - " + (opt.service || "");
+          if (hiddenPrice) hiddenPrice.value =
+            opt.price != null ? String(opt.price) : "0";
+
+          var allPills = container.querySelectorAll(".shipping-price-pill");
+          allPills.forEach(function (p) {
+            p.classList.remove("toggle-pill--active");
+          });
+          label.classList.add("toggle-pill--active");
+
+          if (typeof updateOrderEstimate === "function") {
+            updateOrderEstimate();
+          }
+        }
+
+        input.addEventListener("change", selectOption);
+        label.addEventListener("click", function (e) {
+          if (e.target === input) return;
+          input.checked = true;
+          selectOption();
+        });
+
+        if (!firstOptionSet) {
+          input.checked = true;
+          firstOptionSet = true;
+          selectOption();
+        }
+      });
+
+      container.appendChild(carrierCard);
+    });
+  }
+
+  function handleRecipientChange() {
+    var selected = null;
+    recipientRadios.forEach(function (r) {
+      if (r.checked) selected = r.value;
+    });
+
+    // Reset both UI areas
+    if (labelUploadCard) labelUploadCard.style.display = "none";
+
+    if (!selected) {
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    if (selected === "backtoyou_label") {
+      // User will provide own label: hide live options, show upload card
+      card.style.display = "none";
+      container.innerHTML = "";
+      clearHidden();
+      if (labelUploadCard) labelUploadCard.style.display = "block";
+      if (typeof updateOrderEstimate === "function") updateOrderEstimate();
+      return;
+    }
+
+    // Normal flow
+    if (labelUploadCard) labelUploadCard.style.display = "none";
+    renderOptions(selected);
+  }
+
+  recipientRadios.forEach(function (radio) {
+    radio.addEventListener("change", handleRecipientChange);
+  });
+
+  handleRecipientChange();
+}
+
+// =========================================================
+//  15. SHIPPING LABEL UPLOAD VALIDATION
+// =========================================================
+
+function validateShippingUploadBeforeNext() {
+  var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
+  var selected = null;
+  recipientRadios.forEach(function (r) {
+    if (r.checked) selected = r.value;
+  });
+
+  // Only enforce when they chose "use my own label"
+  if (selected === "backtoyou_label") {
+    var labelInput = document.querySelector('input[name="shippinglabelupload"]');
+    if (!labelInput || !labelInput.files || labelInput.files.length === 0) {
+      alert("Please upload your prepaid shipping label before continuing.");
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// =========================================================
+//  16. MAIN INITIALIZER
+// =========================================================
+
 document.addEventListener("DOMContentLoaded", function () {
   const steps = Array.from(document.querySelectorAll(".intake-step"));
   const pills = Array.from(document.querySelectorAll(".intake-step-pill"));
@@ -471,100 +1147,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // TRANSLATION ADD‑ONS RENDERER
-  function updateTranslationAddOns() {
-    const container = document.querySelector(
-      "#translation-addons-block .translation-addons-container"
-    );
-    if (!container || !window.TRANSLATION_PRICING_RULES) return;
-
-    const addons = window.TRANSLATION_PRICING_RULES.addons || [];
-    container.innerHTML = "";
-
-    addons.forEach((addon, idx) => {
-      const id = `translation_addon_${idx}`;
-      const priceLabel =
-        addon.price > 0 ? `+$${addon.price.toFixed(0)}` : "Included";
-
-      const row = document.createElement("label");
-      row.className = "toggle-pill";
-      row.style.display = "flex";
-      row.style.alignItems = "center";
-      row.style.marginBottom = "4px";
-      row.style.cursor = "pointer";
-
-      row.innerHTML = `
-        <input
-          type="checkbox"
-          id="${id}"
-          name="translation_addons[]"
-          value="${addon.code}"
-          data-addon-price="${addon.price}"
-          style="position:absolute; opacity:0;"
-        >
-        <div style="display:flex; align-items:center; width:100%; gap:8px; padding:6px 10px;">
-          <span style="flex:1 1 auto; text-align:left; font-weight:600;">
-            ${addon.title}
-          </span>
-          <span style="flex:0 0 auto; white-space:nowrap; font-weight:600;">
-            ${priceLabel}
-          </span>
-        </div>
-      `;
-
-      container.appendChild(row);
-    });
-
-    container.querySelectorAll('#translation-addons-block input[type="checkbox"]').forEach(cb => {
-      const pill = cb.closest(".toggle-pill");
-
-      if (pill && cb.checked) {
-        pill.classList.add("toggle-pill--active");
-      }
-
-      cb.addEventListener("change", () => {
-        if (!pill) return;
-        pill.classList.toggle("toggle-pill--active", cb.checked);
-        calculateTranslationTotal();
-        updateOrderEstimate();
-      });
-    });
-  }
-
-  // SHIPPING RECIPIENT CARDS & COURIER FEES
-  function updateRecipientCardsAndCourierFees() {
-    const intlCard = document.getElementById("international-recipient-card");
-    const usCard   = document.getElementById("us-recipient-card");
-    const radios   = document.querySelectorAll('input[name="shipping_recipient_type"]');
-    if (!radios.length) return;
-
-    let selected = null;
-    radios.forEach(r => {
-      if (r.checked) selected = r.value;
-    });
-
-    if (intlCard) intlCard.classList.add("hidden");
-    if (usCard)   usCard.classList.add("hidden");
-
-    if (selected === "internationalrecipient") {
-      if (intlCard) intlCard.classList.remove("hidden");
-    } else if (selected === "otherusrecipient") {
-      if (usCard) usCard.classList.remove("hidden");
-    }
-
-    let courierFee = 0;
-    if (selected === "samedaycourierla") {
-      courierFee = 65;
-    } else if (selected === "samedaycourieroc") {
-      courierFee = 130;
-    }
-    window._courierFee = courierFee || 0;
-
-    if (typeof updateOrderEstimate === "function") {
-      updateOrderEstimate();
-    }
-  }
-
   document
     .querySelectorAll('input[name="shipping_recipient_type"]')
     .forEach(radio => {
@@ -572,235 +1154,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   updateRecipientCardsAndCourierFees();
 
-  // GOOGLE PLACES AUTOCOMPLETE (US)
-  function attachUsAddressAutocomplete(config) {
-    const addressInput = document.getElementById(config.addressId);
-    if (!addressInput || !window.google || !window.google.maps || !window.google.maps.places) {
-      return;
-    }
-
-    const autocomplete = new google.maps.places.Autocomplete(addressInput, {
-      types: ["address"],
-      componentRestrictions: { country: ["us"] }
-    });
-
-    autocomplete.addListener("place_changed", () => {
-      const place = autocomplete.getPlace();
-      if (!place || !place.address_components) return;
-
-      const components = {
-        street_number: "",
-        route: "",
-        locality: "",
-        administrative_area_level_1: "",
-        postal_code: "",
-        country: ""
-      };
-
-      place.address_components.forEach(c => {
-        const type = c.types[0];
-        if (components.hasOwnProperty(type)) {
-          components[type] = c.long_name;
-        }
-      });
-
-      const line1 = [components.street_number, components.route].filter(Boolean).join(" ").trim();
-
-      const cityEl = document.getElementById(config.cityId);
-      const stateEl = document.getElementById(config.stateId);
-      const zipEl = document.getElementById(config.zipId);
-      const countryEl = document.getElementById(config.countryId);
-
-      if (addressInput && line1) addressInput.value = line1;
-      if (cityEl && components.locality) cityEl.value = components.locality;
-      if (stateEl && components.administrative_area_level_1) stateEl.value = components.administrative_area_level_1;
-      if (zipEl && components.postal_code) zipEl.value = components.postal_code;
-      if (countryEl && components.country) countryEl.value = components.country;
-    });
-  }
-
-  function initUsAutocompletes() {
-    attachUsAddressAutocomplete({
-      addressId: "mailing_address_1",
-      cityId: "mailing_city",
-      stateId: "mailing_state",
-      zipId: "mailing_zip",
-      countryId: "mailing_country"
-    });
-
-    attachUsAddressAutocomplete({
-      addressId: "us_recipient_address_1",
-      cityId: "us_recipient_city",
-      stateId: "us_recipient_state",
-      zipId: "us_recipient_zip",
-      countryId: "us_recipient_country"
-    });
-  }
-
   setTimeout(initUsAutocompletes, 800);
 
-  function updateStepPillVisibility(activeIndex) {
-    const total = pills.length;
-    const visible = new Set();
+// Navigation buttons
+document.querySelectorAll("[data-next-step]").forEach(btn => {
+  const target = parseInt(btn.getAttribute("data-next-step"), 10);
 
-    if (activeIndex <= 1) {
-      visible.add(0);
-      if (total > 1) visible.add(1);
-      if (total > 2) visible.add(2);
-    } else if (activeIndex >= total - 2) {
-      if (total >= 3) {
-        visible.add(total - 3);
-        visible.add(total - 2);
-        visible.add(total - 1);
-      }
-    } else {
-      visible.add(activeIndex - 1);
-      visible.add(activeIndex);
-      visible.add(activeIndex + 1);
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Let the dedicated Step 2 handler control validation and navigation.
+    if (target === 2) {
+      return; // do nothing here; step2NextBtn listener will run separately
     }
 
-    pills.forEach((pill, i) => {
-      pill.style.display = visible.has(i) ? "flex" : "none";
-    });
-  }
-
-  function scrollActiveStepIntoView(index) {
-    const container = document.querySelector(".intake-steps");
-    const pill = pills[index];
-    if (!container || !pill || pill.style.display === "none") return;
-
-    const containerRect = container.getBoundingClientRect();
-    const pillRect = pill.getBoundingClientRect();
-    const offset = pillRect.left - containerRect.left;
-    const centerOffset = offset - (containerRect.width / 2 - pillRect.width / 2);
-    container.scrollTo({ left: container.scrollLeft + centerOffset, behavior: "smooth" });
-  }
-
-  function updateSpeedOptionsForState() {
-    const container = document.querySelector("#apostille-speed-block .speed-options-container");
-    if (!container) return;
-
-    const allStateSelects = document.querySelectorAll('select[name="document_state[]"]');
-    const uniqueStates = new Set();
-    allStateSelects.forEach(sel => { if (sel.value) uniqueStates.add(sel.value); });
-
-    if (uniqueStates.size === 0) {
-      container.innerHTML = `
-        <div class="form-help" style="color:#6b7280;">
-          Select an issuing state in Step 2 to see available speed options.
-        </div>
-      `;
-      return;
+    // If we are moving past the shipping step (step index 3 -> 4 or beyond),
+    // enforce that a shipping label is uploaded when "backtoyou_label" is selected.
+    if (target > 3) {
+      if (!validateShippingUploadBeforeNext()) {
+        return; // stay on current step
+      }
     }
 
-    let html = "";
-
-    uniqueStates.forEach(stateCode => {
-      const stateRule = window.STATE_PRICING_RULES ? window.STATE_PRICING_RULES[stateCode] : null;
-
-      if (!stateRule || !stateRule.options || stateRule.options.length === 0) {
-        html += `
-          <div class="form-help" style="color:#6b7280; margin-bottom: 8px;">
-            <strong>${stateCode}:</strong> Timing will be confirmed after review.
-          </div>
-        `;
-        return;
-      }
-
-      html += `<div class="state-speed-group" style="margin-bottom:16px;">`;
-      html += `<div style="font-weight:600; margin-bottom:6px;">${stateRule.stateName}</div>`;
-
-      stateRule.options.forEach((opt, idx) => {
-        const inputName = `speed_${stateCode}`;
-        const inputId = `speed_${stateCode}_${idx}`;
-        const checkedAttr = idx === 0 ? "checked" : "";
-
-        const displayTitle = opt.title || opt.label || "";
-        const displaySpeed = opt.speed || "";
-        const priceLabel = opt.price > 0
-          ? `+$${opt.price.toFixed(0)}`
-          : "Included";
-
-        html += `
-          <label class="toggle-pill" style="display:flex; align-items:center; margin-bottom:4px; cursor:pointer;">
-            <input type="radio"
-                   name="${inputName}"
-                   id="${inputId}"
-                   value="${opt.label}"
-                   data-speed-price="${opt.price}"
-                   ${checkedAttr}
-                   style="margin-right:8px;">
-
-            <div style="display:flex; align-items:center; width:100%; gap:8px;">
-              <span style="flex:0 0 30%; text-align:left; font-weight:600;">
-                ${displayTitle}
-              </span>
-              <span style="
-                flex:1 1 auto;
-                text-align:center;
-                color:#4b5563;
-                padding:0 24px;
-              ">
-                ${displaySpeed}
-              </span>
-              <span style="flex:0 0 auto; white-space:nowrap; font-weight:600;">
-                ${priceLabel}
-              </span>
-            </div>
-          </label>
-        `;
-      });
-
-      if (stateRule.notes && stateRule.notes !== "nan") {
-        html += `<div class="form-help" style="color:#6b7280; font-size:12px; margin-top:4px;">${stateRule.notes}</div>`;
-      }
-
-      html += `</div>`;
-    });
-
-    container.innerHTML = html;
-
-    const radios = container.querySelectorAll('input[type="radio"]');
-
-    const firstChecked = container.querySelector('input[type="radio"]:checked');
-    if (firstChecked) {
-      const initialPill = firstChecked.closest('label.toggle-pill');
-      if (initialPill) initialPill.classList.add('toggle-pill--active');
-    }
-
-    radios.forEach(radio => {
-      radio.addEventListener("change", () => {
-        const allPills = container.querySelectorAll('.toggle-pill');
-        allPills.forEach(p => p.classList.remove('toggle-pill--active'));
-        const pill = radio.closest('label.toggle-pill');
-        if (pill) pill.classList.add('toggle-pill--active');
-        updateOrderEstimate();
-      });
-    });
-  }
-
-  function setActiveStep(index) {
-    steps.forEach((step, i) => step.classList.toggle("intake-step--active", i === index));
-    pills.forEach((pill, i) => pill.classList.toggle("intake-step-pill--active", i === index));
-    updateStepPillVisibility(index);
-
-    const active = steps[index];
-    if (active) window.scrollTo({ top: active.offsetTop - 40, behavior: "smooth" });
-    scrollActiveStepIntoView(index);
-
-    updateServiceTiles();
-    updateSpeedOptionsForState();
-    updateOrderEstimate();
-  }
-
-  window.setActiveStep = setActiveStep;
-  window.updateSpeedOptionsForState = updateSpeedOptionsForState;
-
-  document.querySelectorAll("[data-next-step]").forEach(btn => {
-    const target = parseInt(btn.getAttribute("data-next-step"), 10);
-    if (target === 2) return;
-    btn.addEventListener("click", () => setActiveStep(target));
+    setActiveStep(target, steps, pills);
   });
+});
 
   const step2NextBtn = document.querySelector('button[data-next-step="2"]');
   if (step2NextBtn) {
@@ -847,12 +1225,14 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      setActiveStep(2);
+      setActiveStep(2, steps, pills);
     });
   }
 
   document.querySelectorAll("[data-prev-step]").forEach(btn => {
-    btn.addEventListener("click", () => setActiveStep(parseInt(btn.getAttribute("data-prev-step"), 10)));
+    btn.addEventListener("click", () =>
+      setActiveStep(parseInt(btn.getAttribute("data-prev-step"), 10), steps, pills)
+    );
   });
 
   const usageField = document.getElementById("usage_type");
@@ -890,235 +1270,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const deliveryField = document.getElementById("delivery_method");
-  const uploadCard = document.getElementById("document-upload-card");
-
-  if (deliveryField) {
-    const deliveryPills = document.querySelectorAll("[data-delivery-value]");
-    deliveryPills.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const value = btn.getAttribute("data-delivery-value");
-        deliveryField.value = value;
-
-        deliveryPills.forEach(b =>
-          b.classList.toggle("toggle-pill--active", b === btn)
-        );
-
-        if (uploadCard) {
-          uploadCard.style.display = (value === "upload_only") ? "" : "none";
-        }
-
-        updateOrderEstimate();
-      });
-    });
-  }
-
-  const uploadInput = document.getElementById("intake_upload_files");
-  const uploadNameSpan = document.getElementById("intake_upload_files_name");
-  if (uploadInput && uploadNameSpan) {
-    uploadInput.addEventListener("change", () => {
-      if (!uploadInput.files || uploadInput.files.length === 0) {
-        uploadNameSpan.textContent = "No files chosen";
-      } else if (uploadInput.files.length === 1) {
-        uploadNameSpan.textContent = uploadInput.files[0].name;
-      } else {
-        uploadNameSpan.textContent = uploadInput.files.length + " files selected";
-      }
-    });
-  }
+  initDeliveryToggles();
+  initShippingOptionsCard();
 
   updateServiceTiles();
   updateRequiredFieldsForServices();
   updateTranslationAddOns();
 
-      // Step 4 dynamic shipping options based on shipping_recipient_type
-  var recipientRadios = document.querySelectorAll('input[name="shipping_recipient_type"]');
-  var card            = document.getElementById("shipping-options-card");
-  var container       = document.getElementById("shipping-options-container");
-  var hiddenId        = document.getElementById("shipping_option_id");
-  var hiddenLabel     = document.getElementById("shipping_option_label");
-  var hiddenPrice     = document.getElementById("shipping_option_price");
-
-  if (recipientRadios.length && card && container) {
-    function clearHidden() {
-      if (hiddenId)    hiddenId.value = "";
-      if (hiddenLabel) hiddenLabel.value = "";
-      if (hiddenPrice) hiddenPrice.value = "0";
-    }
-
-    function renderOptions(type) {
-      var getOpts = window.getShippingOptionsForRecipient;
-      if (typeof getOpts !== "function") {
-        card.style.display = "none";
-        container.innerHTML = "";
-        clearHidden();
-        if (typeof updateOrderEstimate === "function") updateOrderEstimate();
-        return;
-      }
-
-      var options = getOpts(type) || [];
-      if (!options.length) {
-        card.style.display = "none";
-        container.innerHTML = "";
-        clearHidden();
-        if (typeof updateOrderEstimate === "function") updateOrderEstimate();
-        return;
-      }
-
-      card.style.display = "block";
-      container.innerHTML = "";
-      clearHidden();
-
-      var groups = {};
-      options.forEach(function (opt) {
-        var carrier = opt.carrier || "Other";
-        if (!groups[carrier]) groups[carrier] = [];
-        groups[carrier].push(opt);
-      });
-
-      var firstOptionSet = false;
-
-Object.keys(groups).forEach(function (carrierName) {
-  var carrierOpts = groups[carrierName];
-  if (!carrierOpts.length) return;
-
-  var heading = document.createElement("div");
-  heading.textContent = carrierName;
-  heading.style.fontWeight = "600";
-  heading.style.fontSize = "13px";
-  heading.style.margin = "10px 0 4px 0";
-  container.appendChild(heading);
-
-  carrierOpts.forEach(function (opt) {
-    var id = "shippingopt-" + type + "-" + opt.id;
-
-    var label = document.createElement("label");
-    label.className = "toggle-pill";
-    label.style.width = "100%";
-    label.style.justifyContent = "flex-start";
-
-    var input = document.createElement("input");
-    input.type = "radio";
-    input.name = "shippingoptionchoice";
-    input.value = opt.id;
-    input.id = id;
-    input.style.marginRight = "8px";
-
-    var row = document.createElement("div");
-    row.style.display = "flex";
-    row.style.alignItems = "center";
-    row.style.gap = "6px";
-    row.style.width = "100%";
-
-    // Left: service name
-var svcSpan = document.createElement("span");
-svcSpan.textContent = opt.service;
-svcSpan.style.flex = "1 1 0";          // equal column
-svcSpan.style.whiteSpace = "nowrap";
-svcSpan.style.overflow = "hidden";
-svcSpan.style.textOverflow = "ellipsis";
-
-// Business days (just number/range)
-var daysSpan = document.createElement("span");
-var daysText = opt.days ? String(opt.days) : "";
-daysSpan.textContent = daysText;
-daysSpan.style.flex = "1 1 0";         // equal column
-daysSpan.style.textAlign = "center";
-daysSpan.style.whiteSpace = "nowrap";
-daysSpan.style.fontSize = "12px";
-daysSpan.style.color = "#4b5563";
-
-// Time window
-var timeSpan = document.createElement("span");
-timeSpan.textContent = opt.timeWindow || "";
-timeSpan.style.flex = "1 1 0";         // equal column
-timeSpan.style.textAlign = "center";
-timeSpan.style.whiteSpace = "nowrap";
-timeSpan.style.fontSize = "12px";
-timeSpan.style.color = "#4b5563";
-
-// Price / Included
-var priceSpan = document.createElement("span");
-if (opt.price != null) {
-  var normalized = parseFloat(opt.price);
-  priceSpan.textContent =
-    !isNaN(normalized) && normalized === 0
-      ? "Included"
-      : normalized.toFixed(2);
-} else {
-  priceSpan.textContent = "";
-}
-priceSpan.style.flex = "1 1 0";        // equal column
-priceSpan.style.textAlign = "right";
-priceSpan.style.whiteSpace = "nowrap";
-priceSpan.style.fontWeight = "600";
-
-// Append in order
-row.appendChild(svcSpan);
-row.appendChild(daysSpan);
-row.appendChild(timeSpan);
-row.appendChild(priceSpan);
-
-    label.appendChild(input);
-    label.appendChild(row);
-    container.appendChild(label);
-
-    function selectOption() {
-      if (hiddenId) hiddenId.value = opt.id;
-      if (hiddenLabel) hiddenLabel.value = carrierName + " - " + opt.service;
-      if (hiddenPrice)
-        hiddenPrice.value = opt.price != null ? String(opt.price) : "0";
-
-      var allPills = container.querySelectorAll(".toggle-pill");
-      allPills.forEach(function (p) {
-        p.classList.remove("toggle-pill--active");
-      });
-      label.classList.add("toggle-pill--active");
-
-      if (typeof updateOrderEstimate === "function") {
-        updateOrderEstimate();
-      }
-    }
-
-    input.addEventListener("change", selectOption);
-    label.addEventListener("click", function (e) {
-      if (e.target === input) return;
-      input.checked = true;
-      selectOption();
-    });
-
-    if (!firstOptionSet) {
-      input.checked = true;
-      firstOptionSet = true;
-      selectOption();
-    }
-  });
-});
-
-    }
-
-    function handleRecipientChange() {
-      var selected = null;
-      recipientRadios.forEach(function (r) {
-        if (r.checked) selected = r.value;
-      });
-      if (!selected) {
-        card.style.display = "none";
-        container.innerHTML = "";
-        clearHidden();
-        if (typeof updateOrderEstimate === "function") updateOrderEstimate();
-        return;
-      }
-      renderOptions(selected);
-    }
-
-    recipientRadios.forEach(function (radio) {
-      radio.addEventListener("change", handleRecipientChange);
-    });
-
-    handleRecipientChange();
-  }
-
-  setActiveStep(0);
+  setActiveStep(0, steps, pills);
 });
 
