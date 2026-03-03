@@ -68,27 +68,38 @@
 
   <!-- 2. Service schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Pasadena & Altadena Mobile Notary, Apostille & Jail Signing Services",
-    "description": "...",
-    "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html",
-    "serviceType": "Mobile Notary and Apostille Service",
-    "provider": { ... },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "100",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Pasadena" },
-      { "@type": "City", "name": "Altadena" }
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Pasadena & Altadena Mobile Notary, Apostille & Jail Signing Services",
+  "description": "Mobile notary, apostille, and jail signing services for clients in Pasadena and Altadena, California.",
+  "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena-notary-apostille.html",
+  "serviceType": "Mobile Notary and Apostille Service",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com/",
+    "telephone": "+1-213-933-2507",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Los Angeles",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "100",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Pasadena" },
+    { "@type": "City", "name": "Altadena" }
+  ]
+}
+</script>
 
   <!-- 3. FAQPage schema -->
   <script type="application/ld+json">
