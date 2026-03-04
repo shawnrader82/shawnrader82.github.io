@@ -34,7 +34,7 @@
 
   <!-- Global font and shared site styles -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="/styles-v2.css?v=1.0.12" />
+  <link rel="stylesheet" href="/styles-v2.min.css?v=1.0.12" />
 
   <!-- Structured Data: Service (Airport Notary) -->
   <script type="application/ld+json">
@@ -200,7 +200,7 @@
 
 
 <!-- ========== SECTION: TIGHT FLIGHT SCHEDULES (WHITE) ========== -->
-<section id="airport-overview" class="service-detail service-detail--white">
+<section id="airport-overview" class="service-detail service-detail--gray">
   <div class="service-detail-inner">
     <div class="service-detail-kicker">Why Airport Notary</div>
     <h2>Perfect for tight flight schedules and last-minute changes</h2>
@@ -250,48 +250,52 @@
     <div class="service-detail-kicker">What We Usually Notarize</div>
     <h2>Common notarizations at airports and hotels</h2>
     <p class="service-detail-lead">
-      Many travelers discover at the last minute that they need something notarized. These are some of the
-      documents I’m most often called to handle at LAX and nearby airport hotels.
+      Tap a document type below to see full details, requirements, and what to expect.
     </p>
 
     <div class="service-detail-grid">
-      <div class="service-card">
+
+      <!-- Minor travel consent -->
+      <a class="service-card service-card--icon" href="/services/notary/minor-travel-consent.html">
+        <div class="service-card-icon">
+          <img src="/images/icons/icon-plane-passport.svg" alt="" loading="lazy" />
+        </div>
         <h3>Minor travel consent letters</h3>
-        <p>
-          Parental consent letters for children traveling with one parent, relatives, school groups, or
-          other caregivers, often required by airlines and border officials.
-        </p>
-      </div>
+        <p>Parents authorizing a child to travel without both guardians.</p>
+      </a>
 
-      <div class="service-card">
+      <!-- Powers of attorney -->
+      <a class="service-card service-card--icon" href="/services/notary/power-of-attorney.html">
+        <div class="service-card-icon">
+          <img src="/images/icons/icon-signature.svg" alt="" loading="lazy" />
+        </div>
         <h3>Powers of attorney before departure</h3>
-        <p>
-          General and financial powers of attorney signed right before an extended trip, so someone you
-          trust can handle banking, real estate, or legal matters while you’re away.
-        </p>
-      </div>
+        <p>Let someone you trust handle finances or legal matters while you’re away.</p>
+      </a>
 
-      <div class="service-card">
-        <h3>Affidavits and sworn statements</h3>
-        <p>
-          Sworn statements for immigration, employment, or personal matters that must be signed and
-          notarized before you arrive at your destination.
-        </p>
-      </div>
+      <!-- Affidavits -->
+      <a class="service-card service-card--icon" href="/services/notary/affidavit-of-support.html">
+        <div class="service-card-icon">
+          <img src="/images/icons/icon-document-check.svg" alt="" loading="lazy" />
+        </div>
+        <h3>Affidavits &amp; sworn statements</h3>
+        <p>Sworn statements for immigration, employment, or personal matters.</p>
+      </a>
 
-      <div class="service-card">
+      <!-- Business & courier -->
+      <a class="service-card service-card--icon" href="/services/notary/bill-of-sale.html">
+        <div class="service-card-icon">
+          <img src="/images/icons/icon-briefcase.svg" alt="" loading="lazy" />
+        </div>
         <h3>Business &amp; courier documents</h3>
-        <p>
-          Time‑sensitive contracts, courier releases, and other business documents that need a notary’s
-          seal before they can be shipped or handed off to a third party.
-        </p>
-      </div>
+        <p>Time‑sensitive agreements and releases that must be notarized before shipping.</p>
+      </a>
+
     </div>
 
     <p style="font-size:13px; color:#d1d5db; margin-top:18px; line-height:1.6;">
-      If you’re not sure whether your document can be notarized at the airport, call or text
-      <a href="tel:+12139332507" style="color:#fca5a5;">(213) 933‑2507</a> with a photo of the first page
-      and I’ll confirm what’s possible before we schedule.
+      Not sure which document you need? Call or text
+      <a href="tel:+12139332507" style="color:#fca5a5;">(213) 933‑2507</a> before your flight and we’ll talk it through.
     </p>
   </div>
 </section>
@@ -392,8 +396,8 @@
 <!-- ========== FOOTER & SHARED SCRIPTS ========== -->
 <div id="footer-placeholder"></div>
 
-<script src="/header.js" defer></script>
-<script src="/footer.js" defer></script>
+<script src="/header.min.js" defer></script>
+<script src="/footer.min.js" defer></script>
 
 <!-- Page-specific interactive JS (optional; copy from General Notary if used) -->
 <script>
