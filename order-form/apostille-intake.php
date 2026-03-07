@@ -12,7 +12,6 @@ function intake_log($msg) {
     file_put_contents(__DIR__ . '/apostille-upload.log', $line, FILE_APPEND);
 }
 
-
 file_put_contents('/tmp/apostille-ping.txt', date('c') . " PING\n", FILE_APPEND);
 
 // api/apostille-intake.php
@@ -28,10 +27,13 @@ use PHPMailer\PHPMailer\Exception;
 
 date_default_timezone_set('America/Los_Angeles');
 
-
 // ==================================================================== 
 // NEXTCLOUD WEBDAV CONFIG 
 // ====================================================================
+
+// Load Nextcloud credentials from private nc-config.php
+require __DIR__ . '/nc-config.php';
+
 
 $ncBaseUrl = 'https://cloud.mobileamericannotary.com/remote.php/dav/files/shawn/';
 $ncUser    = 'shawn@mobileamericannotary.com';
