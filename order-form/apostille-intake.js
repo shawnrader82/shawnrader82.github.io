@@ -750,7 +750,7 @@ function updateSpeedOptionsForState() {
       const isStandard = labelText.includes("standard");
 
       let checkedAttr = "";
-      if (savedStateChoice && savedStateChoice === labelValue) {
+      if (savedStateChoice && savedStateChoice === opt.label) {
         checkedAttr = "checked";
       } else if (isStandard || idx === 0) {
         checkedAttr = "checked";
