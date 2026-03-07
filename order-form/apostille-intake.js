@@ -24,6 +24,9 @@
 //  01. HELPERS & PRICING RULES ACCESS
 // =========================================================
 
+// Store last-selected speed option per state code
+window._selectedSpeedOptionsByState = window._selectedSpeedOptionsByState || {};
+
 // Build translation language selects from TRANSLATION_PRICING_RULES
 function populateTranslationLanguageSelects() {
   const rules = window.TRANSLATION_PRICING_RULES;
@@ -736,14 +739,22 @@ function updateSpeedOptionsForState() {
         <div class="speed-state-block">
     `;
 
+    const savedStateChoice = window._selectedSpeedOptionsByState[stateCode] || null;
+
     stateRule.options.forEach((opt, idx) => {
       const inputId   = `speed_${stateCode}_${idx}`;
       const inputName = `apostille_speed_choice_${stateCode}`;
 
-      // Prefer any option whose label/title contains "standard"
-      const labelText = (opt.title || opt.label || "").toLowerCase();
+      const labelValue = opt.label || opt.title || "";
+      const labelText = labelValue.toLowerCase();
       const isStandard = labelText.includes("standard");
-      const checkedAttr = (isStandard || idx === 0) ? "checked" : "";
+
+      let checkedAttr = "";
+      if (savedStateChoice && savedStateChoice === labelValue) {
+        checkedAttr = "checked";
+      } else if (isStandard || idx === 0) {
+        checkedAttr = "checked";
+      }
 
       const displayTitle = opt.title || opt.label || "";
       const daysLabel    = opt.businessDaysLabel || opt.speed || "";
@@ -768,7 +779,7 @@ function updateSpeedOptionsForState() {
               type="radio"
               name="${inputName}"
               id="${inputId}"
-              value="${opt.label}"
+              value="${labelValue}"
               data-speed-price="${priceNumber}"
               ${checkedAttr}
             >
@@ -806,6 +817,15 @@ function updateSpeedOptionsForState() {
       const stateBlock = radio.closest('.speed-state-block');
       if (!stateBlock) return;
 
+      // Save chosen option per state (from the input name)
+      const name = radio.name || "";
+      const stateMatch = name.match(/^apostille_speed_choice_(.+)$/);
+      if (stateMatch) {
+        const stateCode = stateMatch[1];
+        const chosenLabel = radio.value || "";
+        window._selectedSpeedOptionsByState[stateCode] = chosenLabel;
+      }
+
       const pillsInState = stateBlock.querySelectorAll('.toggle-pill');
       pillsInState.forEach(p => p.classList.remove('toggle-pill--active'));
 
@@ -818,6 +838,7 @@ function updateSpeedOptionsForState() {
 }
 
 window.updateSpeedOptionsForState = updateSpeedOptionsForState;
+
 
 // =========================================================
 //  12. STEP NAVIGATION, VALIDATION & TOGGLES
