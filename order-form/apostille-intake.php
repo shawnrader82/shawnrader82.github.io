@@ -914,8 +914,8 @@ $custBody .= '
 // SEND CUSTOMER AND INTERNAL EMAILS
 // ==================================================================== 
 
-// Customer receipt (only if they provided an email)
-if ($email !== '') {
+// Customer receipt (only if they provided an email and it's not our orders address)
+if ($email !== '' && strtolower($email) !== 'orders@mobileamericannotary.com') {
     $custSubject = 'We received your apostille request';
 
     send_via_gmail(
@@ -930,7 +930,6 @@ if ($email !== '') {
 // Internal notification (always)
 $toAdmin   = 'orders@mobileamericannotary.com';
 $adminSubj = 'You received an apostille/translation order from ' . $customerName;
-
 
 send_via_gmail(
     $toAdmin,
