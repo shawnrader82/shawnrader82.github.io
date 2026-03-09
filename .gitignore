@@ -8,3 +8,4 @@ Thumbs.db
 vendor/
 .obsidian/
 !images/brand/logo.*
+nc-config.php
