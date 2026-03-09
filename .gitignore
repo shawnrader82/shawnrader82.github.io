@@ -9,3 +9,4 @@ vendor/
 .obsidian/
 !images/brand/logo.*
 nc-config.php
+order-form/nc-config.php
