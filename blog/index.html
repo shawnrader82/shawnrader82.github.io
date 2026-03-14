@@ -23,7 +23,12 @@
   <div class="blog-page-wrap">
     <section class="blog-shell">
 
-      <div id="blog-posts"></div>
+      <div id="featured-post"></div>
+
+      <section class="blog-more">
+        <h2>More articles</h2>
+        <div id="more-posts"></div>
+      </section>
 
     </section>
   </div>
@@ -33,51 +38,88 @@
   <script>
     const api = new GhostContentAPI({
       url: 'https://blog.mobileamericannotary.com',
-      key: '0fa8dde3faa54da23e8889d431',       
+      key: '0fa8dde3faa54da23e8889d431',
       version: 'v5'
     });
 
     api.posts
       .browse({ limit: 10, include: 'tags,authors' })
       .then(posts => {
-        const container = document.getElementById('blog-posts');
-        container.innerHTML = posts.map((post, index) => {
-          const cardClass = (index % 2 === 1)
-            ? 'blog-card--gray'
-            : 'blog-card--white';
+        if (!posts || posts.length === 0) {
+          document.getElementById('featured-post').innerHTML =
+            '<p>No articles have been published yet. Please check back soon.</p>';
+          return;
+        }
 
-          const imageHtml = post.feature_image
-            ? `<div class="blog-card__image">
-                 <img loading="lazy" src="${post.feature_image}" alt="${post.title}">
-               </div>`
-            : '';
+        const featured = posts[0];
+        const others = posts.slice(1);
 
-          const date = new Date(post.published_at).toLocaleDateString(
-            'en-US',
-            { year: 'numeric', month: 'long', day: 'numeric' }
-          );
-
-          return `
-            <div class="blog-card blog-card--horizontal ${cardClass}">
-              ${imageHtml}
-              <div class="blog-card__content">
-                <h2><a href="${post.url}">${post.title}</a></h2>
-                <div class="date">${date}</div>
-                <div class="excerpt">
-                  ${post.excerpt}
-                </div>
-                <a href="${post.url}" class="read-more">Read More →</a>
-              </div>
-            </div>
-          `;
-        }).join('');
+        renderFeaturedPost(featured);
+        renderMorePosts(others);
       })
       .catch(err => {
         console.error(err);
-        document.getElementById('blog-posts').innerHTML =
+        document.getElementById('featured-post').innerHTML =
           '<p>Unable to load blog posts right now.</p>';
       });
+
+    function formatDate(dateStr) {
+      return new Date(dateStr).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    function renderFeaturedPost(post) {
+      const container = document.getElementById('featured-post');
+      if (!container) return;
+
+      const imageHtml = post.feature_image
+        ? `<div class="blog-card__image">
+             <img loading="lazy" src="${post.feature_image}" alt="${post.title}">
+           </div>`
+        : '';
+
+      const date = formatDate(post.published_at);
+
+      container.innerHTML = `
+        <div class="blog-card blog-card--horizontal blog-card--white">
+          ${imageHtml}
+          <div class="blog-card__content">
+            <h2><a href="${post.url}">${post.title}</a></h2>
+            <div class="date">${date}</div>
+            <div class="excerpt">
+              ${post.excerpt}
+            </div>
+            <a href="${post.url}" class="read-more">Read More →</a>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderMorePosts(posts) {
+      const container = document.getElementById('more-posts');
+      if (!container) return;
+
+      if (!posts.length) {
+        container.innerHTML = '<p>No older articles yet.</p>';
+        return;
+      }
+
+      container.innerHTML = posts.map(post => {
+        const date = formatDate(post.published_at);
+        return `
+          <article class="blog-list-item">
+            <h3><a href="${post.url}">${post.title}</a></h3>
+            <div class="date">${date}</div>
+            <p class="excerpt">${post.excerpt}</p>
+          </article>
+        `;
+      }).join('');
+    }
   </script>
+
 
   <div id="footer-placeholder"></div>
   <script src="/footer.min.js" defer></script>
