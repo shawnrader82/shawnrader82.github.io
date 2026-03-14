@@ -7,8 +7,8 @@ permalink: /blog/:title/
 
 markdown: kramdown
 
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 
 include:
   - "*.html"
