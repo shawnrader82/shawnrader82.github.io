@@ -10,7 +10,7 @@ title: Blog - Mobile American Notary
   <title>Blog | Mobile American Notary & Apostilles</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/styles-v2.min.css">
-<link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
+  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
 </head>
 <body>
   <div id="header-placeholder"></div>
@@ -27,32 +27,64 @@ title: Blog - Mobile American Notary
   <div class="blog-page-wrap">
     <section class="blog-shell">
 
-      {% for post in site.posts %}
-      {% assign card_class = "blog-card--white" %}
-      {% assign remainder = forloop.index0 | modulo: 2 %}
-      {% if remainder == 1 %}
-        {% assign card_class = "blog-card--gray" %}
-      {% endif %}
+      <div id="blog-posts"></div>
 
-      <div class="blog-card blog-card--horizontal {{ card_class }}">
-        {% if post.image and post.image != "" and post.image != '""' %}
-        <div class="blog-card__image"><img loading="lazy" src="{{ post.image }}" alt="{{ post.title }}"></div>
-        {% endif %}
-        <div class="blog-card__content">
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
-        <div class="excerpt">
-          {{ post.excerpt | strip_html | truncatewords: 40 }}
-        </div>
-        <a href="{{ post.url }}" class="read-more">Read More →</a>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-      </section>
+    </section>
   </div>
+
+  <!-- Ghost Content API script -->
+  <script src="https://cdn.jsdelivr.net/npm/@tryghost/content-api@1.11.27/umd/content-api.min.js"></script>
+  <script>
+    const api = new GhostContentAPI({
+      url: 'https://blog.mobileamericannotary.com',
+      key: '0fa8dde3faa54da23e8889d431',       
+      version: 'v5'
+    });
+
+    api.posts
+      .browse({ limit: 10, include: 'tags,authors' })
+      .then(posts => {
+        const container = document.getElementById('blog-posts');
+        container.innerHTML = posts.map((post, index) => {
+          const cardClass = (index % 2 === 1)
+            ? 'blog-card--gray'
+            : 'blog-card--white';
+
+          const imageHtml = post.feature_image
+            ? `<div class="blog-card__image">
+                 <img loading="lazy" src="${post.feature_image}" alt="${post.title}">
+               </div>`
+            : '';
+
+          const date = new Date(post.published_at).toLocaleDateString(
+            'en-US',
+            { year: 'numeric', month: 'long', day: 'numeric' }
+          );
+
+          return `
+            <div class="blog-card blog-card--horizontal ${cardClass}">
+              ${imageHtml}
+              <div class="blog-card__content">
+                <h2><a href="${post.url}">${post.title}</a></h2>
+                <div class="date">${date}</div>
+                <div class="excerpt">
+                  ${post.excerpt}
+                </div>
+                <a href="${post.url}" class="read-more">Read More →</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('blog-posts').innerHTML =
+          '<p>Unable to load blog posts right now.</p>';
+      });
+  </script>
 
   <div id="footer-placeholder"></div>
   <script src="/footer.min.js" defer></script>
 </body>
 </html>
+
