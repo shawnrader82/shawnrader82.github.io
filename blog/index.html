@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/styles-v2.min.css">
   <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
+
+  <!-- Blog layout tweaks go HERE -->
+  <style>
+    .blog-more h2{margin:32px 0 18px}
+    .blog-card.blog-card--horizontal{padding:22px 20px}
+    .blog-card.blog-card--horizontal+.blog-card.blog-card--horizontal{margin-top:18px}
+  </style>
 </head>
+
 <body>
   <div id="header-placeholder"></div>
   <script src="/header.min.js" defer></script>
@@ -98,26 +106,38 @@
       `;
     }
 
-    function renderMorePosts(posts) {
-      const container = document.getElementById('more-posts');
-      if (!container) return;
+function renderMorePosts(posts) {
+  const container = document.getElementById('more-posts');
+  if (!container) return;
 
-      if (!posts.length) {
-        container.innerHTML = '<p>No older articles yet.</p>';
-        return;
-      }
+  if (!posts.length) {
+    container.innerHTML = '<p>No older articles yet.</p>';
+    return;
+  }
 
-      container.innerHTML = posts.map(post => {
-        const date = formatDate(post.published_at);
-        return `
-          <article class="blog-list-item">
-            <h3><a href="${post.url}">${post.title}</a></h3>
-            <div class="date">${date}</div>
-            <p class="excerpt">${post.excerpt}</p>
-          </article>
-        `;
-      }).join('');
-    }
+  container.innerHTML = posts.map((post, index) => {
+    const date = formatDate(post.published_at);
+    const bgClass = index % 2 === 0 ? 'blog-card--white' : 'blog-card--gray';
+    const imageHtml = post.feature_image
+      ? `<div class="blog-card__image">
+           <img loading="lazy" src="${post.feature_image}" alt="${post.title}">
+         </div>`
+      : '';
+
+    return `
+      <article class="blog-card blog-card--horizontal ${bgClass}">
+        ${imageHtml}
+        <div class="blog-card__content">
+          <h2><a href="${post.url}">${post.title}</a></h2>
+          <div class="date">${date}</div>
+          <p class="excerpt">${post.excerpt}</p>
+          <a class="read-more" href="${post.url}">Read more →</a>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
   </script>
 
 
