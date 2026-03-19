@@ -1342,8 +1342,23 @@ img {
 /* ========== /CUSTOMER REVIEWS LAYOUT ========== */
 
 
+/* ========== HEADER: NARROW DESKTOP TWEAKS ========== */
+@media (max-width: 1200px) and (min-width: 961px) {
+  .header-cta-block {
+    gap: 0.35rem;
+  }
+
+  .header-call,
+  .header-book {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+/* ========== /HEADER: NARROW DESKTOP TWEAKS ========== */
+
+
 /* ========== RESPONSIVE: SMALL PHONES ========== */
-@media (max-width: 640px) {
+@media (max-width: 960px) {
   /* Header + nav on small phones */
   .main-header {
     flex-direction: row;
