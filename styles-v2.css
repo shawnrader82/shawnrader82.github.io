@@ -550,11 +550,11 @@ img {
   color: var(--text-main);
 }
 
-/* Service cards: evenly spaced, wrap into new rows as needed */
+/* Default: flex row that can break into 3+2 horizontally */
 .service-card-grid {
   display: flex;
-  flex-wrap: wrap;           /* allow multiple rows */
-  justify-content: center;   /* center each row */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
 }
 
@@ -565,8 +565,8 @@ img {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.7);
   text-align: center;
   color: var(--text-light);
-  flex: 1 1 210px;           /* prefer ~210px, but allow grow/shrink */
-  max-width: 240px;          /* don't let a single card get too wide */
+  flex: 1 1 210px;      /* allows 5-wide, 4-wide, or 3-wide depending on space */
+  max-width: 240px;
   position: relative;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
@@ -618,32 +618,25 @@ img {
 
 .service-card-title {
   margin-top: 10px;
-  font-size: 18px;       /* was 16px */
-  font-weight: 700;      /* was 600 */
-  color: #ffffff;        /* ensure bright white */
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: none;
 }
 
 .service-card-text {
   padding: 0 14px 16px;
-  font-size: 13px;       /* slightly smaller to create contrast */
-  color: #d1d5db;        /* slightly dimmer than title */
+  font-size: 13px;
+  color: #d1d5db;
   line-height: 1.4;
 }
 
-/* When header is in mobile mode (~tablets), use a strict 2x3 card grid */
-@media (max-width: 1100px) {
-  .service-card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    justify-items: center;
-  }
-
+/* Slightly larger cards on mid-size screens, but still flex (for 3+2) */
+@media (max-width: 1200px) and (min-width: 801px) {
   .service-card {
+    flex: 1 1 260px;
     max-width: 260px;
-    width: 100%;
   }
 
   .service-card-title {
@@ -655,14 +648,33 @@ img {
   }
 }
 
-/* On true phones, go 1-per-row */
+/* Tablets: lock to 2-across grid */
+@media (max-width: 800px) and (min-width: 641px) {
+  .service-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    justify-items: center;
+  }
+
+  .service-card {
+    max-width: 260px;
+    width: 100%;
+  }
+}
+
+/* Phones: 1-across */
 @media (max-width: 640px) {
   .service-card-grid {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    justify-items: center;
   }
 
   .service-card {
     max-width: 320px;
+    width: 100%;
   }
 }
 /* ========== /SERVICE CARDS ========== */
