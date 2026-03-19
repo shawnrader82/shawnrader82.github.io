@@ -1371,9 +1371,9 @@ img {
 /* ========== /HEADER: NARROW DESKTOP TWEAKS ========== */
 
 
-/* ========== RESPONSIVE: SMALL PHONES ========== */
-@media (max-width: 1100px) {
-  /* Header + nav on small phones */
+/* ========== RESPONSIVE: TABLET & DOWN ========== */
+@media (max-width: 1200px) {
+  /* Header + nav on tablets/phones */
   .main-header {
     flex-direction: row;
     align-items: center;
@@ -1384,40 +1384,45 @@ img {
     display: inline-flex;
   }
 
-  /* Always show call pill in header bar */
+  /* Call / Book buttons in header */
   .header-cta-block {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
     justify-content: flex-end;
     margin-left: auto;
-    gap: 8px;
-    font-size: 13px;
+    gap: 6px;
+    font-size: 12px;
     white-space: nowrap;
     max-width: 100%;
   }
 
-  .header-call {
+  .header-call,
+  .header-book {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 999px;
-    background: #b91c1c;
-    color: #ffffff;
-    text-decoration: none;
+    font-size: 12px;
     font-weight: 600;
-    width: auto;
     white-space: nowrap;
   }
 
+  .header-call {
+    background: #b91c1c;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  /* Mobile nav dropdown */
   .main-nav {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
     left: 0;
-    background: #f9fafb; /* slightly off-white so it pops */
+    background: #f9fafb;
     border-bottom: 1px solid #e5e7eb;
     padding: 10px 16px 12px;
     flex-direction: column;
@@ -1432,7 +1437,6 @@ img {
     display: flex;
   }
 
-  /* Top-level items: clearer, spaced rows */
   .main-nav > a,
   .main-nav > .nav-item > .nav-link {
     display: block;
@@ -1452,7 +1456,6 @@ img {
     background: #f9fafb;
   }
 
-  /* Accent bar for open dropdown item */
   .main-nav > .nav-item.open > .nav-link {
     position: relative;
     color: var(--accent);
@@ -1469,7 +1472,6 @@ img {
     background: var(--accent);
   }
 
-  /* Dropdown lists (Services / Locations) */
   .main-nav .nav-item .nav-dropdown {
     margin-top: 4px;
     padding: 4px 0 6px 18px;
@@ -1487,8 +1489,7 @@ img {
     color: var(--accent);
   }
 
-  /* Existing mobile layout below */
-
+  /* Hero tweaks on tablet/phone */
   .hero-inner {
     padding: 44px 18px 40px;
   }
@@ -1516,13 +1517,7 @@ img {
     padding: 8px 14px;
   }
 
-  .service-card {
-    width: 100%;
-    max-width: 320px;
-    min-width: 0;
-    margin-inline: auto;
-  }
-
+  /* Two-column → one-column layouts below hero */
   .service-detail-grid,
   .apostille-grid,
   .contact-columns {
@@ -1542,7 +1537,7 @@ img {
   }
 
   .livescan-figure {
-    text-align:	center;
+    text-align: center;
     margin-top: 16px;
   }
 
@@ -1559,7 +1554,8 @@ img {
     padding: 32px 16px 32px;
   }
 }
-/* ========== /RESPONSIVE: SMALL PHONES ========== */
+/* ========== /RESPONSIVE: TABLET & DOWN ========== */
+
 
 
 /* ========== INTAKE FORM STEPS ========== */
