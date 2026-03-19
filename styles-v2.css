@@ -550,11 +550,11 @@ img {
   color: var(--text-main);
 }
 
-/* Keep five notary cards in one row on larger screens */
+/* Service cards: evenly spaced, wrap into new rows as needed */
 .service-card-grid {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  flex-wrap: wrap;           /* allow multiple rows */
+  justify-content: center;   /* center each row */
   gap: 18px;
 }
 
@@ -565,8 +565,8 @@ img {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.7);
   text-align: center;
   color: var(--text-light);
-  flex: 0 0 210px;
-  max-width: 210px;
+  flex: 1 1 210px;           /* prefer ~210px, but allow grow/shrink */
+  max-width: 240px;          /* don't let a single card get too wide */
   position: relative;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
@@ -632,23 +632,37 @@ img {
   line-height: 1.4;
 }
 
-/* Allow wrapping again on smaller viewports */
+/* When header is in mobile mode (~tablets), use a strict 2x3 card grid */
 @media (max-width: 1100px) {
   .service-card-grid {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    justify-items: center;
   }
 
   .service-card {
-    flex: 0 1 260px;
     max-width: 260px;
+    width: 100%;
   }
 
   .service-card-title {
-    font-size: 19px;     /* a bit larger on wrapped cards */
+    font-size: 19px;
   }
 
   .service-card-text {
     font-size: 14px;
+  }
+}
+
+/* On true phones, go 1-per-row */
+@media (max-width: 640px) {
+  .service-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .service-card {
+    max-width: 320px;
   }
 }
 /* ========== /SERVICE CARDS ========== */
@@ -1358,7 +1372,7 @@ img {
 
 
 /* ========== RESPONSIVE: SMALL PHONES ========== */
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   /* Header + nav on small phones */
   .main-header {
     flex-direction: row;
@@ -1546,8 +1560,6 @@ img {
   }
 }
 /* ========== /RESPONSIVE: SMALL PHONES ========== */
-
-
 
 
 /* ========== INTAKE FORM STEPS ========== */
