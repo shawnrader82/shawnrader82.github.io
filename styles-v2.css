@@ -418,6 +418,13 @@ img {
   border: 1px solid var(--accent);
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
 }
+
+/* Mobile: hide logo so header doesn't squish */
+@media (max-width: 640px) {
+  .brand-logo {
+    display: none;
+  }
+}
 /* ========== /HEADER ========== */
 
 
