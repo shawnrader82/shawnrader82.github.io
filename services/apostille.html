@@ -1082,7 +1082,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="service-detail-inner">
     <div class="service-detail-kicker">Contact &amp; Scheduling</div>
     <h2>Ready to Get Started?</h2>
-    <p class="service-detail-lead">Book your apostille service and we'll handle the coordination with the Secretary of State, Department of State, or consulate.</p>
+    <p class="service-detail-lead">
+      Book your apostille service and we'll handle the coordination with the Secretary of State, Department of State, or consulate.
+    </p>
     <div class="service-detail-grid contact-columns">
       <div class="contact-column-left">
         <article class="contact-card">
@@ -1115,13 +1117,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="contact-card contact-form-card">
-        ...
+        <h3>Send a quick message</h3>
+        <form id="contact-form-ap" action="https://formsubmit.co/info@mobileamericannotary.com"
+              method="POST" class="contact-form">
+          <input type="hidden" name="_subject" value="New Apostille Inquiry - MAN Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.mobileamericannotary.com/thank-you.html">
+          <input type="hidden" name="service" value="Apostille &amp; Legalization">
+
+          <label for="ap-name">Your name</label>
+          <input type="text" id="ap-name" name="name" required>
+
+          <label for="ap-email">Email</label>
+          <input type="email" id="ap-email" name="email" required>
+
+          <label for="ap-phone">Phone</label>
+          <input type="tel" id="ap-phone" name="phone">
+
+          <label for="ap-documents">Documents to be apostilled</label>
+          <input type="text" id="ap-documents" name="documents"
+                 placeholder="e.g. Birth certificate, FBI background check, college diploma">
+
+          <label for="ap-country">Destination country</label>
+          <input type="text" id="ap-country" name="country"
+                 placeholder="e.g. Philippines, Mexico, Spain, Taiwan">
+
+          <label for="ap-deadline">Deadline (if any)</label>
+          <input type="text" id="ap-deadline" name="deadline"
+                 placeholder="e.g. Need it by March 15">
+
+          <label for="ap-message">Tell us about your situation</label>
+          <textarea id="ap-message" name="message" rows="4" required
+                    placeholder="What documents do you have, where are they going, and any deadlines or special instructions."></textarea>
+
+          <div class="hnpt" aria-hidden="true">
+            <label for="ap-website">Leave this field empty</label>
+            <input type="text" name="_honey" style="display:none" autocomplete="off" tabindex="-1">
+          </div>
+
+          <button type="submit" class="btn btn--primary">Send message</button>
+          <p id="contact-status-ap" class="contact-status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
     <hr class="section-divider">
   </div>
 </section>
 <!-- ========== /CONTACT (GRAY) ========== -->
+
 
 
 <!-- FOOTER -->
