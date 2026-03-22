@@ -340,6 +340,20 @@ if ($userTriedAnyUpload && $noSuccessfulUploads) {
 // SAVE / EMAIL INTAKE & SHOW THANK-YOU
 // ==================================================================== 
 
+function labelize($value) {
+    if (is_array($value)) {
+        return array_map('labelize', $value);
+    }
+
+    $v = (string)$value;
+    $v = str_replace(['_', '-'], ' ', $v);
+    $v = preg_replace('/\s+/', ' ', $v);
+    $v = ucwords(strtolower(trim($v)));
+
+    return $v;
+}
+
+
 // Helper to safely get a trimmed POST value (always returns a string)
 function p($key) {
   if (!isset($_POST[$key]) || $_POST[$key] === null) {
@@ -347,7 +361,6 @@ function p($key) {
   }
   return trim((string)$_POST[$key]);
 }
-
 
 // Primary contact (your details, Step 5)
 $company = p('organization');
@@ -654,6 +667,16 @@ function send_via_gmail($to, $subject, $body, $replyToEmail = '', $replyToName =
         error_log('PHPMailer error: ' . $mail->ErrorInfo);
     }
 }
+
+$shippingRecipientTypeRaw = $shippingRecipientType ?? '';
+if ($shippingRecipientTypeRaw === 'internationalrecipient') {
+    $shippingRecipientTypeLabel = 'International recipient';
+} elseif ($shippingRecipientTypeRaw === 'usrecipient') {
+    $shippingRecipientTypeLabel = 'US recipient';
+} else {
+    $shippingRecipientTypeLabel = labelize($shippingRecipientTypeRaw);
+}
+
 // ==================================================================== 
 // BUILD SHARED HTML EMAIL BODY 
 // ==================================================================== 
@@ -729,11 +752,11 @@ $custBody = '<!doctype html>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document state(s)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentStates)) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", labelize((array)$documentStates))) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document type(s)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentTypes)) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", labelize((array)$documentTypes))) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document quantity(ies)</td>
@@ -741,7 +764,7 @@ $custBody = '<!doctype html>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Destination country(ies)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentCountries)) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", labelize((array)$documentCountries))) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Total documents</td>
@@ -821,7 +844,7 @@ $custBody .= '
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Ship completed documents to</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($shippingRecipientType) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($shippingRecipientTypeLabel) . '</td>
           </tr>';
 
 if ($shippingOptionLabel !== '') {
