@@ -781,138 +781,20 @@ $custBody .= '
             '</td>
           </tr>';
 
-// US recipient (optional)
-$hasUs = (
-    $usRecipient["first_name"] !== "" ||
-    $usRecipient["last_name"]  !== "" ||
-    $usRecipient["email"]      !== "" ||
-    $usRecipient["phone"]      !== "" ||
-    $usRecipient["address_1"]  !== ""
-);
-
-if ($hasUs) {
+// Shipping method (from hidden shipping_option_* fields)
+if ($shippingOptionLabel !== '') {
     $custBody .= '
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              US recipient (if provided)
+              Shipping method for completed documents
             </td>
           </tr>
           <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Method</td>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
-              . htmlspecialchars(trim($usRecipient["first_name"] . " " . $usRecipient["last_name"])) . '</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($usRecipient["company"]) . '</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
-              . htmlspecialchars($usRecipient["address_1"]) . '<br>'
-              . htmlspecialchars($usRecipient["address_2"]) . '<br>'
-              . htmlspecialchars($usRecipient["city"]) . ', '
-              . htmlspecialchars($usRecipient["state"]) . ' '
-              . htmlspecialchars($usRecipient["zip"]) . '<br>'
-              . htmlspecialchars($usRecipient["country"]) .
-            '</td>
+              . htmlspecialchars($shippingOptionLabel) . '</td>
           </tr>';
 }
-
-// International recipient (optional)
-$hasIntl = implode("", $intlRecipient) !== "";
-if ($hasIntl) {
-    $custBody .= '
-          <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              International recipient (if provided)
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
-              . htmlspecialchars(trim($intlRecipient["first_name"] . " " . $intlRecipient["last_name"])) . '</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($intlRecipient["company"]) . '</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
-              . htmlspecialchars($intlRecipient["address_1"]) . '<br>'
-              . htmlspecialchars($intlRecipient["address_2"]) . '<br>'
-              . htmlspecialchars($intlRecipient["address_3"]) . '<br>'
-              . htmlspecialchars($intlRecipient["city"]) . ', '
-              . htmlspecialchars($intlRecipient["state"]) . ' '
-              . htmlspecialchars($intlRecipient["postal"]) . '<br>'
-              . htmlspecialchars($intlRecipient["country"]) .
-            '</td>
-          </tr>';
-}
-
-// Documents summary
-if ($documentsSummary !== "") {
-    $custBody .= '
-          <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Documents summary
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Details</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
-              . nl2br(htmlspecialchars($documentsSummary)) . '</td>
-          </tr>';
-}
-
-// Other names
-if ($otherNames !== "") {
-    $custBody .= '
-          <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Other names on these documents
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Names</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
-              . nl2br(htmlspecialchars($otherNames)) . '</td>
-          </tr>';
-}
-
-// Final estimated total
-if ($orderEstimatedTotal !== "") {
-    $custBody .= '
-          <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Final estimated total
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Current estimate (USD)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
-              . htmlspecialchars($orderEstimatedTotal) . '</td>
-          </tr>';
-}
-
-// Footer note + closing tags
-$custBody .= '
-          <tr>
-            <td colspan="2" style="padding:14px 20px;border-top:1px solid #e0e0e0;font-size:12px;color:#666;">
-              If anything looks incorrect, just reply to this email and we will update your order.
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>';
-
-// ==================================================================== 
-// SEND CUSTOMER AND INTERNAL EMAILS
-// ==================================================================== 
 
 // US recipient (optional)
 $hasUs = (
@@ -1003,6 +885,98 @@ if ($hasIntl) {
             '</td>
           </tr>';
 }
+
+// Documents summary
+if ($documentsSummary !== "") {
+    $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
+              Documents summary
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Details</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . nl2br(htmlspecialchars($documentsSummary)) . '</td>
+          </tr>';
+}
+
+// Other names
+if ($otherNames !== "") {
+    $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
+              Other names on these documents
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Names</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . nl2br(htmlspecialchars($otherNames)) . '</td>
+          </tr>';
+}
+
+// Final estimated total
+if ($orderEstimatedTotal !== "") {
+    $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
+              Final estimated total
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Current estimate (USD)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . htmlspecialchars($orderEstimatedTotal) . '</td>
+          </tr>';
+}
+
+// Footer note + closing tags
+$custBody .= '
+          <tr>
+            <td colspan="2" style="padding:14px 20px;border-top:1px solid #e0e0e0;font-size:12px;color:#666;">
+              If anything looks incorrect, just reply to this email and we will update your order.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>';
+
+// ==================================================================== 
+// SEND CUSTOMER AND INTERNAL EMAILS
+// ==================================================================== 
+
+// Customer receipt (only if they provided an email and it's not our orders address)
+if ($email !== '' && strtolower($email) !== 'orders@mobileamericannotary.com') {
+    $custSubject = 'We received your apostille request';
+
+    send_via_gmail(
+        $email,
+        $custSubject,
+        $custBody,
+        'orders@mobileamericannotary.com',
+        'Orders - Mobile American Notary'
+    );
+}
+
+// Internal notification (always)
+$toAdmin   = 'orders@mobileamericannotary.com';
+$adminSubj = 'You received an apostille/translation order from ' . $customerName;
+
+send_via_gmail(
+    $toAdmin,
+    $adminSubj,
+    $custBody,
+    $email,
+    $givenName
+);
+
+// ==================================================================== 
+// SEND CUSTOMER AND INTERNAL EMAILS
+// ==================================================================== 
 
 // Customer receipt (only if they provided an email and it's not our orders address)
 if ($email !== '' && strtolower($email) !== 'orders@mobileamericannotary.com') {
