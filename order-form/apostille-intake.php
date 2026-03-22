@@ -393,8 +393,23 @@ $otherNames = p('other_names');
 $shippingRecipientType  = p('shipping_recipient_type');
 $orderEstimatedTotal    = p('order_estimated_total');
 
+// Shipping option details (from hidden fields)
+$shippingOptionId    = p('shipping_option_id');
+$shippingOptionLabel = p('shipping_option_label');
+$shippingOptionPrice = p('shipping_option_price');
+
+// Find whichever POST key holds the apostille speed choice,
+// e.g. apostille_speed_choice_NJ, apostille_speed_choice_CA, etc.
+$apostilleSpeedOption = '';
+foreach ($_POST as $key => $value) {
+    if (strpos($key, 'apostille_speed_choice_') === 0) {
+        $apostilleSpeedOption = trim((string)$value);
+        break;
+    }
+}
+
 // Step 3 speed & add-ons
-$apostilleSpeedOption       = p('apostille_speed_option');
+// $apostilleSpeedOption is already set above from apostille_speed_choice_*
 $apostilleRushNotes         = p('apostille_speed_notes');
 $addonShippedHardCopy       = p('addon_shipped_hard_copy');
 $addonNotarization          = p('addon_notarization');
@@ -592,6 +607,7 @@ $htmlBody .= '<p style="margin:0 0 8px 0;font-family:system-ui,Arial,sans-serif;
           . htmlspecialchars($mailing['state']) . ' '
           . htmlspecialchars($mailing['zip']) . '<br>'
           . htmlspecialchars($mailing['country']) . '</p>';
+
 
 // ==================================================================== 
 // SEND EMAILS VIA GMAIL SMTP 
