@@ -914,6 +914,96 @@ $custBody .= '
 // SEND CUSTOMER AND INTERNAL EMAILS
 // ==================================================================== 
 
+// US recipient (optional)
+$hasUs = (
+    $usRecipient["first_name"] !== "" ||
+    $usRecipient["last_name"]  !== "" ||
+    $usRecipient["email"]      !== "" ||
+    $usRecipient["phone"]      !== "" ||
+    $usRecipient["address_1"]  !== ""
+);
+
+if ($hasUs) {
+    $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
+              US recipient (if provided)
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars(trim($usRecipient["first_name"] . " " . $usRecipient["last_name"])) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($usRecipient["company"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Email</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($usRecipient["email"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Phone</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($usRecipient["phone"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($usRecipient["address_1"]) . '<br>'
+              . htmlspecialchars($usRecipient["address_2"]) . '<br>'
+              . htmlspecialchars($usRecipient["city"]) . ', '
+              . htmlspecialchars($usRecipient["state"]) . ' '
+              . htmlspecialchars($usRecipient["zip"]) . '<br>'
+              . htmlspecialchars($usRecipient["country"]) .
+            '</td>
+          </tr>';
+}
+
+// International recipient (optional)
+$hasIntl = implode("", $intlRecipient) !== "";
+if ($hasIntl) {
+    $custBody .= '
+          <tr>
+            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
+              International recipient (if provided)
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Name</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars(trim($intlRecipient["first_name"] . " " . $intlRecipient["last_name"])) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Company</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($intlRecipient["company"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Email</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($intlRecipient["email"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Phone</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($intlRecipient["phone"]) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($intlRecipient["address_1"]) . '<br>'
+              . htmlspecialchars($intlRecipient["address_2"]) . '<br>'
+              . htmlspecialchars($intlRecipient["address_3"]) . '<br>'
+              . htmlspecialchars($intlRecipient["city"]) . ', '
+              . htmlspecialchars($intlRecipient["state"]) . ' '
+              . htmlspecialchars($intlRecipient["postal"]) . '<br>'
+              . htmlspecialchars($intlRecipient["country"]) .
+            '</td>
+          </tr>';
+}
+
 // Customer receipt (only if they provided an email and it's not our orders address)
 if ($email !== '' && strtolower($email) !== 'orders@mobileamericannotary.com') {
     $custSubject = 'We received your apostille request';
