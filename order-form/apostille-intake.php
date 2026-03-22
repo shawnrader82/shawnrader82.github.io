@@ -350,11 +350,7 @@ function p($key) {
 
 
 // Primary contact (your details, Step 5)
-// Name, email, and phone were already validated above and stored in
-// $givenName, $familyName, $email, $phone.
-// Here we only pull company via p().
 $company = p('organization');
-
 
 // Services & usage
 $rawServices = $_POST['services'] ?? [];
@@ -409,7 +405,6 @@ foreach ($_POST as $key => $value) {
 }
 
 // Step 3 speed & add-ons
-// $apostilleSpeedOption is already set above from apostille_speed_choice_*
 $apostilleRushNotes         = p('apostille_speed_notes');
 $addonShippedHardCopy       = p('addon_shipped_hard_copy');
 $addonNotarization          = p('addon_notarization');
@@ -521,6 +516,13 @@ $body .= sectionBlock('Services & usage', [
   'Usage type'         => $usageLabel,
   'Delivery method'    => $deliveryLabel,
   'Documents summary'  => $documentsSummary,
+  'Total documents'    => $totalDocuments,
+  'Apostille estimated total' => $apostilleEstimatedTotal,
+  'Translation from → to'     => ($translationFromLanguage && $translationToLanguage)
+                                 ? ($translationFromLanguage . ' → ' . $translationToLanguage)
+                                 : '',
+  'Approx. pages to translate' => $translationApproxPages,
+  'Translation estimated total' => $translationEstimatedTotal,
 ]);
 
 if ($hasSpeedOrAddons) {
@@ -607,7 +609,6 @@ $htmlBody .= '<p style="margin:0 0 8px 0;font-family:system-ui,Arial,sans-serif;
           . htmlspecialchars($mailing['state']) . ' '
           . htmlspecialchars($mailing['zip']) . '<br>'
           . htmlspecialchars($mailing['country']) . '</p>';
-
 
 // ==================================================================== 
 // SEND EMAILS VIA GMAIL SMTP 
