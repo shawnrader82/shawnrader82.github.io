@@ -676,10 +676,10 @@ $custBody = '<!doctype html>
             </td>
           </tr>
 
-          <!-- Primary contact -->
+          <!-- Contact & mailing -->
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Primary contact
+              Contact &amp; mailing details
             </td>
           </tr>
           <tr>
@@ -695,50 +695,72 @@ $custBody = '<!doctype html>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;"><a href="mailto:' . htmlspecialchars($email) . '" style="color:#0066cc;">' . htmlspecialchars($email) . '</a></td>
           </tr>
           <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Phone</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">' . htmlspecialchars($phone) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Phone</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($phone) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Mailing / return address</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
+              . htmlspecialchars($mailing["address_1"]) . '<br>'
+              . htmlspecialchars($mailing["address_2"]) . '<br>'
+              . htmlspecialchars($mailing["city"]) . ', '
+              . htmlspecialchars($mailing["state"]) . ' '
+              . htmlspecialchars($mailing["zip"]) . '<br>'
+              . htmlspecialchars($mailing["country"]) .
+            '</td>
           </tr>
 
-          <!-- Services & usage -->
+          <!-- Apostille details -->
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Services &amp; usage
+              Apostille details
             </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Services requested</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($servicesText) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Usage type</td>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($usageLabel) . '</td>
           </tr>
           <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Delivery method</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($deliveryLabel) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document state(s)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentStates)) . '</td>
           </tr>
           <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document state(s)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", $documentStates)) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document type(s)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentTypes)) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Document quantity(ies)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentQuantities)) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Destination country(ies)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", $documentCountries)) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars(implode(", ", (array)$documentCountries)) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Total documents</td>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($totalDocuments) . '</td>
           </tr>
           <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Apostille estimated total (USD)</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($apostilleEstimatedTotal) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Other names on these documents</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . nl2br(htmlspecialchars($otherNames)) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Apostille estimated total (USD)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">' . htmlspecialchars($apostilleEstimatedTotal) . '</td>
           </tr>';
 
 if ($hasTranslationService) {
     $custBody .= '
+          <!-- Translation details -->
+          <tr>
+            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
+              Translation details
+            </td>
+          </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Translation from → to</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($translationFromLanguage) . ' → ' . htmlspecialchars($translationToLanguage) . '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
+              . htmlspecialchars($translationFromLanguage) . ' → ' . htmlspecialchars($translationToLanguage) . '</td>
           </tr>
           <tr>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Approx. pages to translate</td>
@@ -779,37 +801,33 @@ if ($hasSpeedOrAddons) {
           </tr>';
 }
 
-// Mailing address
 $custBody .= '
+          <!-- Shipping & delivery -->
           <tr>
             <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Your mailing / return address
+              Shipping &amp; delivery
             </td>
           </tr>
           <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Address</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
-              . htmlspecialchars($mailing["address_1"]) . '<br>'
-              . htmlspecialchars($mailing["address_2"]) . '<br>'
-              . htmlspecialchars($mailing["city"]) . ', '
-              . htmlspecialchars($mailing["state"]) . ' '
-              . htmlspecialchars($mailing["zip"]) . '<br>'
-              . htmlspecialchars($mailing["country"]) .
-            '</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Delivery method (documents to us)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($deliveryLabel) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Ship completed documents to</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">' . htmlspecialchars($shippingRecipientType) . '</td>
           </tr>';
 
-// Shipping method (from hidden shipping_option_* fields)
 if ($shippingOptionLabel !== '') {
     $custBody .= '
           <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Shipping method for completed documents
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Method</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;color:#555;">Shipping method for completed documents</td>
             <td style="padding:8px 20px;border-bottom:1px solid #f0f0f0;">'
               . htmlspecialchars($shippingOptionLabel) . '</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Estimated shipping (USD)</td>
+            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">$'
+              . htmlspecialchars($shippingOptionPrice) . '.00</td>
           </tr>';
 }
 
@@ -900,36 +918,6 @@ if ($hasIntl) {
               . htmlspecialchars($intlRecipient["postal"]) . '<br>'
               . htmlspecialchars($intlRecipient["country"]) .
             '</td>
-          </tr>';
-}
-
-// Documents summary
-if ($documentsSummary !== "") {
-    $custBody .= '
-          <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Documents summary
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Details</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
-              . nl2br(htmlspecialchars($documentsSummary)) . '</td>
-          </tr>';
-}
-
-// Other names
-if ($otherNames !== "") {
-    $custBody .= '
-          <tr>
-            <td colspan="2" style="padding:12px 20px;background:#374151;border-bottom:1px solid #111827;font-weight:700;font-size:14px;color:#ffffff;">
-              Other names on these documents
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;color:#555;">Names</td>
-            <td style="padding:8px 20px;border-bottom:1px solid #e0e0e0;">'
-              . nl2br(htmlspecialchars($otherNames)) . '</td>
           </tr>';
 }
 
