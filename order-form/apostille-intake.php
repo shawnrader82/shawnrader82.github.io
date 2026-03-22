@@ -984,59 +984,28 @@ $custBody .= '
 // SEND CUSTOMER AND INTERNAL EMAILS
 // ==================================================================== 
 
-// Customer receipt (only if they provided an email and it's not our orders address)
-if ($email !== '' && strtolower($email) !== 'orders@mobileamericannotary.com') {
-    $custSubject = 'We received your apostille request';
-
-    send_via_gmail(
-        $email,
-        $custSubject,
-        $custBody,
-        'orders@mobileamericannotary.com',
-        'Orders - Mobile American Notary'
-    );
-}
-
-// Internal notification (always)
-$toAdmin   = 'orders@mobileamericannotary.com';
-$adminSubj = 'You received an apostille/translation order from ' . $customerName;
+// 1) Internal email to your orders inbox (with customer name in subject)
+$internalSubject = 'You received an apostille/translation order from ' . trim($givenName . ' ' . $familyName);
 
 send_via_gmail(
-    $toAdmin,
-    $adminSubj,
+    'orders@mobileamericannotary.com',     // goes only to your orders inbox
+    $internalSubject,
     $custBody,
-    $email,
-    $givenName
+    $email,                                // reply-to is the customer
+    trim($givenName . ' ' . $familyName)
 );
 
-// ==================================================================== 
-// SEND CUSTOMER AND INTERNAL EMAILS
-// ==================================================================== 
-
-// Customer receipt (only if they provided an email and it's not our orders address)
-if ($email !== '' && strtolower($email) !== 'orders@mobileamericannotary.com') {
-    $custSubject = 'We received your apostille request';
-
-    send_via_gmail(
-        $email,
-        $custSubject,
-        $custBody,
-        'orders@mobileamericannotary.com',
-        'Orders - Mobile American Notary'
-    );
-}
-
-// Internal notification (always)
-$toAdmin   = 'orders@mobileamericannotary.com';
-$adminSubj = 'You received an apostille/translation order from ' . $customerName;
+// 2) Customer confirmation email (they get a copy of their answers)
+$customerSubject = 'We received your apostille/translation request';
 
 send_via_gmail(
-    $toAdmin,
-    $adminSubj,
+    $email,                                // goes to the customer
+    $customerSubject,
     $custBody,
-    $email,
-    $givenName
+    'orders@mobileamericannotary.com',     // reply-to is your orders inbox
+    'Mobile American Notary & Apostilles'
 );
+ 
 
 // ==================================================================== 
 // THANK-YOU PAGE 
