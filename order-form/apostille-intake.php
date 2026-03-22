@@ -405,10 +405,17 @@ foreach ($_POST as $key => $value) {
 }
 
 // Step 3 speed & add-ons
-$apostilleRushNotes         = p('apostille_speed_notes');
-$addonShippedHardCopy       = p('addon_shipped_hard_copy');
-$addonNotarization          = p('addon_notarization');
-$addonExpeditedTurnaround   = p('addon_expedited_turnaround');
+$apostilleRushNotes = p('apostille_speed_notes');
+
+// Translation add-ons come from translation_addons[]
+$translationAddons = $_POST['translation_addons'] ?? [];
+if (is_string($translationAddons)) {
+    $translationAddons = [$translationAddons];
+}
+
+$addonShippedHardCopy     = in_array('shipped_hard_copy', $translationAddons, true);
+$addonNotarization        = in_array('notarization', $translationAddons, true);
+$addonExpeditedTurnaround = in_array('expedited_turnaround', $translationAddons, true);
 
 $hasSpeedOrAddons =
     $apostilleSpeedOption !== '' ||
