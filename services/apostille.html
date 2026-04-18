@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
-  <title>Apostille Services | Mobile American Notary</title>
+  <title>Apostille &amp; Legalization Services | Mobile American Notary</title>
   <link rel="canonical" href="https://www.mobileamericannotary.com/services/apostille.html" />
-  <meta name="description" content="Apostille services in Los Angeles for birth certificates, marriage certificates, diplomas, powers of attorney, court records, and business documents. Same-day and rush apostille help available. Call or text (213) 933‑2507." />
+  <meta name="description" content="Apostille and legalization services in Los Angeles for birth certificates, marriage certificates, diplomas, powers of attorney, court records, and business documents. Same-day and rush apostille help available. Call or text (213) 933‑2507." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- Open Graph -->
@@ -20,25 +20,19 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Apostille &amp; Legalization Services | Mobile American Notary" />
-  <meta name="twitter:description" content="California apostille and legalization services for vital records, school documents, court orders, and federal documents used abroad." />
+  <meta name="twitter:description" content="California apostille and legalization services for vital records, school documents, court orders, business filings, powers of attorney, and federal documents used abroad." />
   <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-apostille.jpg" />
-
-  
 
   <!-- Global fonts & shared styles -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="/styles-v2.min.css?v=1.0.12" />
 
-  <!-- Structured Data: Service -->
+  <!-- Structured Data: Local Business / Notary (site-wide entity with @id) -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Apostille and Document Legalization",
-  "name": "Apostille & Legalization Services",
-  "description": "Los Angeles apostille services for birth certificates, marriage certificates, diplomas, powers of attorney, court records, business documents, federal apostilles, and consular legalization for U.S. documents used abroad.",
-  "provider": {
+  {
+    "@context": "https://schema.org",
     "@type": "Notary",
+    "@id": "https://www.mobileamericannotary.com/#notary",
     "name": "Mobile American Notary & Apostilles",
     "url": "https://www.mobileamericannotary.com",
     "logo": "https://www.mobileamericannotary.com/images/brand/logo.webp",
@@ -60,7 +54,9 @@
     "priceRange": "$$",
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "dayOfWeek": [
+        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+      ],
       "opens": "09:00",
       "closes": "20:00"
     }],
@@ -69,53 +65,174 @@
       "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
       "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
     ]
-  },
-  "areaServed": [
-    {"@type":"Country","name":"United States"}
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Apostille & Legalization Services",
-    "itemListElement": [
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"State Apostille","description":"Apostille processing through Secretary of State for state-issued documents."}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Federal Apostille","description":"Authentication and apostille through U.S. Department of State for federal documents."}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Consular Legalization","description":"Multi-step authentication and legalization for non-Hague countries."}}
-    ]
   }
-}
+  </script>
+
+  <!-- Structured Data: Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Apostille and Document Legalization",
+    "name": "Apostille & Legalization Services",
+    "description": "Los Angeles apostille and document legalization services for birth certificates, marriage certificates, diplomas, powers of attorney, court records, business documents, federal apostilles, and consular legalization for U.S. documents used abroad.",
+    "provider": {
+      "@id": "https://www.mobileamericannotary.com/#notary"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Los Angeles" },
+      { "@type": "AdministrativeArea", "name": "California" },
+      { "@type": "Country", "name": "United States" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Apostille & Legalization Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "State Apostille",
+            "description": "Apostille processing through Secretary of State for state-issued documents."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Federal Apostille",
+            "description": "Authentication and apostille through U.S. Department of State for federal documents."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consular Legalization",
+            "description": "Multi-step authentication and legalization for non-Hague countries."
+          }
+        }
+      ]
+    }
+  }
   </script>
 
   <!-- Structured Data: FAQ -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"What is an apostille?","acceptedAnswer":{"@type":"Answer","text":"An apostille is a certificate issued by a designated government authority that verifies the signature and seal on a public document so it will be accepted by officials in another country that is part of the Hague Apostille Convention."}},
-    {"@type":"Question","name":"What is the difference between an apostille and consular legalization?","acceptedAnswer":{"@type":"Answer","text":"An apostille is a single-step verification used in Hague Convention countries. Consular legalization is a multi-step process for non-Hague countries like Taiwan, Thailand, and Cuba."}},
-    {"@type":"Question","name":"How much does an apostille cost?","acceptedAnswer":{"@type":"Answer","text":"The California government filing fee is currently $20 per document. Total cost depends on document count, notarization needs, and processing level. Contact us at 213-933-2507 for an exact quote."}},
-    {"@type":"Question","name":"How long does the apostille process take?","acceptedAnswer":{"@type":"Answer","text":"State apostilles typically take 3-10 business days. Federal apostilles can take 4-8 weeks. Consular legalization adds additional time."}},
-    {"@type":"Question","name":"Can you apostille documents from other states?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle documents issued by any U.S. state and coordinate the process regardless of the state."}},
-    {"@type":"Question","name":"Do I need to get my document notarized before getting an apostille?","acceptedAnswer":{"@type":"Answer","text":"It depends. Vital records and court-certified copies go directly to the Secretary of State. Private documents must be notarized first."}},
-    {"@type":"Question","name":"What if my document gets rejected?","acceptedAnswer":{"@type":"Answer","text":"We review every document before submission to prevent rejections. If a problem comes up, we explain the fix and help you correct it."}},
-    {"@type":"Question","name":"Do I also need a translation?","acceptedAnswer":{"@type":"Answer","text":"Many countries require a certified or sworn translation. We can connect you with qualified translators."}},
-    {"@type":"Question","name":"Can I mail you my documents?","acceptedAnswer":{"@type":"Answer","text":"Yes. We work with clients nationwide and walk you through secure shipping options."}},
-    {"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We serve clients across California and nationwide. Documents can be mailed or dropped off from any state."}}
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an apostille?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An apostille is a certificate issued by a designated government authority that verifies the signature and seal on a public document so it will be accepted by officials in another country that is part of the Hague Apostille Convention."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between an apostille and consular legalization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An apostille is a single-step verification used in Hague Convention countries. Consular legalization is a multi-step process for non-Hague countries like Taiwan, Thailand, and Cuba."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does an apostille cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The California government filing fee is currently $20 per document. Total cost depends on document count, notarization needs, and processing level. Contact us at 213-933-2507 for an exact quote."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the apostille process take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "State apostilles typically take 3-10 business days. Federal apostilles can take 4-8 weeks. Consular legalization adds additional time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you apostille documents from other states?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We handle documents issued by any U.S. state and coordinate the process regardless of the state."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to get my document notarized before getting an apostille?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends. Vital records and court-certified copies go directly to the Secretary of State. Private documents must be notarized first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my document gets rejected?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We review every document before submission to prevent rejections. If a problem comes up, we explain the fix and help you correct it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I also need a translation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many countries require a certified or sworn translation. We can connect you with qualified translators."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I mail you my documents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We work with clients nationwide and walk you through secure shipping options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve clients across California and nationwide. Documents can be mailed or dropped off from any state."
+        }
+      }
+    ]
+  }
   </script>
 
   <!-- Structured Data: Breadcrumb -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.mobileamericannotary.com"},
-    {"@type":"ListItem","position":2,"name":"Services","item":"https://www.mobileamericannotary.com/services/notary.html"},
-    {"@type":"ListItem","position":3,"name":"Apostille & Legalization","item":"https://www.mobileamericannotary.com/services/apostille.html"}
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.mobileamericannotary.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.mobileamericannotary.com/services/notary.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Apostille & Legalization",
+        "item": "https://www.mobileamericannotary.com/services/apostille.html"
+      }
+    ]
+  }
   </script>
 
   <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
@@ -206,13 +323,21 @@
     #contact.service-detail--gray .contact-form-card textarea,
     #contact.service-detail--gray .contact-form-card select{color:#0f172a}
   </style>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWBRTN9M');</script>
-<!-- End Google Tag Manager -->
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),
+        dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KWBRTN9M');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body>
@@ -225,7 +350,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="header-placeholder"></div>
 <script src="/header.min.js" defer></script>
 <!-- /HEADER -->
-
 
 <!-- ========== HERO (DARK) ========== -->
 <section class="hero">
