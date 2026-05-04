@@ -1,45 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Message Sent | Mobile American Notary &amp; Apostilles</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="description" content="Your message has been sent to Mobile American Notary & Apostilles. We will follow up shortly." />
+  <link rel="canonical" href="https://www.mobileamericannotary.com/thank-you.html" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="format-detection" content="telephone=yes" />
 
-  <!-- Global font and shared site styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="styles-v2.min.css?v=1.0.12" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Message Sent | Mobile American Notary & Apostilles" />
+  <meta property="og:description" content="Your message has been sent to Mobile American Notary & Apostilles. We will follow up shortly." />
+  <meta property="og:url" content="https://www.mobileamericannotary.com/thank-you.html" />
+  <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
 
-  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp" />
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWBRTN9M');</script>
-<!-- End Google Tag Manager -->
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Message Sent | Mobile American Notary & Apostilles" />
+  <meta name="twitter:description" content="Your message has been sent to Mobile American Notary & Apostilles. We will follow up shortly." />
+  <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Current shared CSS system -->
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <link rel="stylesheet" href="/assets/css/header.css" />
+  <link rel="stylesheet" href="/assets/css/home.css" />
+
+  <style>
+    .thank-you-page {
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0.00) 100%),
+        #f8fafc;
+      min-height: calc(100vh - 78px);
+      display: flex;
+      align-items: center;
+      padding: 72px 0 84px;
+    }
+
+    .thank-you-shell {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .thank-you-card {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: 34px 30px 32px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 24px 56px rgba(15, 23, 42, 0.08);
+      text-align: center;
+    }
+
+    .thank-you-kicker {
+      margin: 0 0 10px;
+      color: #b91c1c;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .thank-you-card h1 {
+      margin: 0;
+      color: #0f172a;
+      font-size: clamp(2rem, 4.5vw, 3.35rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .thank-you-lead {
+      margin: 18px auto 0;
+      max-width: 44rem;
+      color: #475569;
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    .thank-you-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #dcfce7 0%, #bbf7d0 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(22, 101, 52, 0.10),
+        0 14px 30px rgba(22, 101, 52, 0.10);
+    }
+
+    .thank-you-status svg {
+      width: 34px;
+      height: 34px;
+      color: #166534;
+    }
+
+    .thank-you-points {
+      list-style: none;
+      margin: 26px auto 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+      max-width: 38rem;
+      text-align: left;
+    }
+
+    .thank-you-points li {
+      position: relative;
+      padding: 14px 16px 14px 40px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .thank-you-points li::before {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 16px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #b91c1c;
+    }
+
+    .thank-you-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.thank-you-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.thank-you-btn--primary {
+  background: #b91c1c;
+  color: #ffffff;
+  border-color: #b91c1c;
+  box-shadow: 0 10px 24px rgba(185, 28, 28, 0.20);
+}
+
+.thank-you-btn--primary:hover,
+.thank-you-btn--primary:focus-visible {
+  background: #991b1b;
+  border-color: #991b1b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.thank-you-btn--secondary {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+.thank-you-btn--secondary:hover,
+.thank-you-btn--secondary:focus-visible {
+  background: #111827;
+  border-color: #111827;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.thank-you-btn--ghost {
+  background: #ffffff;
+  color: #b91c1c;
+  border-color: rgba(185, 28, 28, 0.22);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.thank-you-btn--ghost:hover,
+.thank-you-btn--ghost:focus-visible {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: rgba(185, 28, 28, 0.38);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .thank-you-actions {
+    flex-direction: column;
+  }
+
+  .thank-you-btn {
+    width: 100%;
+  }
+}
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWBRTN9M');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <div id="header-placeholder"></div>
-  <section class="service-detail service-detail--gray" style="min-height:60vh; display:flex; align-items:center;">
-    <div class="service-detail-inner" style="text-align:center;">
-      <h2>Thank you!</h2>
-      <p>Your message has been sent. We'll get back to you shortly.</p>
-      <div class="service-detail-cta" style="margin-top:24px;">
-        <a href="/" class="btn btn--primary">Back to Home</a>
-        <a href="tel:+12139332507" class="btn btn--secondary">Call or Text (213) 933-2507</a>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ========== HEADER ========== -->
+  <header class="home-header">
+    <div class="home-header-inner">
+      <a href="/" class="home-header-brand" aria-label="Mobile American Notary home">
+        <span class="home-header-logo-box">
+          <img src="/assets/images/brand/logo.png" alt="Mobile American Notary" class="home-header-logo" />
+        </span>
+        <span class="home-header-brand-text">
+          <span class="home-header-brand-title">Mobile American Notary</span>
+          <span class="home-header-brand-subtitle">&amp; Apostilles</span>
+        </span>
+      </a>
+
+      <nav class="home-header-nav" aria-label="Primary">
+        <a href="/services/apostille.html">Apostille</a>
+        <a href="/services/notary.html">Notary</a>
+        <a href="/services/livescan.html">Live Scan</a>
+        <a href="/locations/">Locations</a>
+      </nav>
+
+      <div class="home-header-actions">
+        <a href="tel:+12139332507" class="home-header-call">Call / Text</a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" class="home-header-book" target="_blank" rel="noopener noreferrer">Book Online</a>
       </div>
+
+      <button class="home-header-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="home-mobile-menu">
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-text">Menu</span>
+      </button>
     </div>
-  </section>
+
+    <div class="home-mobile-menu" id="home-mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="/services/apostille.html">Apostille</a>
+        <a href="/services/notary.html">Notary</a>
+        <a href="/services/livescan.html">Live Scan</a>
+        <a href="/locations/">Locations</a>
+        <a href="tel:+12139332507">Call / Text</a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Book Online</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ========== /HEADER ========== -->
+
+  <main>
+    <!-- ========== THANK YOU ========== -->
+    <section class="thank-you-page" aria-labelledby="thank-you-title">
+      <div class="thank-you-shell">
+        <div class="thank-you-card">
+          <div class="thank-you-status" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+          </div>
+
+          <p class="thank-you-kicker">Message received</p>
+          <h1 id="thank-you-title">Thank you — your message has been sent.</h1>
+          <p class="thank-you-lead">
+            We received your request and will follow up as soon as possible. If your matter is urgent, the fastest way to reach us is to call or text directly.
+          </p>
+
+          <ul class="thank-you-points" aria-label="What happens next">
+            <li>We review your message, service type, and timing needs before replying.</li>
+            <li>Urgent requests, hospital visits, jail-related documents, and apostille timing questions are usually best handled by phone or text.</li>
+            <li>If you are ready to schedule now, you can also book directly online.</li>
+          </ul>
+
+<div class="thank-you-actions">
+  <a href="tel:+12139332507" class="thank-you-btn thank-you-btn--primary">Call / Text 213-933-2507</a>
+  <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" class="thank-you-btn thank-you-btn--secondary" target="_blank" rel="noopener noreferrer">Book Online</a>
+  <a href="/" class="thank-you-btn thank-you-btn--ghost">Back to Home</a>
+</div>
+          <p class="thank-you-note">
+            Please do not send Social Security numbers, payment card details, or other highly sensitive personal information through standard web forms.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ========== /THANK YOU ========== -->
+  </main>
+
   <div id="footer-placeholder"></div>
-  <script src="header.min.js" defer></script>
-  <script src="footer.min.js" defer></script>
+  <script src="/assets/js/footer.min.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.querySelector('.home-header');
+      const toggle = document.querySelector('.home-header-toggle');
+      const menu = document.getElementById('home-mobile-menu');
+
+      if (!header || !toggle || !menu) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = header.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menu.hidden = !isOpen;
+      });
+    });
+  </script>
 </body>
 </html>
-

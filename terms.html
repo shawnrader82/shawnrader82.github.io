@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Terms &amp; Conditions | Mobile American Notary &amp; Apostilles</title>
-  <meta name="description" content="Review the terms and conditions that govern use of Mobile American Notary &amp; Apostilles services and this website in Los Angeles, California." />
+  <meta name="description" content="Review the terms and conditions that govern use of Mobile American Notary & Apostilles services and this website in Los Angeles, California." />
   <link rel="canonical" href="https://www.mobileamericannotary.com/terms.html" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/assets/images/brand/favicon.ico" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="format-detection" content="telephone=yes" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -24,141 +25,421 @@
   <meta name="twitter:description" content="Review the terms and conditions that govern use of Mobile American Notary &amp; Apostilles services and this website." />
   <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
 
-  <!-- Global font and shared site styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="styles-v2.min.css?v=1.0.12" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- No structured data needed — this page is noindex, nofollow -->
+  <!-- Current shared CSS system -->
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <link rel="stylesheet" href="/assets/css/header.css" />
+  <link rel="stylesheet" href="/assets/css/home.css" />
 
-  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp" />
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWBRTN9M');</script>
-<!-- End Google Tag Manager -->
+  <style>
+    .legal-page {
+      background:
+        radial-gradient(circle at top center, rgba(15, 23, 42, 0.04), transparent 42%),
+        #f3f4f6;
+      min-height: calc(100vh - 78px);
+      padding: 72px 0 92px;
+    }
+
+    .legal-shell {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .legal-card {
+      width: min(860px, 100%);
+      margin: 0 auto;
+      padding: 34px 30px 32px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 24px 54px rgba(15, 23, 42, 0.08);
+    }
+
+    .legal-kicker {
+      margin: 0 0 10px;
+      color: #b91c1c;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .legal-card h1 {
+      margin: 0;
+      color: #0f172a;
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-meta {
+      margin: 10px 0 0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .legal-intro {
+      margin: 18px 0 24px;
+      color: #475569;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .legal-content {
+      display: grid;
+      gap: 16px;
+      color: #111827;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .legal-content h2 {
+      margin: 22px 0 4px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .legal-content p {
+      margin: 0;
+      color: #374151;
+    }
+
+    .legal-content a {
+      color: #b91c1c;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .legal-content a:hover,
+    .legal-content a:focus-visible {
+      color: #991b1b;
+      text-decoration: underline;
+    }
+
+    /* Contact block + CTA phone */
+    .legal-contact-card {
+      margin-top: 6px;
+      padding: 18px 18px 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .legal-contact-name {
+      margin: 0;
+      color: #0f172a;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .legal-contact-line {
+      margin: 4px 0 0;
+      color: #475569;
+    }
+
+    .legal-contact-phone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 14px;
+      padding: 0 18px;
+      border-radius: 10px;
+      background: #b91c1c;
+      border: 1px solid #b91c1c;
+      color: #ffffff !important;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(185, 28, 28, 0.20);
+      transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .legal-contact-phone:hover,
+    .legal-contact-phone:focus-visible {
+      background: #991b1b;
+      border-color: #991b1b;
+      color: #ffffff !important;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Back to Home button – squared, not pill */
+    .legal-back {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .legal-back .legal-back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+      transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .legal-back .legal-back-link:hover,
+    .legal-back .legal-back-link:focus-visible {
+      background: #f3f4f6;
+      border-color: rgba(148, 163, 184, 1);
+      color: #0f172a;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 767px) {
+      .legal-page {
+        min-height: auto;
+        padding: 56px 0 72px;
+      }
+
+      .legal-shell {
+        width: min(100% - 24px, 1200px);
+      }
+
+      .legal-card {
+        padding: 24px 18px 24px;
+        border-radius: 18px;
+      }
+
+      .legal-content h2 {
+        margin-top: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .legal-shell {
+        width: min(100% - 20px, 1200px);
+      }
+
+      .legal-card h1 {
+        font-size: clamp(1.7rem, 6vw, 2.1rem);
+      }
+    }
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWBRTN9M');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
-
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
+  <!-- ========== HEADER ========== -->
+  <header class="home-header">
+    <div class="home-header-inner">
+      <a href="/" class="home-header-brand" aria-label="Mobile American Notary home">
+        <span class="home-header-logo-box">
+          <img src="/assets/images/brand/logo.png" alt="Mobile American Notary" class="home-header-logo" />
+        </span>
+        <span class="home-header-brand-text">
+          <span class="home-header-brand-title">Mobile American Notary</span>
+          <span class="home-header-brand-subtitle">&amp; Apostilles</span>
+        </span>
+      </a>
 
-<!-- ========== HEADER (WHITE, INJECTED) ========== -->
-<script src="header.min.js"></script>
-<div id="header-placeholder"></div>
-<!-- ========== /HEADER (WHITE, INJECTED) ========== -->
+      <nav class="home-header-nav" aria-label="Primary">
+        <a href="/services/apostille.html">Apostille</a>
+        <a href="/services/notary.html">Notary</a>
+        <a href="/services/livescan.html">Live Scan</a>
+        <a href="/locations/">Locations</a>
+      </nav>
 
-<main>
+      <div class="home-header-actions">
+        <a href="tel:+12139332507" class="home-header-call">Call / Text</a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" class="home-header-book" target="_blank" rel="noopener noreferrer">Book Online</a>
+      </div>
 
-  <!-- ========== TERMS CONTENT (GRAY BAND) ========== -->
-  <section class="service-detail service-detail--gray">
-    <div class="service-detail-inner" style="max-width:800px; margin:0 auto;">
-      <div class="service-detail-kicker">Legal Information</div>
-      <h1 style="font-size:22px; margin-bottom:6px;">Terms &amp; Conditions</h1>
-      <p style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">
-        Last updated: January 2026
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">1. Acceptance of these terms</h2>
-      <p>
-        By using this website, contacting us, or booking an appointment with Mobile American Notary &amp; Apostilles
-        (“we,” “us,” or “our”), you agree to these Terms &amp; Conditions. If you do not agree, please do not use
-        this website or our services.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">2. About our services</h2>
-      <p>
-        We provide mobile notary, apostille, Live Scan fingerprinting coordination, and related document services
-        in and around Los Angeles, California by appointment.
-      </p>
-      <p>
-        All notarial acts are performed in accordance with applicable California notary laws and regulations.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">3. No legal advice</h2>
-      <p>
-        We are not a law firm and do not provide legal advice or legal representation. Any information on this
-        website is for general informational purposes only and should not be relied on as legal advice. You
-        should consult a licensed attorney for legal questions or for help preparing legal documents.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">4. Appointments, cancellations, and fees</h2>
-      <p>
-        Service fees, travel charges, and after‑hours rates are communicated before each appointment is confirmed.
-        By booking, you agree to the fees discussed at the time of scheduling.
-      </p>
-      <p>
-        We reserve the right to charge a fee for late cancellations, no‑shows, or situations where a notarization
-        or service cannot be completed due to identification, document, or signer issues.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">5. Use of this website</h2>
-      <p>
-        You agree to use this website only for lawful purposes and in a way that does not harm, disable, or
-        interfere with the site or other users. Content on this website is provided “as is” and may be updated
-        or changed at any time without notice.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">6. Third‑party links and services</h2>
-      <p>
-        This website may link to third‑party websites or booking platforms. Those sites are not under our
-        control, and we are not responsible for their content, policies, or practices.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">7. Limitation of liability</h2>
-      <p>
-        To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, or
-        consequential damages arising out of or in connection with your use of this website or our services.
-      </p>
-      <p>
-        Where liability cannot be excluded, our total liability is limited to the amount you paid for the
-        specific service giving rise to the claim.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">8. Intellectual property</h2>
-      <p>
-        The content, logo, and design of this website are owned by Mobile American Notary &amp; Apostilles or
-        used with permission. You may not copy, reproduce, or distribute content from this site without our
-        prior written consent, except for personal, non‑commercial use.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">9. Changes to these terms</h2>
-      <p>
-        We may update these Terms &amp; Conditions from time to time. Changes will be posted on this page with
-        an updated “Last updated” date. Continued use of the website or services after changes are posted
-        constitutes your acceptance of the revised terms.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">10. Governing law</h2>
-      <p>
-        These Terms &amp; Conditions are governed by the laws of the State of California, without regard to its
-        conflict‑of‑law rules.
-      </p>
-
-      <h2 style="font-size:16px; margin-top:16px;">11. Contact us</h2>
-      <p>
-        If you have questions about these Terms &amp; Conditions, please contact:
-      </p>
-      <p>
-        Mobile American Notary &amp; Apostilles<br>
-        Los Angeles, California<br>
-        Phone: <a href="tel:+12139332507">(213) 933‑2507</a><br>
-        Email: <a href="https://www.mobileamericannotary.com/index.html#contact">Use the secure contact form</a>
-      </p>
+      <button class="home-header-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="home-mobile-menu">
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-text">Menu</span>
+      </button>
     </div>
-  </section>
-  <!-- ========== /TERMS CONTENT (GRAY BAND) ========== -->
 
-</main>
+    <div class="home-mobile-menu" id="home-mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="/services/apostille.html">Apostille</a>
+        <a href="/services/notary.html">Notary</a>
+        <a href="/services/livescan.html">Live Scan</a>
+        <a href="/locations/">Locations</a>
+        <a href="tel:+12139332507">Call / Text</a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Book Online</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ========== /HEADER ========== -->
 
-<!-- ========== FOOTER (INJECTED) ========== -->
-<div id="footer-placeholder"></div>
-<script src="footer.min.js"></script>
-<!-- ========== /FOOTER (INJECTED) ========== -->
+  <main>
+    <!-- ========== TERMS CONTENT ========== -->
+    <section class="legal-page" aria-labelledby="terms-title">
+      <div class="legal-shell">
+        <article class="legal-card">
+          <header>
+            <p class="legal-kicker">Legal information</p>
+            <h1 id="terms-title">Terms &amp; Conditions</h1>
+            <p class="legal-meta">Last updated: January 2026</p>
+            <p class="legal-intro">
+              These Terms &amp; Conditions explain how Mobile American Notary &amp; Apostilles (“we,” “us,” or “our”)
+              provides services and how you may use this website. Please read them carefully.
+            </p>
+          </header>
 
+          <div class="legal-content">
+            <h2>1. Acceptance of these terms</h2>
+            <p>
+              By using this website, contacting us, or booking an appointment with Mobile American Notary &amp; Apostilles,
+              you agree to these Terms &amp; Conditions. If you do not agree, please do not use this website or our services.
+            </p>
+
+            <h2>2. About our services</h2>
+            <p>
+              We provide mobile notary, apostille, Live Scan fingerprinting coordination, and related document services
+              in and around Los Angeles, California by appointment.
+            </p>
+            <p>
+              All notarial acts are performed in accordance with applicable California notary laws and regulations.
+            </p>
+
+            <h2>3. No legal advice</h2>
+            <p>
+              We are not a law firm and do not provide legal advice or legal representation. Any information on this
+              website is for general informational purposes only and should not be relied on as legal advice. You should
+              consult a licensed attorney for legal questions or for help preparing legal documents.
+            </p>
+
+            <h2>4. Appointments, cancellations, and fees</h2>
+            <p>
+              Service fees, travel charges, and after‑hours rates are communicated before each appointment is confirmed.
+              By booking, you agree to the fees discussed at the time of scheduling.
+            </p>
+            <p>
+              We reserve the right to charge a fee for late cancellations, no‑shows, or situations where a notarization
+              or service cannot be completed due to identification, document, or signer issues.
+            </p>
+
+            <h2>5. Use of this website</h2>
+            <p>
+              You agree to use this website only for lawful purposes and in a way that does not harm, disable, or
+              interfere with the site or other users. Content on this website is provided “as is” and may be updated
+              or changed at any time without notice.
+            </p>
+
+            <h2>6. Third‑party links and services</h2>
+            <p>
+              This website may link to third‑party websites or booking platforms. Those sites are not under our
+              control, and we are not responsible for their content, policies, or practices.
+            </p>
+
+            <h2>7. Limitation of liability</h2>
+            <p>
+              To the maximum extent permitted by law, we are not liable for any indirect, incidental, special, or
+              consequential damages arising out of or in connection with your use of this website or our services.
+            </p>
+            <p>
+              Where liability cannot be excluded, our total liability is limited to the amount you paid for the
+              specific service giving rise to the claim.
+            </p>
+
+            <h2>8. Intellectual property</h2>
+            <p>
+              The content, logo, and design of this website are owned by Mobile American Notary &amp; Apostilles or
+              used with permission. You may not copy, reproduce, or distribute content from this site without our
+              prior written consent, except for personal, non‑commercial use.
+            </p>
+
+            <h2>9. Changes to these terms</h2>
+            <p>
+              We may update these Terms &amp; Conditions from time to time. Changes will be posted on this page with
+              an updated “Last updated” date. Continued use of the website or services after changes are posted
+              constitutes your acceptance of the revised terms.
+            </p>
+
+            <h2>10. Governing law</h2>
+            <p>
+              These Terms &amp; Conditions are governed by the laws of the State of California, without regard to its
+              conflict‑of‑law rules.
+            </p>
+
+            <h2>11. Contact us</h2>
+            <p>
+              If you have questions about these Terms &amp; Conditions, please contact:
+            </p>
+
+            <div class="legal-contact-card">
+              <p class="legal-contact-name">Mobile American Notary &amp; Apostilles</p>
+              <p class="legal-contact-line">Los Angeles, California</p>
+              <a href="tel:+12139332507" class="legal-contact-phone">Call / Text (213) 933-2507</a>
+            </div>
+          </div>
+
+          <div class="legal-back">
+            <a href="/" class="legal-back-link">Back to Home</a>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- ========== /TERMS CONTENT ========== -->
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-placeholder"></div>
+  <script src="/assets/js/footer.min.js" defer></script>
+  <!-- ========== /FOOTER ========== -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.querySelector('.home-header');
+      const toggle = document.querySelector('.home-header-toggle');
+      const menu = document.getElementById('home-mobile-menu');
+
+      if (!header || !toggle || !menu) return;
+
+      toggle.addEventListener('click', function () {
+        const isOpen = header.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menu.hidden = !isOpen;
+      });
+    });
+  </script>
 </body>
 </html>

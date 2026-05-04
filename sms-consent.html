@@ -2,142 +2,439 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SMS Consent &amp; Review Texts | Mobile American Notary &amp; Apostilles</title>
-    <meta name="description" content="Read and accept SMS text messaging consent terms for appointment reminders and status updates from Mobile American Notary & Apostilles.">
-    <meta name="robots" content="noindex, nofollow">
-    <meta property="og:title" content="SMS Text Messaging Consent | Mobile American Notary">
-    <meta property="og:description" content="Read and accept SMS text messaging consent terms for appointment reminders and status updates from Mobile American Notary & Apostilles.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.mobileamericannotary.com/sms-consent.html">
-    <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SMS Text Messaging Consent | Mobile American Notary">
-    <meta name="twitter:description" content="Read and accept SMS text messaging consent terms for appointment reminders and status updates from Mobile American Notary & Apostilles.">
-    <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-        content="Information about how Mobile American Notary &amp; Apostilles collects consent to send one-time review request text messages after your appointment.">
+  <meta name="robots" content="noindex, nofollow" />
+  <title>SMS Consent &amp; Review Texts | Mobile American Notary &amp; Apostilles</title>
+  <meta name="description" content="Read how Mobile American Notary & Apostilles requests consent for appointment-related text messages and one-time review request texts." />
   <link rel="canonical" href="https://www.mobileamericannotary.com/sms-consent.html" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  
-  
+  <link rel="icon" type="image/x-icon" href="/assets/images/brand/favicon.ico" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="format-detection" content="telephone=yes" />
 
-  <!-- Global font and shared site styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="styles-v2.min.css?v=1.0.12" />
-<link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWBRTN9M');</script>
-<!-- End Google Tag Manager -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SMS Text Messaging Consent | Mobile American Notary &amp; Apostilles" />
+  <meta property="og:description" content="Read how Mobile American Notary & Apostilles requests consent for appointment-related text messages and one-time review request texts." />
+  <meta property="og:url" content="https://www.mobileamericannotary.com/sms-consent.html" />
+  <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
+  <meta property="og:site_name" content="Mobile American Notary &amp; Apostilles" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SMS Text Messaging Consent | Mobile American Notary &amp; Apostilles" />
+  <meta name="twitter:description" content="Read how Mobile American Notary & Apostilles requests consent for appointment-related text messages and one-time review request texts." />
+  <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Current shared CSS system -->
+  <link rel="stylesheet" href="/assets/css/global.css" />
+  <link rel="stylesheet" href="/assets/css/header.css" />
+  <link rel="stylesheet" href="/assets/css/home.css" />
+
+  <style>
+    .legal-page {
+      background:
+        radial-gradient(circle at top center, rgba(15, 23, 42, 0.04), transparent 42%),
+        #f3f4f6;
+      min-height: calc(100vh - 78px);
+      padding: 72px 0 92px;
+    }
+
+    .legal-shell {
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .legal-card {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      padding: 34px 30px 32px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 24px 54px rgba(15, 23, 42, 0.08);
+    }
+
+    .legal-kicker {
+      margin: 0 0 10px;
+      color: #b91c1c;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .legal-card h1 {
+      margin: 0;
+      color: #0f172a;
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-intro {
+      margin: 16px 0 0;
+      max-width: 52rem;
+      color: #475569;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .legal-content {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+      color: #111827;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .legal-content h2 {
+      margin: 22px 0 4px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .legal-content p {
+      margin: 0;
+      color: #374151;
+    }
+
+    .legal-content strong {
+      color: #0f172a;
+    }
+
+    .legal-example {
+      margin-top: 4px;
+      padding: 18px 18px 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    }
+
+    .legal-example-label {
+      display: inline-block;
+      margin: 0 0 10px;
+      color: #b91c1c;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .legal-example-text {
+      margin: 0;
+      color: #1f2937;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
+    .legal-contact-card {
+      margin-top: 6px;
+      padding: 18px 18px 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .legal-contact-name {
+      margin: 0;
+      color: #0f172a;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .legal-contact-line {
+      margin: 4px 0 0;
+      color: #475569;
+    }
+
+    .legal-contact-phone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 14px;
+      padding: 0 18px;
+      border-radius: 10px;
+      background: #b91c1c;
+      border: 1px solid #b91c1c;
+      color: #ffffff !important;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(185, 28, 28, 0.20);
+      transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .legal-contact-phone:hover,
+    .legal-contact-phone:focus-visible {
+      background: #991b1b;
+      border-color: #991b1b;
+      color: #ffffff !important;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .legal-back {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .legal-back .legal-back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+      transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .legal-back .legal-back-link:hover,
+    .legal-back .legal-back-link:focus-visible {
+      background: #f3f4f6;
+      border-color: rgba(148, 163, 184, 1);
+      color: #0f172a;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 767px) {
+      .legal-page {
+        min-height: auto;
+        padding: 56px 0 72px;
+      }
+
+      .legal-shell {
+        width: min(100% - 24px, 1200px);
+      }
+
+      .legal-card {
+        padding: 24px 18px 24px;
+        border-radius: 18px;
+      }
+
+      .legal-content h2 {
+        margin-top: 18px;
+      }
+
+      .legal-contact-phone,
+      .legal-back .legal-back-link {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .legal-shell {
+        width: min(100% - 20px, 1200px);
+      }
+
+      .legal-card h1 {
+        font-size: clamp(1.7rem, 6vw, 2.1rem);
+      }
+    }
+  </style>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWBRTN9M');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-<!-- ========== HEADER (WHITE, INJECTED) ========== -->
-<script src="header.min.js"></script>
-<div id="header-placeholder"></div>
-<!-- ========== /HEADER (WHITE, INJECTED) ========== -->
+  <!-- ========== HEADER ========== -->
+  <header class="home-header">
+    <div class="home-header-inner">
+      <a href="/" class="home-header-brand" aria-label="Mobile American Notary home">
+        <span class="home-header-logo-box">
+          <img src="/assets/images/brand/logo.png" alt="Mobile American Notary" class="home-header-logo" />
+        </span>
+        <span class="home-header-brand-text">
+          <span class="home-header-brand-title">Mobile American Notary</span>
+          <span class="home-header-brand-subtitle">&amp; Apostilles</span>
+        </span>
+      </a>
 
-<main>
+      <nav class="home-header-nav" aria-label="Primary">
+        <a href="/services/apostille.html">Apostille</a>
+        <a href="/services/notary.html">Notary</a>
+        <a href="/services/livescan.html">Live Scan</a>
+        <a href="/locations/">Locations</a>
+      </nav>
 
-  <!-- ========== PAGE HERO (DARK) ========== -->
-  <section class="hero">
-    <div class="hero-inner" style="max-width:900px; margin:0 auto;">
-      <div class="hero-kicker">SMS Consent</div>
-      <h1 class="hero-title">
-        SMS consent &amp; review text messages
-      </h1>
-      <p class="hero-subtitle">
-  How we obtain your permission to send appointment-related text messages, including a one-time review request after your visit.
-</p>
+      <div class="home-header-actions">
+        <a href="tel:+12139332507" class="home-header-call">Call / Text</a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" class="home-header-book" target="_blank" rel="noopener noreferrer">Book Online</a>
+      </div>
 
+      <button class="home-header-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="home-mobile-menu">
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-line"></span>
+        <span class="home-header-toggle-text">Menu</span>
+      </button>
     </div>
-  </section>
-  <!-- ========== /PAGE HERO (DARK) ========== -->
 
-  <!-- ========== CONTENT (WHITE) ========== -->
-  <section class="service-detail service-detail--white">
-    <div class="service-detail-inner" style="max-width:900px; margin:0 auto;">
+    <div class="home-mobile-menu" id="home-mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="/services/apostille.html">Apostille</a>
+        <a href="/services/notary.html">Notary</a>
+        <a href="/services/livescan.html">Live Scan</a>
+        <a href="/locations/">Locations</a>
+        <a href="tel:+12139332507">Call / Text</a>
+        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Book Online</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ========== /HEADER ========== -->
 
-      <div class="service-detail-kicker">How consent works</div>
-      <h2 style="font-size:24px; margin-bottom:8px;">Verbal consent at the end of your appointment</h2>
-      <p class="service-detail-lead" style="margin-bottom:20px;">
-  After we complete your notary, apostille, Live Scan, or related service, we may ask for your
-  permission to send text messages related to your appointment. These messages can include a
-  confirmation, reminder, and a one-time text message with a link to leave a Google review
-  about your experience.
-</p>
+  <main>
+    <!-- ========== SMS CONSENT CONTENT ========== -->
+    <section class="legal-page" aria-labelledby="sms-consent-title">
+      <div class="legal-shell">
+        <article class="legal-card">
+          <header>
+            <p class="legal-kicker">SMS consent</p>
+            <h1 id="sms-consent-title">SMS consent &amp; review text messages</h1>
+            <p class="legal-intro">
+              This page explains how Mobile American Notary &amp; Apostilles requests permission to send
+              appointment-related text messages, including a one-time review request text after your visit.
+            </p>
+          </header>
 
+          <div class="legal-content">
+            <h2>How consent works</h2>
+            <p>
+              After we complete your notary, apostille, Live Scan, or related service, we may ask for your
+              permission to send text messages related to your appointment. These messages can include a
+              confirmation, reminder, and a one-time text message with a link to leave a Google review
+              about your experience.
+            </p>
 
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        We will only send this review text message if you clearly agree to receive it. During your
-        appointment, we use language substantially similar to the following:
-      </p>
+            <p>
+              We will only send this review text message if you clearly agree to receive it. During your
+              appointment, we use language substantially similar to the following:
+            </p>
 
-      <div style="font-size:14px; line-height:1.7; padding:12px 14px; border-left:3px solid var(--accent); background:#f9fafb; margin-bottom:16px;">
-        <strong>Example:</strong><br><br>
-        “Before we finish, may we send you a one-time text message in about an hour with a link to
-leave a Google review about today’s notary/apostille service?
+            <div class="legal-example">
+              <p class="legal-example-label">Example consent language</p>
+              <p class="legal-example-text">“Before we finish, may we send you a one-time text message in about an hour with a link to leave a Google review about today’s notary/apostille service?
 
 Message and data rates may apply. You can reply STOP to opt out at any time and HELP for help.
 
-Do I have your permission to receive that one-time review text at this mobile number?”
+Do I have your permission to receive that one-time review text at this mobile number?”</p>
+            </div>
+
+            <p>
+              If you say yes, we record that you provided consent, including the date, time, and mobile
+              number you provided, and then send a single review request text message after your
+              appointment is completed.
+            </p>
+
+            <h2>What you can expect to receive</h2>
+            <p>
+              If you consent, you will typically receive one text message within a few hours of your
+              appointment. The message thanks you for choosing Mobile American Notary &amp; Apostilles and
+              includes a link to our Google review page so you can share feedback about your experience.
+            </p>
+
+            <p>
+              We do not use this consent to send ongoing marketing campaigns or recurring promotional texts.
+              Any future marketing messages, if offered, would require separate and explicit permission.
+            </p>
+
+            <h2>Your choices and how to opt out</h2>
+            <p>
+              Providing consent is completely optional and not required to receive services. You may decline
+              at any time during your appointment, and we will not send a review text message.
+            </p>
+
+            <p>
+              If you consent and then change your mind after receiving a message, you can reply
+              <strong>STOP</strong> to stop receiving texts from that number, or reply <strong>HELP</strong>
+              for additional information. Standard message and data rates may apply, depending on your
+              wireless carrier and plan.
+            </p>
+
+            <h2>Questions about SMS consent</h2>
+            <p>
+              If you have questions about how we use your phone number or how SMS consent works, please contact:
+            </p>
+
+            <div class="legal-contact-card">
+              <p class="legal-contact-name">Mobile American Notary &amp; Apostilles</p>
+              <p class="legal-contact-line">Los Angeles, California</p>
+              <a href="tel:+12139332507" class="legal-contact-phone">Call / Text (213) 933-2507</a>
+            </div>
+          </div>
+
+          <div class="legal-back">
+            <a href="/" class="legal-back-link">Back to Home</a>
+          </div>
+        </article>
       </div>
+    </section>
+    <!-- ========== /SMS CONSENT CONTENT ========== -->
+  </main>
 
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        If you say yes, we record that you provided consent (including date, time, and the mobile
-        number you provided) and then send a single review request text message after your
-        appointment is completed.
-      </p>
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-placeholder"></div>
+  <script src="/assets/js/footer.min.js" defer></script>
+  <!-- ========== /FOOTER ========== -->
 
-      <h2 style="font-size:20px; margin-top:24px; margin-bottom:8px;">What you can expect to receive</h2>
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        If you consent, you will typically receive one text message within a few hours of your
-        appointment. The message thanks you for choosing Mobile American Notary &amp; Apostilles and
-        includes a link to our Google review page so you can share feedback about your experience.
-      </p>
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        We do not use this consent to send ongoing marketing campaigns or recurring promotional texts.
-        Any future marketing messages, if offered, would require separate and explicit permission.
-      </p>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.querySelector('.home-header');
+      const toggle = document.querySelector('.home-header-toggle');
+      const menu = document.getElementById('home-mobile-menu');
 
-      <h2 style="font-size:20px; margin-top:24px; margin-bottom:8px;">Your choices and how to opt out</h2>
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        Providing consent is completely optional and not required to receive services. You may decline
-        at any time during your appointment, and we will not send a review text message.
-      </p>
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        If you consent and then change your mind after receiving a message, you can reply
-        <strong>STOP</strong> to stop receiving texts from that number, or reply <strong>HELP</strong>
-        for additional information. Standard message and data rates may apply, depending on your
-        wireless carrier and plan.
-      </p>
+      if (!header || !toggle || !menu) return;
 
-      <h2 style="font-size:20px; margin-top:24px; margin-bottom:8px;">Questions about SMS consent</h2>
-      <p style="font-size:14px; line-height:1.6; margin-bottom:10px;">
-        If you have any questions about how we use your phone number or how SMS consent works, please
-        call or text <a href="tel:+12139332507" style="color:var(--accent);">(213) 933‑2507</a> or use the
-        contact form on our main page. We are happy to explain our process and update your preferences.
-      </p>
-
-    </div>
-  </section>
-  <!-- ========== /CONTENT (WHITE) ========== -->
-
-</main>
-
-<!-- ========== FOOTER (INJECTED) ========== -->
-<div id="footer-placeholder"></div>
-<script src="footer.min.js"></script>
-<!-- ========== /FOOTER (INJECTED) ========== -->
-
+      toggle.addEventListener('click', function () {
+        const isOpen = header.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menu.hidden = !isOpen;
+      });
+    });
+  </script>
 </body>
 </html>
