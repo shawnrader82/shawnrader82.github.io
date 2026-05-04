@@ -653,27 +653,48 @@
 
     if (!header || !toggle || !menu) return;
 
-    toggle.addEventListener('click', function () {
-      const isOpen = header.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menu.hidden = !isOpen;
+    function closeMenu() {
+      header.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      menu.hidden = true;
+    }
+
+    function openMenu() {
+      header.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      menu.hidden = false;
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
+
+    document.addEventListener('click', function (e) {
+      if (!menu.hidden && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 992) {
+        closeMenu();
+      }
+    });
+
+    closeMenu();
   });
 </script>
 <!-- ========== /MOBILE HEADER TOGGLE ========== -->
-
-<script>
-  (function () {
-    const toggle = document.querySelector('.home-header__toggle');
-    const menu = document.getElementById('home-mobile-menu');
-    if (!toggle || !menu) return;
-
-    toggle.addEventListener('click', function () {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      menu.hidden = isOpen;
-    });
-  })();
-</script>
 </body>
 </html>
