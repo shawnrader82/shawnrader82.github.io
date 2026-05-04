@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Pages -->
-  <url><loc>https://www.mobileamericannotary.com/</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/about.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/pricing.html</loc><lastmod>2026-03-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.mobileamericannotary.com/faq.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.mobileamericannotary.com/privacy.html</loc><lastmod>2026-05-02</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.mobileamericannotary.com/terms.html</loc><lastmod>2026-05-02</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.mobileamericannotary.com/sms-consent.html</loc><lastmod>2026-05-02</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/privacy.html</loc><lastmod>2026-03-22</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/terms.html</loc><lastmod>2026-03-22</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/sms-consent.html</loc><lastmod>2026-03-22</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- External Order / Blog Roots -->
   <url><loc>https://apostille.mobileamericannotary.com</loc><lastmod>2026-03-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://blog.mobileamericannotary.com/</loc><lastmod>2026-03-22</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Notary Hub -->
-  <url><loc>https://www.mobileamericannotary.com/services/notary.html</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+    <!-- Notary Hub -->
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary.html</loc><lastmod>2026-04-17</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- Notary — General Service Pages -->
   <url><loc>https://www.mobileamericannotary.com/services/notary-general.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -153,7 +154,7 @@
 
   <!-- Jail Weddings — Orange County -->
   <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-theo-lacy.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-central.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-central.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>  
   <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-musick.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Jail Weddings — San Bernardino County -->
@@ -175,9 +176,6 @@
   <!-- Jail Weddings — Santa Barbara County -->
   <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/sba-main-jail.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.mobileamericannotary.com/services/jail-weddings/sba-northern-branch.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- Location Hub -->
-  <url><loc>https://www.mobileamericannotary.com/locations/</loc><lastmod>2026-05-04</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- Location Pages -->
   <url><loc>https://www.mobileamericannotary.com/locations/beverly-hills-notary-apostille.html</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -207,3 +205,4 @@
   <url><loc>https://blog.mobileamericannotary.com/mobile-notary-for-los-angeles-and-orange-county-jails-how-to-schedule-a-jail-notarization-fast/</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://blog.mobileamericannotary.com/how-a-mobile-notary-helps-with-trust-and-estate-planning-in-los-angeles/</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
+
