@@ -10,3 +10,9 @@ vendor/
 !images/brand/logo.*
 nc-config.php
 order-form/nc-config.php
+
+.bundle/
+node_modules/
+
+.bundle/
+node_modules/
