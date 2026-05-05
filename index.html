@@ -133,9 +133,12 @@
     ]
   }
   </script>
-
+<!-- ========== CSS ========== -->
   <link rel="stylesheet" href="/assets/css/global.css">
-  <link rel="stylesheet" href="/assets/css/home.css">
+<link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/css/home.css">
+<!-- ========== /CSS ========== -->
+
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -575,69 +578,43 @@
 </section>
 <!-- ========== /REVIEWS / PROOF ========== -->
 
-  <!-- ========== FAQ ========== -->
-  <section class="home-faq" aria-labelledby="home-faq-title">
-    <div class="home-faq__divider" aria-hidden="true"></div>
-
+    <!-- ========== FAQ ========== -->
+  <section class="home-faq home-faq--force" aria-labelledby="home-faq-title">
     <div class="section-shell">
       <div class="section-heading section-heading--centered">
         <p class="section-kicker">Questions clients ask</p>
         <h2 id="home-faq-title">Quick answers about scheduling, documents, and locations.</h2>
       </div>
 
-      <div class="home-faq__grid">
-        <article class="faq-item">
+      <div class="home-faq__grid home-faq__grid--force">
+        <article class="faq-item faq-item--force">
           <h3>How soon can I get an appointment?</h3>
-          <p>
-            Same-day and next-day appointments are often available, especially for hospital visits,
-            apostille drop-offs, and urgent jail signings. Call or text with your location and timing
-            so we can confirm availability.
-          </p>
+          <p>Same-day and next-day appointments are often available, especially for hospital visits, apostille drop-offs, and urgent jail signings. Call or text with your location and timing so we can confirm availability.</p>
         </article>
 
-        <article class="faq-item">
+        <article class="faq-item faq-item--force">
           <h3>What information do you need to schedule?</h3>
-          <p>
-            For most visits we’ll ask for the address, parking or facility details, who is signing,
-            what type of document it is, and your preferred timeframe. For jail and hospital visits,
-            we also confirm ID requirements and any special procedures.
-          </p>
+          <p>For most visits we’ll ask for the address, parking or facility details, who is signing, what type of document it is, and your preferred timeframe. For jail and hospital visits, we also confirm ID requirements and any special procedures.</p>
         </article>
 
-        <article class="faq-item">
+        <article class="faq-item faq-item--force">
           <h3>Do you travel outside Los Angeles?</h3>
-          <p>
-            Yes. Mobile appointments are available across Los Angeles County, with additional coverage
-            in parts of Orange County and Ventura County. Share your city or facility when you call or
-            text so we can confirm drive time and availability.
-          </p>
+          <p>Yes. Mobile appointments are available across Los Angeles County, with additional coverage in parts of Orange County and Ventura County. Share your city or facility when you call or text so we can confirm drive time and availability.</p>
         </article>
 
-        <article class="faq-item">
+        <article class="faq-item faq-item--force">
           <h3>Can you help me understand what my document needs?</h3>
-          <p>
-            We cannot give legal advice, but we can explain typical notary and apostille requirements,
-            walk through what California usually looks for, and point you to the right agency resources
-            when needed before your appointment.
-          </p>
+          <p>We cannot give legal advice, but we can explain typical notary and apostille requirements, walk through what California usually looks for, and point you to the right agency resources when needed before your appointment.</p>
         </article>
 
-        <article class="faq-item">
+        <article class="faq-item faq-item--force">
           <h3>How do fees work for mobile notary or apostille?</h3>
-          <p>
-            Fees depend on the number of signatures, travel distance, facility type, and whether you
-            need standard or rush apostille processing. You’ll receive a clear estimate before we
-            confirm your visit or start your apostille order.
-          </p>
+          <p>Fees depend on the number of signatures, travel distance, facility type, and whether you need standard or rush apostille processing. You’ll receive a clear estimate before we confirm your visit or start your apostille order.</p>
         </article>
 
-        <article class="faq-item">
+        <article class="faq-item faq-item--force">
           <h3>What if the signer is in a hospital or jail?</h3>
-          <p>
-            We routinely coordinate with hospital staff and detention facilities to confirm visiting hours,
-            ID requirements, and any forms they require. Let us know the facility name and any time limits
-            so we can plan your visit carefully.
-          </p>
+          <p>We routinely coordinate with hospital staff and detention facilities to confirm visiting hours, ID requirements, and any forms they require. Let us know the facility name and any time limits so we can plan your visit carefully.</p>
         </article>
       </div>
     </div>
@@ -645,61 +622,61 @@
   <!-- ========== /FAQ ========== -->
 
   <!-- ========== SHARED FOOTER ========== -->
-  <div id="footer-placeholder"></div>
-  <script src="/assets/js/footer.min.js" defer></script>
+    <div id="footer-placeholder"></div> -->
+    <script src="/assets/js/footer.min.js" defer></script> -->
   <!-- ========== /SHARED FOOTER ========== -->
 
 </main>
 <!-- ========== MOBILE HEADER TOGGLE ========== -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    var header = document.querySelector('.home-header');
     var toggle = document.getElementById('home-menu-toggle');
     var menu = document.getElementById('home-mobile-menu');
 
-    if (!toggle || !menu) return;
+    if (!header || !toggle || !menu) return;
 
     function openMenu() {
+      header.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close menu');
       menu.hidden = false;
-      menu.style.display = 'block';
     }
 
     function closeMenu() {
+      header.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open menu');
       menu.hidden = true;
-      menu.style.display = 'none';
     }
 
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
 
-      if (menu.hidden || menu.style.display === 'none') {
-        openMenu();
+      if (header.classList.contains('is-open')) {
+        closeMenu();
       } else {
-        closeMenu();
+        openMenu();
       }
-    }, false);
+    });
 
-    menu.addEventListener('click', function (e) {
-      e.stopPropagation();
-    }, false);
-
+    // Close if user taps/clicks outside the menu
     document.addEventListener('click', function (e) {
-      if (!menu.hidden && !menu.contains(e.target) && !toggle.contains(e.target)) {
-        closeMenu();
-      }
-    }, false);
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900) {
+      if (!header.classList.contains('is-open')) return;
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
         closeMenu();
       }
     });
 
-    // Ensure the menu starts closed
+    // Close on resize to desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900 && header.classList.contains('is-open')) {
+        closeMenu();
+      }
+    });
+
+    // Ensure closed on load
     closeMenu();
   });
 </script>

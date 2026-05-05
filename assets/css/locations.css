@@ -1,3 +1,62 @@
+/* ========== LOCATIONS TYPE TOKEN SWITCH ========== */
+
+.locations-hero .home-hero-eyebrow {
+  font-size: var(--text-kicker);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
+}
+
+.locations-hero h1 {
+  font-size: var(--text-hero-title-inner);
+  line-height: 0.97;
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-extrabold);
+}
+
+.locations-hero .home-hero-lead {
+  font-size: var(--text-body-lg);
+  line-height: var(--line-body);
+}
+
+.locations-hero .home-hero-cta {
+  font-size: var(--text-button);
+  font-weight: var(--weight-bold);
+}
+
+.locations-hero .home-hero-highlights li {
+  font-size: var(--text-sm);
+}
+
+.home-service-lanes--locations .section-kicker,
+.locations-region-title {
+  font-size: var(--text-label);
+}
+
+.home-service-lanes--locations .section-heading h2 {
+  font-size: var(--text-section-title);
+}
+
+.coverage-card h3,
+.service-lane-heading-text h3,
+.home-service-lanes--locations .service-lane h3,
+.home-service-lanes--locations .service-lane--compact h3,
+.locations-faq-item summary {
+  font-size: var(--text-card-title);
+}
+
+.coverage-card p,
+.coverage-card-list li,
+.locations-region-intro,
+.service-lane--location-text p,
+.home-service-lanes--locations .service-lane-body p,
+.locations-micro-copy,
+.locations-faq-answer p,
+.locations-faq-intro {
+  font-size: var(--text-body);
+  line-height: var(--line-body-tight);
+}
+/* ========== /LOCATIONS TYPE TOKEN SWITCH ========== */
+
 /* ========== LOCATIONS HERO ========== */
 
 .locations-hero {
@@ -40,27 +99,21 @@
 .locations-hero .home-hero-eyebrow {
   margin: 0 0 14px;
   color: #93c5fd;
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  /* size/weight now controlled by token + alignment blocks */
 }
 
 .locations-hero h1 {
   max-width: 11ch;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(2.45rem, 5vw, 4.85rem);
-  line-height: 0.97;
-  letter-spacing: -0.04em;
+  /* size/weight now controlled by alignment block */
 }
 
 .locations-hero .home-hero-lead {
   max-width: 690px;
   margin: 20px 0 0;
-  font-size: clamp(1rem, 1.55vw, 1.16rem);
-  line-height: 1.72;
   color: rgba(249, 250, 251, 0.9);
+  /* type handled by token + alignment blocks */
 }
 
 .locations-hero .home-hero-cta-row {
@@ -74,17 +127,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0 22px;
   border-radius: 6px;
-  font-size: 0.98rem;
-  font-weight: 700;
   text-decoration: none;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease,
     transform 0.2s ease;
+  /* size/weight now controlled by alignment block */
 }
 
 .locations-hero .home-hero-cta--primary {
@@ -127,8 +177,7 @@
   background: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(148, 163, 184, 0.5);
   color: #e5e7eb;
-  font-size: 0.88rem;
-  font-weight: 500;
+  /* font-size/weight now controlled by token + alignment blocks */
 }
 
 @media (max-width: 720px) {
@@ -143,7 +192,7 @@
 
   .locations-hero h1 {
     max-width: 12ch;
-    font-size: clamp(2.1rem, 9vw, 3.4rem);
+    /* size responsive via alignment block */
   }
 
   .locations-hero .home-hero-cta-row {
@@ -166,18 +215,9 @@
     padding: 68px 0 56px;
   }
 
-  .locations-hero .home-hero-lead {
-    font-size: 0.97rem;
-  }
-
-  .locations-hero .home-hero-highlights li {
-    font-size: 0.84rem;
-  }
+  /* lead + highlight text size handled by tokens + alignment */
 }
-
 /* ========== /LOCATIONS HERO ========== */
-
-
 
 /* ========== LOCATIONS REGIONS STRIP ========== */
 /* tweaks specific to the Locations page version of the coverage strip */
@@ -812,3 +852,49 @@
     font-size: 0.92rem;
   }
 }
+
+/* ========== LOCATIONS TYPE ALIGNMENT FIX ========== */
+
+/* Make the locations hero feel like the same family as homepage,
+   but slightly calmer */
+.locations-hero h1 {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(2.55rem, 5.15vw, 4.95rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+/* Match lead copy more closely to homepage */
+.locations-hero .home-hero-lead {
+  font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Match hero CTA buttons to homepage sizing */
+.locations-hero .home-hero-cta {
+  min-height: 52px;
+  padding: 0 22px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: 6px;
+}
+
+/* Match hero highlight pills to homepage */
+.locations-hero .home-hero-highlights li {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .locations-hero .home-hero-cta,
+  .home-header__call,
+  .home-header__book {
+    min-height: 40px;
+    padding: 0 10px;
+    font-size: 0.76rem;
+  }
+}
+/* ========== /LOCATIONS TYPE ALIGNMENT FIX ========== */
