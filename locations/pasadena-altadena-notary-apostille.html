@@ -29,8 +29,28 @@
   <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
 
   <!-- Global font and shared site styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" />
   <link rel="stylesheet" href="/styles-v2.min.css?v=1.0.12" />
+
+  <style>
+    /* qa-mobile-cta-wrap-v1 — fix long Book Online CTAs overflowing at <=480px */
+    @media (max-width: 480px) {
+      .btn.btn--flex {
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      .service-detail-cta {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .service-detail-cta .btn {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 
   <!-- STRUCTURED DATA -->
 

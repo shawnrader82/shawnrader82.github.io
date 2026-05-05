@@ -233,6 +233,10 @@
   display: none !important;
 }
 
+.home-header.is-open .home-mobile-menu {
+  display: block;
+}
+
 .home-mobile-menu nav {
   display: grid;
   gap: 8px;

@@ -4,6 +4,7 @@
   font-size: var(--text-kicker);
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
 }
 
 .locations-hero h1 {
@@ -54,6 +55,13 @@
 .locations-faq-intro {
   font-size: var(--text-body);
   line-height: var(--line-body-tight);
+}
+/* Region kicker / labels — uppercase to match design system */
+.home-service-lanes--locations .section-kicker,
+.locations-region-title {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  font-weight: var(--weight-extrabold);
 }
 /* ========== /LOCATIONS TYPE TOKEN SWITCH ========== */
 

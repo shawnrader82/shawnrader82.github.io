@@ -26,6 +26,26 @@
   --section-bg-white: var(--color-white);
   --section-bg-light: var(--color-light);
   --section-bg-dark: var(--color-dark);
+
+  /* ----- Typography tokens (referenced from locations.css and other modules) ----- */
+  --text-kicker: 0.78rem;            /* small uppercase eyebrow */
+  --text-label: 0.92rem;             /* uppercase region/section labels */
+  --text-sm: 0.88rem;                /* compact body, list pills */
+  --text-body: 0.96rem;              /* default body inside cards */
+  --text-body-lg: 1.08rem;           /* lead paragraph copy */
+  --text-button: 1rem;               /* CTA button text */
+  --text-card-title: 1.16rem;        /* card / FAQ summary title */
+  --text-section-title: clamp(2rem, 3.4vw, 3.1rem); /* major H2 */
+  --text-hero-title-inner: clamp(2.55rem, 5.15vw, 4.95rem); /* hero H1 */
+
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  --tracking-tight: -0.02em;
+  --tracking-wider: 0.14em;
+
+  --line-body: 1.7;
+  --line-body-tight: 1.55;
 }
 
 *,

@@ -1,94 +1,76 @@
+/* Shared header loader — fetches /partials/header.html into #header-placeholder
+   and wires up the mobile menu toggle. Sets aria-current="page" on the link
+   matching the page's data-nav-active attribute on <body> (or on the placeholder). */
 (function () {
-  function closeDropdowns(root) {
-    var dropdownItems = root.querySelectorAll('.nav-item.has-dropdown');
-
-    dropdownItems.forEach(function (item) {
-      item.classList.remove('open');
-      var trigger = item.querySelector('.nav-link');
-      if (trigger) {
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
-  function initHeader(root) {
-    var nav = root.querySelector('.main-nav');
-    var toggle = root.querySelector('.nav-toggle');
-    var dropdownItems = root.querySelectorAll('.nav-item.has-dropdown');
-
-    dropdownItems.forEach(function (item) {
-      var trigger = item.querySelector('.nav-link');
-      if (!trigger) return;
-
-      trigger.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        var isOpen = item.classList.contains('open');
-
-        closeDropdowns(root);
-
-        if (!isOpen) {
-          item.classList.add('open');
-          trigger.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!root.contains(e.target)) {
-        closeDropdowns(root);
-
-        if (nav) {
-          nav.classList.remove('is-open');
-        }
-
-        document.body.classList.remove('menu-open');
-
-        if (toggle) {
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-
-    if (toggle && nav) {
-      toggle.setAttribute('aria-expanded', 'false');
-
-      toggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-
-        var isOpen = nav.classList.toggle('is-open');
-        document.body.classList.toggle('menu-open', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-
-        if (!isOpen) {
-          closeDropdowns(root);
-        }
-      });
-    }
-  }
-
-  function loadHeader() {
+  function init() {
     var placeholder = document.getElementById('header-placeholder');
     if (!placeholder) return;
 
     fetch('/partials/header.html')
-      .then(function (response) {
-        if (!response.ok) throw new Error('HTTP error ' + response.status);
-        return response.text();
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
       })
       .then(function (html) {
         placeholder.innerHTML = html;
-        initHeader(placeholder);
+        wire(placeholder);
       })
       .catch(function (err) {
-        console.error('Error loading header:', err);
+        console.error('Header load error:', err);
       });
   }
 
+  function wire(scope) {
+    var header = scope.querySelector('.home-header');
+    var toggle = scope.querySelector('#home-menu-toggle');
+    var menu = scope.querySelector('#home-mobile-menu');
+
+    if (header && toggle && menu) {
+      function open() {
+        header.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close menu');
+        menu.hidden = false;
+      }
+      function close() {
+        header.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        menu.hidden = true;
+      }
+
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (header.classList.contains('is-open')) close();
+        else open();
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!header.classList.contains('is-open')) return;
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) close();
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 900 && header.classList.contains('is-open')) close();
+      });
+
+      close();
+    }
+
+    // Active state from <body data-nav-active="apostille|notary|hospital|jail|locations">
+    var active = (document.body && document.body.getAttribute('data-nav-active')) || '';
+    if (active) {
+      var links = scope.querySelectorAll('[data-nav="' + active + '"]');
+      Array.prototype.forEach.call(links, function (a) {
+        a.setAttribute('aria-current', 'page');
+      });
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadHeader);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    loadHeader();
+    init();
   }
 })();

@@ -1,0 +1,568 @@
+/* ========== APOSTILLE HUB — page-specific styles ========== */
+/* Reuses tokens and section layout from home.css/global.css.
+   Self-contained so it can be loaded after home.css without interference. */
+
+/* ---------- Page stacking safety ----------
+   home.css uses a fixed hero image for the homepage. On this longer hub page,
+   keep the hero media inside the hero section so it cannot cover the custom
+   Apostille content after scripts/styles finish loading. */
+body[data-nav-active="apostille"] .home-hero__media {
+  position: absolute;
+}
+
+body[data-nav-active="apostille"] main > section,
+body[data-nav-active="apostille"] main > nav {
+  position: relative;
+}
+
+body[data-nav-active="apostille"] main > section:not(.home-hero),
+body[data-nav-active="apostille"] main > nav {
+  z-index: 2;
+}
+
+body[data-nav-active="apostille"] .home-hero {
+  z-index: 1;
+}
+
+/* ---------- Decision (Fast Start) block ---------- */
+.ap-decision {
+  background: #f7fafc;
+  padding: 52px 0;
+}
+.ap-decision .section-shell { width: min(1100px, calc(100% - 32px)); margin-inline: auto; }
+.ap-decision__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+.ap-decision__step {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px 20px 22px;
+  box-shadow: 0 4px 14px rgba(15,23,42,0.04);
+}
+.ap-decision__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border-radius: 999px;
+  background: var(--color-brand);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.ap-decision__step h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+.ap-decision__step p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.ap-decision__unsure {
+  margin-top: 22px;
+  background: #ffffff;
+  border: 1px dashed rgba(139, 26, 26, 0.35);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.ap-decision__unsure-text {
+  flex: 1 1 280px;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+.ap-decision__unsure-text strong { color: var(--color-text); }
+.ap-decision__unsure-cta {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Document family cards ---------- */
+.ap-families {
+  background: #ffffff;
+  padding: 64px 0;
+}
+.ap-families__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+.ap-family-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: inherit;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.ap-family-card:focus-within,
+.ap-family-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 26, 26, 0.45);
+  box-shadow: 0 12px 26px rgba(15,23,42,0.08);
+}
+.ap-family-card h3 a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.ap-family-card h3 a:hover {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+.ap-family-card__sub a {
+  color: inherit;
+  text-decoration: none;
+}
+.ap-family-card__sub li:hover {
+  background: #ffffff;
+  border: 1px solid rgba(139, 26, 26, 0.35);
+  padding: 3px 8px;
+}
+.ap-family-card__sub li {
+  border: 1px solid transparent;
+  transition: background-color .12s ease, border-color .12s ease, padding .12s ease;
+}
+.ap-family-card__icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(139, 26, 26, 0.08);
+  color: var(--color-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.ap-family-card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+.ap-family-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+.ap-family-card__sub {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+}
+.ap-family-card__sub li {
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #374151;
+  padding: 4px 9px;
+  border-radius: 6px;
+  line-height: 1;
+}
+.ap-family-card__cta {
+  margin-top: auto;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  letter-spacing: -0.01em;
+  padding-top: 6px;
+  text-decoration: none;
+}
+.ap-family-card__cta:hover {
+  color: var(--color-brand-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Explorers (compact) ---------- */
+.ap-explorers {
+  background: #f3f4f6;
+  padding: 64px 0;
+}
+.ap-explorers__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.ap-explorer {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+}
+.ap-explorer h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ap-explorer__lead {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+.ap-explorer__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ap-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2937;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 7px 12px;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.ap-chip:hover {
+  background: #ffffff;
+  color: var(--color-brand);
+  border-color: rgba(139, 26, 26, 0.45);
+}
+.ap-explorer__note {
+  margin: 14px 0 0;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* ---------- Process (steps) ---------- */
+.ap-process { background: #ffffff; padding: 64px 0; }
+.ap-process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.ap-step {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+}
+.ap-step__num {
+  display: inline-flex;
+  width: 32px; height: 32px;
+  border-radius: 999px;
+  background: var(--color-dark);
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.ap-step h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ap-step p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Two-column compare (DIY vs Hire) ---------- */
+.ap-compare { background: #f7fafc; padding: 64px 0; }
+.ap-compare__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+.ap-compare__col {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+}
+.ap-compare__col--hire {
+  border-color: rgba(139, 26, 26, 0.45);
+  box-shadow: 0 8px 22px rgba(139, 26, 26, 0.08);
+}
+.ap-compare__col h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ap-compare__col ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.ap-compare__col li {
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+.ap-compare__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.ap-compare__tag--diy { background: #f3f4f6; color: #374151; }
+.ap-compare__tag--hire { background: rgba(139, 26, 26, 0.1); color: var(--color-brand); }
+
+/* ---------- Timeline / "How long" ---------- */
+.ap-timelines { background: #ffffff; padding: 64px 0; }
+.ap-timelines__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+.ap-timeline-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+}
+.ap-timeline-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ap-timeline-card h4 {
+  margin: 14px 0 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.ap-timeline-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.ap-timeline-card li {
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+/* ---------- Checklist (Getting Documents Ready) ---------- */
+.ap-checklist-section { background: #f7fafc; padding: 64px 0; }
+.ap-checklist-section__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+.ap-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ap-checklist li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+.ap-checklist li:last-child { border-bottom: 0; }
+.ap-checklist li::before {
+  content: "✓";
+  color: var(--color-brand);
+  font-weight: 800;
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+.ap-checklist-aside {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px;
+}
+.ap-checklist-aside h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.ap-checklist-aside ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.ap-checklist-aside li {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+/* ---------- CTA strip / final ---------- */
+.ap-cta-strip {
+  background: var(--color-dark);
+  color: #ffffff;
+  padding: 56px 0;
+}
+.ap-cta-strip .section-shell {
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+  text-align: center;
+}
+.ap-cta-strip h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+.ap-cta-strip p {
+  margin: 0 auto 22px;
+  max-width: 640px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.84);
+}
+.ap-cta-strip__row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.ap-cta-strip .btn--secondary { color: var(--color-brand); }
+
+/* ---------- Hero CTA hint reuses home-hero__hint, but allow inline guidance line ---------- */
+.ap-hero-guidance {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.84);
+  line-height: 1.55;
+}
+.ap-hero-guidance strong { color: #ffffff; }
+
+/* ---------- Section title spacing tweaks shared with the hub ---------- */
+.ap-section-shell { width: min(1200px, calc(100% - 32px)); margin-inline: auto; }
+.ap-section-heading h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+.ap-section-heading .section-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.ap-section-heading .ap-section-lead {
+  margin: 0 auto;
+  max-width: 720px;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ---------- Mobile / responsive ---------- */
+@media (max-width: 960px) {
+  .ap-decision__grid { grid-template-columns: 1fr 1fr; }
+  .ap-families__grid { grid-template-columns: 1fr 1fr; }
+  .ap-process__grid { grid-template-columns: 1fr 1fr; }
+  .ap-explorers__grid { grid-template-columns: 1fr; }
+  .ap-compare__grid { grid-template-columns: 1fr; }
+  .ap-timelines__grid { grid-template-columns: 1fr; }
+  .ap-checklist-section__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .ap-decision { padding: 40px 0; }
+  .ap-families { padding: 48px 0; }
+  .ap-explorers { padding: 48px 0; }
+  .ap-process { padding: 48px 0; }
+  .ap-compare { padding: 48px 0; }
+  .ap-timelines { padding: 48px 0; }
+  .ap-checklist-section { padding: 48px 0; }
+  .ap-cta-strip { padding: 44px 0; }
+
+  .ap-decision__grid { grid-template-columns: 1fr; gap: 12px; }
+  .ap-families__grid { grid-template-columns: 1fr; gap: 12px; }
+  .ap-process__grid { grid-template-columns: 1fr; gap: 12px; }
+
+  .ap-decision__step,
+  .ap-family-card,
+  .ap-step,
+  .ap-compare__col,
+  .ap-timeline-card,
+  .ap-checklist-aside,
+  .ap-explorer { padding: 18px; }
+
+  .ap-decision__unsure {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ap-decision__unsure-cta { width: 100%; }
+  .ap-decision__unsure-cta .btn { flex: 1 1 auto; }
+}
+
+@media (max-width: 380px) {
+  .ap-section-heading h2 { font-size: 1.45rem; }
+  .ap-family-card h3 { font-size: 1rem; }
+  .ap-chip { font-size: 0.8rem; padding: 6px 10px; }
+}
+
+/* ---------- Reusable: ensure all CTAs wrap on tiny screens ---------- */
+.ap-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ap-cta-row .btn {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+@media (min-width: 641px) {
+  .ap-cta-row .btn { flex: 0 0 auto; }
+}
+
+/* ---------- Apostille hero overrides for guidance line ---------- */
+.home-hero__cta-row { flex-wrap: wrap; }
+.home-hero__cta { white-space: normal; text-align: center; }
+
+/* ========== /APOSTILLE HUB ========== */
