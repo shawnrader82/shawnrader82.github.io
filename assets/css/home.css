@@ -1624,3 +1624,111 @@
 }
 
 /* ========== /FAQ HARD FIX ========== */
+
+  /* ========== CONTACT / EMAIL OPTION ========== */
+  .contact-email-section {
+    padding: 72px 0;
+    background: #f3f4f6;
+  }
+
+  .contact-email-shell {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .contact-email-copy h2 {
+    margin: 10px 0 14px;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .contact-email-copy p {
+    margin: 0 0 18px;
+    max-width: 58ch;
+    color: #4b5563;
+  }
+
+  .contact-email-points {
+    margin: 0;
+    padding-left: 18px;
+    color: #374151;
+  }
+
+  .contact-email-points li + li {
+    margin-top: 10px;
+  }
+
+  .contact-email-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    padding: 24px;
+  }
+
+  .contact-email-form {
+    display: grid;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 8px;
+  }
+
+  .form-row label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font: inherit;
+    color: #111827;
+    background: #fff;
+  }
+
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus {
+    outline: none;
+    border-color: #b91c1c;
+    box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.12);
+  }
+
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .contact-email-note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #6b7280;
+  }
+
+  @media (max-width: 900px) {
+    .contact-email-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-email-section {
+      padding: 56px 0;
+    }
+
+    .contact-email-card {
+      padding: 20px;
+    }
+  }
+  /* ========== /CONTACT / EMAIL OPTION ========== */
