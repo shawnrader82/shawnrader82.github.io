@@ -1625,110 +1625,145 @@
 
 /* ========== /FAQ HARD FIX ========== */
 
-  /* ========== CONTACT / EMAIL OPTION ========== */
-  .contact-email-section {
-    padding: 72px 0;
-    background: #f3f4f6;
-  }
+/* ========== EMAIL CONTACT SECTION HARD FIX ========== */
+.contact-email-section {
+  position: relative !important;
+  z-index: 15 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  clear: both !important;
+  padding: 72px 0 !important;
+  background: #f3f4f6 !important;
+}
 
+.contact-email-section .page-shell,
+.contact-email-section .section-shell {
+  width: min(1200px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+}
+
+.contact-email-shell {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
+  gap: 32px !important;
+  align-items: start !important;
+}
+
+.contact-email-copy {
+  display: block !important;
+}
+
+.contact-email-copy h2 {
+  margin: 10px 0 14px !important;
+  color: #0f172a !important;
+  font-size: clamp(2rem, 3vw, 3rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.contact-email-copy p {
+  margin: 0 0 18px !important;
+  max-width: 58ch !important;
+  color: #475569 !important;
+}
+
+.contact-email-points {
+  margin: 0 !important;
+  padding-left: 18px !important;
+  color: #334155 !important;
+}
+
+.contact-email-points li + li {
+  margin-top: 10px !important;
+}
+
+.contact-email-card {
+  display: block !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08) !important;
+  padding: 24px !important;
+}
+
+.contact-email-form {
+  display: grid !important;
+  gap: 16px !important;
+}
+
+.contact-email-form .form-row {
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.contact-email-form label {
+  display: block !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+}
+
+.contact-email-form input,
+.contact-email-form select,
+.contact-email-form textarea {
+  display: block !important;
+  width: 100% !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  font: inherit !important;
+  color: #111827 !important;
+  background: #ffffff !important;
+}
+
+.contact-email-form textarea {
+  min-height: 140px !important;
+  resize: vertical !important;
+}
+
+.contact-email-form input:focus,
+.contact-email-form select:focus,
+.contact-email-form textarea:focus {
+  outline: none !important;
+  border-color: #b91c1c !important;
+  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.12) !important;
+}
+
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.contact-email-note {
+  margin: 0 !important;
+  font-size: 0.92rem !important;
+  color: #6b7280 !important;
+}
+
+@media (max-width: 900px) {
   .contact-email-shell {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 32px;
-    align-items: start;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 
-  .contact-email-copy h2 {
-    margin: 10px 0 14px;
-    font-size: clamp(2rem, 3vw, 3rem);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-  }
-
-  .contact-email-copy p {
-    margin: 0 0 18px;
-    max-width: 58ch;
-    color: #4b5563;
-  }
-
-  .contact-email-points {
-    margin: 0;
-    padding-left: 18px;
-    color: #374151;
-  }
-
-  .contact-email-points li + li {
-    margin-top: 10px;
+  .contact-email-section {
+    padding: 56px 0 !important;
   }
 
   .contact-email-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-    padding: 24px;
+    padding: 20px !important;
   }
+}
 
-  .contact-email-form {
-    display: grid;
-    gap: 16px;
+@media (max-width: 480px) {
+  .contact-email-section .page-shell,
+  .contact-email-section .section-shell {
+    width: min(100% - 20px, 1200px) !important;
   }
-
-  .form-row {
-    display: grid;
-    gap: 8px;
-  }
-
-  .form-row label {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #111827;
-  }
-
-  .form-row input,
-  .form-row select,
-  .form-row textarea {
-    width: 100%;
-    border: 1px solid #d1d5db;
-    border-radius: 12px;
-    padding: 14px 16px;
-    font: inherit;
-    color: #111827;
-    background: #fff;
-  }
-
-  .form-row input:focus,
-  .form-row select:focus,
-  .form-row textarea:focus {
-    outline: none;
-    border-color: #b91c1c;
-    box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.12);
-  }
-
-  .hp-field {
-    position: absolute;
-    left: -9999px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .contact-email-note {
-    margin: 0;
-    font-size: 0.92rem;
-    color: #6b7280;
-  }
-
-  @media (max-width: 900px) {
-    .contact-email-shell {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-email-section {
-      padding: 56px 0;
-    }
-
-    .contact-email-card {
-      padding: 20px;
-    }
-  }
-  /* ========== /CONTACT / EMAIL OPTION ========== */
+}
+/* ========== /EMAIL CONTACT SECTION HARD FIX ========== */
