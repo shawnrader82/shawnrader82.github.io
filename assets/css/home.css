@@ -1,5 +1,6 @@
+/* ========== HOME PAGE CSS ========== */
 
-/* ========== HERO ========== */
+/* ========== LAYOUT: HERO ========== */
 
 .home-hero {
   position: relative;
@@ -120,17 +121,15 @@
   font-weight: 500;
 }
 
-/* ========== /HERO ========== */
-
-/* ========== MOBILE HERO SPACING TWEAKS ========== */
+/* ========== LAYOUT: HERO (RESPONSIVE) ========== */
 
 @media (max-width: 768px) {
   .home-hero {
-    min-height: 600px; /* was 760px */
+    min-height: 600px;
   }
 
   .home-hero__content {
-    padding: 32px 0 80px; /* was 56px 0 160px */
+    padding: 32px 0 80px;
   }
 
   .home-hero__cta-row {
@@ -142,7 +141,7 @@
   }
 
   .home-trust-ribbon {
-    margin-top: -40px; /* was -108px / -24px; pulls it closer on phones */
+    margin-top: -40px;
   }
 }
 
@@ -159,9 +158,8 @@
     margin-top: -28px;
   }
 }
-/* ========== /MOBILE HERO SPACING TWEAKS ========== */
 
-/* ========== TRUST RIBBON ========== */
+/* ========== LAYOUT: TRUST RIBBON ========== */
 
 .home-trust-ribbon {
   position: relative;
@@ -178,7 +176,9 @@
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.14),
+    0 36px 64px rgba(15, 23, 42, 0.18);
 }
 
 .home-trust-ribbon__item {
@@ -350,24 +350,25 @@
   }
 }
 
-/* ========== /TRUST RIBBON ========== */
+/* ========== /LAYOUT: TRUST RIBBON ========== */
 
-/* ========== PRIMARY SERVICE CARDS ========== */
+
+/* ========== SECTION: PRIMARY SERVICE CARDS ========== */
 
 .home-service-lanes {
   position: relative;
   z-index: 3;
-  padding: 64px 0 92px;
+  padding: 72px 0 104px;
   background: #ffffff;
 }
 
 .section-shell {
-  width: min(1200px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
 }
 
 .section-heading {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 
 .section-heading--centered {
@@ -391,9 +392,9 @@
 }
 
 .section-subhead {
-  max-width: 640px;
+  max-width: 620px;
   margin: 14px auto 0;
-  color: #475569;
+  color: #4b5563;
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -402,16 +403,12 @@
   .section-subhead {
     font-size: 0.95rem;
   }
-  .home-hero__hint {
-    font-size: 0.9rem;
-    margin-top: 14px;
-  }
 }
 
 .home-service-lanes__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
+  gap: 26px;
   align-items: stretch;
 }
 
@@ -420,17 +417,24 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 20px;
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.04),
+    0 18px 40px rgba(15, 23, 42, 0.03);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .service-lane:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: rgba(15, 23, 42, 0.12);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08), 0 28px 56px rgba(15, 23, 42, 0.10);
+  box-shadow:
+    0 14px 32px rgba(15, 23, 42, 0.06),
+    0 24px 56px rgba(15, 23, 42, 0.08);
 }
 
 .service-lane__image-link {
@@ -440,7 +444,15 @@
   background: #e5e7eb;
 }
 
-.service-lane__image-link img {
+.service-lane__image-link picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.service-lane__image-link img,
+.service-lane__image-link picture img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -465,7 +477,7 @@
 .service-lane__label {
   margin: 0 0 10px;
   color: #b91c1c;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -474,12 +486,13 @@
 .service-lane h3 {
   margin: 0;
   color: #0f172a;
-  font-size: 1.34rem;
-  line-height: 1.18;
+  font-size: 1.3rem;
+  line-height: 1.2;
 }
 
 .service-lane__title-link {
   color: inherit;
+  text-decoration: none;
 }
 
 .service-lane__title-link:hover {
@@ -487,11 +500,12 @@
 }
 
 .service-lane__body p:last-of-type {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   padding-bottom: 22px;
-  color: #475569;
+  color: #4b5563;
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.55;
+  max-width: 34rem;
 }
 
 .service-lane__actions {
@@ -516,7 +530,10 @@
   font-weight: 700;
   letter-spacing: 0.01em;
   text-align: center;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .service-lane__split-button--left {
@@ -536,115 +553,81 @@
   background: #111b2e;
 }
 
-/* ========== /PRIMARY SERVICE CARDS ========== */
+/* Primary Service Cards – mobile overrides */
 
-/* ========== MOBILE SERVICE CARDS ========== */
-
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .home-service-lanes {
-    padding: 48px 0 56px;
-    margin-top: 0;
+    padding: 44px 0 64px;
   }
 
   .section-shell {
-    width: min(100% - 24px, 1200px);
+    width: min(100% - 24px, 560px);
   }
 
   .section-heading {
     margin-bottom: 24px;
   }
 
+  .section-kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.9rem, 7.8vw, 2.45rem);
+    line-height: 1.08;
+  }
+
+  .section-subhead {
+    max-width: 34ch;
+    margin-top: 10px;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
   .home-service-lanes__grid {
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .service-lane {
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    overflow: hidden;
-    padding: 0;
+    border-radius: 18px;
   }
 
   .service-lane__image-link {
-    aspect-ratio: 16 / 8;
-    max-height: 150px;
-  }
-
-  .service-lane__image-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .service-lane__content {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    padding: 0;
-    margin: 0;
+    aspect-ratio: 4 / 3;
+    max-height: 220px;
   }
 
   .service-lane__body {
     padding: 16px 16px 0;
-    margin: 0;
   }
 
   .service-lane__label {
-    margin: 0 0 8px;
+    margin-bottom: 8px;
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
   }
 
   .service-lane h3 {
-    font-size: 1.12rem;
-    line-height: 1.2;
+    font-size: 1.08rem;
+    line-height: 1.16;
   }
 
   .service-lane__body p:last-of-type {
-    margin: 10px 0 0;
+    margin-top: 8px;
     padding-bottom: 16px;
     font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .service-lane__actions {
-    display: block;
-    width: 100%;
-    margin: auto 0 -1px;
-    padding: 0;
-    background: #0f172a;
-  }
-
-  .service-lane__actions--split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    width: 100%;
-    margin: 0;
-    background: #0f172a;
+    line-height: 1.5;
   }
 
   .service-lane__split-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 48px;
+    min-height: 46px;
     padding: 0 10px;
-    font-size: 0.88rem;
-    text-align: center;
-    border-radius: 0;
-    background: #0f172a;
-    color: #ffffff;
-  }
-
-  .service-lane__split-button--left {
-    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 0.76rem;
+    letter-spacing: 0;
   }
 }
-
-/* ========== EXTRA SMALL MOBILE SERVICE CARDS ========== */
 
 @media (max-width: 480px) {
   .home-service-lanes {
@@ -656,8 +639,8 @@
   }
 
   .service-lane__image-link {
-    aspect-ratio: 16 / 7;
-    max-height: 132px;
+    aspect-ratio: 4 / 3;
+    max-height: 200px;
   }
 
   .service-lane__body {
@@ -673,22 +656,11 @@
     font-size: 0.88rem;
     line-height: 1.5;
   }
-
-  .service-lane__actions {
-    width: 100%;
-    margin: auto 0 -1px;
-  }
-
-  .service-lane__split-button {
-    min-height: 46px;
-    font-size: 0.84rem;
-    padding: 0 8px;
-  }
 }
 
-/* ========== /MOBILE SERVICE CARDS ========== */
+/* ========== /SECTION: PRIMARY SERVICE CARDS ========== */
 
-/* ========== HOW IT WORKS ========== */
+/* ========== SECTION: HOW IT WORKS ========== */
 
 .home-process {
   position: relative;
@@ -753,9 +725,10 @@
   line-height: 1.65;
 }
 
-/* ========== /HOW IT WORKS ========== */
+/* ========== /SECTION: HOW IT WORKS ========== */
 
-/* ========== WHERE & WHEN WE HELP ========== */
+
+/* ========== SECTION: WHERE & WHEN WE HELP ========== */
 
 .home-coverage {
   position: relative;
@@ -909,9 +882,56 @@
   background: #111b2e;
 }
 
-/* ========== /WHERE & WHEN WE HELP ========== */
+/* ========== /SECTION: WHERE & WHEN WE HELP ========== */
 
-/* ========== REVIEWS / PROOF ========== */
+
+/* ========== SECTION: FAQ ========== */
+
+.home-faq {
+  padding: 80px 0 88px;
+  background: #f8fafc;
+}
+
+.home-faq__divider {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 42px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.home-faq__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
+}
+
+.faq-item h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.faq-item p {
+  margin: 12px 0 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ========== /SECTION: FAQ ========== */
+
+
+/* ========== SECTION: REVIEWS ========== */
 
 .home-reviews {
   position: relative;
@@ -943,8 +963,10 @@
   margin-top: 34px;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow:
+    0 18px 42px rgba(15, 23, 42, 0.08),
+    0 28px 56px rgba(15, 23, 42, 0.10);
   overflow: hidden;
 }
 
@@ -1003,7 +1025,12 @@
   border-radius: 6px;
   font-size: 0.98rem;
   font-weight: 700;
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .home-reviews__button:hover {
@@ -1013,10 +1040,12 @@
 .home-reviews__button--primary {
   background: #b91c1c;
   color: #f8fafc;
+  box-shadow: 0 12px 24px rgba(185, 28, 28, 0.16);
 }
 
 .home-reviews__button--primary:hover {
   background: #991b1b;
+  box-shadow: 0 16px 30px rgba(185, 28, 28, 0.20);
 }
 
 .home-reviews__button--secondary {
@@ -1029,54 +1058,10 @@
   background: #111827;
 }
 
-/* ========== /REVIEWS / PROOF ========== */
+/* ========== /SECTION: REVIEWS ========== */
 
-/* ========== FAQ ========== */
 
-.home-faq {
-  padding: 80px 0 88px;
-  background: #f8fafc;
-}
-
-.home-faq__divider {
-  height: 1px;
-  width: 100%;
-  margin-bottom: 42px;
-  background: rgba(15, 23, 42, 0.08);
-}
-
-.home-faq__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-  margin-top: 32px;
-}
-
-.faq-item {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 22px;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
-}
-
-.faq-item h3 {
-  margin: 0;
-  color: #0f172a;
-  font-size: 1.08rem;
-  line-height: 1.25;
-}
-
-.faq-item p {
-  margin: 12px 0 0;
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-/* ========== /FAQ ========== */
-
-/* ========== FINAL CTA ========== */
+/* ========== SECTION: FINAL CTA ========== */
 
 .home-final-cta {
   position: relative;
@@ -1173,9 +1158,10 @@
   backdrop-filter: blur(6px);
 }
 
-/* ========== /FINAL CTA ========== */
+/* ========== /SECTION: FINAL CTA ========== */
 
-/* ========== FOOTER ========== */
+
+/* ========== SECTION: FOOTER ========== */
 
 .site-footer {
   position: relative;
@@ -1313,9 +1299,10 @@
   font-weight: 600;
 }
 
-/* ========== /FOOTER ========== */
+/* ========== /SECTION: FOOTER ========== */
 
-/* ========== SECTION RESPONSIVE ========== */
+
+/* ========== SECTION: RESPONSIVE (GLOBAL) ========== */
 
 @media (max-width: 1100px) {
   .home-process__grid {
@@ -1546,9 +1533,10 @@
   }
 }
 
-/* ========== /SECTION RESPONSIVE ========== */
+/* ========== /SECTION: RESPONSIVE (GLOBAL) ========== */
 
-/* ========== FAQ HARD FIX ========== */
+
+/* ========== SECTION: FAQ (ALTERNATE LAYOUT) ========== */
 
 .home-faq--force {
   position: relative;
@@ -1623,147 +1611,195 @@
   }
 }
 
-/* ========== /FAQ HARD FIX ========== */
+/* ========== /SECTION: FAQ (ALTERNATE LAYOUT) ========== */
 
-/* ========== EMAIL CONTACT SECTION HARD FIX ========== */
+
+/* ========== SECTION: CONTACT / EMAIL ========== */
+
 .contact-email-section {
-  position: relative !important;
-  z-index: 15 !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  width: 100% !important;
-  clear: both !important;
-  padding: 72px 0 !important;
-  background: #f3f4f6 !important;
+  position: relative;
+  z-index: 12;
+  display: block;
+  width: 100%;
+  clear: both;
+  padding: 72px 0;
+  background: #f3f4f6;
 }
 
-.contact-email-section .page-shell,
-.contact-email-section .section-shell {
-  width: min(1200px, calc(100% - 32px)) !important;
-  margin: 0 auto !important;
+.contact-email-section .container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
 }
 
 .contact-email-shell {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
-  gap: 32px !important;
-  align-items: start !important;
-}
-
-.contact-email-copy {
-  display: block !important;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+  align-items: start;
 }
 
 .contact-email-copy h2 {
-  margin: 10px 0 14px !important;
-  color: #0f172a !important;
-  font-size: clamp(2rem, 3vw, 3rem) !important;
-  line-height: 1.05 !important;
-  letter-spacing: -0.03em !important;
+  margin: 10px 0 14px;
+  color: #0f172a;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 .contact-email-copy p {
-  margin: 0 0 18px !important;
-  max-width: 58ch !important;
-  color: #475569 !important;
+  margin: 0 0 18px;
+  max-width: 58ch;
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.contact-email-copy .section-eyebrow {
+  margin: 0 0 10px;
+  color: #b91c1c;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .contact-email-points {
-  margin: 0 !important;
-  padding-left: 18px !important;
-  color: #334155 !important;
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
 }
 
 .contact-email-points li + li {
-  margin-top: 10px !important;
+  margin-top: 10px;
 }
 
 .contact-email-card {
-  display: block !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(15, 23, 42, 0.08) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08) !important;
-  padding: 24px !important;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  padding: 24px;
 }
 
 .contact-email-form {
-  display: grid !important;
-  gap: 16px !important;
+  display: grid;
+  gap: 16px;
 }
 
-.contact-email-form .form-row {
-  display: grid !important;
-  gap: 8px !important;
+.form-row {
+  display: grid;
+  gap: 8px;
 }
 
-.contact-email-form label {
-  display: block !important;
-  font-size: 0.95rem !important;
-  font-weight: 600 !important;
-  color: #111827 !important;
+.form-row label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
 }
 
-.contact-email-form input,
-.contact-email-form select,
-.contact-email-form textarea {
-  display: block !important;
-  width: 100% !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 12px !important;
-  padding: 14px 16px !important;
-  font: inherit !important;
-  color: #111827 !important;
-  background: #ffffff !important;
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font: inherit;
+  color: #111827;
+  background: #fff;
 }
 
-.contact-email-form textarea {
-  min-height: 140px !important;
-  resize: vertical !important;
+.form-row textarea {
+  resize: vertical;
+  min-height: 140px;
 }
 
-.contact-email-form input:focus,
-.contact-email-form select:focus,
-.contact-email-form textarea:focus {
-  outline: none !important;
-  border-color: #b91c1c !important;
-  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.12) !important;
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.12);
+}
+
+.contact-email-form .btn,
+.contact-email-form .btn.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 8px;
+  background: #b91c1c;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-email-form .btn:hover,
+.contact-email-form .btn.btn-primary:hover {
+  background: #991b1b;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(185, 28, 28, 0.18);
+}
+
+.contact-email-form .btn:focus-visible,
+.contact-email-form .btn.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.14);
 }
 
 .hp-field {
-  position: absolute !important;
-  left: -9999px !important;
-  width: 1px !important;
-  height: 1px !important;
-  overflow: hidden !important;
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .contact-email-note {
-  margin: 0 !important;
-  font-size: 0.92rem !important;
-  color: #6b7280 !important;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #6b7280;
 }
 
 @media (max-width: 900px) {
   .contact-email-shell {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    grid-template-columns: 1fr;
   }
 
   .contact-email-section {
-    padding: 56px 0 !important;
+    padding: 56px 0;
   }
 
   .contact-email-card {
-    padding: 20px !important;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-email-section .container {
+    width: min(100% - 24px, 560px);
   }
 }
 
 @media (max-width: 480px) {
-  .contact-email-section .page-shell,
-  .contact-email-section .section-shell {
-    width: min(100% - 20px, 1200px) !important;
+  .contact-email-section .container {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .contact-email-copy h2 {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
   }
 }
-/* ========== /EMAIL CONTACT SECTION HARD FIX ========== */
+
+/* ========== /SECTION: CONTACT / EMAIL ========== */
+
+/* ========== /HOME PAGE CSS ========== */

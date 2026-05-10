@@ -1,69 +1,89 @@
-/* Shared header loader — fetches /partials/header.html into #header-placeholder
-   and wires up the mobile menu toggle. Sets aria-current="page" on the link
-   matching the page's data-nav-active attribute on <body> (or on the placeholder). */
 (function () {
   function init() {
     var placeholder = document.getElementById('header-placeholder');
     if (!placeholder) return;
 
     fetch('/partials/header.html')
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.text();
+      .then(function (response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.text();
       })
       .then(function (html) {
         placeholder.innerHTML = html;
-        wire(placeholder);
+        wireHeader(placeholder);
       })
-      .catch(function (err) {
-        console.error('Header load error:', err);
+      .catch(function (error) {
+        console.error('Header load error:', error);
       });
   }
 
-  function wire(scope) {
+  function wireHeader(scope) {
     var header = scope.querySelector('.home-header');
+    if (!header) return;
+
     var toggle = scope.querySelector('#home-menu-toggle');
     var menu = scope.querySelector('#home-mobile-menu');
 
-    if (header && toggle && menu) {
-      function open() {
-        header.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        toggle.setAttribute('aria-label', 'Close menu');
-        menu.hidden = false;
-      }
-      function close() {
-        header.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
-        menu.hidden = true;
-      }
+    function openMenu() {
+      if (!toggle || !menu) return;
+      header.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      menu.hidden = false;
+    }
 
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (header.classList.contains('is-open')) close();
-        else open();
+    function closeMenu() {
+      if (!toggle || !menu) return;
+      header.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+      menu.hidden = true;
+    }
+
+    function handleScroll() {
+      if (window.scrollY > 20) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (header.classList.contains('is-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
       });
 
-      document.addEventListener('click', function (e) {
+      document.addEventListener('click', function (event) {
         if (!header.classList.contains('is-open')) return;
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) close();
+        if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+          closeMenu();
+        }
       });
 
       window.addEventListener('resize', function () {
-        if (window.innerWidth > 900 && header.classList.contains('is-open')) close();
+        if (window.innerWidth > 900 && header.classList.contains('is-open')) {
+          closeMenu();
+        }
       });
 
-      close();
+      closeMenu();
     }
 
-    // Active state from <body data-nav-active="apostille|notary|hospital|jail|locations">
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     var active = (document.body && document.body.getAttribute('data-nav-active')) || '';
     if (active) {
       var links = scope.querySelectorAll('[data-nav="' + active + '"]');
-      Array.prototype.forEach.call(links, function (a) {
-        a.setAttribute('aria-current', 'page');
+      Array.prototype.forEach.call(links, function (link) {
+        link.setAttribute('aria-current', 'page');
       });
     }
   }

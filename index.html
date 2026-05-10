@@ -79,7 +79,7 @@
         ]
       },
       {
-        "@type": "LegalService",
+        "@type": "Notary",
         "@id": "https://www.mobileamericannotary.com/#localbusiness",
         "name": "Mobile American Notary & Apostilles",
         "url": "https://www.mobileamericannotary.com/",
@@ -211,69 +211,10 @@
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-<!-- ========== HOMEPAGE HEADER ========== -->
-<header class="home-header">
-  <div class="home-header__inner">
-    <a href="/" class="home-header__brand" aria-label="Mobile American Notary home">
-      <span class="home-header__logo-box">
-        <img src="/assets/images/brand/logo.webp" alt="Mobile American Notary" class="home-header__logo">
-      </span>
-
-      <span class="home-header__brand-text">
-        <span class="home-header__brand-title">Mobile American Notary</span>
-        <span class="home-header__brand-subtitle">&amp; Apostilles</span>
-      </span>
-    </a>
-
-    <nav class="home-header__nav" aria-label="Primary">
-      <a href="/services/apostille.html">Apostille</a>
-      <a href="/services/notary.html">Notary</a>
-      <a href="/services/notary-hospital.html">Hospital</a>
-      <a href="/services/notary-jail.html">Jail</a>
-      <a href="/locations/">Locations</a>
-    </nav>
-
-    <div class="home-header__actions">
-      <a href="tel:+12139332507" class="home-header__call">Call / Text</a>
-      <a
-        href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-        class="home-header__book"
-        target="_blank"
-        rel="noopener noreferrer">
-        Book Online
-      </a>
-    </div>
-
-    <button
-      id="home-menu-toggle"
-      class="home-header__toggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="home-mobile-menu">
-      <span class="home-header__toggle-line"></span>
-      <span class="home-header__toggle-line"></span>
-      <span class="home-header__toggle-line"></span>
-      <span class="home-header__toggle-text">Menu</span>
-    </button>
-  </div>
-
-  <div class="home-mobile-menu" id="home-mobile-menu" hidden>
-    <nav aria-label="Mobile">
-      <a href="/services/apostille.html">Apostille</a>
-      <a href="/services/notary.html">Mobile Notary</a>
-      <a href="/services/notary-hospital.html">Hospital Notary</a>
-      <a href="/services/notary-jail.html">Jail Notary</a>
-      <a href="/locations/">Locations</a>
-      <a href="tel:+12139332507">Call / Text</a>
-      <a
-        href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-        target="_blank"
-        rel="noopener noreferrer">Book Online</a>
-    </nav>
-  </div>
-</header>
-<!-- ========== /HOMEPAGE HEADER ========== -->
+<!-- ========== HEADER ========== -->
+<div id="header-placeholder"></div>
+<script src="/assets/js/header.js" defer></script>
+<!-- ========== /HEADER ========== -->
 
 <main>
 <!-- ========== HERO ========== -->
@@ -373,9 +314,22 @@
     </div>
 
     <div class="home-service-lanes__grid">
+      <!-- Apostille -->
       <article class="service-lane service-lane--apostille">
         <a class="service-lane__image-link" href="/services/apostille.html" aria-label="View apostille services">
-          <img src="/assets/images/home/apostille-card.webp" alt="Apostille support illustration" width="1536" height="2752" loading="lazy">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="/assets/images/home/apostille-card-mobile.webp"
+            >
+            <img
+              src="/assets/images/home/apostille-card-desktop.webp"
+              alt="Apostille support illustration"
+              width="1536"
+              height="2752"
+              loading="lazy"
+            >
+          </picture>
         </a>
 
         <div class="service-lane__content">
@@ -387,20 +341,42 @@
               </a>
             </h3>
             <p>
-              Fast apostille support for personal, school, business, and international documents, with help reviewing requirements before you begin.
+              Fast apostille help for personal, school, business, and international documents, with requirements reviewed before you begin.
             </p>
           </div>
 
           <div class="service-lane__actions service-lane__actions--split">
-            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">Call / Text</a>
-            <a class="service-lane__split-button service-lane__split-button--right" href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Start Order</a>
+            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">
+              Call / Text
+            </a>
+            <a
+              class="service-lane__split-button service-lane__split-button--right"
+              href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start Order
+            </a>
           </div>
         </div>
       </article>
 
+      <!-- Mobile Notary -->
       <article class="service-lane service-lane--notary">
         <a class="service-lane__image-link" href="/services/notary.html" aria-label="View mobile notary services">
-          <img src="/assets/images/home/notary-card.webp" alt="Mobile notary appointment illustration" width="1536" height="2752" loading="lazy">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="/assets/images/home/notary-card-mobile.webp"
+            >
+            <img
+              src="/assets/images/home/notary-card-desktop.webp"
+              alt="Mobile notary appointment illustration"
+              width="1536"
+              height="2752"
+              loading="lazy"
+            >
+          </picture>
         </a>
 
         <div class="service-lane__content">
@@ -408,67 +384,129 @@
             <p class="service-lane__label">Mobile Notary</p>
             <h3>
               <a class="service-lane__title-link" href="/services/notary.html">
-                Mobile notary visits where you need them.
+                Mobile notary visits where and when you need them.
               </a>
             </h3>
             <p>
-              Convenient appointments for homes, offices, hospitals, care facilities, and other locations when documents need prompt attention.
+              General notarizations, hospital and care-facility visits, jail appointments, and real estate or estate signings across Los Angeles and nearby counties.
             </p>
           </div>
 
           <div class="service-lane__actions service-lane__actions--split">
-            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">Call / Text</a>
-            <a class="service-lane__split-button service-lane__split-button--right" href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Book Online</a>
+            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">
+              Call / Text
+            </a>
+            <a
+              class="service-lane__split-button service-lane__split-button--right"
+              href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book Online
+            </a>
           </div>
         </div>
       </article>
 
-      <article class="service-lane service-lane--hospital">
-        <a class="service-lane__image-link" href="/services/notary-hospital.html" aria-label="View hospital notary services">
-          <img src="/assets/images/home/hospital-notary-card.webp" alt="Hospital notary service illustration" width="1536" height="2752" loading="lazy">
+      <!-- Document Translation -->
+      <article class="service-lane service-lane--translation">
+        <a
+          class="service-lane__image-link"
+          href="/services/translations.html"
+          aria-label="View document translation services"
+        >
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="/assets/images/home/translation-card-mobile.webp"
+            >
+            <img
+              src="/assets/images/home/translation-card.webp"
+              alt="Document translation service illustration"
+              width="1536"
+              height="2752"
+              loading="lazy"
+            >
+          </picture>
         </a>
 
         <div class="service-lane__content">
           <div class="service-lane__body">
-            <p class="service-lane__label">Hospital Notary</p>
+            <p class="service-lane__label">Document Translation</p>
             <h3>
-              <a class="service-lane__title-link" href="/services/notary-hospital.html">
-                Sensitive help for hospital and bedside signings.
+              <a class="service-lane__title-link" href="/services/translations.html">
+                Certified translations for documents used abroad.
               </a>
             </h3>
             <p>
-              Mobile hospital notary visits for powers of attorney, healthcare directives, and other urgent documents requiring careful coordination.
+              Help coordinating certified translations with notarization and apostille when needed,
+              so your documents are accepted where they are going.
             </p>
           </div>
 
           <div class="service-lane__actions service-lane__actions--split">
-            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">Call / Text</a>
-            <a class="service-lane__split-button service-lane__split-button--right" href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Book Visit</a>
+            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">
+              Call / Text
+            </a>
+            <a
+              class="service-lane__split-button service-lane__split-button--right"
+              href="https://apostille.mobileamericannotary.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start Order
+            </a>
           </div>
         </div>
       </article>
 
-      <article class="service-lane service-lane--jail">
-        <a class="service-lane__image-link" href="/services/notary-jail.html" aria-label="View jail notary services">
-          <img src="/assets/images/home/jail-notary-card.webp" alt="Jail notary service illustration" width="1536" height="2752" loading="lazy">
+      <!-- Jail Weddings / Inmate Marriage -->
+      <article class="service-lane service-lane--jail-wedding">
+        <a
+          class="service-lane__image-link"
+          href="/services/jail-weddings.html"
+          aria-label="View jail wedding and inmate marriage services"
+        >
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="/assets/images/home/jail-wedding-card-mobile.webp"
+            >
+            <img
+              src="/assets/images/home/jail-wedding-card.webp"
+              alt="Jail wedding and inmate marriage service illustration"
+              width="1536"
+              height="2752"
+              loading="lazy"
+            >
+          </picture>
         </a>
 
         <div class="service-lane__content">
           <div class="service-lane__body">
-            <p class="service-lane__label">Jail Notary</p>
+            <p class="service-lane__label">Jail Weddings</p>
             <h3>
-              <a class="service-lane__title-link" href="/services/notary-jail.html">
-                Jail notary appointments with advance coordination.
+              <a class="service-lane__title-link" href="/services/jail-weddings.html">
+                Help arranging jail weddings and inmate marriages.
               </a>
             </h3>
             <p>
-              Help with detention-facility notarizations, scheduling details, and document preparation for families and time-sensitive situations.
+              Guidance on forms, facility rules, timing, and coordinating notary and ceremony steps so your jail wedding or inmate marriage moves forward smoothly.
             </p>
           </div>
 
           <div class="service-lane__actions service-lane__actions--split">
-            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">Call / Text</a>
-            <a class="service-lane__split-button service-lane__split-button--right" href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" target="_blank" rel="noopener noreferrer">Book Visit</a>
+            <a class="service-lane__split-button service-lane__split-button--left" href="tel:+12139332507">
+              Call / Text
+            </a>
+            <a
+              class="service-lane__split-button service-lane__split-button--right"
+              href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services/R2M2P3KWRBJWCDDEBHPQKZOA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book Consult
+            </a>
           </div>
         </div>
       </article>
@@ -688,16 +726,17 @@
   </section>
   <!-- ========== /FAQ ========== -->
 
-  <!-- ========== CONTACT / EMAIL OPTION ========== -->
-  <section class="contact-email-section" id="email-contact">
-    <div class="container">
+      <!-- ========== EMAIL CONTACT SECTION ========== -->
+  <section class="contact-email-section" id="email-contact" aria-labelledby="email-contact-title">
+    <div class="section-shell">
       <div class="contact-email-shell">
         <div class="contact-email-copy">
-          <p class="section-eyebrow">EMAIL OPTION</p>
-          <h2>Prefer email for document questions?</h2>
+          <p class="section-kicker">Email Option</p>
+          <h2 id="email-contact-title">Prefer email for document questions?</h2>
           <p>
             Call or text is still the fastest way to reach us, but if you prefer email,
-            send a quick message below and we’ll review your situation and respond as soon as possible.
+            send a quick message below and we’ll review your situation and respond as
+            soon as possible.
           </p>
           <ul class="contact-email-points">
             <li>Best for non-urgent questions and document details.</li>
@@ -713,18 +752,18 @@
             method="POST"
             class="contact-email-form"
           >
-            <input type="hidden" name="_subject" value="New Homepage Contact Form Submission">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://www.mobileamericannotary.com/thank-you.html">
+            <input type="hidden" name="_subject" value="New Homepage Contact Form Submission" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://www.mobileamericannotary.com/thank-you.html" />
 
             <div class="form-row">
               <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" name="name" required>
+              <input type="text" id="contact-name" name="name" required />
             </div>
 
             <div class="form-row">
               <label for="contact-email">Email</label>
-              <input type="email" id="contact-email" name="email" required>
+              <input type="email" id="contact-email" name="email" required />
             </div>
 
             <div class="form-row">
@@ -747,11 +786,10 @@
 
             <div class="hp-field" aria-hidden="true">
               <label for="website">Leave this field empty</label>
-              <input type="text" id="website" name="honey" tabindex="-1" autocomplete="off">
+              <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off" />
             </div>
 
-            <button type="submit" class="btn btn-primary">Send message</button>
-
+            <button type="submit" class="contact-email-submit">Send message</button>
             <p class="contact-email-note">
               Need a same-day appointment? Please call or text for the fastest response.
             </p>
@@ -760,7 +798,7 @@
       </div>
     </div>
   </section>
-  <!-- ========== /CONTACT / EMAIL OPTION ========== -->
+  <!-- ========== /EMAIL CONTACT SECTION ========== -->
 
   <!-- ========== SHARED FOOTER ========== -->
     <div id="footer-placeholder"></div>
@@ -768,59 +806,6 @@
   <!-- ========== /SHARED FOOTER ========== -->
 
 </main>
-<!-- ========== MOBILE HEADER TOGGLE ========== -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var header = document.querySelector('.home-header');
-    var toggle = document.getElementById('home-menu-toggle');
-    var menu = document.getElementById('home-mobile-menu');
 
-    if (!header || !toggle || !menu) return;
-
-    function openMenu() {
-      header.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Close menu');
-      menu.hidden = false;
-    }
-
-    function closeMenu() {
-      header.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Open menu');
-      menu.hidden = true;
-    }
-
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (header.classList.contains('is-open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-
-    // Close if user taps/clicks outside the menu
-    document.addEventListener('click', function (e) {
-      if (!header.classList.contains('is-open')) return;
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        closeMenu();
-      }
-    });
-
-    // Close on resize to desktop
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900 && header.classList.contains('is-open')) {
-        closeMenu();
-      }
-    });
-
-    // Ensure closed on load
-    closeMenu();
-  });
-</script>
-<!-- ========== /MOBILE HEADER TOGGLE ========== -->
 </body>
 </html>

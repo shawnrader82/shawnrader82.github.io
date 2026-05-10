@@ -61,9 +61,22 @@ html {
 
 body {
   margin: 0;
+  padding-top: 64px;
   font-family: var(--font-main);
   color: var(--color-text);
   background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-top: 52px;
+  }
 }
 
 img {
