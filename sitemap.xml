@@ -17,8 +17,7 @@
   <url><loc>https://www.mobileamericannotary.com/locations/</loc><lastmod>2026-05-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
     <!-- Notary Hub -->
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/notary.html</loc><lastmod>2026-05-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.mobileamericannotary.com/services/notary.html</loc><lastmod>2026-05-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
   <!-- Notary — General Service Pages -->
   <url><loc>https://www.mobileamericannotary.com/services/notary-general.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -208,4 +207,5 @@
   <url><loc>https://blog.mobileamericannotary.com/mobile-notary-for-los-angeles-and-orange-county-jails-how-to-schedule-a-jail-notarization-fast/</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://blog.mobileamericannotary.com/how-a-mobile-notary-helps-with-trust-and-estate-planning-in-los-angeles/</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://blog.mobileamericannotary.com/a-simple-guide-to-apostille-services-in-los-angeles-plus-mail-in-help-from-all-50-states/</loc><lastmod>2026-05-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>
 
