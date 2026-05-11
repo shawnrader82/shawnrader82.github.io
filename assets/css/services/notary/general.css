@@ -1,0 +1,566 @@
+/* =========================================================
+   GENERAL NOTARY PAGE
+   Uses shared foundation from:
+   /assets/css/global.css
+   /assets/css/home.css
+   /assets/css/services/notary.css
+========================================================= */
+
+
+/* ========== SECTION: HERO ========== */
+
+.home-hero__media--notary-general {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.18)),
+    url("/assets/images/hero/notary-desk-blur.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.nt-hero-guidance {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+.nt-hero-guidance strong {
+  color: #ffffff;
+}
+
+/* ========== /SECTION: HERO ========== */
+
+
+/* ========== SECTION: SHARED WRAPPERS ========== */
+
+.tr-section-shell,
+.section-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.tr-section-heading {
+  margin-bottom: 36px;
+}
+
+.tr-section-heading.section-heading--centered {
+  text-align: center;
+}
+
+.tr-section-heading h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(1.65rem, 2.8vw, 2.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.tr-section-lead {
+  max-width: 700px;
+  margin: 12px auto 0;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+/* ========== /SECTION: SHARED WRAPPERS ========== */
+
+
+/* ========== SECTION: TRUST RIBBON ========== */
+
+.service-sibling-links {
+  position: relative;
+  z-index: 6;
+  width: min(1200px, calc(100% - 32px));
+  margin: -108px auto 44px;
+}
+
+/* ========== /SECTION: TRUST RIBBON ========== */
+
+
+/* ========== SECTION: GENERAL NOTARY DOCUMENTS ========== */
+
+.nt-context {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  padding: 36px 0 56px;
+  background: linear-gradient(180deg, #f3f6fa 0%, #f8fafc 100%);
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.nt-context .section-shell {
+  width: min(1180px, calc(100% - 40px));
+}
+
+.nt-context .service-sibling-links {
+  margin-bottom: 44px;
+}
+
+.nt-context .tr-section-heading {
+  margin-bottom: 0;
+  padding-top: 28px;
+}
+
+.nt-context .tr-section-lead {
+  max-width: 760px;
+}
+
+/* ========== /SECTION: GENERAL NOTARY DOCUMENTS ========== */
+
+
+/* ========== SECTION: START HERE ========== */
+
+.nt-decision {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  padding: 68px 0 56px;
+  background: #ffffff;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.tr-decision__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.tr-decision__step {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.05);
+}
+
+.tr-decision__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.tr-decision__step h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.tr-decision__step p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.tr-decision__unsure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-top: 26px;
+  padding: 20px 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfcfd 100%);
+  border: 1px solid rgba(185, 28, 28, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+}
+
+.tr-decision__unsure-text {
+  flex: 1 1 280px;
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.tr-decision__unsure-text strong {
+  color: #0f172a;
+}
+
+.tr-decision__unsure-cta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ========== /SECTION: START HERE ========== */
+
+
+/* ========== SECTION: DOCUMENT DIRECTORY ========== */
+
+.nt-families {
+  padding: 64px 0 76px;
+  background: linear-gradient(180deg, #f3f6fa 0%, #f8fafc 100%);
+}
+
+.nt-families__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tr-family-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.045);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.tr-family-card:hover,
+.tr-family-card:focus-within {
+  transform: translateY(-5px);
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.08);
+}
+
+.tr-family-card__body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 22px;
+}
+
+.tr-family-card__body h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.22;
+}
+
+.tr-family-card__body h3 a {
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.tr-family-card__body h3 a:hover,
+.tr-family-card__body h3 a:focus-visible {
+  color: #b91c1c;
+}
+
+.tr-family-card__body p {
+  margin: 10px 0 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.tr-family-card__cta {
+  margin-top: auto;
+  padding-top: 16px;
+  color: #b91c1c;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tr-family-card__cta:hover,
+.tr-family-card__cta:focus-visible {
+  color: #991b1b;
+}
+
+/* ========== /SECTION: DOCUMENT DIRECTORY ========== */
+
+
+/* ========== SECTION: PROCESS ========== */
+
+.tr-process--notary {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.tr-process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.tr-step {
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
+}
+
+.tr-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.tr-step h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.tr-step p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.nt-role-note {
+  margin: 24px 0 0;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ========== /SECTION: PROCESS ========== */
+
+
+/* ========== SECTION: CHECKLIST ========== */
+
+.tr-checklist-section--notary {
+  padding: 60px 0;
+  background: linear-gradient(180deg, #f3f6fa 0%, #f8fafc 100%);
+}
+
+.tr-checklist-section__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tr-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tr-checklist li {
+  position: relative;
+  padding: 12px 0 12px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #0f172a;
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.tr-checklist li:last-child {
+  border-bottom: 0;
+}
+
+.tr-checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  color: #b91c1c;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tr-checklist-aside {
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.03);
+}
+
+.tr-checklist-aside h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1.05rem;
+}
+
+.tr-checklist-aside p {
+  margin: 0 0 14px;
+  color: #475569;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.tr-checklist-aside ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.tr-checklist-aside li {
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* ========== /SECTION: CHECKLIST ========== */
+
+
+/* ========== SECTION: FAQ ========== */
+
+.tr-faq--notary {
+  padding: 64px 0 76px;
+  background: #ffffff;
+}
+
+.tr-faq__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tr-faq__item {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
+}
+
+.tr-faq__item h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.06rem;
+  line-height: 1.28;
+}
+
+.tr-faq__item p {
+  margin: 12px 0 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ========== /SECTION: FAQ ========== */
+
+
+/* ========== SECTION: RESPONSIVE ========== */
+
+@media (max-width: 960px) {
+  .tr-decision__grid,
+  .tr-process__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nt-families__grid,
+  .tr-faq__list,
+  .tr-checklist-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tr-section-shell,
+  .section-shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .service-sibling-links {
+    width: min(100% - 24px, 1200px);
+    margin: -24px auto 24px;
+  }
+
+  .nt-context {
+  padding-bottom: 40px;
+  }
+
+.nt-context .tr-section-heading {
+  padding-top: 22px;
+}
+
+  .nt-context .service-sibling-links {
+    margin-bottom: 28px;
+  }
+
+  .nt-decision,
+  .nt-families,
+  .tr-process--notary,
+  .tr-checklist-section--notary,
+  .tr-faq--notary {
+    padding: 44px 0;
+  }
+
+  .tr-decision__grid,
+  .tr-process__grid,
+  .tr-faq__list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tr-decision__step,
+  .tr-family-card__body,
+  .tr-step,
+  .tr-checklist,
+  .tr-checklist-aside,
+  .tr-faq__item {
+    border-radius: 16px;
+  }
+
+  .service-sibling-links {
+    justify-content: flex-start;
+  }
+
+  .service-sibling-links a {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .tr-decision__unsure {
+    align-items: flex-start;
+  }
+
+  .tr-decision__unsure-cta,
+  .tr-decision__unsure-cta .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tr-section-shell,
+  .section-shell {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .service-sibling-links {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .home-hero__cta-row {
+    gap: 10px;
+  }
+
+  .home-hero__cta {
+    width: 100%;
+  }
+}
+
+/* ========== /SECTION: RESPONSIVE ========== */
