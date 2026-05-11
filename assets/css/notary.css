@@ -1,16 +1,18 @@
 /* ========== NOTARY HUB CSS ========== */
 
 /* ========== LAYOUT: PAGE STACKING SAFETY ========== */
-/* Keep hero / trust ribbon continuity from the homepage while preserving
-   the trust ribbon shadow above the first Notary section. */
-
-body[data-nav-active="notary"] .home-hero__media {
-  position: fixed;
-}
+/* Mirror home hero / trust ribbon behavior and keep the ribbon shadow. */
 
 body[data-nav-active="notary"] .home-hero {
   position: relative;
   z-index: 1;
+}
+
+body[data-nav-active="notary"] .home-hero__media {
+  /* Do NOT override to fixed; use base absolute hero media */
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 body[data-nav-active="notary"] .home-hero__content {
@@ -44,6 +46,14 @@ body[data-nav-active="notary"] main > nav {
 
 /* ========== LAYOUT: HERO (NOTARY) ========== */
 
+/* Notary hub hero H1 override – match home/translation hero scale */
+body[data-nav-active="notary"] .home-hero h1 {
+  font-size: clamp(2.6rem, 3.4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+
 .nt-hero-guidance {
   margin-top: 14px;
   font-size: 0.92rem;
@@ -56,11 +66,11 @@ body[data-nav-active="notary"] main > nav {
 }
 
 /* allow three hero CTAs to wrap nicely on Notary */
-.home-hero__cta-row {
+body[data-nav-active="notary"] .home-hero__cta-row {
   flex-wrap: wrap;
 }
 
-.home-hero__cta {
+body[data-nav-active="notary"] .home-hero__cta {
   white-space: normal;
   text-align: center;
 }
@@ -171,7 +181,6 @@ body[data-nav-active="notary"] main > nav {
   font-size: 0.95rem;
   line-height: 1.6;
 }
-
 .nt-decision__unsure {
   display: flex;
   flex-wrap: wrap;

@@ -1,16 +1,18 @@
 /* ========== APOSTILLE HUB CSS ========== */
 
 /* ========== LAYOUT: PAGE STACKING SAFETY ========== */
-/* Keep hero/trust ribbon continuity from the homepage while preserving
-   the trust ribbon shadow above the first Apostille section. */
-
-body[data-nav-active="apostille"] .home-hero__media {
-  position: fixed;
-}
+/* Mirror home/translation hero + trust ribbon behavior. */
 
 body[data-nav-active="apostille"] .home-hero {
   position: relative;
   z-index: 1;
+}
+
+body[data-nav-active="apostille"] .home-hero__media {
+  /* Do NOT override to fixed; let base home.css keep it absolute */
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 body[data-nav-active="apostille"] .home-hero__content {
@@ -44,6 +46,14 @@ body[data-nav-active="apostille"] main > nav {
 
 /* ========== LAYOUT: HERO (APOSTILLE) ========== */
 
+/* Apostille hub hero H1 override – match notary hero scale */
+body[data-nav-active="apostille"] .home-hero h1 {
+  font-size: clamp(2.6rem, 3.4vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+
 .ap-hero-guidance {
   margin-top: 14px;
   font-size: 0.92rem;
@@ -56,11 +66,11 @@ body[data-nav-active="apostille"] main > nav {
 }
 
 /* allow three hero CTAs to wrap nicely on Apostille */
-.home-hero__cta-row {
+body[data-nav-active="apostille"] .home-hero__cta-row {
   flex-wrap: wrap;
 }
 
-.home-hero__cta {
+body[data-nav-active="apostille"] .home-hero__cta {
   white-space: normal;
   text-align: center;
 }
@@ -102,7 +112,8 @@ body[data-nav-active="apostille"] main > nav {
 
 .ap-decision {
   padding: 64px 0;
-  background: linear-gradient(180deg, #f3f4f6 0%, #f8fafc 100%);
+  /* match home gray-blue gradient */
+  background: linear-gradient(180deg, #f4f7fb 0%, #f8fafc 100%);
 }
 
 .ap-decision__grid {
@@ -270,9 +281,9 @@ body[data-nav-active="apostille"] main > nav {
 
 .ap-family-card__sub li {
   padding: 4px 9px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(15, 23, 42, 0.07);
   border-radius: 6px;
-  background: #f3f4f6;
+  background: #f4f7fb;
   color: #374151;
   font-size: 0.78rem;
   font-weight: 600;
@@ -305,7 +316,8 @@ body[data-nav-active="apostille"] main > nav {
 
 .ap-explorers {
   padding: 64px 0;
-  background: #f3f4f6;
+  /* softer gray-blue like home coverage */
+  background: #f3f6fa;
 }
 
 .ap-explorers__grid {
@@ -349,8 +361,8 @@ body[data-nav-active="apostille"] main > nav {
   align-items: center;
   gap: 6px;
   padding: 7px 12px;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  background: #f4f7fb;
+  border: 1px solid rgba(15, 23, 42, 0.07);
   border-radius: 8px;
   color: #1f2937;
   font-size: 0.85rem;
@@ -427,7 +439,8 @@ body[data-nav-active="apostille"] main > nav {
 
 .ap-compare {
   padding: 64px 0;
-  background: #f8fafc;
+  /* reuse soft blue-gray instead of flat gray */
+  background: #f4f7fb;
 }
 
 .ap-compare__grid {
@@ -462,7 +475,7 @@ body[data-nav-active="apostille"] main > nav {
 }
 
 .ap-compare__tag--diy {
-  background: #f3f4f6;
+  background: #f4f7fb;
   color: #374151;
 }
 
@@ -544,7 +557,8 @@ body[data-nav-active="apostille"] main > nav {
 
 .ap-checklist-section {
   padding: 64px 0;
-  background: #f8fafc;
+  /* align with other soft sections */
+  background: #f3f6fa;
 }
 
 .ap-checklist-section__grid {
