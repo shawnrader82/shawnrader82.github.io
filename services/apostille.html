@@ -85,54 +85,12 @@
       "@type": "OfferCatalog",
       "name": "Apostille document families",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Vital records apostille",
-            "url": "https://www.mobileamericannotary.com/services/apostille/vital-records.html"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Court documents apostille",
-            "url": "https://www.mobileamericannotary.com/services/apostille/court-documents.html"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "School and academic apostille",
-            "url": "https://www.mobileamericannotary.com/services/apostille/school-academic.html"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Business and corporate apostille",
-            "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate.html"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Power of attorney and notarized document apostille",
-            "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents.html"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Federal documents apostille",
-            "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents.html"
-          }
-        }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vital records apostille", "url": "https://www.mobileamericannotary.com/services/apostille/vital.records.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Court documents apostille", "url": "https://www.mobileamericannotary.com/services/apostille/court-documents.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "School and academic apostille", "url": "https://www.mobileamericannotary.com/services/apostille/school-academic.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business and corporate apostille", "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Power of attorney and notarized document apostille", "url": "https://www.mobileamericannotary.com/services/apostille/poa-notarized.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Federal documents apostille", "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents.html" } }
       ]
     }
   }
@@ -391,99 +349,213 @@
   </section>
   <!-- ========== /FAST START / DECISION BLOCK ========== -->
 
-  <!-- ========== DOCUMENT FAMILY ROUTING ========== -->
-  <section class="ap-families" aria-labelledby="ap-families-title">
-    <div class="section-shell">
-      <div class="section-heading section-heading--centered ap-section-heading">
-        <p class="section-kicker">By document type</p>
-        <h2 id="ap-families-title">Pick the document family that matches yours.</h2>
-        <p class="ap-section-lead">
-          Each guide explains what counts as a valid original, where it gets apostilled, and what tends to go wrong before submission.
-        </p>
-      </div>
+<!-- ========== DOCUMENT FAMILY ROUTING (v2 shell) ========== -->
+<section class="ap-families" aria-labelledby="ap-families-title">
+  <div class="section-shell">
+    <header class="section-heading section-heading--centered ap-section-heading">
+      <p class="section-kicker">Apostille services</p>
+      <h2 id="ap-families-title">Pick the document family that matches yours.</h2>
+      <p class="section-subhead ap-section-lead">
+        Start with the document family that best matches your paperwork. Each guide explains what counts as a valid original, where it gets apostilled, and what tends to go wrong before submission.
+      </p>
+    </header>
 
-      <div class="ap-families__grid">
-        <article class="ap-family-card">
-          <span class="ap-family-card__icon" aria-hidden="true">①</span>
-          <h3><a href="/services/apostille/vital-records.html">Vital records</a></h3>
-          <p>Birth, marriage, divorce, and death certificates issued by California or another U.S. state.</p>
-          <ul class="ap-family-card__sub" aria-label="Vital records subpages">
+    <div class="ap-families__grid nt-services__grid">
+      <!-- Vital records -->
+      <article class="nt-card ap-card ap-card--vital">
+        <a class="nt-card__banner" href="/services/apostille/vital.records.html" aria-label="Vital records apostille guide">
+          <span class="nt-card__banner-kicker">By document type</span>
+          <span class="nt-card__banner-title">Vital records</span>
+        </a>
+
+        <div class="nt-card__body">
+          <h3><a href="/services/apostille/vital.records.html">Vital records</a></h3>
+          <p>
+            Birth, marriage, divorce, and death certificates issued by California or another U.S. state.
+          </p>
+
+          <ul class="nt-card__chips" role="list" aria-label="Vital records subpages">
             <li><a href="/services/apostille/vital-records/birth.html">Birth</a></li>
             <li><a href="/services/apostille/vital-records/marriage.html">Marriage</a></li>
             <li><a href="/services/apostille/vital-records/divorce.html">Divorce</a></li>
             <li><a href="/services/apostille/vital-records/death.html">Death</a></li>
           </ul>
-          <a class="ap-family-card__cta" href="/services/apostille/vital-records.html">Open vital records guide →</a>
-        </article>
+        </div>
 
-        <article class="ap-family-card">
-          <span class="ap-family-card__icon" aria-hidden="true">②</span>
+        <div class="nt-card__actions">
+          <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text </a>
+          <a
+            class="nt-card__action nt-card__action--secondary"
+            href="https://apostille.mobileamericannotary.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Start apostille order</a>
+        </div>
+      </article>
+
+      <!-- Court documents -->
+      <article class="nt-card ap-card ap-card--court">
+        <a class="nt-card__banner" href="/services/apostille/court-documents.html" aria-label="Court documents apostille guide">
+          <span class="nt-card__banner-kicker">By document type</span>
+          <span class="nt-card__banner-title">Court documents</span>
+        </a>
+
+        <div class="nt-card__body">
           <h3><a href="/services/apostille/court-documents.html">Court documents</a></h3>
-          <p>Adoption decrees, custody and name-change orders, divorce judgments, and other court-issued records.</p>
-          <ul class="ap-family-card__sub" aria-label="Court subpages">
-            <li><a href="/services/apostille/court-documents/adoption.html">Adoption</a></li>
-            <li><a href="/services/apostille/court-documents/custody-name-change.html">Custody / Name change</a></li>
-            <li><a href="/services/apostille/court-documents/divorce-decree.html">Divorce decree</a></li>
-          </ul>
-          <a class="ap-family-card__cta" href="/services/apostille/court-documents.html">Open court documents guide →</a>
-        </article>
+          <p>
+            Adoption decrees, custody and name-change orders, divorce judgments, and other court-issued records.
+          </p>
 
-        <article class="ap-family-card">
-          <span class="ap-family-card__icon" aria-hidden="true">③</span>
+          <ul class="nt-card__chips" role="list" aria-label="Court subpages">
+            <li><a href="/services/apostille/court-adoption.html">Adoption</a></li>
+            <li><a href="/services/apostille/court-custody-name-change.html">Custody / Name change</a></li>
+            <li><a href="/services/apostille/court-divorce-decree.html">Divorce decree</a></li>
+          </ul>
+        </div>
+
+        <div class="nt-card__actions">
+          <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text </a>
+          <a
+            class="nt-card__action nt-card__action--secondary"
+            href="https://apostille.mobileamericannotary.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Start apostille order</a>
+        </div>
+      </article>
+
+      <!-- School & academic -->
+      <article class="nt-card ap-card ap-card--school">
+        <a class="nt-card__banner" href="/services/apostille/school-academic.html" aria-label="School and academic apostille guide">
+          <span class="nt-card__banner-kicker">By document type</span>
+          <span class="nt-card__banner-title">School &amp; academic</span>
+        </a>
+
+        <div class="nt-card__body">
           <h3><a href="/services/apostille/school-academic.html">School &amp; academic</a></h3>
-          <p>Diplomas, transcripts, and enrollment or graduation letters for use abroad.</p>
-          <ul class="ap-family-card__sub" aria-label="School subpages">
-            <li><a href="/services/apostille/school-academic/diploma-high-school.html">HS diploma</a></li>
-            <li><a href="/services/apostille/school-academic/diploma-college.html">College diploma</a></li>
-            <li><a href="/services/apostille/school-academic/transcript-high-school.html">HS transcript</a></li>
-            <li><a href="/services/apostille/school-academic/transcript-college.html">College transcript</a></li>
-            <li><a href="/services/apostille/school-academic/enrollment-graduation-letters.html">Enrollment / graduation</a></li>
-          </ul>
-          <a class="ap-family-card__cta" href="/services/apostille/school-academic.html">Open school &amp; academic guide →</a>
-        </article>
+          <p>
+            Diplomas, transcripts, and enrollment or graduation letters for use abroad.
+          </p>
 
-        <article class="ap-family-card">
-          <span class="ap-family-card__icon" aria-hidden="true">④</span>
+          <ul class="nt-card__chips" role="list" aria-label="School subpages">
+            <li><a href="/services/apostille/school-diploma-high-school.html">HS diploma</a></li>
+            <li><a href="/services/apostille/school-diploma-college.html">College diploma</a></li>
+            <li><a href="/services/apostille/school-transcript-high-school.html">HS transcript</a></li>
+            <li><a href="/services/apostille/school-transcript-college.html">College transcript</a></li>
+            <li><a href="/services/apostille/school-enrollment-graduation-letters.html">Enrollment / graduation</a></li>
+          </ul>
+        </div>
+
+        <div class="nt-card__actions">
+          <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text </a>
+          <a
+            class="nt-card__action nt-card__action--secondary"
+            href="https://apostille.mobileamericannotary.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Start apostille order</a>
+        </div>
+      </article>
+
+      <!-- Business & corporate -->
+      <article class="nt-card ap-card ap-card--business">
+        <a class="nt-card__banner" href="/services/apostille/business-corporate.html" aria-label="Business and corporate apostille guide">
+          <span class="nt-card__banner-kicker">By document type</span>
+          <span class="nt-card__banner-title">Business &amp; corporate</span>
+        </a>
+
+        <div class="nt-card__body">
           <h3><a href="/services/apostille/business-corporate.html">Business &amp; corporate</a></h3>
-          <p>Articles of incorporation, certificates of good standing, board resolutions, and corporate filings.</p>
-          <ul class="ap-family-card__sub" aria-label="Business subpages">
-            <li><a href="/services/apostille/business-corporate/articles-incorporation.html">Articles</a></li>
-            <li><a href="/services/apostille/business-corporate/good-standing.html">Good standing</a></li>
-            <li><a href="/services/apostille/business-corporate/resolutions.html">Resolutions</a></li>
-          </ul>
-          <a class="ap-family-card__cta" href="/services/apostille/business-corporate.html">Open business guide →</a>
-        </article>
+          <p>
+            Articles of incorporation, certificates of good standing, board resolutions, and corporate filings.
+          </p>
 
-        <article class="ap-family-card">
-          <span class="ap-family-card__icon" aria-hidden="true">⑤</span>
-          <h3><a href="/services/apostille/notarized-documents.html">Powers of attorney &amp; notarized</a></h3>
-          <p>Powers of attorney, affidavits, and notarized personal documents prepared for foreign use.</p>
-          <ul class="ap-family-card__sub" aria-label="POA subpages">
-            <li>POAs</li>
-            <li>Affidavits</li>
-            <li>Notarized statements</li>
+          <ul class="nt-card__chips" role="list" aria-label="Business subpages">
+            <li><a href="/services/apostille/business-articles-incorporation.html">Articles</a></li>
+            <li><a href="/services/apostille/business-good-standing.html">Good standing</a></li>
+            <li><a href="/services/apostille/business-resolutions.html">Resolutions</a></li>
           </ul>
-          <a class="ap-family-card__cta" href="/services/apostille/notarized-documents.html">Open POA &amp; notarized guide →</a>
-        </article>
+        </div>
 
-        <article class="ap-family-card">
-          <span class="ap-family-card__icon" aria-hidden="true">⑥</span>
+        <div class="nt-card__actions">
+          <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text </a>
+          <a
+            class="nt-card__action nt-card__action--secondary"
+            href="https://apostille.mobileamericannotary.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Start apostille order</a>
+        </div>
+      </article>
+
+      <!-- Powers of attorney & notarized -->
+      <article class="nt-card ap-card ap-card--poa">
+        <a class="nt-card__banner" href="/services/apostille/poa-notarized.html" aria-label="Powers of attorney and notarized documents apostille guide">
+          <span class="nt-card__banner-kicker">By document type</span>
+          <span class="nt-card__banner-title">Powers of attorney &amp; notarized</span>
+        </a>
+
+        <div class="nt-card__body">
+          <h3><a href="/services/apostille/poa-notarized.html">Powers of attorney &amp; notarized</a></h3>
+          <p>
+            Powers of attorney, affidavits, and notarized personal documents prepared for foreign use.
+          </p>
+
+          <ul class="nt-card__chips" role="list" aria-label="POA subpages">
+            <li><span>POAs</span></li>
+            <li><span>Affidavits</span></li>
+            <li><span>Notarized statements</span></li>
+          </ul>
+        </div>
+
+        <div class="nt-card__actions">
+          <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text </a>
+          <a
+            class="nt-card__action nt-card__action--secondary"
+            href="https://apostille.mobileamericannotary.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Start apostille order</a>
+        </div>
+      </article>
+
+      <!-- Federal documents -->
+      <article class="nt-card ap-card ap-card--federal">
+        <a class="nt-card__banner" href="/services/apostille/federal-documents.html" aria-label="Federal documents apostille guide">
+          <span class="nt-card__banner-kicker">By document type</span>
+          <span class="nt-card__banner-title">Federal documents</span>
+        </a>
+
+        <div class="nt-card__body">
           <h3><a href="/services/apostille/federal-documents.html">Federal documents</a></h3>
-          <p>FBI background checks, USCIS records, federal court documents, NARA records, and consular reports.</p>
-          <ul class="ap-family-card__sub" aria-label="Federal subpages">
-            <li><a href="/services/apostille/federal-documents/fbi-background-check.html">FBI</a></li>
-            <li><a href="/services/apostille/federal-documents/federal-court-documents.html">Federal court</a></li>
-            <li><a href="/services/apostille/federal-documents/uscis-naturalization-name-change.html">USCIS</a></li>
-            <li><a href="/services/apostille/federal-documents/nara-documents.html">NARA</a></li>
-            <li><a href="/services/apostille/federal-documents/birth-abroad.html">Birth abroad</a></li>
-            <li><a href="/services/apostille/federal-documents/death-abroad.html">Death abroad</a></li>
+          <p>
+            FBI background checks, USCIS records, federal court documents, NARA records, and consular reports.
+          </p>
+
+          <ul class="nt-card__chips" role="list" aria-label="Federal subpages">
+            <li><a href="/services/apostille/federal-fbi-background-check.html">FBI</a></li>
+            <li><a href="/services/apostille/federal-court-documents.html">Federal court</a></li>
+            <li><a href="/services/apostille/federal-uscis-naturalization-name-change.html">USCIS</a></li>
+            <li><a href="/services/apostille/federal-nara-documents.html">NARA</a></li>
+            <li><a href="/services/apostille/federal-birth-abroad.html">Birth abroad</a></li>
+            <li><a href="/services/apostille/federal-death-abroad.html">Death abroad</a></li>
           </ul>
-          <a class="ap-family-card__cta" href="/services/apostille/federal-documents.html">Open federal guide →</a>
-        </article>
-      </div>
+        </div>
+
+        <div class="nt-card__actions">
+          <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text </a>
+          <a
+            class="nt-card__action nt-card__action--secondary"
+            href="https://apostille.mobileamericannotary.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Start apostille order</a>
+        </div>
+      </article>
     </div>
-  </section>
-  <!-- ========== /DOCUMENT FAMILY ROUTING ========== -->
+  </div>
+</section>
+<!-- ========== /DOCUMENT FAMILY ROUTING (v2 shell) ========== -->
 
   <!-- ========== EXPLORERS (compact) ========== -->
   <section class="ap-explorers" aria-labelledby="ap-explorers-title">
@@ -509,17 +581,17 @@
             <a class="ap-chip" href="/services/apostille/school-academic/transcript-college.html">College transcript</a>
             <a class="ap-chip" href="/services/apostille/school-academic/diploma-high-school.html">HS diploma</a>
             <a class="ap-chip" href="/services/apostille/school-academic/enrollment-graduation-letters.html">Enrollment letter</a>
-            <a class="ap-chip" href="/services/apostille/court-documents/adoption.html">Adoption decree</a>
-            <a class="ap-chip" href="/services/apostille/court-documents/divorce-decree.html">Divorce decree</a>
-            <a class="ap-chip" href="/services/apostille/court-documents/custody-name-change.html">Name change</a>
+            <a class="ap-chip" href="/services/apostille/court/adoption.html">Adoption decree</a>
+            <a class="ap-chip" href="/services/apostille/court/divorce-decree.html">Divorce decree</a>
+            <a class="ap-chip" href="/services/apostille/court/custody-name-change.html">Name change</a>
             <a class="ap-chip" href="/services/apostille/business-corporate/articles-incorporation.html">Articles of incorp.</a>
             <a class="ap-chip" href="/services/apostille/business-corporate/good-standing.html">Good standing</a>
             <a class="ap-chip" href="/services/apostille/business-corporate/resolutions.html">Corp. resolution</a>
-            <a class="ap-chip" href="/services/apostille/notarized-documents.html">Power of attorney</a>
-            <a class="ap-chip" href="/services/apostille/federal-documents/fbi-background-check.html">FBI check</a>
-            <a class="ap-chip" href="/services/apostille/federal-documents/uscis-naturalization-name-change.html">USCIS</a>
-            <a class="ap-chip" href="/services/apostille/federal-documents/nara-documents.html">NARA</a>
-            <a class="ap-chip" href="/services/apostille/federal-documents/federal-court-documents.html">Federal court</a>
+            <a class="ap-chip" href="/services/apostille/notarized/poa-notarized.html">Power of attorney</a>
+            <a class="ap-chip" href="/services/apostille/federal/fbi-background-check.html">FBI check</a>
+            <a class="ap-chip" href="/services/apostille/federal/uscis-naturalization-name-change.html">USCIS</a>
+            <a class="ap-chip" href="/services/apostille/federal/nara-documents.html">NARA</a>
+            <a class="ap-chip" href="/services/apostille/federal/court-documents.html">Federal court</a>
           </div>
           <p class="ap-explorer__note">
             Don't see it? Text the document name to <a href="tel:+12139332507">(213) 933-2507</a> and we'll point you to the right path.
@@ -532,11 +604,11 @@
             Hague countries usually need one apostille. Non-Hague destinations need consular legalization.
           </p>
           <div class="ap-explorer__chips">
-            <a class="ap-chip" href="/services/apostille/destination-countries/mexico.html">Mexico</a>
-            <a class="ap-chip" href="/services/apostille/destination-countries/spain.html">Spain</a>
-            <a class="ap-chip" href="/services/apostille/destination-countries/taiwan.html">Taiwan</a>
-            <a class="ap-chip" href="/services/apostille/destination-countries/thailand.html">Thailand</a>
-            <a class="ap-chip" href="/services/apostille/destination-countries/cuba.html">Cuba</a>
+            <a class="ap-chip" href="/services/apostille/country-mexico.html">Mexico</a>
+            <a class="ap-chip" href="/services/apostille/country-spain.html">Spain</a>
+            <a class="ap-chip" href="/services/apostille/country-taiwan.html">Taiwan</a>
+            <a class="ap-chip" href="/services/apostille/country-thailand.html">Thailand</a>
+            <a class="ap-chip" href="/services/apostille/country-cuba.html">Cuba</a>
             <a class="ap-chip" href="/locations/apostille-philippines-spa.html">Philippines (SPA)</a>
           </div>
           <p class="ap-explorer__note">
@@ -798,5 +870,3 @@
 </main>
 </body>
 </html>
-
-
