@@ -1,47 +1,43 @@
-/* =========================================================
- C alabasas location page only         *
- Matches /locations/calabasas.html exactly
- ========================================================= */
+/* Burbank / Glendale location page only */
+/* Matches locations/burbank-glendale.html exactly */
 
 /* ========== TOKENS / GLOBAL ========== */
 :root {
-    --calabasas-ink: #0f172a;
-    --calabasas-navy: #132238;
-    --calabasas-blue: #1d4ed8;
-    --calabasas-blue-dark: #163ea9;
-    --calabasas-blue-soft: #e8f0ff;
-    --calabasas-border: rgba(15, 23, 42, 0.10);
-    --calabasas-border-strong: rgba(15, 23, 42, 0.16);
-    --calabasas-surface: #ffffff;
-    --calabasas-surface-soft: #f8fbff;
-    --calabasas-surface-gray: #f6f8fb;
-    --calabasas-text: #1f2937;
-    --calabasas-text-soft: #475569;
-    --calabasas-text-inverse: #f8fafc;
-    --calabasas-shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.06);
-    --calabasas-shadow-md: 0 18px 44px rgba(15, 23, 42, 0.10);
-    --calabasas-radius: 18px;
-    --calabasas-radius-sm: 12px;
-    --calabasas-max: 1100px;
+    --burbank-glendale-ink: #0f172a;
+    --burbank-glendale-navy: #132238;
+    --burbank-glendale-blue: #1d4ed8;
+    --burbank-glendale-blue-dark: #163ea9;
+    --burbank-glendale-blue-soft: #e8f0ff;
+    --burbank-glendale-border: rgba(15, 23, 42, 0.10);
+    --burbank-glendale-border-strong: rgba(15, 23, 42, 0.16);
+    --burbank-glendale-surface: #ffffff;
+    --burbank-glendale-surface-soft: #f8fbff;
+    --burbank-glendale-surface-gray: #f6f8fb;
+    --burbank-glendale-text: #1f2937;
+    --burbank-glendale-text-soft: #475569;
+    --burbank-glendale-text-inverse: #f8fafc;
+    --burbank-glendale-shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.06);
+    --burbank-glendale-shadow-md: 0 18px 44px rgba(15, 23, 42, 0.10);
+    --burbank-glendale-radius: 18px;
+    --burbank-glendale-radius-sm: 12px;
+    --burbank-glendale-max: 1100px;
 }
 
 body {
-    color: var(--calabasas-text);
+    color: var(--burbank-glendale-text);
 }
 
 main {
     position: relative;
     overflow: clip;
 }
-/* ========== /TOKENS / GLOBAL ========== */
 
 /* ========== LAYOUT SHELLS ========== */
 .page-shell,
 .service-detail-inner {
-    width: min(var(--calabasas-max), calc(100% - 32px));
+    width: min(var(--burbank-glendale-max), calc(100% - 32px));
     margin-inline: auto !important;
 }
-/* ========== /LAYOUT SHELLS ========== */
 
 /* ========== BUTTONS ========== */
 .btn {
@@ -100,7 +96,7 @@ main {
 
 .btn--ghost {
     background: transparent;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     border-color: rgba(15, 23, 42, 0.16);
     box-shadow: none;
 }
@@ -108,7 +104,7 @@ main {
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
     background: rgba(15, 23, 42, 0.04);
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     border-color: rgba(15, 23, 42, 0.26);
 }
 
@@ -148,7 +144,6 @@ main {
 .btn--flex {
     flex: 1 1 260px;
 }
-/* ========== /BUTTONS ========== */
 
 /* ========== HERO ========== */
 .hero {
@@ -167,14 +162,14 @@ main {
     background:
     linear-gradient(90deg, rgba(15, 23, 42, 0.90) 0%, rgba(15, 23, 42, 0.72) 45%, rgba(15, 23, 42, 0.50) 100%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.50) 100%),
-    url("../../images/hero/locations/calabasas-notary-apostille.webp") center/cover no-repeat;
+    url("../../images/hero/locations/burbank-glendale-notary-apostille.webp") center/cover no-repeat;
     pointer-events: none;
 }
 
 .hero-inner {
     position: relative;
     z-index: 1;
-    width: min(var(--calabasas-max), calc(100% - 32px));
+    width: min(var(--burbank-glendale-max), calc(100% - 32px));
     margin-inline: auto !important;
 }
 
@@ -254,10 +249,10 @@ main {
     flex-direction: column;
     height: 100%;
     padding: 0;
-    border-radius: var(--calabasas-radius);
-    background: var(--calabasas-surface);
-    border: 1px solid var(--calabasas-border);
-    box-shadow: var(--calabasas-shadow-sm);
+    border-radius: var(--burbank-glendale-radius);
+    background: var(--burbank-glendale-surface);
+    border: 1px solid var(--burbank-glendale-border);
+    box-shadow: var(--burbank-glendale-shadow-sm);
     text-decoration: none;
     overflow: hidden;
     transition:
@@ -269,8 +264,8 @@ main {
 .service-card-link:hover,
 .service-card-link:focus-visible {
     transform: translateY(-2px);
-    border-color: var(--calabasas-border-strong);
-    box-shadow: var(--calabasas-shadow-md);
+    border-color: var(--burbank-glendale-border-strong);
+    box-shadow: var(--burbank-glendale-shadow-md);
 }
 
 .service-card-image-wrapper {
@@ -305,7 +300,7 @@ main {
 
 .service-card-title {
     margin: 16px 0 8px;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     font-size: 1.05rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -313,7 +308,7 @@ main {
 
 .service-card-text {
     margin: 0 0 18px;
-    color: var(--calabasas-text-soft);
+    color: var(--burbank-glendale-text-soft);
     font-size: 0.92rem;
     line-height: 1.55;
 }
@@ -321,7 +316,6 @@ main {
 .service-card-text br {
     display: none;
 }
-/* ========== /SERVICE CARDS ========== */
 
 /* ========== INTRO WHITE ========== */
 .service-detail-inner--intro {
@@ -342,7 +336,7 @@ main {
     margin: 0 auto !important;
 }
 
-.service-detail-grid--intro > div {
+.service-detail-grid--intro div {
     max-width: 760px;
     margin: 0 auto;
 }
@@ -362,14 +356,14 @@ main {
     border-top: 1px solid rgba(15, 23, 42, 0.10);
     font-size: 0.84rem !important;
     line-height: 1.65;
-    color: var(--calabasas-text-soft);
+    color: var(--burbank-glendale-text-soft);
 }
 
 @media (max-width: 640px) {
     .service-detail-inner--intro .service-detail-kicker,
     .service-detail-inner--intro h2,
     .service-detail-grid--intro,
-    .service-detail-grid--intro > div {
+    .service-detail-grid--intro div {
         max-width: 100%;
     }
 
@@ -378,7 +372,6 @@ main {
         margin-top: 10px;
     }
 }
-/* ========== /INTRO WHITE ========== */
 
 /* ========== DETAIL SECTIONS ========== */
 .service-detail {
@@ -390,12 +383,12 @@ main {
 }
 
 .service-detail--gray {
-    background: var(--calabasas-surface-gray);
+    background: var(--burbank-glendale-surface-gray);
 }
 
 .service-detail--blue {
     background: linear-gradient(180deg, #10243e, #0f1d31);
-    color: var(--calabasas-text-inverse);
+    color: var(--burbank-glendale-text-inverse);
 }
 
 .service-detail--blue .service-detail-kicker,
@@ -406,7 +399,7 @@ main {
 .service-detail--blue li,
 .service-detail--blue ol,
 .service-detail--blue ul {
-    color: var(--calabasas-text-inverse);
+    color: var(--burbank-glendale-text-inverse);
 }
 
 .service-detail--blue .faq-answer,
@@ -417,7 +410,7 @@ main {
 
 .service-detail-kicker {
     margin-bottom: 10px;
-    color: var(--calabasas-blue);
+    color: var(--burbank-glendale-blue);
     font-size: 0.82rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -426,7 +419,7 @@ main {
 
 .service-detail h2 {
     margin: 0 0 14px;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -438,7 +431,7 @@ main {
 
 .service-detail h3 {
     margin: 0 0 10px;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     font-size: 1.02rem !important;
     line-height: 1.3;
 }
@@ -449,7 +442,7 @@ main {
 
 .service-detail-lead {
     margin: 0 0 16px;
-    color: var(--calabasas-text);
+    color: var(--burbank-glendale-text);
     font-size: 1.03rem;
     line-height: 1.75;
 }
@@ -467,13 +460,13 @@ main {
 }
 
 .service-detail p {
-    color: var(--calabasas-text-soft);
+    color: var(--burbank-glendale-text-soft);
 }
 
 .service-detail ul,
 .service-detail ol {
     margin: 10px 0 0 18px;
-    color: var(--calabasas-text-soft);
+    color: var(--burbank-glendale-text-soft);
 }
 
 .service-detail li + li {
@@ -497,7 +490,7 @@ main {
 
 .service-detail-cta .btn--ghost {
     background: transparent;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     border-color: rgba(15, 23, 42, 0.16);
     box-shadow: none;
 }
@@ -505,7 +498,7 @@ main {
 .service-detail-cta .btn--ghost:hover,
 .service-detail-cta .btn--ghost:focus-visible {
     background: rgba(15, 23, 42, 0.04);
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     border-color: rgba(15, 23, 42, 0.26);
 }
 
@@ -513,6 +506,7 @@ main {
     background: transparent;
     color: #ffffff;
     border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: none;
 }
 
 .service-detail--blue .service-detail-cta .btn--ghost:hover,
@@ -521,7 +515,6 @@ main {
     color: #ffffff;
     border-color: rgba(255, 255, 255, 0.32);
 }
-/* ========== /DETAIL SECTIONS ========== */
 
 /* ========== FAQ SECTION ========== */
 .faq-block {
@@ -531,7 +524,7 @@ main {
 .faq-question {
     margin: 18px 0 6px;
     font-weight: 800;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
 }
 
 .faq-question:first-child {
@@ -541,7 +534,6 @@ main {
 .faq-answer {
     margin: 0;
 }
-/* ========== /FAQ SECTION ========== */
 
 /* ========== FAQ CARDS ========== */
 .faq-block {
@@ -553,7 +545,7 @@ main {
 .faq-item {
     padding: 18px 18px 16px;
     background: #ffffff;
-    border: 1px solid var(--calabasas-border);
+    border: 1px solid var(--burbank-glendale-border);
     border-radius: 16px;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
 }
@@ -567,14 +559,14 @@ main {
 .faq-question {
     margin: 0 0 8px;
     font-weight: 800;
-    color: var(--calabasas-ink);
+    color: var(--burbank-glendale-ink);
     font-size: 1rem;
     line-height: 1.35;
 }
 
 .faq-answer {
     margin: 0;
-    color: var(--calabasas-text-soft);
+    color: var(--burbank-glendale-text-soft);
     line-height: 1.7;
 }
 
@@ -582,7 +574,6 @@ main {
 .service-detail--blue .faq-answer {
     color: #e8eef7;
 }
-/* ========== /FAQ CARDS ========== */
 
 /* ========== INLINE LINKS ========== */
 .service-detail a:not(.btn),
@@ -592,13 +583,12 @@ main {
 }
 
 .service-detail a:not(.btn) {
-    color: var(--calabasas-blue);
+    color: var(--burbank-glendale-blue);
 }
 
 .service-detail--blue a:not(.btn) {
     color: #ffffff;
 }
-/* ========== /INLINE LINKS ========== */
 
 /* ========== SCANNABLE CONTENT BLOCKS ========== */
 .scan-blocks {
@@ -633,7 +623,6 @@ main {
     text-decoration: underline;
     text-underline-offset: 2px;
 }
-/* ========== /SCANNABLE CONTENT BLOCKS ========== */
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 980px) {
@@ -655,7 +644,7 @@ main {
     .hero-inner,
     .page-shell,
     .service-detail-inner {
-        width: min(100% - 24px, var(--calabasas-max)) !important;
+        width: min(100% - 24px, var(--burbank-glendale-max)) !important;
     }
 
     .hero-ctas,
@@ -700,4 +689,3 @@ main {
         max-width: 11ch;
     }
 }
-/* ========== /RESPONSIVE ========== */
