@@ -865,12 +865,14 @@ font-size: 0.92rem;
 
 /* Make the locations hero feel like the same family as homepage,
 but slightly calmer */
+/* Match locations hero title sizing to location-page hero sizing */
 .locations-hero h1 {
-font-family: inherit;
-font-weight: 700;
-font-size: clamp(2.55rem, 5.15vw, 4.95rem);
-line-height: 0.98;
-letter-spacing: -0.04em;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
 }
 
 /* Match lead copy more closely to homepage */
