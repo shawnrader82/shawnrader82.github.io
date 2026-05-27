@@ -39,40 +39,6 @@
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/home.css">
   <link rel="stylesheet" href="../assets/css/locations.css">
-
-  <!-- ========== INLINE: clickable card affordance ========== -->
-  <style>
-    .service-lane--clickable {
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-      will-change: transform;
-    }
-    .service-lane--clickable:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px -10px rgba(15, 23, 42, 0.18), 0 4px 8px -4px rgba(15, 23, 42, 0.10);
-      border-color: rgba(15, 23, 42, 0.18);
-    }
-    .service-lane--clickable:hover h3 {
-      color: #c8102e;
-    }
-    .service-lane--clickable:focus-visible {
-      outline: 3px solid #c8102e;
-      outline-offset: 2px;
-      border-radius: 6px;
-    }
-    .service-lane--clickable:active {
-      transform: translateY(0);
-      box-shadow: 0 4px 10px -6px rgba(15, 23, 42, 0.18);
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .service-lane--clickable,
-      .service-lane--clickable:hover,
-      .service-lane--clickable:active {
-        transition: none;
-        transform: none;
-      }
-    }
-  </style>
-  <!-- ========== /INLINE: clickable card affordance ========== -->
   <!-- ========== /CSS ========== -->
 
   <!-- Google Tag Manager -->
@@ -196,7 +162,7 @@
         "@id": "https://www.mobileamericannotary.com/locations/#locations-list",
         "name": "Mobile American Notary Location Pages",
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
-        "numberOfItems": 22,
+        "numberOfItems": 20,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "url": "https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city.html", "name": "Sherman Oaks & Studio City" },
           { "@type": "ListItem", "position": 2, "url": "https://www.mobileamericannotary.com/locations/encino-tarzana.html", "name": "Encino & Tarzana" },
@@ -218,8 +184,7 @@
           { "@type": "ListItem", "position": 18, "url": "https://www.mobileamericannotary.com/locations/valencia-santa-clarita.html", "name": "Valencia & Santa Clarita" },
           { "@type": "ListItem", "position": 19, "url": "https://www.mobileamericannotary.com/locations/simi-valley.html", "name": "Simi Valley" },
           { "@type": "ListItem", "position": 20, "url": "https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village.html", "name": "Thousand Oaks & Westlake Village" },
-          { "@type": "ListItem", "position": 21, "url": "https://www.mobileamericannotary.com/locations/calabasas.html", "name": "Calabasas" },
-          { "@type": "ListItem", "position": 22, "url": "https://www.mobileamericannotary.com/locations/north-hollywood.html", "name": "North Hollywood" }
+          { "@type": "ListItem", "position": 21, "url": "https://www.mobileamericannotary.com/locations/calabasas.html", "name": "Calabasas" }
         ]
       },
       {
@@ -414,7 +379,7 @@
       </div>
 
       <div class="home-service-lanes-grid home-service-lanes-grid--locations">
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/sherman-oaks-studio-city.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -429,46 +394,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/sherman-oaks-studio-city.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/north-hollywood.html">
-          <div class="service-lane-content">
-            <div class="service-lane-body">
-              <div class="service-lane-heading-row">
-                <div class="service-lane-thumb" aria-hidden="true"></div>
-                <div class="service-lane-heading-text">
-                  <h3>North Hollywood</h3>
-                </div>
-              </div>
-              <p>
-                NoHo Arts District, Lankershim and Magnolia Boulevard, studios, offices, homes, and Valley Village appointments.
-              </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/encino-tarzana.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -483,19 +419,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/encino-tarzana.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/van-nuys-panorama-city.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -510,19 +444,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/van-nuys-panorama-city.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/reseda-winnetka-lake-balboa.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -537,19 +469,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/reseda-winnetka-lake-balboa.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/sylmar-sun-valley-pacoima.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -564,19 +494,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/sylmar-sun-valley-pacoima.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/san-fernando.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -591,19 +519,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/san-fernando.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/granada-hills-porter-ranch.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -618,19 +544,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/granada-hills-porter-ranch.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/chatsworth-northridge.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -645,19 +569,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/chatsworth-northridge.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/woodland-hills-west-hills-canoga-park.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -672,12 +594,10 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/woodland-hills-west-hills-canoga-park.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
@@ -702,7 +622,7 @@
       </div>
 
       <div class="home-service-lanes-grid home-service-lanes-grid--locations">
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/beverly-hills.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -717,19 +637,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/beverly-hills.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/westwood.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -745,19 +663,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/westwood.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/santa-monica-venice-marina-del-rey.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -772,19 +688,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/santa-monica-venice-marina-del-rey.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/hollywood-west-hollywood.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -799,19 +713,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/hollywood-west-hollywood.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/burbank-glendale.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -826,19 +738,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/burbank-glendale.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/pasadena-altadena.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -853,19 +763,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/pasadena-altadena.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/eagle-rock.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -880,12 +788,10 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/eagle-rock.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
@@ -909,7 +815,7 @@
       </div>
 
       <div class="home-service-lanes-grid home-service-lanes-grid--locations">
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/downtown-los-angeles.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -924,12 +830,10 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/downtown-los-angeles.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
@@ -953,7 +857,7 @@
       </div>
 
       <div class="home-service-lanes-grid home-service-lanes-grid--locations">
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/valencia-santa-clarita.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -968,12 +872,10 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/valencia-santa-clarita.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
@@ -997,7 +899,7 @@
       </div>
 
       <div class="home-service-lanes-grid home-service-lanes-grid--locations">
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/simi-valley.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -1012,19 +914,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/simi-valley.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/thousand-oaks-westlake-village.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -1039,19 +939,17 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/thousand-oaks-westlake-village.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
           </div>
         </article>
 
-        <article class="service-lane service-lane--location-text service-lane--clickable" data-href="/locations/calabasas.html">
+        <article class="service-lane service-lane--location-text">
           <div class="service-lane-content">
             <div class="service-lane-body">
               <div class="service-lane-heading-row">
@@ -1067,12 +965,10 @@
             </div>
             <div class="service-lane-actions service-lane-actions--split">
               <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
+                 href="/locations/calabasas.html">
+                View area page
               </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
+              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507">
                 Call / Text
               </a>
             </div>
@@ -1160,44 +1056,6 @@
   </main>
 <!-- ========== FOOTER ========== -->
 <div id="footer-placeholder"></div>
-<script>
-  // Make location cards fully clickable. Buttons with [data-card-action] still
-  // do their own thing (book / dial); the rest of the card opens the area page.
-  (function () {
-    var cards = document.querySelectorAll('.service-lane--clickable[data-href]');
-    cards.forEach(function (card) {
-      card.style.cursor = 'pointer';
-      card.setAttribute('role', 'link');
-      card.setAttribute('tabindex', '0');
-
-      function isActionEl(el) {
-        while (el && el !== card) {
-          if (el.hasAttribute && el.hasAttribute('data-card-action')) return true;
-          el = el.parentNode;
-        }
-        return false;
-      }
-
-      card.addEventListener('click', function (ev) {
-        if (isActionEl(ev.target)) return;
-        // Honor middle-click / cmd+click / ctrl+click for new tab.
-        if (ev.button === 1 || ev.metaKey || ev.ctrlKey) {
-          window.open(card.dataset.href, '_blank', 'noopener');
-        } else {
-          window.location.href = card.dataset.href;
-        }
-      });
-
-      card.addEventListener('keydown', function (ev) {
-        if (ev.key === 'Enter' || ev.key === ' ') {
-          if (isActionEl(ev.target)) return;
-          ev.preventDefault();
-          window.location.href = card.dataset.href;
-        }
-      });
-    });
-  })();
-</script>
 <script src="../assets/js/footer.js" defer></script>
 <!-- ========== /FOOTER ========== -->
 

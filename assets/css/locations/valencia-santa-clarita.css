@@ -1,30 +1,30 @@
-/* Sherman Oaks & Studio City location page only */
-/* Matches locations/sherman-oaks-studio-city.html exactly */
+/* Valencia & Santa Clarita location page only */
+/* Matches locations/valencia-santa-clarita.html exactly */
 
 /* ========== TOKENS / GLOBAL ========== */
 :root {
-    --sosc-ink: #0f172a;
-    --sosc-navy: #132238;
-    --sosc-blue: #1d4ed8;
-    --sosc-blue-dark: #163ea9;
-    --sosc-blue-soft: #e8f0ff;
-    --sosc-border: rgba(15, 23, 42, 0.10);
-    --sosc-border-strong: rgba(15, 23, 42, 0.16);
-    --sosc-surface: #ffffff;
-    --sosc-surface-soft: #f8fbff;
-    --sosc-surface-gray: #f6f8fb;
-    --sosc-text: #1f2937;
-    --sosc-text-soft: #475569;
-    --sosc-text-inverse: #f8fafc;
-    --sosc-shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.06);
-    --sosc-shadow-md: 0 18px 44px rgba(15, 23, 42, 0.10);
-    --sosc-radius: 18px;
-    --sosc-radius-sm: 12px;
-    --sosc-max: 1100px;
+    --vsc-ink: #0f172a;
+    --vsc-navy: #132238;
+    --vsc-blue: #1d4ed8;
+    --vsc-blue-dark: #163ea9;
+    --vsc-blue-soft: #e8f0ff;
+    --vsc-border: rgba(15, 23, 42, 0.10);
+    --vsc-border-strong: rgba(15, 23, 42, 0.16);
+    --vsc-surface: #ffffff;
+    --vsc-surface-soft: #f8fbff;
+    --vsc-surface-gray: #f6f8fb;
+    --vsc-text: #1f2937;
+    --vsc-text-soft: #475569;
+    --vsc-text-inverse: #f8fafc;
+    --vsc-shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.06);
+    --vsc-shadow-md: 0 18px 44px rgba(15, 23, 42, 0.10);
+    --vsc-radius: 18px;
+    --vsc-radius-sm: 12px;
+    --vsc-max: 1100px;
 }
 
 body {
-    color: var(--sosc-text);
+    color: var(--vsc-text);
 }
 
 main {
@@ -35,7 +35,7 @@ main {
 /* ========== LAYOUT SHELLS ========== */
 .page-shell,
 .service-detail-inner {
-    width: min(var(--sosc-max), calc(100% - 32px));
+    width: min(var(--vsc-max), calc(100% - 32px));
     margin-inline: auto !important;
 }
 
@@ -96,7 +96,7 @@ main {
 
 .btn--ghost {
     background: transparent;
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     border-color: rgba(15, 23, 42, 0.16);
     box-shadow: none;
 }
@@ -104,7 +104,7 @@ main {
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
     background: rgba(15, 23, 42, 0.04);
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     border-color: rgba(15, 23, 42, 0.26);
 }
 
@@ -169,7 +169,7 @@ main {
 .hero-inner {
     position: relative;
     z-index: 1;
-    width: min(var(--sosc-max), calc(100% - 32px));
+    width: min(var(--vsc-max), calc(100% - 32px));
     margin-inline: auto !important;
 }
 
@@ -249,10 +249,10 @@ main {
     flex-direction: column;
     height: 100%;
     padding: 0;
-    border-radius: var(--sosc-radius);
-    background: var(--sosc-surface);
-    border: 1px solid var(--sosc-border);
-    box-shadow: var(--sosc-shadow-sm);
+    border-radius: var(--vsc-radius);
+    background: var(--vsc-surface);
+    border: 1px solid var(--vsc-border);
+    box-shadow: var(--vsc-shadow-sm);
     text-decoration: none;
     overflow: hidden;
     transition:
@@ -264,8 +264,8 @@ main {
 .service-card-link:hover,
 .service-card-link:focus-visible {
     transform: translateY(-2px);
-    border-color: var(--sosc-border-strong);
-    box-shadow: var(--sosc-shadow-md);
+    border-color: var(--vsc-border-strong);
+    box-shadow: var(--vsc-shadow-md);
 }
 
 .service-card-image-wrapper {
@@ -300,7 +300,7 @@ main {
 
 .service-card-title {
     margin: 16px 0 8px;
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     font-size: 1.05rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -308,7 +308,7 @@ main {
 
 .service-card-text {
     margin: 0 0 18px;
-    color: var(--sosc-text-soft);
+    color: var(--vsc-text-soft);
     font-size: 0.92rem;
     line-height: 1.55;
 }
@@ -357,7 +357,7 @@ main {
     border-top: 1px solid rgba(15, 23, 42, 0.10);
     font-size: 0.84rem !important;
     line-height: 1.65;
-    color: var(--sosc-text-soft);
+    color: var(--vsc-text-soft);
 }
 
 @media (max-width: 640px) {
@@ -385,12 +385,12 @@ main {
 }
 
 .service-detail--gray {
-    background: var(--sosc-surface-gray);
+    background: var(--vsc-surface-gray);
 }
 
 .service-detail--blue {
     background: linear-gradient(180deg, #10243e, #0f1d31);
-    color: var(--sosc-text-inverse);
+    color: var(--vsc-text-inverse);
 }
 
 .service-detail--blue .service-detail-kicker,
@@ -401,7 +401,7 @@ main {
 .service-detail--blue li,
 .service-detail--blue ol,
 .service-detail--blue ul {
-    color: var(--sosc-text-inverse);
+    color: var(--vsc-text-inverse);
 }
 
 .service-detail--blue .faq-answer,
@@ -412,7 +412,7 @@ main {
 
 .service-detail-kicker {
     margin-bottom: 10px;
-    color: var(--sosc-blue);
+    color: var(--vsc-blue);
     font-size: 0.82rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -421,7 +421,7 @@ main {
 
 .service-detail h2 {
     margin: 0 0 14px;
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -433,7 +433,7 @@ main {
 
 .service-detail h3 {
     margin: 0 0 10px;
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     font-size: 1.02rem !important;
     line-height: 1.3;
 }
@@ -444,7 +444,7 @@ main {
 
 .service-detail-lead {
     margin: 0 0 16px;
-    color: var(--sosc-text);
+    color: var(--vsc-text);
     font-size: 1.03rem;
     line-height: 1.75;
 }
@@ -462,13 +462,13 @@ main {
 }
 
 .service-detail p {
-    color: var(--sosc-text-soft);
+    color: var(--vsc-text-soft);
 }
 
 .service-detail ul,
 .service-detail ol {
     margin: 10px 0 0 18px;
-    color: var(--sosc-text-soft);
+    color: var(--vsc-text-soft);
 }
 
 .service-detail li + li {
@@ -508,7 +508,7 @@ main {
 
 .service-detail-cta .btn--ghost {
     background: transparent;
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     border-color: rgba(15, 23, 42, 0.16);
     box-shadow: none;
 }
@@ -516,7 +516,7 @@ main {
 .service-detail-cta .btn--ghost:hover,
 .service-detail-cta .btn--ghost:focus-visible {
     background: rgba(15, 23, 42, 0.04);
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     border-color: rgba(15, 23, 42, 0.26);
 }
 
@@ -545,7 +545,7 @@ main {
 .faq-item {
     padding: 18px 18px 16px;
     background: #ffffff;
-    border: 1px solid var(--sosc-border);
+    border: 1px solid var(--vsc-border);
     border-radius: 16px;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
 }
@@ -559,14 +559,14 @@ main {
 .faq-question {
     margin: 0 0 8px;
     font-weight: 800;
-    color: var(--sosc-ink);
+    color: var(--vsc-ink);
     font-size: 1rem;
     line-height: 1.35;
 }
 
 .faq-answer {
     margin: 0;
-    color: var(--sosc-text-soft);
+    color: var(--vsc-text-soft);
     line-height: 1.7;
 }
 
@@ -584,7 +584,7 @@ main {
 }
 
 .service-detail a:not(.btn) {
-    color: var(--sosc-blue);
+    color: var(--vsc-blue);
 }
 
 .service-detail--blue a:not(.btn) {
@@ -647,7 +647,7 @@ main {
     .hero-inner,
     .page-shell,
     .service-detail-inner {
-        width: min(100% - 24px, var(--sosc-max)) !important;
+        width: min(100% - 24px, var(--vsc-max)) !important;
     }
 
     .hero-ctas,

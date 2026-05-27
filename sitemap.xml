@@ -3,7 +3,7 @@
   <!--  ========== HOMEPAGE ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -62,8 +62,8 @@
 
   <!--  ========== LOCATIONS HUB ==========  -->
   <url>
-    <loc>https://www.mobileamericannotary.com/locations/index.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://www.mobileamericannotary.com/locations/</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -71,43 +71,43 @@
   <!--  ========== HIGH PRIORITY LOCATIONS (High Impressions) ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/chatsworth-northridge.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/pasadena-altadena.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/downtown-los-angeles.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/burbank-glendale.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/westwood.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -121,79 +121,91 @@
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/beverly-hills.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/calabasas.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/locations/eagle-rock.html</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/encino-tarzana.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/hollywood-west-hollywood.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/locations/north-hollywood.html</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/san-fernando.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/simi-valley.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/valencia-santa-clarita.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://www.mobileamericannotary.com/locations/van-nuys.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://www.mobileamericannotary.com/locations/van-nuys-panorama-city.html</loc>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -653,7 +665,7 @@
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/transcript-college.html</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
