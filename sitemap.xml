@@ -113,12 +113,7 @@
   </url>
 
   <!--  ========== STANDARD LOCATIONS ==========  -->
-  <url>
-    <loc>https://www.mobileamericannotary.com/locations/apostille-philippines-spa.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
+
   <url>
     <loc>https://www.mobileamericannotary.com/locations/beverly-hills.html</loc>
     <lastmod>2026-05-27</lastmod>
@@ -870,8 +865,32 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/special-power-of-attorney.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/extra-judicial-settlement.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/deed-of-donation.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/affidavit-of-support.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
