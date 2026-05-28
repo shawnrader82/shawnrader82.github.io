@@ -179,6 +179,20 @@
     .ap-process { background: #f4f7fb !important; }
     .ap-timelines { background: #ffffff !important; }
 
+    /* Vital records has EXACTLY 4 cards. Default grid is 3 columns,
+       which leaves the 4th card (Divorce) alone on row 2 with two
+       empty slots. Force a symmetric 2x2 grid on desktop. The existing
+       ≤960px breakpoint already drops to 2 cols, so this only affects
+       wider viewports. The cards stretch slightly wider, which is fine. */
+    @media (min-width: 961px) {
+      .ap-families__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
     /* Hero highlight chips: rounded rectangles (not pills) */
     .home-hero__highlights {
       display: flex;
