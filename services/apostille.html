@@ -182,6 +182,135 @@
   <link rel="stylesheet" href="/assets/css/home.css">
   <link rel="stylesheet" href="/assets/css/services/apostille.css">
   <!-- ========== /CSS ========== -->
+  <style>
+    /* === Apostille hub modernization overrides === */
+
+    /* Hero highlight chips: rounded rectangles (not pills) */
+    .home-hero__highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .home-hero__highlights li {
+      border-radius: 6px !important;
+      padding: 0.32rem 0.7rem !important;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* Document family cards: clickable affordance, rounded rect chips */
+    .ap-families .nt-card {
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .ap-families .nt-card:hover,
+    .ap-families .nt-card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+      border-color: rgba(200, 16, 46, 0.35);
+    }
+    .ap-families .nt-card:focus-visible {
+      outline: 2px solid #c8102e;
+      outline-offset: 2px;
+    }
+    .ap-families .nt-card h3 a.nt-card__main-link {
+      transition: color .18s ease;
+    }
+    .ap-families .nt-card:hover h3 a.nt-card__main-link {
+      color: #c8102e;
+    }
+    .ap-families .nt-card__body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .ap-families .nt-card__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+      padding: 0;
+      margin: auto 0 1rem;
+    }
+    .ap-families .nt-card__chips li { margin: 0; }
+    .ap-families .nt-card__chips a {
+      display: inline-block;
+      border-radius: 6px !important;
+      padding: 0.22rem 0.55rem !important;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 1.3;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .ap-families .nt-card__chips a:hover,
+    .ap-families .nt-card__chips a:focus-visible {
+      background: rgba(200, 16, 46, 0.08);
+      border-color: rgba(200, 16, 46, 0.35);
+      color: #c8102e;
+    }
+
+    /* FAQ accordion */
+    .home-faq .faq-item {
+      padding: 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .home-faq .faq-item:hover {
+      border-color: rgba(200, 16, 46, 0.25);
+    }
+    .home-faq .faq-item[open] {
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      border-color: rgba(200, 16, 46, 0.35);
+    }
+    .home-faq .faq-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1rem 2.25rem 1rem 1.1rem;
+      position: relative;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+    .home-faq .faq-item > summary::-webkit-details-marker { display: none; }
+    .home-faq .faq-item > summary::after {
+      content: "+";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #64748b;
+      transition: transform .2s ease, color .2s ease;
+      line-height: 1;
+    }
+    .home-faq .faq-item[open] > summary::after {
+      content: "−";
+      color: #c8102e;
+    }
+    .home-faq .faq-item > p {
+      margin: 0;
+      padding: 0 1.1rem 1.1rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 <body data-nav-active="apostille">
   <!-- Google Tag Manager (noscript) -->
@@ -247,6 +376,11 @@
   <section class="home-trust-ribbon" aria-label="Trust signals">
     <div class="home-trust-ribbon__inner">
 
+      <div class="home-trust-ribbon__item">
+        <strong>Document Pre-Review</strong>
+        <span>We check format, seals, and notarization before submission.</span>
+      </div>
+
       <div class="home-trust-ribbon__item home-trust-ribbon__item--rating">
         <div class="home-trust-ribbon__meta" aria-hidden="true">
           <span class="home-trust-ribbon__google-mark">
@@ -265,13 +399,8 @@
             <span class="home-trust-ribbon__star">★</span>
           </span>
         </div>
-        <strong>150+ Reviews</strong>
+        <strong>150+ Five-Star Reviews</strong>
         <span>Rated 5.0 by local clients.</span>
-      </div>
-
-      <div class="home-trust-ribbon__item">
-        <strong>Document Pre-Review</strong>
-        <span>We check format, seals, and notarization before submission.</span>
       </div>
 
       <div class="home-trust-ribbon__item">
@@ -354,7 +483,7 @@
     <div class="section-shell">
       <header class="section-heading section-heading--centered ap-section-heading">
         <p class="section-kicker">Apostille Services</p>
-        <h2 id="ap-families-title">Pick the Document Family That Matches Yours.</h2>
+        <h2 id="ap-families-title">Pick the document family that matches yours.</h2>
         <p class="section-subhead ap-section-lead">
           Start with the document family that best matches your paperwork. Each guide explains what counts as a valid original, where it gets apostilled, and what tends to go wrong before submission.
         </p>
@@ -389,17 +518,6 @@
               <li><a href="/services/apostille/vital-records/death.html">Death</a></li>
             </ul>
           </div>
-
-          <div class="nt-card__actions">
-            <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text</a>
-            <a
-              class="nt-card__action nt-card__action--secondary"
-              href="https://apostille.mobileamericannotary.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Start Apostille Order
-            </a>
-          </div>
         </article>
 
         <!-- Court documents -->
@@ -427,17 +545,6 @@
               <li><a href="/services/apostille/court-documents/custody-name-change.html">Custody / Name Change</a></li>
               <li><a href="/services/apostille/court-documents/divorce-decree.html">Divorce Decree</a></li>
             </ul>
-          </div>
-
-          <div class="nt-card__actions">
-            <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text</a>
-            <a
-              class="nt-card__action nt-card__action--secondary"
-              href="https://apostille.mobileamericannotary.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Start Apostille Order
-            </a>
           </div>
         </article>
 
@@ -469,17 +576,6 @@
               <li><a href="/services/apostille/school-academic/enrollment-graduation-letters.html">Enrollment / Graduation Letters</a></li>
             </ul>
           </div>
-
-          <div class="nt-card__actions">
-            <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text</a>
-            <a
-              class="nt-card__action nt-card__action--secondary"
-              href="https://apostille.mobileamericannotary.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Start Apostille Order
-            </a>
-          </div>
         </article>
 
         <!-- Business & corporate -->
@@ -508,17 +604,6 @@
               <li><a href="/services/apostille/business-corporate/resolutions.html">Resolutions</a></li>
             </ul>
           </div>
-
-          <div class="nt-card__actions">
-            <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text</a>
-            <a
-              class="nt-card__action nt-card__action--secondary"
-              href="https://apostille.mobileamericannotary.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Start Apostille Order
-            </a>
-          </div>
         </article>
 
         <!-- Notarized documents -->
@@ -546,17 +631,6 @@
               <li><a href="/services/apostille/countries/philippines/special-power-of-attorney.html">Philippines SPA</a></li>
               <li><span>Affidavits</span></li>
             </ul>
-          </div>
-
-          <div class="nt-card__actions">
-            <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text</a>
-            <a
-              class="nt-card__action nt-card__action--secondary"
-              href="https://apostille.mobileamericannotary.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Start Apostille Order
-            </a>
           </div>
         </article>
 
@@ -588,17 +662,6 @@
               <li><a href="/services/apostille/federal-documents/birth-abroad.html">Birth Abroad</a></li>
               <li><a href="/services/apostille/federal-documents/death-abroad.html">Death Abroad</a></li>
             </ul>
-          </div>
-
-          <div class="nt-card__actions">
-            <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">Call / Text</a>
-            <a
-              class="nt-card__action nt-card__action--secondary"
-              href="https://apostille.mobileamericannotary.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Start Apostille Order
-            </a>
           </div>
         </article>
 
@@ -847,35 +910,35 @@
       </div>
 
       <div class="home-faq__grid home-faq__grid--force">
-        <article class="faq-item faq-item--force">
-          <h3>Do I need an apostille or consular legalization?</h3>
+        <details class="faq-item faq-item--force">
+          <summary>Do I need an apostille or consular legalization?</summary>
           <p>It depends on the destination country. Hague Apostille Convention countries usually accept a single apostille from the correct state or federal office. Non-Hague countries typically require state or federal authentication followed by consular legalization at the destination country’s embassy or consulate.</p>
-        </article>
+        </details>
 
-        <article class="faq-item faq-item--force">
-          <h3>Can I use a photocopy of my document?</h3>
+        <details class="faq-item faq-item--force">
+          <summary>Can I use a photocopy of my document?</summary>
           <p>Usually no. Most apostille offices require certified copies of vital records, original government-issued documents, or properly notarized originals. Plain photocopies are typically rejected.</p>
-        </article>
+        </details>
 
-        <article class="faq-item faq-item--force">
-          <h3>What is the fastest way to know what I need?</h3>
+        <details class="faq-item faq-item--force">
+          <summary>What is the fastest way to know what I need?</summary>
           <p>Call or text (213) 933-2507 with three things: your document type, the destination country, and your deadline. We’ll confirm whether you need a state apostille, federal apostille, or consular legalization before you book.</p>
-        </article>
+        </details>
 
-        <article class="faq-item faq-item--force">
-          <h3>How long does an apostille take?</h3>
+        <details class="faq-item faq-item--force">
+          <summary>How long does an apostille take?</summary>
           <p>California Secretary of State apostilles can often be completed same-day at the California walk-in counter or 3-10 business days by mail. U.S. Department of State federal apostilles typically take 4-8 weeks by mail, with limited expedited options. Consular legalization timelines vary by country.</p>
-        </article>
+        </details>
 
-        <article class="faq-item faq-item--force">
-          <h3>Do you handle translations too?</h3>
+        <details class="faq-item faq-item--force">
+          <summary>Do you handle translations too?</summary>
           <p>When the destination country requires a certified or sworn translation alongside the apostille, we can coordinate it in the right sequence so everything arrives in the format the receiving authority expects. Translation is supporting work for an apostille order rather than a standalone service.</p>
-        </article>
+        </details>
 
-        <article class="faq-item faq-item--force">
-          <h3>Do I need to be in Los Angeles to work with you?</h3>
+        <details class="faq-item faq-item--force">
+          <summary>Do I need to be in Los Angeles to work with you?</summary>
           <p>No. We help clients across California and from other U.S. states by mail. You can ship documents to us and we return them by secure courier after apostille or legalization.</p>
-        </article>
+        </details>
       </div>
     </div>
   </section>
