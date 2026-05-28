@@ -170,6 +170,15 @@
   <style>
     /* === Vital records hub modernization overrides === */
 
+    /* Section background alternation override —
+       global CSS leaves families/process/timelines all white in a row,
+       so we shade the middle bands to match the rest of the site rhythm.
+       Resulting flow: hero (dark) → trust-ribbon → families (white)
+       → process / reasons (shade) → timelines (white) → checklist (shade)
+       → faq (white). */
+    .ap-process { background: #f4f7fb !important; }
+    .ap-timelines { background: #ffffff !important; }
+
     /* Hero highlight chips: rounded rectangles (not pills) */
     .home-hero__highlights {
       display: flex;
