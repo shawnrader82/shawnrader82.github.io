@@ -159,7 +159,6 @@
 </style>
 <!-- ========== /PAGE-SPECIFIC MICRO-TWEAKS ========== -->
 
-
   <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -168,6 +167,150 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KWBRTN9M');
   </script>
+  <style>
+    /* === Vital records hub modernization overrides === */
+
+    /* Hero highlight chips: rounded rectangles (not pills) */
+    .home-hero__highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .home-hero__highlights li {
+      border-radius: 6px !important;
+      padding: 0.32rem 0.7rem !important;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* Back-link to parent apostille hub */
+    .ap-breadcrumb-back {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 0;
+      font-size: 0.92rem;
+    }
+    .ap-breadcrumb-back a {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .15s ease;
+    }
+    .ap-breadcrumb-back a:hover { color: #c8102e; }
+
+    /* Document family cards: clickable affordance */
+    .ap-families .nt-card {
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .ap-families .nt-card:hover,
+    .ap-families .nt-card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+      border-color: rgba(200, 16, 46, 0.35);
+    }
+    .ap-families .nt-card:focus-visible {
+      outline: 2px solid #c8102e;
+      outline-offset: 2px;
+    }
+    .ap-families .nt-card h3 a.nt-card__main-link {
+      transition: color .18s ease;
+    }
+    .ap-families .nt-card:hover h3 a.nt-card__main-link {
+      color: #c8102e;
+    }
+    .ap-families .nt-card__body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .ap-families .nt-card__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+      padding: 0;
+      margin: auto 0 1rem;
+    }
+    .ap-families .nt-card__chips li { margin: 0; }
+    .ap-families .nt-card__chips a {
+      display: inline-block;
+      border-radius: 6px !important;
+      padding: 0.22rem 0.55rem !important;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 1.3;
+      transition: background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .ap-families .nt-card__chips a:hover,
+    .ap-families .nt-card__chips a:focus-visible {
+      background: rgba(200, 16, 46, 0.08);
+      border-color: rgba(200, 16, 46, 0.35);
+      color: #c8102e;
+    }
+
+    /* FAQ accordion */
+    .home-faq .faq-item {
+      padding: 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .home-faq .faq-item:hover {
+      border-color: rgba(200, 16, 46, 0.25);
+    }
+    .home-faq .faq-item[open] {
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      border-color: rgba(200, 16, 46, 0.35);
+    }
+    .home-faq .faq-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1rem 2.25rem 1rem 1.1rem;
+      position: relative;
+      font-weight: 600;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+    .home-faq .faq-item > summary::-webkit-details-marker { display: none; }
+    .home-faq .faq-item > summary::after {
+      content: "+";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #64748b;
+      transition: transform .2s ease, color .2s ease;
+      line-height: 1;
+    }
+    .home-faq .faq-item[open] > summary::after {
+      content: "−";
+      color: #c8102e;
+    }
+    .home-faq .faq-item > p {
+      margin: 0;
+      padding: 0 1.1rem 1.1rem;
+      color: #475569;
+      line-height: 1.65;
+    }
+  </style>
 </head>
 
 <body data-nav-active="apostille">
@@ -182,6 +325,11 @@
   <!-- /SHARED HEADER -->
 
   <main>
+    <!-- Back-link to parent apostille hub -->
+    <nav class="ap-breadcrumb-back" aria-label="Breadcrumb">
+      <a href="/services/apostille.html">&larr; All apostille services</a>
+    </nav>
+
     <!-- ========== HERO (VITAL RECORDS HUB) ========== -->
     <section class="home-hero" aria-labelledby="vital-hero-title">
       <div class="home-hero__media">
@@ -208,7 +356,7 @@
           <a href="https://apostille.mobileamericannotary.com"
              class="home-hero__cta home-hero__cta--secondary"
              target="_blank" rel="noopener noreferrer">
-            Start Mail-In Order
+            Start Mail-In Order &nbsp;&rarr;
           </a>
         </div>
 
@@ -228,6 +376,11 @@
     <!-- ========== TRUST RIBBON (REUSE MAIN APOSTILLE STYLE) ========== -->
     <section class="home-trust-ribbon" aria-label="Trust signals">
       <div class="home-trust-ribbon__inner">
+        <div class="home-trust-ribbon__item">
+          <strong>Document pre‑review</strong>
+          <span>We confirm the right certified copy, issuing office, and apostille path before you ship anything.</span>
+        </div>
+
         <div class="home-trust-ribbon__item home-trust-ribbon__item--rating">
           <div class="home-trust-ribbon__meta" aria-hidden="true">
             <span class="home-trust-ribbon__google-mark">
@@ -247,13 +400,8 @@
               <span class="home-trust-ribbon__star"></span>
             </span>
           </div>
-          <strong>150+ Google Reviews</strong>
+          <strong>150+ Five-Star Reviews</strong>
           <span>Rated 5.0 by families and attorneys who needed vital records accepted overseas.</span>
-        </div>
-
-        <div class="home-trust-ribbon__item">
-          <strong>Document pre‑review</strong>
-          <span>We confirm the right certified copy, issuing office, and apostille path before you ship anything.</span>
         </div>
 
         <div class="home-trust-ribbon__item">
@@ -299,20 +447,10 @@
                 Certified birth certificates used for immigration, dual citizenship, marriage abroad, school enrollment, or other family and legal matters in another country.
               </p>
               <ul class="nt-card__chips" role="list" aria-label="Birth certificate use cases">
-                <li><span>Immigration &amp; visas</span></li>
-                <li><span>Dual citizenship</span></li>
-                <li><span>Marriage &amp; family filings</span></li>
+                <li><a href="/services/apostille/vital-records/birth.html#immigration">Immigration &amp; visas</a></li>
+                <li><a href="/services/apostille/vital-records/birth.html#dual-citizenship">Dual citizenship</a></li>
+                <li><a href="/services/apostille/vital-records/birth.html#family-filings">Marriage &amp; family filings</a></li>
               </ul>
-            </div>
-            <div class="nt-card__actions">
-              <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">
-                Call / Text
-              </a>
-              <a class="nt-card__action nt-card__action--secondary"
-                 href="https://apostille.mobileamericannotary.com"
-                 target="_blank" rel="noopener noreferrer">
-                Start birth order
-              </a>
             </div>
           </article>
 
@@ -334,20 +472,10 @@
                 Certified marriage certificates for spousal visas, recognition of marriage abroad, updating foreign IDs, or pension and benefits matters outside the U.S.
               </p>
               <ul class="nt-card__chips" role="list" aria-label="Marriage certificate use cases">
-                <li><span>Spousal visas</span></li>
-                <li><span>Recognition abroad</span></li>
-                <li><span>IDs &amp; benefits</span></li>
+                <li><a href="/services/apostille/vital-records/marriage.html#spousal-visas">Spousal visas</a></li>
+                <li><a href="/services/apostille/vital-records/marriage.html#recognition">Recognition abroad</a></li>
+                <li><a href="/services/apostille/vital-records/marriage.html#ids-benefits">IDs &amp; benefits</a></li>
               </ul>
-            </div>
-            <div class="nt-card__actions">
-              <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">
-                Call / Text
-              </a>
-              <a class="nt-card__action nt-card__action--secondary"
-                 href="https://apostille.mobileamericannotary.com"
-                 target="_blank" rel="noopener noreferrer">
-                Start marriage order
-              </a>
             </div>
           </article>
 
@@ -369,20 +497,10 @@
                 Certified death certificates used for estates, inheritance, pension claims, insurance, or transferring property in another country.
               </p>
               <ul class="nt-card__chips" role="list" aria-label="Death certificate use cases">
-                <li><span>Estates &amp; inheritance</span></li>
-                <li><span>Insurance &amp; pensions</span></li>
-                <li><span>Property transfers</span></li>
+                <li><a href="/services/apostille/vital-records/death.html#estates">Estates &amp; inheritance</a></li>
+                <li><a href="/services/apostille/vital-records/death.html#insurance-pensions">Insurance &amp; pensions</a></li>
+                <li><a href="/services/apostille/vital-records/death.html#property">Property transfers</a></li>
               </ul>
-            </div>
-            <div class="nt-card__actions">
-              <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">
-                Call / Text
-              </a>
-              <a class="nt-card__action nt-card__action--secondary"
-                 href="https://apostille.mobileamericannotary.com"
-                 target="_blank" rel="noopener noreferrer">
-                Start death order
-              </a>
             </div>
           </article>
 
@@ -404,20 +522,10 @@
                 Divorce decrees, judgments, and related records used for remarriage abroad, name changes, or other family law matters outside the United States.
               </p>
               <ul class="nt-card__chips" role="list" aria-label="Divorce record use cases">
-                <li><span>Remarriage abroad</span></li>
-                <li><span>Name changes</span></li>
-                <li><span>Family law filings</span></li>
+                <li><a href="/services/apostille/vital-records/divorce.html#remarriage">Remarriage abroad</a></li>
+                <li><a href="/services/apostille/vital-records/divorce.html#name-changes">Name changes</a></li>
+                <li><a href="/services/apostille/vital-records/divorce.html#family-law">Family law filings</a></li>
               </ul>
-            </div>
-            <div class="nt-card__actions">
-              <a class="nt-card__action nt-card__action--primary" href="tel:+12139332507">
-                Call / Text
-              </a>
-              <a class="nt-card__action nt-card__action--secondary"
-                 href="https://apostille.mobileamericannotary.com"
-                 target="_blank" rel="noopener noreferrer">
-                Start divorce order
-              </a>
             </div>
           </article>
         </div>
@@ -553,33 +661,25 @@
         </header>
 
         <div class="home-faq__grid home-faq__grid--force">
-          <article class="faq-item faq-item--force">
-            <h3>Do I have to order new vital records, or can I use what I already have?</h3>
-            <p>
-              Sometimes older certified copies are acceptable, but many destinations prefer recent, long‑form records with updated security features. We review a photo of what you have and tell you if a new copy is recommended before apostille.
-            </p>
-          </article>
+          <details class="faq-item faq-item--force">
+            <summary>Do I have to order new vital records, or can I use what I already have?</summary>
+            <p>Sometimes older certified copies are acceptable, but many destinations prefer recent, long‑form records with updated security features. We review a photo of what you have and tell you if a new copy is recommended before apostille.</p>
+          </details>
 
-          <article class="faq-item faq-item--force">
-            <h3>Can you help if my record was issued in another state?</h3>
-            <p>
-              Yes. We regularly help clients in Los Angeles with vital records issued in other states. Each state apostilles its own records, so we help you order certified copies from the right office and route them correctly.
-            </p>
-          </article>
+          <details class="faq-item faq-item--force">
+            <summary>Can you help if my record was issued in another state?</summary>
+            <p>Yes. We regularly help clients in Los Angeles with vital records issued in other states. Each state apostilles its own records, so we help you order certified copies from the right office and route them correctly.</p>
+          </details>
 
-          <article class="faq-item faq-item--force">
-            <h3>What if I am already outside the United States?</h3>
-            <p>
-              Many clients are overseas when they realize they need a U.S. birth, marriage, death, or divorce record apostilled. We coordinate with you and, when possible, with your representative here to obtain certified copies and handle apostille steps on your behalf.
-            </p>
-          </article>
+          <details class="faq-item faq-item--force">
+            <summary>What if I am already outside the United States?</summary>
+            <p>Many clients are overseas when they realize they need a U.S. birth, marriage, death, or divorce record apostilled. We coordinate with you and, when possible, with your representative here to obtain certified copies and handle apostille steps on your behalf.</p>
+          </details>
 
-          <article class="faq-item faq-item--force">
-            <h3>How do I know if I need an apostille or consular legalization?</h3>
-            <p>
-              Hague countries usually accept a state or federal apostille. Non‑Hague destinations often require a state authentication and consular legalization chain. We confirm the correct path for your country before you send any originals.
-            </p>
-          </article>
+          <details class="faq-item faq-item--force">
+            <summary>How do I know if I need an apostille or consular legalization?</summary>
+            <p>Hague countries usually accept a state or federal apostille. Non‑Hague destinations often require a state authentication and consular legalization chain. We confirm the correct path for your country before you send any originals.</p>
+          </details>
         </div>
       </div>
     </section>
