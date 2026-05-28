@@ -51,6 +51,13 @@
       box-shadow: 0 10px 24px -10px rgba(15, 23, 42, 0.18), 0 4px 8px -4px rgba(15, 23, 42, 0.10);
       border-color: rgba(15, 23, 42, 0.18);
     }
+    /* City title in location cards: slightly larger + bolder for scan-ability */
+    .service-lane--location-text h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+    }
     .service-lane--clickable:hover h3 {
       color: #c8102e;
     }
@@ -69,6 +76,40 @@
       .service-lane--clickable:active {
         transition: none;
         transform: none;
+      }
+    }
+
+    /* Landmark chips inside location cards (squared with rounded corners, matches header/hero CTAs) */
+    .loc-card-chips {
+      list-style: none;
+      padding: 0;
+      margin: 0.875rem 0 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.45rem;
+    }
+    .loc-card-chip {
+      display: inline-block;
+      padding: 0.22rem 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #475569;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+    .service-lane--clickable:hover .loc-card-chip {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #991b1b;
+    }
+    @media (max-width: 640px) {
+      .loc-card-chip {
+        font-size: 0.72rem;
+        padding: 0.2rem 0.5rem;
       }
     }
   </style>
@@ -426,17 +467,11 @@
               <p>
                 Homes, studios, offices, and hospitals, plus coordinated jail signings when families need help with urgent paperwork.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Ventura Blvd</li>
+              <li class="loc-card-chip">CBS Studio Center</li>
+              <li class="loc-card-chip">Sherman Oaks Galleria</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -453,17 +488,11 @@
               <p>
                 NoHo Arts District, Lankershim and Magnolia Boulevard, studios, offices, homes, and Valley Village appointments.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">NoHo Arts District</li>
+              <li class="loc-card-chip">Lankershim Blvd</li>
+              <li class="loc-card-chip">Valley Village</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -480,17 +509,11 @@
               <p>
                 Valley homes, professional offices, and medical centers, with flexible appointment options throughout the day.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Ventura Blvd</li>
+              <li class="loc-card-chip">Encino Hospital</li>
+              <li class="loc-card-chip">Tarzana Providence</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -507,17 +530,11 @@
               <p>
                 Homes, offices, courthouses, hospitals, and nearby Lake Balboa appointments, with coordinated notarizations when timing is tight.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Van Nuys Civic Center</li>
+              <li class="loc-card-chip">Valley Presbyterian</li>
+              <li class="loc-card-chip">Lake Balboa</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -534,17 +551,11 @@
               <p>
                 Neighborhood appointments near homes, schools, and local businesses, with guidance when documents may later need apostille work.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Sherman Way</li>
+              <li class="loc-card-chip">Reseda Blvd</li>
+              <li class="loc-card-chip">Lake Balboa Park</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -561,17 +572,11 @@
               <p>
                 North Valley support near major freeways, hospitals, and local jails, with visits coordinated around traffic and access.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Olive View-UCLA</li>
+              <li class="loc-card-chip">5 / 210 Freeway</li>
+              <li class="loc-card-chip">San Fernando Rd</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -588,17 +593,11 @@
               <p>
                 City of San Fernando and nearby communities for homes, small businesses, and local facilities needing mobile visits.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Maclay Ave</li>
+              <li class="loc-card-chip">San Fernando Mall</li>
+              <li class="loc-card-chip">City Hall area</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -615,17 +614,11 @@
               <p>
                 Homes, offices, and hospitals, plus jail-related document support when travel and timing must be coordinated carefully.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Rinaldi St</li>
+              <li class="loc-card-chip">Porter Ranch Town Center</li>
+              <li class="loc-card-chip">Mission Hills hospitals</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -642,17 +635,11 @@
               <p>
                 Service along the 118 corridor, including homes, campuses, hospitals, and document signings connected to detention coordination.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">118 corridor</li>
+              <li class="loc-card-chip">CSUN</li>
+              <li class="loc-card-chip">Dignity Northridge Hospital</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -669,17 +656,11 @@
               <p>
                 West Valley homes, offices, medical locations, and neighborhood appointments with travel coordinated around busy schedules.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Topanga Canyon</li>
+              <li class="loc-card-chip">Kaiser Woodland Hills</li>
+              <li class="loc-card-chip">West Hills UCLA</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -714,17 +695,11 @@
               <p>
                 Luxury homes, offices, and medical suites, with hospital and courthouse-area support when timing matters.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Rodeo Dr</li>
+              <li class="loc-card-chip">Cedars-Sinai</li>
+              <li class="loc-card-chip">Beverly Hills Courthouse</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -742,17 +717,11 @@
                 Mobile notary and apostille appointments for Westwood homes, UCLA-area medical offices, nearby hospitals,
                 law offices, and high-rise residences.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">UCLA Medical</li>
+              <li class="loc-card-chip">Wilshire Blvd</li>
+              <li class="loc-card-chip">Westwood high-rises</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -769,17 +738,11 @@
               <p>
                 Coastal homes, offices, hotels, and hospitals, with support for court and travel deadlines.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Ocean Ave</li>
+              <li class="loc-card-chip">Abbot Kinney</li>
+              <li class="loc-card-chip">Marina del Rey hotels</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -796,17 +759,11 @@
               <p>
                 Production offices, studios, homes, and nearby medical facilities with flexible scheduling.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Sunset Strip</li>
+              <li class="loc-card-chip">Production studios</li>
+              <li class="loc-card-chip">Kaiser Hollywood</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -823,17 +780,11 @@
               <p>
                 Studio, office, home, and hospital appointments tied to production and business schedules.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Media District studios</li>
+              <li class="loc-card-chip">Providence Saint Joseph</li>
+              <li class="loc-card-chip">Glendale Galleria</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -850,17 +801,11 @@
               <p>
                 Homes, offices, and hospitals near Pasadena courts and medical centers, with courthouse-adjacent support.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Colorado Blvd</li>
+              <li class="loc-card-chip">Huntington Hospital</li>
+              <li class="loc-card-chip">Pasadena Courthouse</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -877,17 +822,11 @@
               <p>
                 Hillside homes, neighborhood offices, and nearby medical and care facilities along the Glendale/Pasadena edge, with relaxed appointment timing.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Colorado Blvd</li>
+              <li class="loc-card-chip">Occidental College</li>
+              <li class="loc-card-chip">Glendale/Pasadena edge</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -921,17 +860,11 @@
               <p>
                 Notary and apostille help tied to Downtown courts, offices, hospitals, and nearby detention facilities when documents must move quickly.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">DTLA Courts</li>
+              <li class="loc-card-chip">Twin Towers</li>
+              <li class="loc-card-chip">LA Live / Financial District</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -965,17 +898,11 @@
               <p>
                 Homes, businesses, and nearby facilities, with scheduling built around travel time and document deadlines.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Henry Mayo Hospital</li>
+              <li class="loc-card-chip">Six Flags area</li>
+              <li class="loc-card-chip">Old Town Newhall</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -1009,17 +936,11 @@
               <p>
                 Homes, schools, offices, and hospitals, with scheduling support for urgent documents and coordinated signings.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Simi Valley Adventist</li>
+              <li class="loc-card-chip">Madera Rd</li>
+              <li class="loc-card-chip">Tapo Canyon</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -1036,17 +957,11 @@
               <p>
                 Conejo Valley homes, offices, small businesses, and hospitals, with travel coordinated around appointment times.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Los Robles Hospital</li>
+              <li class="loc-card-chip">Westlake Blvd</li>
+              <li class="loc-card-chip">The Oaks Mall</li>
+            </ul>
             </div>
           </div>
         </article>
@@ -1064,17 +979,11 @@
                 Mobile notary and apostille support for Calabasas homes, gated communities, offices, and nearby care facilities,
                 with travel coordinated around access instructions, appointment windows, and document deadlines.
               </p>
-            </div>
-            <div class="service-lane-actions service-lane-actions--split">
-              <a class="service-lane-split-button service-lane-split-button--left"
-                 href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services"
-                 target="_blank" rel="noopener noreferrer"
-                 data-card-action>
-                Book Online
-              </a>
-              <a class="service-lane-split-button service-lane-split-button--right" href="tel:+12139332507" data-card-action>
-                Call / Text
-              </a>
+            <ul class="loc-card-chips" aria-label="Area landmarks">
+              <li class="loc-card-chip">Calabasas Commons</li>
+              <li class="loc-card-chip">Mulholland Hwy</li>
+              <li class="loc-card-chip">Gated communities</li>
+            </ul>
             </div>
           </div>
         </article>
