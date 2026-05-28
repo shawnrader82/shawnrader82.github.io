@@ -1,0 +1,4 @@
+source_url,target_url,status,preserve_query_string,subpath_matching,include_subdomains
+https://www.mobileamericannotary.com/services/apostille/poa-notarized.html,https://www.mobileamericannotary.com/services/apostille/notarized-documents.html,301,true,false,false
+https://www.mobileamericannotary.com/services/apostille/poa-notarized/notarized-documents.html,https://www.mobileamericannotary.com/services/apostille/notarized-documents.html,301,true,false,false
+https://www.mobileamericannotary.com/services/apostille/poa-notarized/,https://www.mobileamericannotary.com/services/apostille/notarized-documents.html,301,true,true,false
