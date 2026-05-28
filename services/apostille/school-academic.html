@@ -158,6 +158,156 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KWBRTN9M');
   </script>
+  <!-- inline overrides: school hub modernization -->
+  <style>
+    /* Alternating section backgrounds (white / shade) */
+    .ap-process { background: #f4f7fb; }
+    .ap-timelines { background: #ffffff !important; }
+    .ap-families { background: #f4f7fb; }
+    .home-faq { background: #ffffff; }
+
+    /* Hero CTA arrow on the secondary (Mail-In) button */
+    .home-hero__cta--secondary::after {
+      content: " \2192";
+      display: inline-block;
+      margin-left: 0.3rem;
+      font-weight: 600;
+    }
+
+    /* 7 cards in a 4+3 grid: row 1 has 4 columns, row 2 has the last 3
+       centered. We use a 12-col grid above 1080px so each card spans 3 cols
+       on row 1 and 4 cols on row 2, offset to center.
+       At <=960px the base CSS already drops to 2 cols, then 1 col at <=767. */
+    @media (min-width: 1081px) {
+      /* 12-column grid: row 1 = 4 cards spanning 3 cols each (1-3, 4-6, 7-9, 10-12).
+         Row 2 = 3 cards spanning 3 cols each but offset by 1.5 cols to center
+         under row 1. Since 3 cards x 3 cols = 9 cols, we center via cols 2-10. */
+      .ap-families__grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+      }
+      .ap-families__grid > .nt-card:nth-child(1) { grid-column: 1 / span 3; }
+      .ap-families__grid > .nt-card:nth-child(2) { grid-column: 4 / span 3; }
+      .ap-families__grid > .nt-card:nth-child(3) { grid-column: 7 / span 3; }
+      .ap-families__grid > .nt-card:nth-child(4) { grid-column: 10 / span 3; }
+      .ap-families__grid > .nt-card:nth-child(5) { grid-column: 2 / span 3; }
+      .ap-families__grid > .nt-card:nth-child(6) { grid-column: 5 / span 3; }
+      .ap-families__grid > .nt-card:nth-child(7) { grid-column: 8 / span 3; }
+    }
+
+    /* Hero highlight chips: rounded rectangles (not pills) */
+    .home-hero__highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+    .home-hero__highlights li {
+      border-radius: 6px !important;
+      padding: 0.32rem 0.7rem !important;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-size: 0.85rem;
+    }
+
+    /* Card hover lift */
+    .ap-families .nt-card {
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      cursor: pointer;
+    }
+    .ap-families .nt-card:hover,
+    .ap-families .nt-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.10);
+    }
+    .ap-families .nt-card:focus-visible {
+      outline: 2px solid rgba(200, 16, 46, 0.45);
+      outline-offset: 2px;
+    }
+    .ap-families .nt-card h3 a.nt-card__main-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .ap-families .nt-card:hover h3 a.nt-card__main-link {
+      color: #c8102e;
+    }
+    .ap-families .nt-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .ap-families .nt-card__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      list-style: none;
+      padding: 0;
+      margin: 0.3rem 0 0;
+    }
+    .ap-families .nt-card__chips li { margin: 0; }
+    .ap-families .nt-card__chips a {
+      display: inline-block;
+      border-radius: 6px;
+      padding: 0.22rem 0.55rem;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 0.78rem;
+      text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .ap-families .nt-card__chips a:hover,
+    .ap-families .nt-card__chips a:focus-visible {
+      background: rgba(200, 16, 46, 0.08);
+      border-color: rgba(200, 16, 46, 0.35);
+      color: #c8102e;
+      outline: none;
+    }
+
+    /* FAQ accordion (details/summary) */
+    .home-faq details.faq-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin: 0.6rem 0;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .home-faq details.faq-item[open] {
+      border-color: rgba(200, 16, 46, 0.35);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+    }
+    .home-faq details.faq-item > summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .home-faq details.faq-item > summary::-webkit-details-marker { display: none; }
+    .home-faq details.faq-item > summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #c8102e;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform 0.18s ease;
+    }
+    .home-faq details.faq-item[open] > summary::after {
+      content: "\2212";
+    }
+    .home-faq details.faq-item > p {
+      margin: 0.85rem 0 0;
+      color: #475569;
+    }
+  </style>
 </head>
 
 <body data-nav-active="apostille">
@@ -190,10 +340,10 @@
           <a href="tel:+12139332507" class="home-hero__cta home-hero__cta--primary">
             Call or Text (213) 933-2507
           </a>
-          <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services/LRDDCATAHZEA4TC3E6DG2RA6"
+          <a href="https://apostille.mobileamericannotary.com"
              class="home-hero__cta home-hero__cta--secondary"
              target="_blank" rel="noopener noreferrer">
-            Book Apostille Appointment
+            Mail-In Apostille Service
           </a>
         </div>
 
@@ -213,24 +363,24 @@
     <!-- ========== TRUST RIBBON ========== -->
     <section class="home-trust-ribbon" aria-label="Trust signals">
       <div class="home-trust-ribbon__inner">
-        <div class="home-trust-ribbon__item home-trust-ribbon__item--rating">
-          <strong>100+ Google Reviews</strong>
-          <span>Trusted by students, graduates, and professionals needing documents accepted overseas.</span>
-        </div>
-
         <div class="home-trust-ribbon__item">
           <strong>Document pre-review</strong>
-          <span>We review the document format first so you do not request or notarize the wrong version.</span>
+          <span>We review the school-issued or notarized format first so you do not request or pay for the wrong version.</span>
+        </div>
+
+        <div class="home-trust-ribbon__item home-trust-ribbon__item--rating">
+          <strong>150+ Five-Star Reviews</strong>
+          <span>Trusted by students, graduates, and professionals needing academic records accepted overseas.</span>
         </div>
 
         <div class="home-trust-ribbon__item">
-          <strong>School-specific guidance</strong>
+          <strong>School-specific routing</strong>
           <span>We help confirm whether the record must come from the registrar, be notarized, or be reissued before apostille.</span>
         </div>
 
         <div class="home-trust-ribbon__item">
-          <strong>Los Angeles + statewide help</strong>
-          <span>Local support in Los Angeles County and coordination for California mail-in apostille cases.</span>
+          <strong>Mail-in welcome</strong>
+          <span>Out-of-state schools and clients living abroad can mail documents in for end-to-end apostille handling.</span>
         </div>
       </div>
     </section>
@@ -324,14 +474,15 @@
 <section class="ap-families" aria-labelledby="academic-docs-title">
   <div class="section-shell">
     <header class="section-heading section-heading--centered ap-section-heading">
-      <p class="section-kicker">Academic document types</p>
-      <h2 id="academic-docs-title">Choose the school document you need apostilled.</h2>
+      <p class="section-kicker">School &amp; academic document types</p>
+      <h2 id="academic-docs-title">Pick the academic record that matches your situation.</h2>
       <p class="ap-section-lead">
-        Start with the academic record that matches your situation. Each page explains the document format, notarization or registrar requirements, and the apostille path for that specific school record.
+        Start with the specific school document you need to use abroad. Each guide explains what type of certified copy or notarized format is usually required and how the apostille process works.
       </p>
     </header>
 
     <div class="ap-families__grid nt-services-grid">
+
       <!-- High school diploma -->
       <article class="nt-card ap-card ap-card--vital">
         <div class="nt-card__banner">
@@ -347,12 +498,12 @@
             </a>
           </h3>
           <p>
-            Apostille help for high school diplomas used for study abroad, immigration, dual citizenship, and overseas school or work applications.
+            Apostille for high school diplomas used for study abroad, immigration, dual citizenship, and overseas school or work applications.
           </p>
           <ul class="nt-card__chips" role="list" aria-label="High school diploma use cases">
-            <li><span>Study abroad</span></li>
-            <li><span>Immigration</span></li>
-            <li><span>Education verification</span></li>
+            <li><a href="/services/apostille/school-academic/diploma-high-school.html#study-abroad">Study abroad</a></li>
+            <li><a href="/services/apostille/school-academic/diploma-high-school.html#immigration">Immigration</a></li>
+            <li><a href="/services/apostille/school-academic/diploma-high-school.html#education-verification">Education verification</a></li>
           </ul>
         </div>
       </article>
@@ -372,12 +523,12 @@
             </a>
           </h3>
           <p>
-            Help with official high school transcripts that need apostille for admissions, credential evaluation, or family immigration matters abroad.
+            Official high school transcripts apostilled for admissions, credential evaluation, or family immigration matters abroad.
           </p>
           <ul class="nt-card__chips" role="list" aria-label="High school transcript use cases">
-            <li><span>Admissions</span></li>
-            <li><span>Credential review</span></li>
-            <li><span>Immigration files</span></li>
+            <li><a href="/services/apostille/school-academic/transcript-high-school.html#admissions">Admissions</a></li>
+            <li><a href="/services/apostille/school-academic/transcript-high-school.html#credential-review">Credential review</a></li>
+            <li><a href="/services/apostille/school-academic/transcript-high-school.html#immigration-files">Immigration files</a></li>
           </ul>
         </div>
       </article>
@@ -397,12 +548,12 @@
             </a>
           </h3>
           <p>
-            Apostille service for college and university diplomas used for graduate programs, professional licensing, overseas employment, and immigration.
+            College and university diplomas apostilled for graduate programs, professional licensing, overseas employment, and immigration.
           </p>
           <ul class="nt-card__chips" role="list" aria-label="College diploma use cases">
-            <li><span>Graduate school</span></li>
-            <li><span>Licensing</span></li>
-            <li><span>Work abroad</span></li>
+            <li><a href="/services/apostille/school-academic/diploma-college.html#graduate-school">Graduate school</a></li>
+            <li><a href="/services/apostille/school-academic/diploma-college.html#licensing">Licensing</a></li>
+            <li><a href="/services/apostille/school-academic/diploma-college.html#work-abroad">Work abroad</a></li>
           </ul>
         </div>
       </article>
@@ -422,12 +573,12 @@
             </a>
           </h3>
           <p>
-            Help with official college and university transcripts for foreign schools, licensing boards, credential evaluators, and visa applications.
+            Official college and university transcripts apostilled for foreign schools, licensing boards, credential evaluators, and visa applications.
           </p>
           <ul class="nt-card__chips" role="list" aria-label="College transcript use cases">
-            <li><span>Foreign schools</span></li>
-            <li><span>Licensing boards</span></li>
-            <li><span>Visa support</span></li>
+            <li><a href="/services/apostille/school-academic/transcript-college.html#foreign-schools">Foreign schools</a></li>
+            <li><a href="/services/apostille/school-academic/transcript-college.html#licensing-boards">Licensing boards</a></li>
+            <li><a href="/services/apostille/school-academic/transcript-college.html#visa-support">Visa support</a></li>
           </ul>
         </div>
       </article>
@@ -447,15 +598,66 @@
             </a>
           </h3>
           <p>
-            Apostille help for enrollment verification, attendance letters, graduation confirmations, and other school-issued academic letters.
+            Apostille for enrollment verification, attendance letters, graduation confirmations, and other school-issued academic letters.
           </p>
           <ul class="nt-card__chips" role="list" aria-label="Enrollment and graduation letter use cases">
-            <li><span>Enrollment proof</span></li>
-            <li><span>Graduation confirmation</span></li>
-            <li><span>School letters abroad</span></li>
+            <li><a href="/services/apostille/school-academic/enrollment-graduation-letters.html#enrollment-proof">Enrollment proof</a></li>
+            <li><a href="/services/apostille/school-academic/enrollment-graduation-letters.html#graduation-confirmation">Graduation confirmation</a></li>
+            <li><a href="/services/apostille/school-academic/enrollment-graduation-letters.html#scholarships">Scholarships &amp; programs</a></li>
           </ul>
         </div>
       </article>
+
+      <!-- TEFL / TESOL certificate (NEW) -->
+      <article class="nt-card ap-card ap-card--vital">
+        <div class="nt-card__banner">
+          <span class="nt-card__banner-kicker">Teaching credential</span>
+          <span class="nt-card__banner-title">TEFL / TESOL certificate</span>
+        </div>
+        <div class="nt-card__body">
+          <h3>
+            <a href="/services/apostille/school-academic/tefl-tesol-certificate.html"
+               class="nt-card__main-link"
+               aria-label="Open the TEFL TESOL certificate apostille page">
+              TEFL / TESOL certificate apostille
+            </a>
+          </h3>
+          <p>
+            TEFL, TESOL, CELTA, and English-teaching certificates apostilled for work permits and teaching visas in China, South Korea, Spain, and beyond.
+          </p>
+          <ul class="nt-card__chips" role="list" aria-label="TEFL TESOL certificate use cases">
+            <li><a href="/services/apostille/school-academic/tefl-tesol-certificate.html#teach-abroad">Teach abroad</a></li>
+            <li><a href="/services/apostille/school-academic/tefl-tesol-certificate.html#work-visa">Work visa</a></li>
+            <li><a href="/services/apostille/school-academic/tefl-tesol-certificate.html#china-korea">China &amp; Korea</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Course descriptions / syllabi (NEW) -->
+      <article class="nt-card ap-card ap-card--vital">
+        <div class="nt-card__banner">
+          <span class="nt-card__banner-kicker">Academic document</span>
+          <span class="nt-card__banner-title">Course descriptions &amp; syllabi</span>
+        </div>
+        <div class="nt-card__body">
+          <h3>
+            <a href="/services/apostille/school-academic/course-descriptions-syllabi.html"
+               class="nt-card__main-link"
+               aria-label="Open the course descriptions and syllabi apostille page">
+              Course descriptions &amp; syllabi apostille
+            </a>
+          </h3>
+          <p>
+            Apostille for course descriptions, syllabi, and program outlines used for foreign credential evaluation, license reciprocity, and graduate admissions abroad.
+          </p>
+          <ul class="nt-card__chips" role="list" aria-label="Course descriptions and syllabi use cases">
+            <li><a href="/services/apostille/school-academic/course-descriptions-syllabi.html#credential-evaluation">Credential evaluation</a></li>
+            <li><a href="/services/apostille/school-academic/course-descriptions-syllabi.html#license-reciprocity">License reciprocity</a></li>
+            <li><a href="/services/apostille/school-academic/course-descriptions-syllabi.html#graduate-admissions">Graduate admissions</a></li>
+          </ul>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -469,35 +671,22 @@
           <h2 id="academic-faq-title">Questions about apostilling school documents.</h2>
         </header>
 
-        <div class="home-faq__grid home-faq__grid--force">
-          <article class="faq-item faq-item--force">
-            <h3>Do transcripts need to be sealed or notarized?</h3>
-            <p>
-              It depends on the destination and the school’s issuing process. Some cases accept registrar-issued records, while others require notarization or a specific certification step before apostille.
-            </p>
-          </article>
-
-          <article class="faq-item faq-item--force">
-            <h3>Can you help with school records from another state?</h3>
-            <p>
-              Yes. Many clients studied in another state and now live in Los Angeles. Those documents usually must be apostilled through the state connected to the school or notarization.
-            </p>
-          </article>
-
-          <article class="faq-item faq-item--force">
-            <h3>Can I use electronic or scanned transcripts?</h3>
-            <p>
-              Electronic records are useful for review, but apostille processing often requires paper documents in a specific certified or notarized format. We confirm what is acceptable before you order replacements.
-            </p>
-          </article>
-
-          <article class="faq-item faq-item--force">
-            <h3>Do I need apostille or consular legalization?</h3>
-            <p>
-              Hague Convention countries usually accept an apostille. Non-Hague destinations often require an authentication and consular legalization chain instead.
-            </p>
-          </article>
-        </div>
+                <details class="faq-item">
+          <summary>Do transcripts need to be sealed or notarized?</summary>
+          <p>It depends on the destination and the school’s issuing process. Some cases accept registrar-issued records, while others require notarization or a specific certification step before apostille.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you help with school records from another state?</summary>
+          <p>Yes. Many clients studied in another state and now live in Los Angeles. Those documents usually must be apostilled through the state connected to the school or notarization.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use electronic or scanned transcripts?</summary>
+          <p>Electronic records are useful for review, but apostille processing often requires paper documents in a specific certified or notarized format. We confirm what is acceptable before you order replacements.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need apostille or consular legalization?</summary>
+          <p>Hague Convention countries usually accept an apostille. Non-Hague destinations often require an authentication and consular legalization chain instead.</p>
+        </details>
       </div>
     </section>
     <!-- ========== /FAQ ========== -->
