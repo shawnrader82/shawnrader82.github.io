@@ -177,18 +177,17 @@
        auto-center via place-self / grid-column hints.
        At <=960px the base CSS already drops to 2 cols, then 1 col at <=767. */
     @media (min-width: 1081px) {
+      /* 6-column grid: row 1 = 3 cards spanning 2 cols each (0-2, 2-4, 4-6).
+         Row 2 = 2 cards spanning 2 cols each but offset by 1 col to center
+         them under the gap between cards 1+2 and 2+3 (1-3, 3-5). */
       .ap-families__grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
       }
-      /* Center the last 2 cards (4th and 5th) on row 2 */
-      .ap-families__grid > .nt-card:nth-child(4) {
-        grid-column: 1 / span 1;
-        margin-left: calc(50% / 2);
-      }
-      .ap-families__grid > .nt-card:nth-child(5) {
-        grid-column: 2 / span 1;
-        margin-right: calc(-50% / 2);
-      }
+      .ap-families__grid > .nt-card:nth-child(1) { grid-column: 1 / span 2; }
+      .ap-families__grid > .nt-card:nth-child(2) { grid-column: 3 / span 2; }
+      .ap-families__grid > .nt-card:nth-child(3) { grid-column: 5 / span 2; }
+      .ap-families__grid > .nt-card:nth-child(4) { grid-column: 2 / span 2; }
+      .ap-families__grid > .nt-card:nth-child(5) { grid-column: 4 / span 2; }
     }
 
     /* Hero highlight chips: rounded rectangles (not pills) */
