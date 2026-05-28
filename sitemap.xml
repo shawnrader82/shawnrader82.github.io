@@ -240,7 +240,7 @@
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -423,6 +423,44 @@
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
+  </url>
+
+  <!--  ========== HOSPITAL DOC-TYPE SPOKES (Phase 4 Job A) ==========  -->
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/hospital/advance-healthcare-directive.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/hospital/healthcare-power-of-attorney.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/hospital/living-will.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/hospital/hipaa-authorization.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/hospital/molst-polst.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/hospital/bedside-notary.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
 
   <!--  ========== HIGH PRIORITY JAIL NOTARY (Top Facilities) ==========  -->
