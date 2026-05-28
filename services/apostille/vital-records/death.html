@@ -512,6 +512,19 @@
 
     /* Section heading sentence-case sanity */
     .ap-section-heading h2 { text-transform: none; }
+
+    /* Section background alternation (mirrors hub/apostille pages) */
+    .vs-shade {
+      background: #f4f7fb;
+    }
+    .vs-shade + .vs-shade {
+      /* prevents two shaded blocks from merging visually if ever stacked */
+      border-top: 1px solid rgba(15, 23, 42, 0.04);
+    }
+    /* FAQ on shaded band needs slight item contrast */
+    .vs-shade.home-faq .faq-item {
+      background: #fff;
+    }
   </style>
   <!-- ========== /PAGE-SPECIFIC STYLES ========== -->
 </head>
@@ -569,6 +582,7 @@
 
     <!-- ========== INTRO ========== -->
     <section class="ap-process" aria-labelledby="spoke-intro-title">
+      <!-- intentionally white -->
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">What this page covers</p>
@@ -580,7 +594,7 @@
     <!-- ========== /INTRO ========== -->
 
     <!-- ========== COMMON REASONS ========== -->
-    <section class="ap-process" aria-labelledby="spoke-reasons-title" style="padding-top:0;">
+    <section class="ap-process vs-shade" aria-labelledby="spoke-reasons-title">
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">Common reasons people need this</p>
@@ -606,6 +620,7 @@
 
     <!-- ========== HOW IT WORKS ========== -->
     <section class="ap-process" aria-labelledby="spoke-steps-title">
+      <!-- intentionally white -->
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">How it works</p>
@@ -633,7 +648,7 @@
     <!-- ========== /HOW IT WORKS ========== -->
 
     <!-- ========== ACCEPTED vs REJECTED ========== -->
-    <section class="ap-process" aria-labelledby="spoke-acc-title" style="padding-top:0;">
+    <section class="ap-process vs-shade" aria-labelledby="spoke-acc-title">
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">What will and won't be accepted</p>
@@ -666,7 +681,8 @@
     <!-- ========== /ACCEPTED vs REJECTED ========== -->
 
     <!-- ========== TIMELINES ========== -->
-    <section class="ap-process" aria-labelledby="spoke-time-title" style="padding-top:0;">
+    <section class="ap-process" aria-labelledby="spoke-time-title">
+      <!-- intentionally white -->
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">Realistic timelines</p>
@@ -695,7 +711,7 @@
     <!-- ========== /TIMELINES ========== -->
 
     <!-- ========== CHECKLIST + ASIDE ========== -->
-    <section class="ap-process" aria-labelledby="spoke-checklist-title" style="padding-top:0;">
+    <section class="ap-process vs-shade" aria-labelledby="spoke-checklist-title">
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">Before you contact us</p>
@@ -728,6 +744,7 @@
 
     <!-- ========== FAQ ========== -->
     <section class="home-faq" aria-labelledby="spoke-faq-title">
+      <!-- intentionally white -->
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">Death Certificate apostille FAQ</p>
@@ -762,7 +779,7 @@
     <!-- ========== /FAQ ========== -->
 
     <!-- ========== SIBLING CROSS-LINKS ========== -->
-    <section class="ap-process" aria-labelledby="spoke-siblings-title" style="padding-top:0;">
+    <section class="ap-process vs-shade" aria-labelledby="spoke-siblings-title">
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
           <p class="section-kicker">Other vital records</p>
