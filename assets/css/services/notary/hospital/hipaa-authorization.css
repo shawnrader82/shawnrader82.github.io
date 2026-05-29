@@ -2,7 +2,7 @@
 /* Canonical stylesheet #4 — loaded after global.css, header.css, home.css */
 
 /* ========== 01) HERO BACKGROUND ========== */
-/* Drop /assets/images/hero/hospitals/hipaa-authorization.webp to activate the hero image.
+/* Drop /assets/images/hero/hospitals/notary-bedside-setup.webp to activate the hero image.
    Until the image is present the dark gradient fallback is shown. */
 
 .home-hero {
@@ -10,7 +10,7 @@
 }
 
 .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/hipaa-authorization.webp");
+  background-image: url("/assets/images/hero/hospitals/notary-bedside-setup.webp");
 }
 
 /* ========== 02) SECTION BACKGROUND ZEBRA ========== */
