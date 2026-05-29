@@ -40,12 +40,37 @@
       menu.hidden = true;
     }
 
+    // Info bar slide state: hide on scroll-down past threshold,
+    // show on scroll-up. Desktop only (info bar hidden via CSS on ≤900px).
+    var infobar = document.getElementById('home-infobar');
+    var lastScrollY = window.scrollY;
+    var HIDE_THRESHOLD = 80;
+    var SHOW_THRESHOLD_DELTA = 30;
+
     function handleScroll() {
-      if (window.scrollY > 20) {
+      var y = window.scrollY;
+      var goingDown = y > lastScrollY;
+      var delta = Math.abs(y - lastScrollY);
+
+      if (y > 20) {
         header.classList.add('is-scrolled');
       } else {
         header.classList.remove('is-scrolled');
       }
+
+      // Info bar slide behavior (skip on touch/narrow screens where it's hidden anyway).
+      if (infobar && window.innerWidth > 900) {
+        if (y <= 4) {
+          // Always show at the very top.
+          infobar.classList.remove('is-hidden');
+        } else if (goingDown && y > HIDE_THRESHOLD) {
+          infobar.classList.add('is-hidden');
+        } else if (!goingDown && delta > SHOW_THRESHOLD_DELTA) {
+          infobar.classList.remove('is-hidden');
+        }
+      }
+
+      lastScrollY = y;
     }
 
     if (toggle && menu) {

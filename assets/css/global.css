@@ -61,7 +61,8 @@ html {
 
 body {
   margin: 0;
-  padding-top: 64px;
+  /* 64px header + 32px info bar (desktop). Mobile overrides below. */
+  padding-top: 96px;
   font-family: var(--font-main);
   color: var(--color-text);
   background: #ffffff;
