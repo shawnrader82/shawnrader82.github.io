@@ -81,15 +81,32 @@
       font-size: 0.85rem;
     }
 
-    /* Card hover */
+    /* Card shell — matches apostille hub canonical pattern */
     .ap-families .nt-card {
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow:
+        0 10px 24px rgba(15, 23, 42, 0.04),
+        0 18px 40px rgba(15, 23, 42, 0.03);
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
       cursor: pointer;
     }
     .ap-families .nt-card:hover,
-    .ap-families .nt-card:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.10);
+    .ap-families .nt-card:focus-within {
+      transform: translateY(-6px);
+      border-color: rgba(15, 23, 42, 0.12);
+      box-shadow:
+        0 14px 32px rgba(15, 23, 42, 0.06),
+        0 24px 56px rgba(15, 23, 42, 0.08);
     }
     .ap-families .nt-card:focus-visible {
       outline: 2px solid rgba(200, 16, 46, 0.45);
@@ -103,11 +120,19 @@
       color: #c8102e;
     }
     .ap-families .nt-card__body {
-      padding-bottom: 22px !important;
-      flex: 1 1 auto;
+      position: relative;
+      z-index: 2;
       display: flex;
+      flex: 1 1 auto;
       flex-direction: column;
+      align-items: flex-start;
+      min-height: 280px;
+      padding: 22px 22px 22px;
       gap: 0.85rem;
+    }
+    .ap-families .nt-card__body p {
+      min-height: 88px;
+      margin: 0;
     }
     .ap-families .nt-card__chips {
       margin: auto 0 0;
