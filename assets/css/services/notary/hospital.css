@@ -285,6 +285,56 @@
   line-height: 1.55;
 }
 
+/* Bullet list inside step cards */
+.ap-step ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+.ap-step li {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 0.45rem;
+}
+.ap-step li:last-child { margin-bottom: 0; }
+
+/* 3+2 grid for the 5 step cards */
+.ap-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 22px;
+  margin-top: 28px;
+}
+.ap-steps__grid .ap-step:nth-child(1),
+.ap-steps__grid .ap-step:nth-child(2),
+.ap-steps__grid .ap-step:nth-child(3) {
+  grid-column: span 2; /* 3 cards on top row, each 2/6 width */
+}
+.ap-steps__grid .ap-step:nth-child(4),
+.ap-steps__grid .ap-step:nth-child(5) {
+  grid-column: span 3; /* 2 cards on bottom row, each 3/6 width */
+}
+@media (max-width: 1080px) {
+  .ap-steps__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ap-steps__grid .ap-step:nth-child(n) {
+    grid-column: auto;
+  }
+  .ap-steps__grid .ap-step:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 640px) {
+  .ap-steps__grid {
+    grid-template-columns: 1fr;
+  }
+  .ap-steps__grid .ap-step:nth-child(n) {
+    grid-column: auto;
+  }
+}
+
 /* Responsive: 4-col → 2-col at tablet → 1-col at small mobile */
 @media (max-width: 1080px) {
   .ap-process__grid {
