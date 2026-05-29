@@ -162,7 +162,7 @@ main {
     background:
     linear-gradient(90deg, rgba(15, 23, 42, 0.76) 0%, rgba(15, 23, 42, 0.57) 45%, rgba(15, 23, 42, 0.37) 100%),
     linear-gradient(180deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.34) 100%),
-    url("../../images/hero/locations/eagle-rock-notary-apostille.webp") center/cover no-repeat;
+    url("/assets/images/hero/locations/valencia-santa-clarita-notary-apostille.webp") center/cover no-repeat;
     pointer-events: none;
 }
 
