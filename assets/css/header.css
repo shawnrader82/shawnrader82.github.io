@@ -61,20 +61,12 @@
   background: rgba(148, 163, 184, 0.30);
 }
 
-/* Main header sits BELOW the info bar by 32px when the info bar is visible.
-   When the info bar slides up, the header slides up to top:0. */
-.home-header {
-  top: 32px;
-  transition: top 0.28s ease;
-}
-
-.home-infobar.is-hidden ~ .home-header,
-.home-header.is-pinned-top {
-  top: 0;
-}
-
+/* Main header sits 32px below top to leave room for the info bar.
+   When the info bar slides up (.is-hidden), the header follows up to top:0. */
 .home-header {
   position: fixed;
+  top: 32px;
+  left: 0;
   z-index: 9999;
   width: 100%;
   background: rgba(15, 23, 42, 0.96);
@@ -83,6 +75,11 @@
   border-bottom: 1px solid rgba(15, 23, 42, 0.9);
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.28);
   font-family: var(--font-main);
+  transition: top 0.28s ease;
+}
+
+.home-infobar.is-hidden ~ .home-header {
+  top: 0;
 }
 
 .home-header.is-scrolled {
