@@ -14,9 +14,21 @@
     .ap-families.vs-shade { background: #f4f7fb; }
     .home-faq { background: #ffffff; }
 
-    /* FIX 1: Trust ribbon breathing room below hero */
+    /* FIX 1: Trust ribbon breathing room above AND below */
     body[data-nav-active="notary"] .home-trust-ribbon {
-      padding-bottom: clamp(2rem, 4vw, 3rem);
+      padding-top: clamp(2rem, 4vw, 3rem) !important;
+      padding-bottom: clamp(2rem, 4vw, 3rem) !important;
+      margin-top: clamp(1.5rem, 3vw, 2.5rem) !important;
+    }
+
+    /* Section heading above 6 cards: breathing room from trust ribbon */
+    .ap-families {
+      padding-top: clamp(2.5rem, 5vw, 4rem) !important;
+    }
+    .ap-families__intro,
+    .ap-families h2 {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
     }
 
     /* Hero CTA secondary arrow */
@@ -544,7 +556,13 @@
 }
 
 .hosp-other-banner {
-  margin-top: 2.5rem;
+  margin-top: 2.5rem !important;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
+/* Extra bottom padding inside the 17-hospital section so banner doesn't kiss section edge */
+.ap-families:has(.hosp-card-grid) {
+  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
 }
 
 /* ========== FIX 5: 6 doc-type card banner colors ========== */
@@ -574,8 +592,14 @@
 .ap-card--hipaa .nt-card__banner,
 .ap-card--polst .nt-card__banner,
 .ap-card--bedside .nt-card__banner {
-  color: #ffffff;
-  padding: 1.25rem 1.4rem;
+  color: #ffffff !important;
+  padding: 1.5rem 1.6rem 1.25rem !important;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 .ap-card--ahcd .nt-card__banner-kicker,
 .ap-card--hpoa .nt-card__banner-kicker,
