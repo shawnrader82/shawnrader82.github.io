@@ -45,7 +45,7 @@
 }
 
 /* Protruding square logo — sits in the header bar but extends below it
-   with a soft drop-shadow underneath. */
+   with a soft drop-shadow underneath. Reads like a notary seal / badge. */
 .home-header__logo-box {
   display: inline-flex;
   align-items: center;
@@ -53,13 +53,17 @@
   width: 72px;
   height: 72px;
   padding: 6px;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #ffffff;
+  /* Subtle hairline border for premium finish. */
+  border: 1px solid rgba(15, 23, 42, 0.06);
   /* Bottom edge of the square sits 16px below the header bar (64px header). */
   margin-top: 8px;
   margin-bottom: -16px;
-  /* Soft shadow under the protruding square. */
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.28), 0 2px 4px rgba(15, 23, 42, 0.18);
+  /* Two-layer floating shadow — wide diffuse + tight contact. */
+  box-shadow:
+    0 14px 28px rgba(15, 23, 42, 0.30),
+    0 4px 8px rgba(15, 23, 42, 0.16);
   position: relative;
   z-index: 1;
 }
@@ -298,11 +302,13 @@
     width: 56px;
     height: 56px;
     padding: 4px;
-    border-radius: 8px;
+    border-radius: 10px;
     /* On mobile, header is 56px tall — protrude 12px below. */
     margin-top: 6px;
     margin-bottom: -12px;
-    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.24), 0 2px 4px rgba(15, 23, 42, 0.14);
+    box-shadow:
+      0 10px 20px rgba(15, 23, 42, 0.26),
+      0 3px 6px rgba(15, 23, 42, 0.14);
   }
 
   .home-header__logo {
