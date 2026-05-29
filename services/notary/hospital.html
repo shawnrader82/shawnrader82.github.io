@@ -498,151 +498,280 @@
     <section class="ap-families vs-shade" aria-labelledby="hosp-locations-title">
       <div class="section-shell">
         <header class="section-heading section-heading--centered ap-section-heading">
-          <p class="section-kicker">Hospitals we serve</p>
-          <h2 id="hosp-locations-title">17 hospitals across Los Angeles and Ventura County.</h2>
+          <p class="section-kicker">Find your hospital</p>
+          <h2 id="hosp-locations-title">Hospital &amp; Facility Explorer</h2>
           <p class="section-lede">
-            Select a hospital for parking details, check-in instructions, and what to prepare before we arrive.
+            Choose your area to see the hospitals we serve and what to expect at each one. Pricing is tiered by distance from our Granada Hills base — pick your hospital below for details, directions, and to book.
           </p>
         </header>
 
-        <div class="hosp-card-grid">
-          <a class="hosp-card" href="/services/notary/hospital/beverly-grove-cedars-sinai.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/beverly-grove-cedars-sinai.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Cedars-Sinai Medical Center</h3>
-              <p class="hosp-card__neighborhood">Beverly Grove</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/boyle-heights-keck-usc.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/boyle-heights-keck-usc.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Keck Hospital of USC</h3>
-              <p class="hosp-card__neighborhood">Boyle Heights</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/burbank-providence-saint-joseph.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/burbank-providence-saint-joseph.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Providence Saint Joseph Medical Center</h3>
-              <p class="hosp-card__neighborhood">Burbank</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/east-hollywood-presbyterian.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/east-hollywood-presbyterian.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Hollywood Presbyterian Medical Center</h3>
-              <p class="hosp-card__neighborhood">East Hollywood</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/encino-hospital-medical-center.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/encino-hospital-medical-center.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Encino Hospital Medical Center</h3>
-              <p class="hosp-card__neighborhood">Encino</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/hollywood-kaiser.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/hollywood-kaiser.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Kaiser Permanente LA Medical Center</h3>
-              <p class="hosp-card__neighborhood">Hollywood</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/mission-hills-providence-holy-cross.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/mission-hills-providence-holy-cross.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Providence Holy Cross Medical Center</h3>
-              <p class="hosp-card__neighborhood">Mission Hills</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
+        <!-- Regional filter pills -->
+        <div class="hosp-region-tabs" role="tablist" aria-label="Hospital region filter">
+          <button type="button" class="hosp-region-tab is-active" role="tab" aria-selected="true" data-region="sfv">San Fernando Valley &amp; Santa Clarita</button>
+          <button type="button" class="hosp-region-tab" role="tab" aria-selected="false" data-region="la">Simi Valley, Thousand Oaks, Hollywood &amp; LA</button>
+          <button type="button" class="hosp-region-tab" role="tab" aria-selected="false" data-region="other">Other Facilities</button>
+        </div>
+
+        <!-- Pricing context line — updates per active region -->
+        <p class="hosp-region-context" data-region-context>
+          Standard hospital visit from <strong>$175</strong> &bull; Typically 10&ndash;40 minutes from our base
+        </p>
+
+        <!-- Tier 1 grid — San Fernando Valley & Santa Clarita -->
+        <div class="hosp-card-grid hosp-region-panel is-active" data-region-panel="sfv" role="tabpanel">
+
           <a class="hosp-card" href="/services/notary/hospital/northridge-dignity-northridge.html">
             <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/northridge-dignity-northridge.webp');"></div>
             <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Northridge Hospital Medical Center</h3>
-              <p class="hosp-card__neighborhood">Northridge</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Dignity Health Northridge Hospital</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Northridge &bull; 18300 Roscoe Blvd</p>
+              <p class="hosp-card__blurb">Full-service acute care with Level II trauma center, cardiac, stroke, and cancer services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
             </div>
           </a>
-          <a class="hosp-card" href="/services/notary/hospital/simi-valley-adventist.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/simi-valley-adventist.webp');"></div>
+
+          <a class="hosp-card" href="/services/notary/hospital/mission-hills-providence-holy-cross.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/mission-hills-providence-holy-cross.webp');"></div>
             <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Adventist Health Simi Valley</h3>
-              <p class="hosp-card__neighborhood">Simi Valley</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Providence Holy Cross Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Mission Hills &bull; 15031 Rinaldi St</p>
+              <p class="hosp-card__blurb">Major SFV hospital with ER, trauma, cardiac, stroke, and maternity services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
             </div>
           </a>
-          <a class="hosp-card" href="/services/notary/hospital/sylmar-olive-view-ucla.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/sylmar-olive-view-ucla.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Olive View&#8211;UCLA Medical Center</h3>
-              <p class="hosp-card__neighborhood">Sylmar</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/tarzana-providence-cedars-sinai.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/tarzana-providence-cedars-sinai.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Providence Cedars-Sinai Tarzana Medical Center</h3>
-              <p class="hosp-card__neighborhood">Tarzana</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/thousand-oaks-los-robles.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/thousand-oaks-los-robles.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Los Robles Regional Medical Center</h3>
-              <p class="hosp-card__neighborhood">Thousand Oaks</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/valencia-henry-mayo.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/valencia-henry-mayo.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Henry Mayo Newhall Hospital</h3>
-              <p class="hosp-card__neighborhood">Valencia</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/van-nuys-valley-presbyterian.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/van-nuys-valley-presbyterian.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Valley Presbyterian Hospital</h3>
-              <p class="hosp-card__neighborhood">Van Nuys</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/west-hills-ucla-west-valley.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/west-hills-ucla-west-valley.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">UCLA West Valley Medical Center</h3>
-              <p class="hosp-card__neighborhood">West Hills</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
-          <a class="hosp-card" href="/services/notary/hospital/westwood-ucla.html">
-            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/westwood-ucla.webp');"></div>
-            <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Ronald Reagan UCLA Medical Center</h3>
-              <p class="hosp-card__neighborhood">Westwood</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
-            </div>
-          </a>
+
           <a class="hosp-card" href="/services/notary/hospital/woodland-hills-kaiser.html">
             <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/woodland-hills-kaiser.webp');"></div>
             <div class="hosp-card__body">
-              <h3 class="hosp-card__title">Kaiser Permanente Woodland Hills</h3>
-              <p class="hosp-card__neighborhood">Woodland Hills</p>
-              <span class="hosp-card__cta">Parking &amp; check-in details &rarr;</span>
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Kaiser Permanente Woodland Hills</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Woodland Hills &bull; 5601 De Soto Ave</p>
+              <p class="hosp-card__blurb">Kaiser&rsquo;s West Valley medical center with hospital, medical offices, and specialty departments.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
             </div>
           </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/valencia-henry-mayo.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/valencia-henry-mayo.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Henry Mayo Newhall Hospital</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Valencia &bull; 23845 McBean Pkwy</p>
+              <p class="hosp-card__blurb">The primary hospital for the Santa Clarita Valley with ER, surgical, cardiac, and maternity services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/encino-hospital-medical-center.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/encino-hospital-medical-center.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Encino Hospital Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Encino &bull; 16237 Ventura Blvd</p>
+              <p class="hosp-card__blurb">Community hospital on Ventura Blvd with ER, surgical care, and inpatient services. Compact campus, easy parking.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/sylmar-olive-view-ucla.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/sylmar-olive-view-ucla.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Olive View&ndash;UCLA Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Sylmar &bull; 14445 Olive View Dr</p>
+              <p class="hosp-card__blurb">County hospital, 355 beds. 24/7 ER, urgent care, and full inpatient services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/tarzana-providence-cedars-sinai.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/tarzana-providence-cedars-sinai.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Providence Cedars-Sinai Tarzana Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Tarzana &bull; 18321 Clark St</p>
+              <p class="hosp-card__blurb">Cedars-Sinai affiliated hospital in Tarzana with ER, surgical, cardiac, and maternity services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/van-nuys-valley-presbyterian.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/van-nuys-valley-presbyterian.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Valley Presbyterian Hospital</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">Van Nuys &bull; 15107 Vanowen St</p>
+              <p class="hosp-card__blurb">Independent acute-care hospital serving the central San Fernando Valley with ER, ICU, and surgical services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/west-hills-ucla-west-valley.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/west-hills-ucla-west-valley.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">UCLA West Valley Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t1">TIER 1</span>
+              </div>
+              <p class="hosp-card__address">West Hills &bull; 7300 Medical Center Dr</p>
+              <p class="hosp-card__blurb">UCLA Health acute-care hospital with ER, surgical, and inpatient services for the West Valley.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
         </div>
+
+        <!-- Tier 2 grid — Simi Valley, Thousand Oaks, Hollywood & LA -->
+        <div class="hosp-card-grid hosp-region-panel" data-region-panel="la" role="tabpanel" hidden>
+
+          <a class="hosp-card" href="/services/notary/hospital/simi-valley-adventist.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/simi-valley-adventist.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Adventist Health Simi Valley</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Simi Valley &bull; 2975 N Sycamore Dr</p>
+              <p class="hosp-card__blurb">Community hospital serving Simi Valley and Moorpark via the 118 freeway corridor.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/thousand-oaks-los-robles.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/thousand-oaks-los-robles.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Los Robles Regional Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Thousand Oaks &bull; 215 W Janss Rd</p>
+              <p class="hosp-card__blurb">Level II trauma center in Ventura County with cardiac, surgical, and orthopedic services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/hollywood-kaiser.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/hollywood-kaiser.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Kaiser Permanente LA Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Hollywood &bull; 4867 Sunset Blvd</p>
+              <p class="hosp-card__blurb">Kaiser&rsquo;s flagship LA hospital with transplant, oncology, cardiac, and full specialty services.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/beverly-grove-cedars-sinai.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/beverly-grove-cedars-sinai.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Cedars-Sinai Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Beverly Grove &bull; 8700 Beverly Blvd</p>
+              <p class="hosp-card__blurb">One of the most recognized hospitals in Los Angeles with nationally ranked specialties.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/east-hollywood-presbyterian.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/east-hollywood-presbyterian.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Hollywood Presbyterian Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">East Hollywood &bull; 1300 N Vermont Ave</p>
+              <p class="hosp-card__blurb">Established community hospital near Vermont and Sunset with ER, cardiac, ortho, and a new patient tower.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/boyle-heights-keck-usc.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/boyle-heights-keck-usc.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Keck Hospital of USC</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Boyle Heights &bull; 1500 San Pablo St</p>
+              <p class="hosp-card__blurb">Major academic medical center with transplant, oncology, neurosurgery, and advanced specialty care.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/burbank-providence-saint-joseph.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/burbank-providence-saint-joseph.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Providence Saint Joseph Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Burbank &bull; 501 S Buena Vista St</p>
+              <p class="hosp-card__blurb">Acute-care hospital in Burbank with ER, cardiac, oncology, and surgical services. Adjacent to studio district.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+          <a class="hosp-card" href="/services/notary/hospital/westwood-ucla.html">
+            <div class="hosp-card__media" style="background-image: url('/assets/images/hero/hospitals/westwood-ucla.webp');"></div>
+            <div class="hosp-card__body">
+              <div class="hosp-card__header">
+                <h3 class="hosp-card__title">Ronald Reagan UCLA Medical Center</h3>
+                <span class="hosp-card__tier hosp-card__tier--t2">TIER 2</span>
+              </div>
+              <p class="hosp-card__address">Westwood &bull; 757 Westwood Plaza</p>
+              <p class="hosp-card__blurb">UCLA Health flagship hospital with transplant, neurosurgery, oncology, and nationally ranked specialty care.</p>
+              <span class="hosp-card__cta">Tap for details &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Tier 3 text block — Other Facilities -->
+        <div class="hosp-region-panel hosp-other-panel" data-region-panel="other" role="tabpanel" hidden>
+          <div class="hosp-other-card">
+            <h3>We serve more than hospitals</h3>
+            <p>In addition to the hospitals listed above, we regularly visit:</p>
+            <ul>
+              <li>Skilled nursing facilities (SNFs)</li>
+              <li>Rehabilitation and physical therapy centers</li>
+              <li>Assisted living and memory care communities</li>
+              <li>Hospice facilities</li>
+              <li>Urgent care centers and outpatient surgery centers</li>
+              <li>Hospitals in downtown LA, Glendale, Pasadena, Santa Monica, and Ventura</li>
+              <li>Lancaster, Palmdale, and extended-area facilities (Tier 3 &mdash; from $250)</li>
+            </ul>
+            <p>If your facility is not shown on this page, call or text us at <a href="tel:+12139332507">(213) 933-2507</a> and we will confirm coverage, travel time, and pricing for your specific location.</p>
+          </div>
+        </div>
+
+        <!-- Final highlight banner (always visible) -->
+        <p class="hosp-other-banner">
+          <strong>Don&rsquo;t see your hospital?</strong> We also serve skilled nursing facilities, rehabilitation centers, assisted living communities, and other medical facilities throughout Los Angeles and Ventura County.
+          <a href="tel:+12139332507">Call or text (213) 933-2507</a> and we&rsquo;ll confirm coverage and pricing.
+        </p>
+
       </div>
     </section>
     <!-- ========== /LOCATION HOSPITALS ========== -->
@@ -750,8 +879,15 @@
           <p class="section-kicker">Client feedback</p>
           <h2 id="hosp-reviews-title">150+ Five-Star Reviews from families across Los Angeles.</h2>
         </header>
-        <div style="max-width:900px;margin:0 auto;">
-          <iframe src="https://widgets.sociablekit.com/google-reviews/iframe/25643233" frameborder="0" width="100%" height="340" style="border:0;border-radius:12px;" title="Client reviews"></iframe>
+        <div class="home-reviews__frame">
+          <iframe
+            src="https://widgets.sociablekit.com/google-reviews/iframe/25643233"
+            title="Google reviews for Mobile American Notary"
+            loading="lazy"
+            width="100%"
+            height="100%"
+            style="border:0;">
+          </iframe>
         </div>
       </div>
     </section>
@@ -763,6 +899,35 @@
   <div id="footer-placeholder"></div>
   <script src="/assets/js/footer.min.js" defer></script>
   <!-- /SHARED FOOTER -->
+
+<!-- REGIONAL PILL TOGGLE -->
+<script>
+(function() {
+  const tabs = document.querySelectorAll('.hosp-region-tab');
+  const panels = document.querySelectorAll('.hosp-region-panel');
+  const ctx = document.querySelector('[data-region-context]');
+  const contextCopy = {
+    sfv: 'Standard hospital visit from <strong>$175</strong> &bull; Typically 10&ndash;40 minutes from our base',
+    la: 'Standard hospital visit from <strong>$225</strong> &bull; Typically 35&ndash;60+ minutes from our base',
+    other: 'Pricing varies by location &bull; Call for a quote on facilities not listed above'
+  };
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const region = tab.dataset.region;
+      tabs.forEach(t => {
+        t.classList.toggle('is-active', t === tab);
+        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const isActive = p.dataset.regionPanel === region;
+        p.classList.toggle('is-active', isActive);
+        if (isActive) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+      });
+      if (ctx && contextCopy[region]) { ctx.innerHTML = contextCopy[region]; }
+    });
+  });
+})();
+</script>
 
 <!-- DOCUMENT FAMILY CARD CLICK HELPER -->
 <script>
