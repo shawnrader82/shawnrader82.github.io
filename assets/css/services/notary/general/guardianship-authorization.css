@@ -770,3 +770,27 @@ Art direction: match general notary hub with a tighter POA-specific spoke layout
 }
 
 /* ========== /RESPONSIVE ========== */
+
+/* ========== HERO CHIPS ========== */
+
+.home-hero__chips {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 16px !important;
+}
+
+.home-hero__chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  padding: 4px 12px !important;
+  border-radius: 6px !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  line-height: 1.4 !important;
+}
+
+/* ========== /HERO CHIPS ========== */
