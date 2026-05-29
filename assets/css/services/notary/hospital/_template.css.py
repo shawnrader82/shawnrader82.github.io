@@ -1,0 +1,587 @@
+#!/usr/bin/env python3
+"""Generate 17 hospital-spoke CSS files and rewrite the 17 HTML pages."""
+
+import os
+import re
+
+SLUGS = [
+    "beverly-grove-cedars-sinai",
+    "boyle-heights-keck-usc",
+    "burbank-providence-saint-joseph",
+    "east-hollywood-presbyterian",
+    "encino-hospital-medical-center",
+    "hollywood-kaiser",
+    "mission-hills-providence-holy-cross",
+    "northridge-dignity-northridge",
+    "simi-valley-adventist",
+    "sylmar-olive-view-ucla",
+    "tarzana-providence-cedars-sinai",
+    "thousand-oaks-los-robles",
+    "valencia-henry-mayo",
+    "van-nuys-valley-presbyterian",
+    "west-hills-ucla-west-valley",
+    "westwood-ucla",
+    "woodland-hills-kaiser",
+]
+
+CSS_TEMPLATE = """\
+/* ========== HOSPITAL SPOKE CSS: {slug} ========== */
+/* Canonical stylesheet #4 — loaded after global.css, header.css, home.css */
+
+/* ========== 01) HERO BACKGROUND ========== */
+/* Drop /assets/images/hero/hospitals/{slug}.webp to activate the hero image.
+   Until the image is present the dark gradient fallback is shown. */
+
+.home-hero {{
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}}
+
+.home-hero__media {{
+  background-image: url("/assets/images/hero/hospitals/{slug}.webp");
+}}
+
+/* ========== 02) SECTION BACKGROUND ZEBRA ========== */
+/* True alternation: base ap-process = white, ap-process.vs-shade = grey.
+   The hospital HUB forces both grey; spokes want real zebra. */
+
+.ap-process {{ background: #ffffff; }}
+.ap-process.vs-shade {{ background: #f4f7fb; }}
+.home-faq {{ background: #ffffff; }}
+
+/* ========== 03) HERO HIGHLIGHT CHIPS ========== */
+/* Locked mandate: 6px rounded rect with !important — NOT 999px pills */
+
+.home-hero__highlights {{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}}
+
+.home-hero__highlights li {{
+  border-radius: 6px !important;
+  padding: 0.32rem 0.7rem !important;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.3;
+}}
+
+/* ========== 04) SCOPE NOTE ========== */
+
+.vs-scope {{
+  max-width: 900px;
+  margin: 1.25rem auto 0;
+  padding: 0.85rem 1.1rem;
+  background: #f8fafc;
+  border-left: 3px solid #c8102e;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.55;
+}}
+
+.vs-scope a {{
+  color: #c8102e;
+  font-weight: 600;
+}}
+
+/* ========== 05) INTRO PARAGRAPH ========== */
+
+.vs-intro {{
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #334155;
+}}
+
+/* ========== 06) HOSPITAL INFO GRID ========== */
+
+.nt-info-grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}}
+
+.nt-info-box {{
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+}}
+
+.nt-info-box h3 {{
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #c8102e;
+}}
+
+.nt-info-box p {{
+  margin: 0;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}}
+
+/* ========== 07) REASONS GRID ========== */
+
+.vs-reasons {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}}
+
+.vs-reason {{
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  transition: border-color .15s ease;
+  scroll-margin-top: 100px;
+}}
+
+.vs-reason:target {{
+  border-color: rgba(200, 16, 46, 0.45);
+  box-shadow: 0 8px 22px rgba(200, 16, 46, 0.08);
+}}
+
+.vs-reason h3 {{
+  margin: 0 0 .4rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}}
+
+.vs-reason p {{
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}}
+
+/* ========== 08) CHECKLIST CARDS ========== */
+
+.vs-checklist-row {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}}
+
+.vs-checklist {{
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}}
+
+.vs-checklist h3 {{
+  margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}}
+
+.vs-checklist ul {{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}}
+
+.vs-checklist li {{
+  padding: .6rem 0 .6rem 1.7rem;
+  position: relative;
+  color: #475569;
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.95rem;
+}}
+
+.vs-checklist li:last-child {{
+  border-bottom: 0;
+}}
+
+.vs-checklist li::before {{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .85rem;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #c8102e;
+  border-radius: 3px;
+  background: #fff;
+}}
+
+.vs-aside {{
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}}
+
+.vs-aside h3 {{
+  margin: 0 0 .5rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}}
+
+.vs-aside ul {{
+  list-style: disc;
+  padding: 0 0 0 1.1rem;
+  margin: 0;
+}}
+
+.vs-aside li {{
+  padding: .35rem 0;
+  color: #475569;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}}
+
+/* ========== 09) AP-PROCESS / AP-STEP (ported from apostille.css) ========== */
+
+.ap-process {{
+  padding: 64px 0;
+}}
+
+.ap-process__grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}}
+
+.ap-step {{
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.3rem 1.2rem;
+}}
+
+/* NOTE: ap-step__num keeps border-radius: 6px (NOT 999px pill) on these spokes
+   to match the inline-style version used before migration. The pill shape
+   is the apostille.css default; spokes historically used 6px squares. */
+.ap-step__num {{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
+  background: #c8102e;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}}
+
+.ap-step h3 {{
+  margin: 0 0 0.4rem;
+  font-size: 1.02rem;
+  color: #0f172a;
+}}
+
+.ap-step p {{
+  margin: 0;
+  color: #475569;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}}
+
+/* ========== 10) AP-TIMELINES (ported from apostille.css) ========== */
+
+.ap-timelines {{
+  padding: 64px 0;
+  background: #ffffff;
+}}
+
+.ap-timelines__grid {{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}}
+
+.ap-timeline-card {{
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
+}}
+
+.ap-timeline-card h3 {{
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}}
+
+.ap-timeline-card h4 {{
+  margin: 14px 0 6px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}}
+
+.ap-timeline-card ul {{
+  margin: 0;
+  padding-left: 18px;
+}}
+
+.ap-timeline-card li {{
+  margin-bottom: 6px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}}
+
+/* ========== 11) NT-CARD GRID ========== */
+
+.nt-card-grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}}
+
+.nt-card {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.93rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}}
+
+.nt-card:hover,
+.nt-card:focus-visible {{
+  border-color: rgba(200, 16, 46, 0.4);
+  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.08);
+  color: #c8102e;
+}}
+
+.nt-card__title {{ flex: 1; }}
+.nt-card__arrow {{ color: #94a3b8; font-size: 1.1rem; flex-shrink: 0; }}
+.nt-card:hover .nt-card__arrow,
+.nt-card:focus-visible .nt-card__arrow {{ color: #c8102e; }}
+
+/* ========== 12) 150+ FIVE-STAR REVIEWS BAR ========== */
+
+.nt-reviews-bar {{
+  background: #0f172a;
+  color: #fff;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}}
+
+.nt-reviews-bar .stars {{
+  color: #fbbf24;
+  margin-right: 0.4rem;
+}}
+
+/* ========== 13) FAQ ACCORDION ========== */
+
+.home-faq .faq-item {{
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  margin-bottom: 0.65rem;
+}}
+
+.home-faq .faq-item:hover {{
+  border-color: rgba(200, 16, 46, 0.25);
+}}
+
+.home-faq .faq-item[open] {{
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border-color: rgba(200, 16, 46, 0.35);
+}}
+
+.home-faq .faq-item > summary {{
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 2.25rem 1rem 1.1rem;
+  position: relative;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+}}
+
+.home-faq .faq-item > summary::-webkit-details-marker {{ display: none; }}
+
+.home-faq .faq-item > summary::after {{
+  content: "+";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #64748b;
+  transition: transform .2s ease, color .2s ease;
+  line-height: 1;
+}}
+
+.home-faq .faq-item[open] > summary::after {{
+  content: "\\2212";
+  color: #c8102e;
+}}
+
+.home-faq .faq-item > p {{
+  margin: 0;
+  padding: 0 1.1rem 1.1rem;
+  color: #475569;
+  line-height: 1.65;
+}}
+
+/* ========== 14) SIBLING LINKS ========== */
+
+.vs-siblings {{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}}
+
+.vs-sibling {{
+  flex: 1 1 240px;
+  display: inline-block;
+  padding: 0.7rem 0.95rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}}
+
+.vs-sibling:hover,
+.vs-sibling:focus-visible {{
+  background: rgba(200, 16, 46, 0.06);
+  border-color: rgba(200, 16, 46, 0.35);
+  color: #c8102e;
+}}
+
+/* ========== 15) SECTION HEADING OVERRIDE ========== */
+
+.ap-section-heading h2 {{ text-transform: none; }}
+
+/* ========== 16) SHADE / ZEBRA HELPERS ========== */
+
+.vs-shade.home-faq .faq-item {{ background: #fff; }}
+
+/* ========== /{slug} ========== */
+"""
+
+REPO_ROOT = "/tmp/vital-fetch"
+CSS_DIR = os.path.join(REPO_ROOT, "assets/css/services/notary/hospital")
+HTML_DIR = os.path.join(REPO_ROOT, "services/notary/hospital")
+
+# Canonical CSS block template (4 stylesheets)
+CSS_BLOCK_TEMPLATE = """\
+<!-- ========== CSS ========== -->
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <link rel="stylesheet" href="/assets/css/services/notary/hospital/{slug}.css">
+  <!-- ========== /CSS ========== -->"""
+
+os.makedirs(CSS_DIR, exist_ok=True)
+
+for slug in SLUGS:
+    # ---- 1) Write CSS file ----
+    css_content = CSS_TEMPLATE.format(slug=slug)
+    css_path = os.path.join(CSS_DIR, f"{slug}.css")
+    with open(css_path, "w") as f:
+        f.write(css_content)
+    lines = css_content.count("\n")
+    print(f"CSS written: {slug}.css ({lines} lines)")
+
+    # ---- 2) Rewrite HTML ----
+    html_path = os.path.join(HTML_DIR, f"{slug}.html")
+    with open(html_path, "r") as f:
+        html = f.read()
+
+    # A) Replace CSS block — handle both old comment styles and bare link blocks
+    # Pattern: from <!-- CSS --> (or <!-- ========== CSS ========== -->) 
+    # to <!-- /CSS --> (or <!-- ========== /CSS ========== -->) inclusive
+    css_block_pattern = re.compile(
+        r'<!--\s*={0,10}\s*CSS\s*={0,10}\s*-->.*?<!--\s*/{0,1}\s*={0,10}\s*/?CSS\s*={0,10}\s*-->',
+        re.DOTALL | re.IGNORECASE
+    )
+    new_css_block = CSS_BLOCK_TEMPLATE.format(slug=slug)
+    
+    if css_block_pattern.search(html):
+        html = css_block_pattern.sub(new_css_block, html, count=1)
+        print(f"  CSS block replaced for {slug}")
+    else:
+        # Fallback: replace the four stylesheet links directly
+        # Find all link stylesheet lines and replace with canonical block
+        old_links_pattern = re.compile(
+            r'(\s*<link rel="stylesheet" href="/assets/css/global\.css"[^>]*/?>)\s*'
+            r'(\s*<link rel="stylesheet" href="/assets/css/header\.css"[^>]*/?>)\s*'
+            r'(\s*<link rel="stylesheet" href="/assets/css/home\.css"[^>]*/?>)\s*'
+            r'(\s*<link rel="stylesheet" href="/assets/css/services/apostille\.css"[^>]*/?>)',
+            re.DOTALL
+        )
+        if old_links_pattern.search(html):
+            html = old_links_pattern.sub('\n  ' + new_css_block, html, count=1)
+            print(f"  CSS links replaced (fallback) for {slug}")
+        else:
+            print(f"  WARNING: Could not find CSS block in {slug}.html")
+
+    # B) Remove inline <style> blocks (all of them)
+    style_block_pattern = re.compile(
+        r'\s*<!-- PAGE-SPECIFIC STYLES -->\s*<style>.*?</style>\s*<!-- /PAGE-SPECIFIC STYLES -->',
+        re.DOTALL
+    )
+    html_new, count = style_block_pattern.subn('', html)
+    if count > 0:
+        html = html_new
+        print(f"  Removed {count} PAGE-SPECIFIC STYLES block(s) for {slug}")
+    else:
+        # Try removing plain <style> blocks without the comment markers
+        style_plain_pattern = re.compile(
+            r'\s*<style>.*?</style>',
+            re.DOTALL
+        )
+        html_new, count = style_plain_pattern.subn('', html)
+        if count > 0:
+            html = html_new
+            print(f"  Removed {count} plain <style> block(s) for {slug}")
+        else:
+            print(f"  WARNING: No <style> block found in {slug}.html")
+
+    with open(html_path, "w") as f:
+        f.write(html)
+    print(f"  HTML updated: {slug}.html")
+
+print("\nAll done!")
