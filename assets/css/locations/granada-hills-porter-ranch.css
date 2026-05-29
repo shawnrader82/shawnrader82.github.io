@@ -1,0 +1,710 @@
+/* Granada Hills / Porter Ranch location page only */
+/* Matches locations/granada-hills-porter-ranch.html exactly */
+
+/* ========== TOKENS / GLOBAL ========== */
+:root {
+    --granada-hills-ink: #0f172a;
+    --granada-hills-navy: #132238;
+    --granada-hills-blue: #1d4ed8;
+    --granada-hills-blue-dark: #163ea9;
+    --granada-hills-blue-soft: #e8f0ff;
+    --granada-hills-border: rgba(15, 23, 42, 0.10);
+    --granada-hills-border-strong: rgba(15, 23, 42, 0.16);
+    --granada-hills-surface: #ffffff;
+    --granada-hills-surface-soft: #f8fbff;
+    --granada-hills-surface-gray: #f6f8fb;
+    --granada-hills-text: #1f2937;
+    --granada-hills-text-soft: #475569;
+    --granada-hills-text-inverse: #f8fafc;
+    --granada-hills-shadow-sm: 0 10px 30px rgba(15, 23, 42, 0.06);
+    --granada-hills-shadow-md: 0 18px 44px rgba(15, 23, 42, 0.10);
+    --granada-hills-radius: 18px;
+    --granada-hills-radius-sm: 12px;
+    --granada-hills-max: 1100px;
+}
+
+body {
+    color: var(--granada-hills-text);
+}
+
+main {
+    position: relative;
+    overflow: clip;
+}
+
+/* ========== LAYOUT SHELLS ========== */
+.page-shell,
+.service-detail-inner {
+    width: min(var(--granada-hills-max), calc(100% - 32px));
+    margin-inline: auto !important;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-size: 0.93rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-1px);
+}
+
+.btn--primary {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+    box-shadow: 0 10px 24px rgba(220, 38, 38, 0.18);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+    background: #b91c1c;
+    color: #ffffff;
+    border-color: #b91c1c;
+}
+
+.btn--secondary {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+    background: #1e293b;
+    color: #ffffff;
+    border-color: #1e293b;
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--granada-hills-ink);
+    border-color: rgba(15, 23, 42, 0.16);
+    box-shadow: none;
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+    background: rgba(15, 23, 42, 0.04);
+    color: var(--granada-hills-ink);
+    border-color: rgba(15, 23, 42, 0.26);
+}
+
+.hero .btn--ghost,
+.service-detail--blue .btn--ghost {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.hero .btn--ghost:hover,
+.hero .btn--ghost:focus-visible,
+.service-detail--blue .btn--ghost:hover,
+.service-detail--blue .btn--ghost:focus-visible {
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.34);
+}
+
+/* Dark-section secondary button override */
+.hero .btn--secondary,
+.service-detail--blue .btn--secondary {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.40);
+    box-shadow: none;
+}
+
+.hero .btn--secondary:hover,
+.hero .btn--secondary:focus-visible,
+.service-detail--blue .btn--secondary:hover,
+.service-detail--blue .btn--secondary:focus-visible {
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.58);
+}
+
+.btn--flex {
+    flex: 1 1 260px;
+}
+
+/* ========== HERO ========== */
+.hero {
+    position: relative;
+    padding: clamp(56px, 9vw, 96px) 0;
+    background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(19, 34, 56, 0.86)),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 38%);
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.90) 0%, rgba(15, 23, 42, 0.72) 45%, rgba(15, 23, 42, 0.50) 100%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.50) 100%),
+    url("/assets/images/hero/locations/granada-hills-porter-ranch-notary-apostille.webp") center/cover no-repeat;
+    pointer-events: none;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    width: min(var(--cn-max), calc(100% - 32px));
+    margin-inline: auto !important;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #e2e8f0;
+    font-size: 0.80rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin: 14px 0 12px;
+    max-width: 14ch;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    color: #fff;
+}
+
+.hero-subtitle {
+    max-width: 66ch;
+    margin: 0 0 14px;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-meta {
+    max-width: 70ch;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+}
+
+.hero-meta--cta {
+    margin-top: 14px;
+    color: #e2e8f0;
+}
+
+.hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 22px;
+}
+/* ========== /HERO ========== */
+
+/* ========== SERVICE CARDS ========== */
+.service-card-row {
+    padding: 20px 0 10px;
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+}
+
+.service-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+.service-card {
+    min-width: 0;
+}
+
+.service-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    border-radius: var(--granada-hills-radius);
+    background: var(--granada-hills-surface);
+    border: 1px solid var(--granada-hills-border);
+    box-shadow: var(--granada-hills-shadow-sm);
+    text-decoration: none;
+    overflow: hidden;
+    transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.service-card-link:hover,
+.service-card-link:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--granada-hills-border-strong);
+    box-shadow: var(--granada-hills-shadow-md);
+}
+
+.service-card-image-wrapper {
+    margin-bottom: 0;
+}
+
+.service-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    min-height: 160px;
+    overflow: hidden;
+    background: #e5e7eb;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.service-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+.service-card-title,
+.service-card-text {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.service-card-title {
+    margin: 16px 0 8px;
+    color: var(--granada-hills-ink);
+    font-size: 1.05rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.service-card-text {
+    margin: 0 0 18px;
+    color: var(--granada-hills-text-soft);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.service-card-text br {
+    display: none;
+}
+
+/* ========== INTRO WHITE ========== */
+.service-detail-inner--intro {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-detail-inner--intro .service-detail-kicker,
+.service-detail-inner--intro h2 {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-detail-grid--intro {
+    display: block !important;
+    max-width: 760px;
+    margin: 0 auto !important;
+}
+
+.service-detail-grid--intro div {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.service-detail-grid--intro p + p {
+    margin-top: 10px;
+}
+
+.service-detail-inner--intro .service-detail-lead {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.service-detail-note {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(15, 23, 42, 0.10);
+    font-size: 0.84rem !important;
+    line-height: 1.65;
+    color: var(--granada-hills-text-soft);
+}
+
+@media (max-width: 640px) {
+    .service-detail-inner--intro .service-detail-kicker,
+    .service-detail-inner--intro h2,
+    .service-detail-grid--intro,
+    .service-detail-grid--intro div {
+        max-width: 100%;
+    }
+
+    .service-detail-note {
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+}
+
+/* ========== DETAIL SECTIONS ========== */
+.service-detail {
+    padding: clamp(48px, 7vw, 80px) 0;
+}
+
+.service-detail--white {
+    background: #ffffff;
+}
+
+.service-detail--gray {
+    background: var(--granada-hills-surface-gray);
+}
+
+.service-detail--blue {
+    background: linear-gradient(180deg, #10243e, #0f1d31);
+    color: var(--granada-hills-text-inverse);
+}
+
+.service-detail--blue .service-detail-kicker,
+.service-detail--blue h2,
+.service-detail--blue h3,
+.service-detail--blue .faq-question,
+.service-detail--blue p,
+.service-detail--blue li,
+.service-detail--blue ol,
+.service-detail--blue ul {
+    color: var(--granada-hills-text-inverse);
+}
+
+.service-detail--blue .faq-answer,
+.service-detail--blue p,
+.service-detail--blue li {
+    color: #dbe4ef;
+}
+
+.service-detail-kicker {
+    margin-bottom: 10px;
+    color: var(--granada-hills-blue);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.service-detail h2 {
+    margin: 0 0 14px;
+    color: var(--granada-hills-ink);
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.service-detail--blue h2 {
+    color: #fff;
+}
+
+.service-detail h3 {
+    margin: 0 0 10px;
+    color: var(--granada-hills-ink);
+    font-size: 1.02rem !important;
+    line-height: 1.3;
+}
+
+.service-detail--blue h3 {
+    color: #fff;
+}
+
+.service-detail-lead {
+    margin: 0 0 16px;
+    color: var(--granada-hills-text);
+    font-size: 1.03rem;
+    line-height: 1.75;
+}
+
+.service-detail--blue .service-detail-lead {
+    color: #e8eef7;
+}
+
+.service-detail p,
+.service-detail li,
+.service-detail ol,
+.service-detail ul {
+    font-size: 0.96rem !important;
+    line-height: 1.7 !important;
+}
+
+.service-detail p {
+    color: var(--granada-hills-text-soft);
+}
+
+.service-detail ul,
+.service-detail ol {
+    margin: 10px 0 0 18px;
+    color: var(--granada-hills-text-soft);
+}
+
+.service-detail li + li {
+    margin-top: 8px;
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px !important;
+    align-items: start;
+}
+
+.service-detail-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.service-detail-cta .btn--ghost {
+    background: transparent;
+    color: var(--granada-hills-ink);
+    border-color: rgba(15, 23, 42, 0.16);
+    box-shadow: none;
+}
+
+.service-detail-cta .btn--ghost:hover,
+.service-detail-cta .btn--ghost:focus-visible {
+    background: rgba(15, 23, 42, 0.04);
+    color: var(--granada-hills-ink);
+    border-color: rgba(15, 23, 42, 0.26);
+}
+
+.service-detail--blue .service-detail-cta .btn--ghost {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: none;
+}
+
+.service-detail--blue .service-detail-cta .btn--ghost:hover,
+.service-detail--blue .service-detail-cta .btn--ghost:focus-visible {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+/* ========== FAQ SECTION ========== */
+.faq-block {
+    margin-top: 8px;
+}
+
+.faq-question {
+    margin: 18px 0 6px;
+    font-weight: 800;
+    color: var(--granada-hills-ink);
+}
+
+.faq-question:first-child {
+    margin-top: 0;
+}
+
+.faq-answer {
+    margin: 0;
+}
+
+/* ========== FAQ CARDS ========== */
+.faq-block {
+    display: grid;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.faq-item {
+    padding: 18px 18px 16px;
+    background: #ffffff;
+    border: 1px solid var(--granada-hills-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.service-detail--blue .faq-item {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.10);
+    box-shadow: none;
+}
+
+.faq-question {
+    margin: 0 0 8px;
+    font-weight: 800;
+    color: var(--granada-hills-ink);
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.faq-answer {
+    margin: 0;
+    color: var(--granada-hills-text-soft);
+    line-height: 1.7;
+}
+
+.service-detail--blue .faq-question,
+.service-detail--blue .faq-answer {
+    color: #e8eef7;
+}
+
+/* ========== INLINE LINKS ========== */
+.service-detail a:not(.btn),
+.service-card-link,
+.hero a:not(.btn) {
+    text-underline-offset: 2px;
+}
+
+.service-detail a:not(.btn) {
+    color: var(--granada-hills-blue);
+}
+
+.service-detail--blue a:not(.btn) {
+    color: #ffffff;
+}
+
+/* ========== SCANNABLE CONTENT BLOCKS ========== */
+.scan-blocks {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.scan-block {
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.scan-block h3 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 1rem !important;
+    line-height: 1.35;
+}
+
+.scan-block p {
+    margin: 0;
+    color: #dbe4ef;
+    font-size: 0.96rem !important;
+    line-height: 1.7 !important;
+}
+
+.service-detail--blue .scan-block a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 980px) {
+    .service-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero,
+    .service-detail {
+        padding-block: 40px;
+    }
+
+    .hero-inner,
+    .page-shell,
+    .service-detail-inner {
+        width: min(100% - 24px, var(--granada-hills-max)) !important;
+    }
+
+    .hero-ctas,
+    .service-detail-cta {
+        align-items: stretch;
+    }
+
+    .hero-ctas .btn,
+    .service-detail-cta .btn {
+        width: 100%;
+    }
+
+    .service-card-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .service-card-link {
+        padding: 0;
+    }
+
+    .service-card-image {
+        aspect-ratio: 16 / 9;
+        min-height: 160px;
+    }
+
+    .service-card-title,
+    .service-card-text {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .service-card-title {
+        margin-top: 14px;
+    }
+
+    .service-card-text {
+        margin-bottom: 16px;
+    }
+
+    .hero-title {
+        max-width: 11ch;
+    }
+}
+
+/* ========== HERO AFFILIATION (Granada Hills only) ========== */
+.hero-affiliation {
+    margin: 18px 0 0;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.5;
+}
+
+.hero-affiliation a {
+    color: #f7a81b;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.hero-affiliation a:hover {
+    color: #ffd166;
+}
