@@ -6,10 +6,12 @@
    ========================================================================== */
 
 /* ========== 1) SECTION BACKGROUND ALTERNATION ========== */
-    /* Section background alternation */
-    .ap-process { background: #f4f7fb; }
-    .ap-timelines { background: #ffffff !important; }
+    /* Section background alternation — true zebra */
+    .ap-process { background: #ffffff; }
+    .ap-process.vs-shade { background: #f4f7fb; }
+    .ap-timelines { background: #ffffff; }
     .ap-families { background: #f4f7fb; }
+    .ap-families.vs-shade { background: #f4f7fb; }
     .home-faq { background: #ffffff; }
 
     /* Hero CTA secondary arrow */
@@ -146,39 +148,7 @@
       line-height: 1.65;
     }
 
-    /* Location hospital grid */
-    .hosp-location-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-    .hosp-location-link {
-      display: block;
-      padding: 0.75rem 1rem;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      color: #0f172a;
-      font-weight: 600;
-      font-size: 0.92rem;
-      text-decoration: none;
-      transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-      line-height: 1.35;
-    }
-    .hosp-location-link:hover,
-    .hosp-location-link:focus-visible {
-      border-color: rgba(200, 16, 46, 0.4);
-      color: #c8102e;
-      background: rgba(200, 16, 46, 0.04);
-    }
-    .hosp-location-link small {
-      display: block;
-      font-weight: 400;
-      color: #64748b;
-      font-size: 0.8rem;
-      margin-top: 2px;
-    }
+    /* Location hospital grid — old rules removed; replaced by .hosp-card-grid below */
 
     /* Section heading */
     .ap-section-heading h2 { text-transform: none; }
@@ -247,5 +217,153 @@
 @media (max-width: 560px) {
   .ap-process__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ========== HOSPITAL LOCATION CARDS (image-forward) ========== */
+.hosp-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.hosp-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+.hosp-card:hover,
+.hosp-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.10);
+  border-color: rgba(200, 16, 46, 0.30);
+  outline: none;
+}
+
+.hosp-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #0f172a;
+}
+
+.hosp-card__body {
+  padding: 1rem 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 auto;
+}
+
+.hosp-card__title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.hosp-card__neighborhood {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.hosp-card__cta {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #c8102e;
+  line-height: 1.3;
+}
+
+.hosp-card:hover .hosp-card__title,
+.hosp-card:focus-visible .hosp-card__title {
+  color: #c8102e;
+}
+
+@media (max-width: 640px) {
+  .hosp-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .hosp-card__media { aspect-ratio: 16 / 9; }
+  .hosp-card__title { font-size: 0.98rem; }
+}
+
+/* ========== FIVE-STEPS PROCESS TIMELINE (ap-timelines) ========== */
+/* Ported from apostille.css — keep in sync if updated */
+
+.ap-timelines {
+  padding: 64px 0;
+}
+
+.ap-timelines__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.ap-timeline-card {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
+}
+
+.ap-timeline-card h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ap-timeline-card h4 {
+  margin: 14px 0 6px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.ap-timeline-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.ap-timeline-card li {
+  margin-bottom: 6px;
+  color: #0f172a;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .ap-timelines__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ap-timelines {
+    padding: 48px 0;
+  }
+  .ap-timeline-card {
+    padding: 18px;
+    border-radius: 16px;
   }
 }
