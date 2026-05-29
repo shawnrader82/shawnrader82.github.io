@@ -14,16 +14,33 @@
     .ap-families.vs-shade { background: #f4f7fb; }
     .home-faq { background: #ffffff; }
 
-    /* FIX 1: Trust ribbon breathing room above AND below */
+    /* FIX 1: Trust ribbon bridges hero and next section (matches apostille hub) */
     body[data-nav-active="notary"] .home-trust-ribbon {
-      padding-top: clamp(2rem, 4vw, 3rem) !important;
-      padding-bottom: clamp(2rem, 4vw, 3rem) !important;
-      margin-top: clamp(1.5rem, 3vw, 2.5rem) !important;
+      position: relative;
+      z-index: 6;
+      margin-top: -108px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    body[data-nav-active="notary"] .home-trust-ribbon__inner {
+      position: relative;
+      z-index: 2;
+      box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.12),
+        0 32px 56px rgba(15, 23, 42, 0.14);
+    }
+    body[data-nav-active="notary"] main > section,
+    body[data-nav-active="notary"] main > nav {
+      position: relative;
+    }
+    body[data-nav-active="notary"] main > section:not(.home-hero):not(.home-trust-ribbon),
+    body[data-nav-active="notary"] main > nav {
+      z-index: 2;
     }
 
-    /* Section heading above 6 cards: breathing room from trust ribbon */
+    /* Section heading above 6 cards: breathing room below the bridging ribbon */
     .ap-families {
-      padding-top: clamp(2.5rem, 5vw, 4rem) !important;
+      padding-top: clamp(3rem, 6vw, 5rem) !important;
     }
     .ap-families__intro,
     .ap-families h2 {
@@ -565,64 +582,66 @@
   padding-bottom: clamp(3rem, 6vw, 5rem) !important;
 }
 
-/* ========== FIX 5: 6 doc-type card banner colors ========== */
-.ap-card--ahcd .nt-card__banner {
-  background-image: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-}
-.ap-card--hpoa .nt-card__banner {
-  background-image: linear-gradient(135deg, #6b21a8 0%, #7c3aed 100%);
-}
-.ap-card--lw .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
-}
-.ap-card--hipaa .nt-card__banner {
-  background-image: linear-gradient(135deg, #b45309 0%, #d97706 100%);
-}
-.ap-card--polst .nt-card__banner {
-  background-image: linear-gradient(135deg, #be123c 0%, #e11d48 100%);
-}
-.ap-card--bedside .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-
-/* Shared banner text styling */
-.ap-card--ahcd .nt-card__banner,
-.ap-card--hpoa .nt-card__banner,
-.ap-card--lw .nt-card__banner,
-.ap-card--hipaa .nt-card__banner,
-.ap-card--polst .nt-card__banner,
-.ap-card--bedside .nt-card__banner {
-  color: #ffffff !important;
-  padding: 1.5rem 1.6rem 1.25rem !important;
-  min-height: 110px;
+/* ========== Shared banner shell (matches apostille hub pattern) ========== */
+.ap-families .nt-card__banner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-}
-.ap-card--ahcd .nt-card__banner-kicker,
-.ap-card--hpoa .nt-card__banner-kicker,
-.ap-card--lw .nt-card__banner-kicker,
-.ap-card--hipaa .nt-card__banner-kicker,
-.ap-card--polst .nt-card__banner-kicker,
-.ap-card--bedside .nt-card__banner-kicker {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.ap-card--ahcd .nt-card__banner-title,
-.ap-card--hpoa .nt-card__banner-title,
-.ap-card--lw .nt-card__banner-title,
-.ap-card--hipaa .nt-card__banner-title,
-.ap-card--polst .nt-card__banner-title,
-.ap-card--bedside .nt-card__banner-title {
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 112px;
+  padding: 14px 16px;
   color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin-top: 0.25rem;
+  background-color: #0f172a;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.ap-families .nt-card:hover .nt-card__banner,
+.ap-families .nt-card:focus-within .nt-card__banner {
+  transform: scale(1.02);
+}
+.ap-families .nt-card__banner-kicker {
   display: block;
+  margin-bottom: 3px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.ap-families .nt-card__banner-title {
+  display: block;
+  max-width: 22ch;
+  color: #ffffff;
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.18;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 6 doc-type card banners — muted theme-matched gradients ========== */
+/* All in navy/slate family with subtle accent variation per card. Brand-aligned, no stock photos. */
+
+.ap-card--ahcd .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+}
+.ap-card--hpoa .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #334155 60%, #475569 100%);
+}
+.ap-card--lw .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
+}
+.ap-card--hipaa .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #1f3a4d 60%, #2d5566 100%);
+}
+.ap-card--polst .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
+}
+.ap-card--bedside .nt-card__banner {
+  background-image: linear-gradient(135deg, #020617 0%, #0f172a 60%, #1e293b 100%);
 }
