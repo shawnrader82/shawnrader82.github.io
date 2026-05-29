@@ -222,13 +222,22 @@
   border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow: 0 16px 34px rgba(15, 23, 42, 0.045);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  cursor: pointer;
 }
 
 .tr-family-card:hover,
-.tr-family-card:focus-within {
+.tr-family-card:focus-within,
+.tr-family-card:focus-visible {
   transform: translateY(-5px);
   border-color: rgba(15, 23, 42, 0.12);
   box-shadow: 0 22px 40px rgba(15, 23, 42, 0.08);
+  outline: none;
+}
+
+/* Title turns red when hovering anywhere on the card (mirrors apostille / notary hubs) */
+.tr-family-card:hover .tr-family-card__main-link,
+.tr-family-card:focus-within .tr-family-card__main-link {
+  color: #b91c1c;
 }
 
 .tr-family-card__body {
