@@ -47,6 +47,21 @@
     var HIDE_THRESHOLD = 80;
     var SHOW_THRESHOLD_DELTA = 30;
 
+    // Belt-and-suspenders: force-hide info bar on mobile via inline style.
+    // Prevents stale cached CSS from leaking the bar onto narrow screens.
+    function applyInfobarVisibility() {
+      if (!infobar) return;
+      if (window.innerWidth <= 900) {
+        infobar.style.display = 'none';
+        header.style.top = '0';
+      } else {
+        infobar.style.display = '';
+        header.style.top = '';
+      }
+    }
+    applyInfobarVisibility();
+    window.addEventListener('resize', applyInfobarVisibility);
+
     function handleScroll() {
       var y = window.scrollY;
       var goingDown = y > lastScrollY;
