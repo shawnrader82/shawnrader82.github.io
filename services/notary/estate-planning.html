@@ -229,10 +229,27 @@
     line-height: 1.3;
   }
 
-  /* Section background alternation */
+  /* Section background + breathing room (matches apostille hub spacing) */
+  .ap-families,
+  .ap-process,
+  .ap-timelines,
+  .ap-checklist-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  @media (min-width: 720px) {
+    .ap-families,
+    .ap-process,
+    .ap-timelines,
+    .ap-checklist-section {
+      padding-top: 64px !important;
+      padding-bottom: 64px !important;
+    }
+  }
   .ap-process { background: #f4f7fb !important; }
   .ap-timelines { background: #ffffff !important; }
   .ap-checklist-section { background: #f4f7fb !important; }
+  .ap-families { background: #ffffff !important; }
 
   /* ===== ESTATE SPOKE CARDS (4 document types) ===== */
   .ap-families .nt-card {
