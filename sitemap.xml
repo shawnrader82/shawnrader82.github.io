@@ -218,13 +218,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
+  
+<url>
     <loc>https://www.mobileamericannotary.com/services/translations.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1049,141 +1044,10 @@
   </url>
 
   <!--  ========== HIGH PRIORITY JAIL WEDDINGS ==========  -->
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/la-mens-central.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/la-twin-towers.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-theo-lacy.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-central.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
 
-  <!--  ========== STANDARD JAIL WEDDINGS ==========  -->
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/la-crdf-lynwood.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/la-mdc.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/la-nccf.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/la-pitchess.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/oc-musick.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/riv-benoit-indio.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/riv-larry-smith.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/riv-robert-presley.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/riv-southwest.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/sba-main-jail.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/sba-northern-branch.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/sb-central.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/sb-glen-helen.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/sb-high-desert.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/sb-west-valley.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/vn-east-valley.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/vn-main-jail.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/jail-weddings/vn-todd-road.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
+<!--  ========== STANDARD JAIL WEDDINGS ==========  -->
+
+<url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/power-of-attorney.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>weekly</changefreq>
