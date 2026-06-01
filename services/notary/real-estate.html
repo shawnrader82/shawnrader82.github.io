@@ -308,6 +308,62 @@
     }
   }
 
+  /* ===== 5-STEP PROCESS TIMELINE ===== */
+  .ap-process__grid {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  @media (min-width: 720px) {
+    .ap-process__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+  @media (min-width: 1100px) {
+    .ap-process__grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  }
+  .ap-step {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px 22px 22px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .ap-step:hover {
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    border-color: rgba(185, 28, 28, 0.30);
+    transform: translateY(-1px);
+  }
+  .ap-step__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: #b91c1c;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .ap-step h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+  }
+  .ap-step p {
+    margin: 0;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
   /* ===== DOCUMENT EXPLORER (10 doc cards) ===== */
   .re-doc-explorer {
     display: grid;
