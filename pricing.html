@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <!-- ========== DOCUMENT META ========== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow" />
   <title>Pricing &amp; Fees | Mobile Notary &amp; Apostille Services in Los Angeles</title>
-  <link rel="canonical" href="https://www.mobileamericannotary.com/pricing.html" />
-  <meta name="description" content="Detailed pricing for mobile notary visits, hospital and jail appointments, real estate and trust signings, and apostille services across Los Angeles, Orange, and Ventura Counties." />
+
+  <meta property="og:title" content="Mobile Notary &amp; Apostille Pricing Los Angeles | Mobile American Notary &amp; Apostilles">
+  <meta property="og:description" content="Transparent pricing for mobile notary, hospital and jail visits, real estate signings, and apostille services in Los Angeles, Orange, and Ventura Counties.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mobileamericannotary.com/pricing.html">
+  <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg">
+  <meta property="og:site_name" content="Mobile American Notary &amp; Apostilles">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mobile Notary &amp; Apostille Pricing Los Angeles | Mobile American Notary &amp; Apostilles">
+  <meta name="twitter:description" content="Transparent pricing for mobile notary, hospital and jail visits, real estate signings, and apostille services in Los Angeles, Orange, and Ventura Counties.">
+  <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg">
+
+  <link rel="canonical" href="https://www.mobileamericannotary.com/pricing.html">
+  <meta name="description" content="Detailed pricing for mobile notary visits, hospital and jail appointments, real estate and trust signings, and apostille services across Los Angeles, Orange, and Ventura Counties.">
+  <meta name="robots" content="index, follow">
+  <!-- ========== /DOCUMENT META ========== -->
+
+  <!-- ========== FAVICON & FONTS ========== -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <!-- ========== /FAVICON & FONTS ========== -->
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mobile Notary &amp; Apostille Pricing Los Angeles | Mobile American Notary &amp; Apostilles" />
-  <meta property="og:description" content="Transparent pricing for mobile notary, hospital and jail visits, real estate signings, and apostille services in Los Angeles, Orange, and Ventura Counties." />
-  <meta property="og:url" content="https://www.mobileamericannotary.com/pricing.html" />
-  <meta property="og:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
-  <meta property="og:site_name" content="Mobile American Notary &amp; Apostilles" />
+  <!-- ========== CSS ========== -->
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <!-- ========== /CSS ========== -->
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mobile Notary &amp; Apostille Pricing Los Angeles | Mobile American Notary &amp; Apostilles" />
-  <meta name="twitter:description" content="Transparent pricing for mobile notary, hospital and jail visits, real estate signings, and apostille services in Los Angeles, Orange, and Ventura Counties." />
-  <meta name="twitter:image" content="https://www.mobileamericannotary.com/images/og-default.jpg" />
-
-  <!-- Global font and shared site styles -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="styles-v2.min.css?v=1.0.12" />
-
+  <!-- ========== PAGE-SPECIFIC STYLES ========== -->
   <style>
-    /* Pricing-specific styles */
-    .pricing-page main {
-      padding: 32px 0 40px;
-    }
-    .pricing-section {
-      margin-top: 32px;
-    }
+    /* Pricing tables and cards */
     .pricing-card-grid {
       display: grid;
       gap: 20px;
@@ -56,6 +59,7 @@
     .pricing-card h3 {
       margin: 0 0 6px;
       font-size: 17px;
+      color: #f9fafb;
     }
     .pricing-amount {
       font-size: 24px;
@@ -76,14 +80,15 @@
     .pricing-note {
       margin-top: 12px;
       font-size: 13px;
-      color: var(--text-muted, #9ca3af);
+      color: #475569;
     }
     .pricing-highlight {
       margin-top: 10px;
       padding: 10px 12px;
       border-left: 3px solid #f97316;
       background: rgba(15,23,42,0.03);
-      font-size: 13px;
+      font-size: 14px;
+      border-radius: 0 6px 6px 0;
     }
     .pricing-table {
       width: 100%;
@@ -96,35 +101,163 @@
       border-bottom: 1px solid rgba(148,163,184,0.4);
       padding: 8px 10px;
       text-align: left;
+      vertical-align: top;
     }
     .pricing-table thead th {
       font-weight: 600;
-      background: rgba(15,23,42,0.03);
+      background: rgba(15,23,42,0.04);
     }
     .pricing-table .tier-header td {
       background: rgba(15,23,42,0.06);
       padding: 14px 10px 10px;
       border-bottom: 1px solid rgba(148,163,184,0.4);
+      font-weight: 600;
     }
     .pricing-table th:nth-child(1),
-    .pricing-table td:nth-child(1) {
-      width: 40%;
-    }
+    .pricing-table td:nth-child(1) { width: 40%; }
     .pricing-table th:nth-child(2),
-    .pricing-table td:nth-child(2) {
-      width: 12%;
-    }
+    .pricing-table td:nth-child(2) { width: 12%; white-space: nowrap; }
     .pricing-table th:nth-child(3),
-    .pricing-table td:nth-child(3) {
-      width: 48%;
+    .pricing-table td:nth-child(3) { width: 48%; }
+
+    /* Banded service-detail sections */
+    .service-detail { padding: 56px 0; }
+    .service-detail--white { background: #ffffff; color: #0f172a; }
+    .service-detail--gray  { background: #f8fafc; color: #0f172a; }
+    .service-detail-inner {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .service-detail-kicker {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      font-weight: 700;
+      color: #f97316;
+      margin-bottom: 8px;
+    }
+    .service-detail h2 {
+      font-size: clamp(24px, 3vw, 30px);
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+    .service-detail h3 {
+      font-size: 18px;
+      margin: 18px 0 6px;
+    }
+    .service-detail-lead {
+      font-size: 16px;
+      line-height: 1.55;
+      color: #334155;
+      margin: 0 0 14px;
+      max-width: 70ch;
+    }
+    .service-detail p { font-size: 15px; line-height: 1.6; }
+    .service-detail-cta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
+    /* Service card jump-nav */
+    .service-card-row { padding: 32px 0 8px; background: #ffffff; }
+    .page-shell {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .service-card-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    }
+    .service-card-link {
+      display: block;
+      padding: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .service-card-image-wrapper {
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f1f5f9;
+      margin-bottom: 10px;
+    }
+    .service-card-image,
+    .service-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .service-card-title {
+      font-size: 17px;
+      margin: 4px 0 4px;
+    }
+    .service-card-text {
+      font-size: 14px;
+      color: #475569;
+      margin: 0;
+      line-height: 1.45;
+    }
+    .section-divider {
+      border: 0;
+      border-top: 1px solid #e2e8f0;
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* CTA buttons (page-local) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      line-height: 1.2;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    }
+    .btn--primary {
+      background: #f97316;
+      color: #ffffff;
+    }
+    .btn--primary:hover {
+      background: #ea580c;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(249,115,22,0.35);
+    }
+    .btn--secondary {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .btn--secondary:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+    .btn--flex { flex: 0 1 auto; }
   </style>
+  <!-- ========== /PAGE-SPECIFIC STYLES ========== -->
 
-  <!-- ===== STRUCTURED DATA ===== -->
+  <!-- ========== PRELOADS ========== -->
+  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp">
+  <!-- ========== /PRELOADS ========== -->
 
-  <!-- 1. BreadcrumbList -->
-  <script type="application/ld+json">
+  <!-- ========== STRUCTURED DATA ========== -->
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -302,32 +435,62 @@
   }
   </script>
 
-  <link rel="preload" as="image" href="/images/services/notary-hero.webp" type="image/webp" />
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWBRTN9M');</script>
-<!-- End Google Tag Manager -->
+  <!-- ========== /STRUCTURED DATA ========== -->
+
+  <!-- ========== GOOGLE TAG MANAGER ========== -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KWBRTN9M');
+  </script>
+  <!-- ========== /GOOGLE TAG MANAGER ========== -->
+  <script src="/assets/js/gclid-capture.js" defer></script>
+
 </head>
-<body class="pricing-page">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-<div id="header-placeholder"></div>
+<body class="pricing-page" data-nav-active="pricing">
+  <!-- ========== GOOGLE TAG MANAGER (NOSCRIPT) ========== -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- ========== /GOOGLE TAG MANAGER (NOSCRIPT) ========== -->
 
-<main class="service-detail service-detail--white">
-  <div class="service-detail-inner">
-    <div class="service-detail-kicker">Pricing & Fees</div>
-    <h1>Mobile Notary & Apostille Pricing</h1>
-    <p class="service-detail-lead">
-      These prices reflect what most clients actually pay for mobile notary and apostille services.
-      Before every appointment, we confirm travel, signatures, and any special situation so you know your total in advance.
-    </p>
+  <!-- ========== HEADER (INJECTED) ========== -->
+  <script src="/assets/js/header.js" defer></script>
+  <div id="header-placeholder"></div>
+  <!-- ========== /HEADER (INJECTED) ========== -->
 
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="home-hero">
+      <div class="home-hero__media"></div>
+      <div class="home-hero__overlay"></div>
+
+      <div class="home-hero__content">
+        <p class="home-hero__eyebrow">Pricing &amp; Fees</p>
+        <h1>Mobile Notary &amp; Apostille Pricing</h1>
+
+        <p class="home-hero__lead">
+          Transparent flat-rate pricing for mobile notary visits, hospital and jail appointments, real estate signings, estate planning, and Apostille services across Los Angeles, Orange, and Ventura Counties. Before every appointment we confirm travel, signatures, and any special situation so you know your total in advance.
+        </p>
+
+        <div class="home-hero__cta-row">
+          <a href="tel:+12139332507" class="home-hero__cta home-hero__cta--primary">Call / Text (213) 933-2507</a>
+          <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" class="home-hero__cta home-hero__cta--secondary">Book Online</a>
+        </div>
+      </div>
+    </section>
+    <!-- ========== /HERO ========== -->
+
+    <!-- ========== PRICING PAGE NAV CARDS ========== -->
 <!-- ========== PRICING PAGE NAV CARDS ========== -->
 <section class="service-card-row" aria-label="Pricing sections">
   <div class="page-shell">
@@ -434,13 +597,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <hr class="section-divider">
-<!-- ========== /PRICING PAGE NAV CARDS ========== -->
+    <!-- ========== /PRICING PAGE NAV CARDS ========== -->
 
+    <hr class="section-divider">
 
+    <!-- ========== PRICING SECTIONS ========== -->
+    <section class="service-detail service-detail--white">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Mobile Notary</div>
+        <h2 id="core-notary-pricing">General Mobile Notary - Standard Visits</h2>
 
-    <!-- ===== CORE MOBILE NOTARY FEES ===== -->
-    <section aria-labelledby="core-notary-pricing" class="pricing-section">
-      <h2 id="core-notary-pricing">General Mobile Notary - Standard Visits</h2>
 
       <div class="pricing-card-grid">
         <article class="pricing-card">
@@ -472,13 +638,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <strong>Most everyday appointments</strong> - single documents, school and travel forms, simple powers
         of attorney - fall into this general mobile notary range.
       </div>
+      </div>
     </section>
 
-    <hr class="section-divider">
+    <section aria-labelledby="hospital-pricing" class="service-detail service-detail--gray">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Hospital & Medical</div>
+        <h2 id="hospital-pricing">Medical Facility Appointments</h2>
 
-    <!-- ===== MEDICAL FACILITIES ===== -->
-    <section aria-labelledby="hospital-pricing" class="pricing-section">
-      <h2 id="hospital-pricing">Medical Facility Appointments</h2>
       <p>
         Hospital and care facility signings require extra time for parking, check-in, and working around medical staff.
         Pricing is tiered by location from our Granada Hills base.
@@ -580,13 +747,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Learn more about hospital notary services
         </a>
       </div>
+      </div>
     </section>
 
-    <hr class="section-divider">
+    <section aria-labelledby="real-estate-pricing" class="service-detail service-detail--white">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Real Estate & Loans</div>
+        <h2 id="real-estate-pricing">Real Estate & Loan Signings</h2>
 
-    <!-- ===== REAL ESTATE SIGNINGS ===== -->
-    <section aria-labelledby="real-estate-pricing" class="pricing-section">
-      <h2 id="real-estate-pricing">Real Estate & Loan Signings</h2>
       <p>
         Real estate packages are more complex and time-intensive than a standard notarization, so they have their
         own flat rates.
@@ -627,13 +795,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Travel beyond the standard service area or late-night appointments may add an additional fee (typically +$50),
         which we will confirm before you book.
       </p>
+      </div>
     </section>
 
-    <hr class="section-divider">
+    <section aria-labelledby="trust-pricing" class="service-detail service-detail--gray">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Trusts & Estate Planning</div>
+        <h2 id="trust-pricing">Trusts, Wills & Estate Planning</h2>
 
-    <!-- ===== TRUST / ESTATE PLANNING ===== -->
-    <section aria-labelledby="trust-pricing" class="pricing-section">
-      <h2 id="trust-pricing">Trusts, Wills & Estate Planning</h2>
       <p>
         Estate planning signings often involve multiple signers and documents, so pricing is based on the total
         number of signatures notarized.
@@ -666,13 +835,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Pricing assumes one coordinated visit at a single location. Complex schedules or multiple locations can
         be quoted individually.
       </p>
+      </div>
     </section>
 
-    <hr class="section-divider">
+    <section aria-labelledby="jail-pricing" class="service-detail service-detail--white">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Jail & Detention</div>
+        <h2 id="jail-pricing">Jail & Detention Center Notarizations</h2>
 
-    <!-- ===== JAIL / DETENTION ===== -->
-    <section aria-labelledby="jail-pricing" class="pricing-section">
-      <h2 id="jail-pricing">Jail & Detention Center Notarizations</h2>
       <p>
         Jail visits require additional coordination with facility staff, security, and timing, so they have
         dedicated flat rates by county.
@@ -709,13 +879,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Because wait times and facility procedures can vary, we'll review your specific jail and documents and
         confirm details before scheduling.
       </p>
+      </div>
     </section>
 
-    <hr class="section-divider">
+    <section aria-labelledby="apostille-pricing" class="service-detail service-detail--gray">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Apostille & Legalization</div>
+        <h2 id="apostille-pricing">Apostille & Legalization Services</h2>
 
-    <!-- ===== APOSTILLE PRICING ===== -->
-    <section aria-labelledby="apostille-pricing" class="pricing-section">
-      <h2 id="apostille-pricing">Apostille & Legalization Services</h2>
       <p>
         Apostille pricing depends on whether the documents are personal or business-related, how many items you
         have, and how quickly you need them completed. Below are the standard per-document fees before government
@@ -823,13 +994,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Start a mail-in apostille quote
         </a>
       </div>
+      </div>
     </section>
 
-    <hr class="section-divider">
+    <section aria-labelledby="pricing-cta" class="service-detail service-detail--white">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Get a Quote</div>
+        <h2 id="pricing-cta">Need a specific quote?</h2>
 
-    <!-- ===== FINAL CTA ===== -->
-    <section aria-labelledby="pricing-cta" class="pricing-section">
-      <h2 id="pricing-cta">Need a specific quote?</h2>
       <p>
         For complex situations - multiple locations, late-night visits, large apostille batches, or combined
         notary and apostille work - reach out with your details and we'll provide a clear written estimate.
@@ -844,17 +1016,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Book an appointment online
         </a>
       </div>
+      </div>
     </section>
+    <!-- ========== /PRICING SECTIONS ========== -->
 
-    <hr class="section-divider">
+  </main>
+  <!-- ========== /MAIN ========== -->
 
-  </div>
-</main>
-
-<script src="/header.min.js" defer></script>
-<div id="footer-placeholder"></div>
-<script src="/footer.min.js" defer></script>
-
+  <!-- ========== FOOTER (INJECTED) ========== -->
+  <script src="/assets/js/footer.js" defer></script>
+  <div id="footer-placeholder"></div>
+  <!-- ========== /FOOTER (INJECTED) ========== -->
 </body>
 </html>
-
