@@ -281,6 +281,38 @@
     <priority>0.8</priority>
   </url>
 
+  <!--  ========== ESTATE PLANNING NOTARY (hub + spokes) ==========  -->
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/estate-planning.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/estate-planning/trust.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/estate-planning/will.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/estate-planning/poa.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.mobileamericannotary.com/services/notary/estate-planning/advance-directive.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!--  ========== GENERAL NOTARY SERVICES ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/power-of-attorney.html</loc>
