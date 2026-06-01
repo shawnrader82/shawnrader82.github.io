@@ -219,37 +219,46 @@
       margin: 0 auto;
     }
 
-    /* CTA buttons (page-local) */
+    /* CTA buttons (page-local — matches site theme) */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 15px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
       text-decoration: none;
       line-height: 1.2;
       transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
     }
+    .btn:hover { text-decoration: none; }
     .btn--primary {
-      background: #f97316;
-      color: #ffffff;
+      background: #b91c1c;
+      color: #f8fafc;
+      box-shadow: 0 12px 24px rgba(185, 28, 28, 0.16);
     }
     .btn--primary:hover {
-      background: #ea580c;
+      background: #991b1b;
+      box-shadow: 0 16px 30px rgba(185, 28, 28, 0.2);
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(249,115,22,0.35);
     }
     .btn--secondary {
       background: #0f172a;
-      color: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      color: #f8fafc;
     }
     .btn--secondary:hover {
-      background: #1e293b;
+      background: #111827;
       transform: translateY(-1px);
     }
     .btn--flex { flex: 0 1 auto; }
+
+    /* Hero CTA underline kill (site-wide quirk fix, scoped to this page) */
+    .home-hero__cta { text-decoration: none; }
+    .home-hero__cta:hover { text-decoration: none; }
   </style>
   <!-- ========== /PAGE-SPECIFIC STYLES ========== -->
 
@@ -258,6 +267,9 @@
   <!-- ========== /PRELOADS ========== -->
 
   <!-- ========== STRUCTURED DATA ========== -->
+
+  <!-- 1. BreadcrumbList -->
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -501,7 +513,7 @@
         <a href="#core-notary-pricing" class="service-card-link">
           <div class="service-card-image-wrapper">
             <div class="service-card-image">
-              <img loading="lazy" src="/images/buttons/notry-btn.webp"
+              <img loading="lazy" src="/images/buttons/notary-general-btn.webp"
                    alt="General mobile notary pricing">
             </div>
           </div>
@@ -517,7 +529,7 @@
         <a href="#hospital-pricing" class="service-card-link">
           <div class="service-card-image-wrapper">
             <div class="service-card-image">
-              <img loading="lazy" src="/images/buttons/notry-btn.webp"
+              <img loading="lazy" src="/images/buttons/notary-hospital-btn.webp"
                    alt="Hospital and medical facility notary pricing">
             </div>
           </div>
@@ -533,7 +545,7 @@
         <a href="#real-estate-pricing" class="service-card-link">
           <div class="service-card-image-wrapper">
             <div class="service-card-image">
-              <img loading="lazy" src="/images/buttons/notry-btn.webp"
+              <img loading="lazy" src="/images/buttons/notary-realestate-btn.webp"
                    alt="Real estate and loan signing pricing">
             </div>
           </div>
@@ -549,7 +561,7 @@
         <a href="#trust-pricing" class="service-card-link">
           <div class="service-card-image-wrapper">
             <div class="service-card-image">
-              <img loading="lazy" src="/images/buttons/notry-btn.webp"
+              <img loading="lazy" src="/images/buttons/notary-estate-btn.webp"
                    alt="Trust and estate planning notarization pricing">
             </div>
           </div>
@@ -565,7 +577,7 @@
         <a href="#jail-pricing" class="service-card-link">
           <div class="service-card-image-wrapper">
             <div class="service-card-image">
-              <img loading="lazy" src="/images/buttons/notry-btn.webp"
+              <img loading="lazy" src="/images/buttons/notary-jail-btn.webp"
                    alt="Jail and detention center notary pricing">
             </div>
           </div>
