@@ -3,7 +3,7 @@
   <!--  ========== HOMEPAGE ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -903,31 +903,6 @@
     <priority>0.75</priority>
   </url>
 
-  <!--  ========== APOSTILLE OTHER PAGES ==========  -->
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/apostille/documents/birth-certificate.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/apostille/documents/fbi-background-check.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/apostille/expedited/same-day-los-angeles.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.mobileamericannotary.com/services/apostille/use-cases/immigration.html</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines.html</loc>
     <lastmod>2026-05-28</lastmod>
