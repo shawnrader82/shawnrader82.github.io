@@ -132,25 +132,11 @@
   <link rel="stylesheet" href="/assets/css/home.css" />
   <link rel="stylesheet" href="/assets/css/services/apostille.css" />
   <link rel="stylesheet" href="/assets/css/components/hub-modern.css" />
+  <link rel="stylesheet" href="/assets/css/components/ap-checklist-panel.css" />
   <!-- ========== /CSS ========== -->
 
   <!-- ========== PAGE-SPECIFIC MICRO-TWEAKS ========== -->
-  <style>.ap-checklist {
-      background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      border-radius: 18px;
-      padding: 22px 24px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-    }
-
-    .ap-checklist li {
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-    }
-
-    .ap-checklist li:last-child {
-      border-bottom: 0;
-    }
-  </style>
+  
   <!-- ========== /PAGE-SPECIFIC MICRO-TWEAKS ========== -->
 
   <!-- Google Tag Manager -->
@@ -161,16 +147,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KWBRTN9M');
   </script>
-  <style>/* === Court documents hub modernization overrides === */
-
-    /* Section background alternation (matches vital-records hub + spokes).
-       Default ap-families/ap-process/ap-timelines all render white in a row,
-       which gives no visual separation. Force the rhythm:
-       hero (dark) → trust-ribbon → families (white) → process (shade)
-       → timelines (white) → checklist (shade) → faq (white). */
-    
-    
-
+  <style>
     /* 5 cards in a 3+2 grid: row 1 has 3 columns, row 2 has the last 2
        centered. We use a 3-col grid above 1080px and let the last row
        auto-center via place-self / grid-column hints.
@@ -188,24 +165,6 @@
       .ap-families__grid > .nt-card:nth-child(4) { grid-column: 2 / span 2; }
       .ap-families__grid > .nt-card:nth-child(5) { grid-column: 4 / span 2; }
     }
-
-    /* Hero highlight chips: rounded rectangles (not pills) */
-    
-    
-
-    /* Document family cards: clickable affordance + hover lift */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /* FAQ accordion (matches vital records hub) */
   </style>
   <script src="/assets/js/gclid-capture.min.js" defer></script>
 

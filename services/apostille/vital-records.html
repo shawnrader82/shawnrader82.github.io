@@ -139,25 +139,11 @@
 <link rel="stylesheet" href="/assets/css/services/apostille.css" />
 <link rel="stylesheet" href="/assets/css/page-shell.css" />
   <link rel="stylesheet" href="/assets/css/components/hub-modern.css" />
+  <link rel="stylesheet" href="/assets/css/components/ap-checklist-panel.css" />
 <!-- ========== /CSS ========== -->
 
 <!-- ========== PAGE-SPECIFIC MICRO-TWEAKS ========== -->
-<style>.ap-checklist {
-    background: #ffffff;
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    border-radius: 18px;
-    padding: 22px 24px;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-  }
 
-  .ap-checklist li {
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  }
-
-  .ap-checklist li:last-child {
-    border-bottom: 0;
-  }
-  </style>
 <!-- ========== /PAGE-SPECIFIC MICRO-TWEAKS ========== -->
 
   <!-- Google Tag Manager -->
@@ -168,17 +154,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KWBRTN9M');
   </script>
-  <style>/* === Vital records hub modernization overrides === */
-
-    /* Section background alternation override —
-       global CSS leaves families/process/timelines all white in a row,
-       so we shade the middle bands to match the rest of the site rhythm.
-       Resulting flow: hero (dark) → trust-ribbon → families (white)
-       → process / reasons (shade) → timelines (white) → checklist (shade)
-       → faq (white). */
-    
-    
-
+  <style>
     /* Vital records has EXACTLY 4 cards. Default grid is 3 columns,
        which leaves the 4th card (Divorce) alone on row 2 with two
        empty slots. Force a symmetric 2x2 grid on desktop. The existing
@@ -192,24 +168,6 @@
         margin-right: auto;
       }
     }
-
-    /* Hero highlight chips: rounded rectangles (not pills) */
-    
-    
-
-    /* Document family cards: clickable affordance */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /* FAQ accordion */
   </style>
   <script src="/assets/js/gclid-capture.min.js" defer></script>
 

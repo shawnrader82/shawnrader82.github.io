@@ -1,0 +1,27 @@
+/* ============================================================
+   ap-checklist-panel.css — wraps the .ap-checklist <ul> in a
+   white card on spoke hubs that want extra visual separation.
+   ============================================================
+   Used by:
+     - services/apostille/court-documents.html
+     - services/apostille/vital-records.html
+
+   The main apostille hub (services/apostille.html) intentionally
+   does NOT use this — its checklist renders flat. The base
+   .ap-checklist styles (list-style:none, checkmark ::before) come
+   from /assets/css/services/apostille.css for ALL hubs.
+   ============================================================ */
+
+.ap-checklist {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+.ap-checklist li {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+.ap-checklist li:last-child {
+  border-bottom: 0;
+}

@@ -1,0 +1,24 @@
+/* ============================================================
+   country-note.css — informational banners on apostille country pages
+   ============================================================
+   Used by:
+     - services/apostille/countries/cuba.html (non-Hague)
+     - services/apostille/countries/thailand.html (non-Hague + watch)
+     - services/apostille/countries/uae.html (variant `.uae-mofa-note`
+       kept inline, page-specific)
+
+   Style: amber left-border informational banner.
+   ============================================================ */
+
+.country-nonhague-note {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  padding: 1rem 1.25rem;
+  background: #fef9ec;
+  border-left: 4px solid #f59e0b;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  color: #334155;
+  line-height: 1.6;
+}
+.country-nonhague-note strong { color: #92400e; }
