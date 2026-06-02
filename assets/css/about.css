@@ -1,0 +1,340 @@
+/*
+ * about.css — page-specific styles for /about.html
+ * One-off page (not a hub). Mirrors the modern shell pattern:
+ * - dark hero with subtle gradient + rotating gear accent
+ * - service-detail bands (white / gray / blue)
+ * - pill-tag chips (6px rounded-rect, NOT pills)
+ * - trusted-partners 3-up grid
+ * - Rotary badge pinned to hero
+ *
+ * Relies on /assets/css/page-shell.css for shared .service-detail, .btn,
+ * .service-detail-kicker, .service-detail-lead, .service-detail-cta, etc.
+ */
+
+/* ========== HERO (DARK) ========== */
+.hero {
+  position: relative;
+  padding: clamp(56px, 9vw, 96px) 0;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(19, 34, 56, 0.88)),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 38%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 85% 18%, rgba(247, 168, 27, 0.10), transparent 42%),
+    radial-gradient(circle at 12% 88%, rgba(185, 28, 28, 0.10), transparent 40%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e8f0;
+  font-size: 0.80rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 14px 0 12px;
+  max-width: 22ch;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  max-width: 66ch;
+  margin: 0 0 18px;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Hero CTAs (3-CTA pattern) */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 22px 0 28px;
+}
+
+/* Dark-section button overrides for outline CTAs */
+.hero .btn--secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  box-shadow: none;
+}
+.hero .btn--secondary:hover,
+.hero .btn--secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.58);
+}
+/* ========== /HERO ========== */
+
+
+/* ========== ROTARY BADGE (HERO) ========== */
+.hero-trust {
+  margin-top: 8px;
+}
+
+.hero-trust--rotary {
+  display: inline-block;
+}
+
+.rotary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f8fafc;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.rotary-link:hover,
+.rotary-link:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(247, 168, 27, 0.55);
+  transform: translateY(-1px);
+}
+
+.rotary-wheel {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotary-spin 22s linear infinite;
+}
+
+.rotary-wheel svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rotary-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f8fafc;
+  letter-spacing: 0.01em;
+}
+
+@keyframes rotary-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotary-wheel { animation: none; }
+}
+/* ========== /ROTARY BADGE ========== */
+
+
+/* ========== SERVICE-DETAIL BLUE VARIANT ========== */
+.service-detail--blue {
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(19, 34, 56, 0.90)),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 40%);
+  color: #ffffff;
+}
+.service-detail--blue h2,
+.service-detail--blue h3 {
+  color: #ffffff;
+}
+.service-detail--blue .service-detail-kicker {
+  color: #fca5a5;
+}
+.service-detail--blue .service-detail-lead {
+  color: rgba(255, 255, 255, 0.92);
+}
+.service-detail--blue p,
+.service-detail--blue li {
+  color: rgba(255, 255, 255, 0.88);
+}
+.service-detail--blue a:not(.btn) {
+  color: #fca5a5;
+}
+.service-detail--blue a:not(.btn):hover,
+.service-detail--blue a:not(.btn):focus-visible {
+  color: #ffffff;
+}
+/* ========== /SERVICE-DETAIL BLUE VARIANT ========== */
+
+
+/* ========== SERVICE-DETAIL GRID (2-COL RESPONSIVE) ========== */
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (min-width: 820px) {
+  .service-detail-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 44px;
+  }
+}
+
+.service-detail ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #334155;
+}
+.service-detail ul li + li { margin-top: 4px; }
+/* ========== /SERVICE-DETAIL GRID ========== */
+
+
+/* ========== PILL-TAG CHIPS (6px rounded-rect, NOT pills) ========== */
+.pill-tag {
+  display: inline-block;
+  margin: 4px 6px 4px 0;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px; /* rounded-rect, not pill */
+}
+
+.service-detail--gray .pill-tag {
+  background: #ffffff;
+}
+/* ========== /PILL-TAG CHIPS ========== */
+
+
+/* ========== TRUSTED PARTNERS GRID ========== */
+.trusted-partners-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+@media (min-width: 720px) {
+  .trusted-partners-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.partner-card--link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.partner-card--link:hover,
+.partner-card--link:focus-visible {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.10);
+}
+
+.partner-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.partner-card-image img {
+  display: block;
+  max-width: 78%;
+  max-height: 78%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.partner-card-body {
+  padding: 16px 18px 20px;
+  flex: 1;
+}
+
+.partner-card-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.partner-card-body p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #475569;
+}
+/* ========== /TRUSTED PARTNERS GRID ========== */
+
+
+/* ========== AT-A-GLANCE / SIDEBAR LISTS ========== */
+.service-detail-grid > div > p > strong:first-child {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.service-detail--blue ul {
+  color: rgba(255, 255, 255, 0.88);
+}
+/* ========== /AT-A-GLANCE ========== */
+
+
+/* ========== MOBILE TWEAKS ========== */
+@media (max-width: 640px) {
+  .rotary-text { font-size: 0.82rem; }
+  .rotary-wheel { width: 32px; height: 32px; flex-basis: 32px; }
+  .hero-ctas { gap: 10px; }
+  .partner-card-image { aspect-ratio: 16 / 10; }
+}
+/* ========== /MOBILE TWEAKS ========== */
