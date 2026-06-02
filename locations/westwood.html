@@ -54,116 +54,117 @@
 
 <!-- ========== STRUCTURED DATA ========== -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.mobileamericannotary.com/locations/westwood.html#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.mobileamericannotary.com/"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.mobileamericannotary.com/locations/westwood.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.mobileamericannotary.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Locations",
+            "item": "https://www.mobileamericannotary.com/locations/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Westwood",
+            "item": "https://www.mobileamericannotary.com/locations/westwood.html"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.mobileamericannotary.com/locations/westwood.html#webpage",
+        "url": "https://www.mobileamericannotary.com/locations/westwood.html",
+        "name": "Westwood Mobile Notary & Apostille | Mobile American Notary",
+        "description": "Westwood mobile notary and apostille service for homes, condos, UCLA-area medical offices, nearby hospitals, law offices, and professional suites.",
+        "isPartOf": {
+          "@id": "https://www.mobileamericannotary.com/#website"
         },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Locations",
-          "item": "https://www.mobileamericannotary.com/locations/"
+        "breadcrumb": {
+          "@id": "https://www.mobileamericannotary.com/locations/westwood.html#breadcrumb"
         },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Westwood",
-          "item": "https://www.mobileamericannotary.com/locations/westwood.html"
+        "about": {
+          "@id": "https://www.mobileamericannotary.com/#organization"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://www.mobileamericannotary.com/locations/westwood.html#primaryimage"
         }
-      ]
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.mobileamericannotary.com/locations/westwood.html#webpage",
-      "url": "https://www.mobileamericannotary.com/locations/westwood.html",
-      "name": "Westwood Mobile Notary & Apostille | Mobile American Notary",
-      "description": "Westwood mobile notary and apostille service for homes, condos, UCLA-area medical offices, nearby hospitals, law offices, and professional suites.",
-      "isPartOf": {
-        "@id": "https://www.mobileamericannotary.com/#website"
       },
-      "breadcrumb": {
-        "@id": "https://www.mobileamericannotary.com/locations/westwood.html#breadcrumb"
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.mobileamericannotary.com/locations/westwood.html#primaryimage",
+        "url": "https://www.mobileamericannotary.com/assets/images/hero/locations/westwood-notary-apostille.webp",
+        "contentUrl": "https://www.mobileamericannotary.com/assets/images/hero/locations/westwood-notary-apostille.webp",
+        "name": "Westwood mobile notary and apostille service"
       },
-      "about": {
-        "@id": "https://www.mobileamericannotary.com/#organization"
-      },
-      "primaryImageOfPage": {
-        "@id": "https://www.mobileamericannotary.com/locations/westwood.html#primaryimage"
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.mobileamericannotary.com/locations/westwood.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you travel to condos, apartments, and high-rise buildings in Westwood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We regularly coordinate mobile notary visits for homes, apartments, condos, and larger residential buildings. Let us know about parking, call-box, concierge, or front-desk instructions when you schedule."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you meet at a hospital or medical office near Westwood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We can often coordinate hospital and medical-office notarizations when the signer is ready, has valid ID, and the facility allows the visit. Timing and signer awareness should always be confirmed before booking."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you coordinate with a family member, attorney, or office manager?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Many Westwood appointments are arranged by family members, attorneys, caregivers, office staff, or advisers, and we are happy to coordinate the logistics as long as the signer is willing and properly identified at the appointment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do we know if a document also needs an apostille?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If the document will be used in another country, it may need an apostille or consular legalization after notarization or issuance. We can review the situation and explain the likely next step before you spend more time or money."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What identification should signers have ready?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each signer must have valid, government-issued photo ID such as a driver's license, state ID, or passport, along with all pages of the document that needs to be signed. We are happy to answer ID questions before the appointment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer same-day mobile notary appointments in Westwood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Same-day and urgent appointments may be available depending on the time of day, travel conditions, and the type of appointment. The fastest way to check is to call or text with your location, timing, and document needs."
+            }
+          }
+        ],
+        "inLanguage": "en"
       }
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://www.mobileamericannotary.com/locations/westwood.html#primaryimage",
-      "url": "https://www.mobileamericannotary.com/assets/images/hero/locations/westwood-notary-apostille.webp",
-      "contentUrl": "https://www.mobileamericannotary.com/assets/images/hero/locations/westwood-notary-apostille.webp",
-      "name": "Westwood mobile notary and apostille service"
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.mobileamericannotary.com/locations/westwood.html#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you travel to condos, apartments, and high-rise buildings in Westwood?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We regularly coordinate mobile notary visits for homes, apartments, condos, and larger residential buildings. Let us know about parking, call-box, concierge, or front-desk instructions when you schedule."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you meet at a hospital or medical office near Westwood?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We can often coordinate hospital and medical-office notarizations when the signer is ready, has valid ID, and the facility allows the visit. Timing and signer awareness should always be confirmed before booking."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you coordinate with a family member, attorney, or office manager?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Many Westwood appointments are arranged by family members, attorneys, caregivers, office staff, or advisers, and we are happy to coordinate the logistics as long as the signer is willing and properly identified at the appointment."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do we know if a document also needs an apostille?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "If the document will be used in another country, it may need an apostille or consular legalization after notarization or issuance. We can review the situation and explain the likely next step before you spend more time or money."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What identification should signers have ready?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Each signer must have valid, government-issued photo ID such as a driver's license, state ID, or passport, along with all pages of the document that needs to be signed. We are happy to answer ID questions before the appointment."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer same-day mobile notary appointments in Westwood?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Same-day and urgent appointments may be available depending on the time of day, travel conditions, and the type of appointment. The fastest way to check is to call or text with your location, timing, and document needs."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+    ]
+  }
+  </script>
 <!-- ========== /STRUCTURED DATA ========== -->
   <script src="/assets/js/gclid-capture.js" defer></script>
 
