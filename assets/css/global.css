@@ -10,8 +10,22 @@
   --color-text: #111827;
   --color-text-muted: #5d6674;
 
-  --color-brand: #8b1a1a;
+  --color-brand: #8b1a1a;          /* primary CTA buttons (darker maroon) */
   --color-brand-hover: #741515;
+
+  /* Accent reds used across hubs/spokes (do NOT collapse into --color-brand;
+   * the lighter --color-accent is the visible red on apostille/legal pages). */
+  --color-accent: #c8102e;         /* bright apostille red — links, hover, +/- icons */
+  --color-accent-soft: rgba(200, 16, 46, 0.25);
+  --color-accent-strong: rgba(200, 16, 46, 0.35);
+  --color-legal: #b91c1c;          /* legal/secondary red (apostille.css, jail) */
+
+  /* Neutrals shared across spoke + hub templates */
+  --color-border: #e2e8f0;
+  --color-muted: #64748b;
+  --color-ink: #475569;            /* body copy inside cards */
+  --color-ink-strong: #334155;
+  --color-surface-soft: #f8fafc;
 
   --color-btn-primary-bg: var(--color-brand);
   --color-btn-primary-hover: var(--color-brand-hover);
@@ -178,3 +192,104 @@ button {
 }
 
 /* ========== /GLOBAL TOKENS & BASE ========== */
+
+
+/* ========== GLOBAL COMPONENTS ========== */
+/*
+ * Patterns that appear across the majority of pages (hubs, spokes, locations).
+ * If a pattern is used by more than 2 page templates, it belongs here.
+ * Page-specific layout still lives in the per-template CSS file.
+ */
+
+/* ---------- Hero highlight chips ----------
+ * 6px rounded rectangles on dark heroes. NOT pills.
+ * Used on every hub and spoke hero across the site.
+ */
+.home-hero__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.home-hero__highlights li {
+  border-radius: 6px !important;
+  padding: 0.32rem 0.7rem !important;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ---------- FAQ accordion ----------
+ * Used by every hub and spoke FAQ section.
+ * Renders <details class="faq-item"><summary>Q</summary><p>A</p></details>.
+ */
+.home-faq .faq-item {
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 0.65rem;
+}
+
+.home-faq .faq-item:hover {
+  border-color: var(--color-accent-soft);
+}
+
+.home-faq .faq-item[open] {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border-color: var(--color-accent-strong);
+}
+
+.home-faq .faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 2.25rem 1rem 1.1rem;
+  position: relative;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+.home-faq .faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-faq .faq-item > summary::after {
+  content: "+";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+  line-height: 1;
+}
+
+.home-faq .faq-item[open] > summary::after {
+  content: "−";
+  color: var(--color-accent);
+}
+
+.home-faq .faq-item > p {
+  margin: 0;
+  padding: 0 1.1rem 1.1rem;
+  color: var(--color-ink);
+  line-height: 1.65;
+}
+
+/* ---------- Section heading override ---------- */
+.ap-section-heading h2 {
+  text-transform: none;
+}
+
+/* ========== /GLOBAL COMPONENTS ========== */

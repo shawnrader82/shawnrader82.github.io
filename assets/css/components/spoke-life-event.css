@@ -1,0 +1,142 @@
+/* =====================================================================
+ * spoke-life-event.css — Real-estate + estate-planning spoke pages.
+ *
+ * Used by:
+ *   /services/notary/real-estate/*.html         (4 pages)
+ *   /services/notary/estate-planning/*.html     (4 pages: trust, will, poa,
+ *                                                advance-directive)
+ *
+ * Depends on:
+ *   /assets/css/global.css   (tokens, hero chips, FAQ accordion)
+ *   /assets/css/services/apostille.css  (.ap-process / .ap-timelines /
+ *                                        .ap-checklist-section base)
+ *
+ * The +/- indicator and accent on these pages is `--color-legal` (b91c1c),
+ * not the brighter apostille red. This is intentional for legal/transactional
+ * content (real estate, estate planning).
+ * ===================================================================== */
+
+/* ---------- Section spacing override (match apostille hub rhythm) ---------- */
+.ap-process,
+.ap-timelines,
+.ap-checklist-section {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+}
+@media (min-width: 720px) {
+  .ap-process,
+  .ap-timelines,
+  .ap-checklist-section {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+}
+.ap-process { background: #f4f7fb !important; }
+.ap-timelines { background: #ffffff !important; }
+.ap-checklist-section { background: #f4f7fb !important; }
+
+/* ---------- Spoke variation cards ---------- */
+.spk-variation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+.spk-variation-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  scroll-margin-top: 90px;
+}
+.spk-variation-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.spk-variation-card p {
+  margin: 0 0 10px;
+  color: var(--color-ink);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.spk-variation-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------- Document checklist ---------- */
+.spk-doc-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+}
+.spk-doc-list li {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  color: #0f172a;
+  line-height: 1.4;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.spk-doc-list li::before {
+  content: "✓";
+  color: var(--color-legal);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.spk-doc-list li span {
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ---------- FAQ accordion (legal-red variant of the global pattern) ---------- *
+ * Overrides global FAQ accent colors specifically for legal/transactional pages.
+ * Scoped to .spk-related's host page via the .home-faq selector chain.        */
+.home-faq .faq-item:hover {
+  border-color: rgba(185, 28, 28, 0.25);
+}
+.home-faq .faq-item[open] {
+  border-color: rgba(185, 28, 28, 0.35);
+}
+.home-faq .faq-item[open] > summary::after {
+  color: var(--color-legal);
+}
+
+/* ---------- Related hub link card ---------- */
+.spk-related {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-top: 28px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.spk-related h3 {
+  margin: 0 0 4px;
+  color: #0f172a;
+  font-size: 1.05rem;
+}
+.spk-related p {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 0.92rem;
+}

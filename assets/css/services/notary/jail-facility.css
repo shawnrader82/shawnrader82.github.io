@@ -1,0 +1,92 @@
+/* =====================================================================
+ * jail-facility.css — Jail / detention center facility detail pages.
+ *
+ * Used by every /services/notary/jail/<facility>.html page (22 facilities).
+ *
+ * Depends on:
+ *   /assets/css/global.css                   (tokens, FAQ accordion, hero chips)
+ *   /assets/css/components/spoke-detail.css  (.vs-scope, .vs-intro, .vs-shade)
+ *   /assets/css/services/apostille.css       (.ap-step, .ap-process__grid)
+ * ===================================================================== */
+
+/* ---------- Info grid (visiting hours, address, transport) ---------- */
+.nt-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.nt-info-box {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+}
+.nt-info-box h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+.nt-info-box p {
+  margin: 0;
+  color: var(--color-ink-strong);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* ---------- Card grid (related facilities, services) ---------- */
+.nt-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+.nt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.93rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}
+.nt-card:hover,
+.nt-card:focus-visible {
+  border-color: rgba(200, 16, 46, 0.4);
+  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.08);
+  color: var(--color-accent);
+}
+.nt-card__title { flex: 1; }
+.nt-card__arrow {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.nt-card:hover .nt-card__arrow,
+.nt-card:focus-visible .nt-card__arrow {
+  color: var(--color-accent);
+}
+
+/* ---------- Reviews bar (150+ Five-Star Reviews) ---------- */
+.nt-reviews-bar {
+  background: #0f172a;
+  color: #fff;
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.nt-reviews-bar .stars {
+  color: #fbbf24;
+  margin-right: 0.4rem;
+}

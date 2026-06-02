@@ -1,0 +1,268 @@
+/* =====================================================================
+ * spoke-detail.css — Shared layout for apostille document spokes,
+ * Mexico country spokes, and similar "vs-*" detail pages.
+ *
+ * Used by:
+ *   /services/apostille/business-corporate/*.html       (6 pages)
+ *   /services/apostille/court-documents/*.html          (5 pages)
+ *   /services/apostille/notarized-documents/*.html      (5 pages)
+ *   /services/apostille/school-academic/*.html          (7 pages)
+ *   /services/apostille/vital-records/*.html            (4 pages)
+ *   /services/apostille/countries/philippines/*.html    (4 pages)
+ *   /services/apostille/countries/mexico/*.html         (6 pages)
+ *   /services/apostille/countries/uae/*.html            (4 pages)
+ *   /services/apostille/countries/uk/*.html             (4 pages)
+ *   /services/notary/jail/*.html                        (.vs-scope only)
+ *
+ * Brand tokens come from /assets/css/global.css.
+ * The accent color is `--spoke-accent` so country pages (UAE) can
+ * locally override it to amber without forking the whole file.
+ * ===================================================================== */
+
+:root {
+  --spoke-accent: var(--color-accent);                    /* default red */
+  --spoke-accent-soft: var(--color-accent-soft);
+  --spoke-accent-strong: var(--color-accent-strong);
+  --spoke-scope-bg: var(--color-surface-soft);            /* #f8fafc */
+}
+
+/* ---------- Scope note (the small callout under the hero) ---------- */
+.vs-scope {
+  max-width: 900px;
+  margin: 1.25rem auto 0;
+  padding: 0.85rem 1.1rem;
+  background: var(--spoke-scope-bg);
+  border-left: 3px solid var(--spoke-accent);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--color-ink-strong);
+  line-height: 1.55;
+}
+.vs-scope a {
+  color: var(--spoke-accent);
+  font-weight: 600;
+}
+
+/* ---------- Lead paragraph under H2 ---------- */
+.vs-intro {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--color-ink-strong);
+}
+
+/* ---------- Reasons grid (anchor-linked from hub chips) ---------- */
+.vs-reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.vs-reason {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+  scroll-margin-top: 100px;
+}
+.vs-reason:target {
+  border-color: rgba(200, 16, 46, 0.45);
+  box-shadow: 0 8px 22px rgba(200, 16, 46, 0.08);
+}
+.vs-reason h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.vs-reason p {
+  margin: 0;
+  color: var(--color-ink);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ---------- Accepted vs Rejected lists ---------- */
+.vs-acc-rej {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.vs-list-box {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+.vs-list-box h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.vs-list-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.vs-list-box li {
+  padding: .5rem 0 .5rem 1.6rem;
+  position: relative;
+  color: var(--color-ink);
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  font-size: 0.95rem;
+}
+.vs-list-box li:last-child { border-bottom: 0; }
+.vs-list-box--accepted li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  font-size: 0.95rem;
+}
+.vs-list-box--rejected li::before {
+  content: "❌";
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Timeline cards ---------- */
+.vs-timelines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.vs-timeline-box {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+.vs-timeline-box h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.vs-timeline-box ul {
+  list-style: disc;
+  padding: 0 0 0 1.1rem;
+  margin: 0;
+}
+.vs-timeline-box li {
+  padding: .35rem 0;
+  color: var(--color-ink);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+/* ---------- Checklist + aside row ---------- */
+.vs-checklist-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.vs-checklist {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 18px;
+  padding: 22px 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+.vs-checklist h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.vs-checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.vs-checklist li {
+  padding: .6rem 0 .6rem 1.7rem;
+  position: relative;
+  color: var(--color-ink);
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.95rem;
+}
+.vs-checklist li:last-child { border-bottom: 0; }
+.vs-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .85rem;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--spoke-accent);
+  border-radius: 3px;
+  background: #fff;
+}
+.vs-aside {
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+.vs-aside h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+.vs-aside ul {
+  list-style: disc;
+  padding: 0 0 0 1.1rem;
+  margin: 0;
+}
+.vs-aside li {
+  padding: .35rem 0;
+  color: var(--color-ink);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+/* ---------- Sibling cross-links (bottom-of-page nav) ---------- */
+.vs-siblings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+.vs-sibling {
+  flex: 1 1 240px;
+  display: inline-block;
+  padding: 0.7rem 0.95rem;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.vs-sibling:hover,
+.vs-sibling:focus-visible {
+  background: rgba(200, 16, 46, 0.06);
+  border-color: var(--spoke-accent-strong);
+  color: var(--spoke-accent);
+}
+
+/* ---------- Section background alternation (mirrors hub pages) ---------- */
+.vs-shade {
+  background: #f4f7fb;
+}
+.vs-shade + .vs-shade {
+  /* prevents two shaded blocks from merging visually if stacked */
+  border-top: 1px solid rgba(15, 23, 42, 0.04);
+}
+.vs-shade.home-faq .faq-item {
+  background: #fff;
+}
