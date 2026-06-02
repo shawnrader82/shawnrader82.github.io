@@ -283,41 +283,36 @@ body[data-nav-active="notary"] .home-hero__cta {
   transform: scale(1.02);
 }
 
-/* Banner background images by modifier — unified dark blue overlay */
+/* Banner backgrounds by modifier — brand gradients (no external images) */
+
+/* General notary — neutral slate */
 .nt-card--general .nt-card__banner {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
-    url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80');
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
 }
 
+/* Hospital — slate to muted clinical blue */
 .nt-card--hospital .nt-card__banner {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
-    url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80');
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
 }
 
+/* Jail — slate to brand red (urgency) */
 .nt-card--jail .nt-card__banner {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
-    url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80');
+  background-image: linear-gradient(135deg, #020617 0%, #3b0d12 55%, #b91c1c 100%);
 }
 
+/* Real estate — slate to brand maroon (legal/transaction) */
 .nt-card--real-estate .nt-card__banner {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
-    url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80');
+  background-image: linear-gradient(135deg, #0f172a 0%, #44232a 55%, #8b1a1a 100%);
 }
 
+/* Estate planning — slate to deeper maroon (legal scope) */
 .nt-card--estate .nt-card__banner {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
-    url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80');
+  background-image: linear-gradient(135deg, #0f172a 0%, #3a1f24 55%, #7f1d1d 100%);
 }
 
+/* Travel / apostille handoff — slate to sky blue */
 .nt-card--travel .nt-card__banner {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
-    url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80');
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #0369a1 100%);
 }
 
 .nt-card__banner-kicker {
