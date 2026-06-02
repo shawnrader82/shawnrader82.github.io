@@ -597,7 +597,7 @@ body[data-nav-active="notary"] .home-hero__cta {
   padding: 72px 0;
   background:
     linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.84) 100%),
-    url('../images/services/notary-hero.webp') center/cover no-repeat;
+    url('/assets/images/services/notary-hero.webp') center/cover no-repeat;
   overflow: hidden;
 }
 

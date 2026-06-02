@@ -81,7 +81,7 @@ position: absolute;
 inset: 0;
 z-index: 0;
 pointer-events: none;
-background-image: url("../images/hero/notary-desk-blur.webp");
+background-image: url("/assets/images/hero/notary-desk-blur.webp");
 background-size: cover;
 background-position: center center;
 background-repeat: no-repeat;
@@ -360,7 +360,7 @@ overflow: hidden;
 background:
 linear-gradient(180deg, rgba(243, 246, 249, 0.76) 0%, rgba(236, 241, 246, 0.70) 100%),
 linear-gradient(90deg, rgba(237, 242, 246, 0.68) 0%, rgba(228, 234, 240, 0.60) 46%, rgba(220, 227, 235, 0.66) 100%),
-url("../images/locations/la-service-areas-bg.webp") center center / cover no-repeat;
+url("/assets/images/locations/la-service-areas-bg.webp") center center / cover no-repeat;
 background-attachment: fixed;
 }
 
