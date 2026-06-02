@@ -204,3 +204,49 @@
   margin: 0.85rem 0 0;
   color: #475569;
 }
+
+/* ============================================================
+   .ap-timelines — process timeline cards (jail, hospital sub-pages, etc.)
+   Two-column on desktop, one column on mobile.
+   ============================================================ */
+.ap-timelines__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 24px;
+}
+@media (min-width: 720px) {
+  .ap-timelines__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.ap-timeline-card {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
+}
+.ap-timeline-card h3 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ap-timeline-card h4 {
+  margin: 14px 0 6px;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.ap-timeline-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.ap-timeline-card li {
+  margin-bottom: 6px;
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
