@@ -25,6 +25,10 @@
 .ap-families { background: #f4f7fb; }
 .home-faq { background: #ffffff; }
 
+/* Override modifiers: force a section to white or grey to fix zebra breaks */
+.vs-light { background: #ffffff !important; }
+.vs-shade { background: #f4f7fb !important; }
+
 /* --- Hero secondary CTA arrow --- */
 .home-hero__cta--secondary::after {
   content: " \2192";
