@@ -261,29 +261,13 @@
 <link rel="stylesheet" href="/assets/css/home.css" />
 <link rel="stylesheet" href="/assets/css/services/notary.css" />
 <link rel="stylesheet" href="/assets/css/page-shell.css" />
+  <link rel="stylesheet" href="/assets/css/components/hub-modern.css" />
 <!-- ========== /CSS ========== -->
 
 <!-- ========== PAGE-SPECIFIC MICRO-TWEAKS ========== -->
-<style>
-  /* Hero highlight chips: rounded rectangles (not pills) */
-  .home-hero__highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-  }
-  .home-hero__highlights li {
-    border-radius: 6px !important;
-    padding: 0.32rem 0.7rem !important;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 500;
-    line-height: 1.3;
-  }
+<style>/* Hero highlight chips: rounded rectangles (not pills) */
+  
+  
 
   /* Section background + breathing room (matches apostille hub spacing) */
   .ap-families,
@@ -302,8 +286,8 @@
       padding-bottom: 64px !important;
     }
   }
-  .ap-process { background: #f4f7fb !important; }
-  .ap-timelines { background: #ffffff !important; }
+  
+  
   .ap-checklist-section { background: #f4f7fb !important; }
 
   /* Mobile: stack the checklist + 'Good to know' aside vertically (override inline 2-col grid) */
@@ -315,64 +299,19 @@
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) !important;
     }
   }
-  .ap-families { background: #ffffff !important; }
+  
 
   /* ===== TRANSACTION SPOKE CARDS (4 loan types) ===== */
-  .ap-families .nt-card {
-    cursor: pointer;
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .ap-families .nt-card:hover,
-  .ap-families .nt-card:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
-    border-color: rgba(185, 28, 28, 0.35);
-  }
-  .ap-families .nt-card:focus-visible {
-    outline: 2px solid #b91c1c;
-    outline-offset: 2px;
-  }
-  .ap-families .nt-card h3 a.nt-card__main-link {
-    transition: color .18s ease;
-  }
-  .ap-families .nt-card:hover h3 a.nt-card__main-link {
-    color: #b91c1c;
-  }
-  .ap-families .nt-card__body {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  .ap-families .nt-card__chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    list-style: none;
-    padding: 0;
-    margin: auto 0 1rem;
-  }
-  .ap-families .nt-card__chips li { margin: 0; }
-  .ap-families .nt-card__chips a {
-    display: inline-block;
-    border-radius: 6px !important;
-    padding: 0.22rem 0.55rem !important;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    color: #475569;
-    font-size: 0.82rem;
-    font-weight: 500;
-    text-decoration: none;
-    line-height: 1.3;
-    transition: background .15s ease, color .15s ease, border-color .15s ease;
-  }
-  .ap-families .nt-card__chips a:hover,
-  .ap-families .nt-card__chips a:focus-visible {
-    background: rgba(185, 28, 28, 0.08);
-    border-color: rgba(185, 28, 28, 0.35);
-    color: #b91c1c;
-  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /* Force grid layout (override block default from base CSS) */
   .ap-families__grid {
     display: grid !important;
@@ -593,51 +532,14 @@
   .re-who-card strong { color: #0f172a; }
 
   /* ===== FAQ ACCORDION ===== */
-  .home-faq .faq-item {
-    padding: 0;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    background: #fff;
-    overflow: hidden;
-    transition: border-color .15s ease, box-shadow .15s ease;
-  }
-  .home-faq .faq-item:hover { border-color: rgba(185, 28, 28, 0.25); }
-  .home-faq .faq-item[open] {
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    border-color: rgba(185, 28, 28, 0.35);
-  }
-  .home-faq .faq-item > summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 1rem 2.25rem 1rem 1.1rem;
-    position: relative;
-    font-weight: 600;
-    color: #0f172a;
-    line-height: 1.4;
-  }
-  .home-faq .faq-item > summary::-webkit-details-marker { display: none; }
-  .home-faq .faq-item > summary::after {
-    content: "+";
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #64748b;
-    transition: transform .2s ease, color .2s ease;
-    line-height: 1;
-  }
-  .home-faq .faq-item[open] > summary::after {
-    content: "−";
-    color: #b91c1c;
-  }
-  .home-faq .faq-item > p {
-    margin: 0;
-    padding: 0 1.1rem 1.1rem;
-    color: #475569;
-    line-height: 1.65;
-  }
+  
+  
+  
+  
+  
+  
+  
+  
 
   /* ===== REVIEWS IFRAME ===== */
   .re-reviews-frame {
@@ -721,7 +623,7 @@
     width: 100%;
   }
   .re-contact-form .hnpt { position: absolute; left: -9999px; }
-</style>
+  </style>
 <!-- ========== /PAGE-SPECIFIC MICRO-TWEAKS ========== -->
 
   <!-- Google Tag Manager -->
