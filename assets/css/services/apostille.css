@@ -556,38 +556,40 @@ body[data-nav-active="apostille"] .home-hero__cta {
 
 /* ========== 09) DOCUMENT FAMILY BANNER IMAGES ========== */
 
-/* Muted slate-family gradients matching hospital.css palette.
-   All endpoints stay desaturated; subtle hue shift hints family without
-   shouting. White banner text keeps strong contrast on every stop. */
+/* 6 unique muted slate-family gradients (one per family).
+   Mirrors hospital.css pattern: every gradient stays desaturated, but
+   each card gets a *distinct* hue / depth so all 6 read as siblings,
+   not duplicates. Order tuned so adjacent cards in the 3-col grid
+   never share the same tint. */
 
-/* Vital records — slate → muted blue-slate (records / archival) */
+/* Vital records — muted blue-slate (records / archival) */
 .ap-card--vital .nt-card__banner {
   background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
 }
 
-/* Court documents — deep slate (judicial gravity) */
+/* Court documents — mid-slate cool (judicial neutrality) */
 .ap-card--court .nt-card__banner {
-  background-image: linear-gradient(135deg, #020617 0%, #0f172a 60%, #1e293b 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #334155 60%, #475569 100%);
 }
 
-/* Academic / school — slate → muted indigo-slate (scholastic) */
+/* Academic / school — muted teal-slate (scholastic) */
 .ap-card--school .nt-card__banner {
   background-image: linear-gradient(135deg, #1e293b 0%, #1f3a4d 60%, #2d5566 100%);
 }
 
-/* Business / corporate — cool slate (neutral, corporate) */
+/* Business / corporate — base neutral slate (corporate baseline) */
 .ap-card--business .nt-card__banner {
   background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
 }
 
-/* POA / legal — slate → muted maroon (legal hint) */
+/* POA / notarized — muted maroon (legal hint, warm tint) */
 .ap-card--poa .nt-card__banner {
   background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
 }
 
-/* Federal / government — slate → mid-slate (subtle authority) */
+/* Federal / government — deepest near-black slate (gravity / authority) */
 .ap-card--federal .nt-card__banner {
-  background-image: linear-gradient(135deg, #1e293b 0%, #334155 60%, #475569 100%);
+  background-image: linear-gradient(135deg, #020617 0%, #0f172a 60%, #1e293b 100%);
 }
 
 /* ========== 10) DESTINATION COUNTRY EXPLORER ========== */
