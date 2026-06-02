@@ -277,3 +277,77 @@
   border-radius: 999px;
   letter-spacing: 0;
 }
+
+/* ============================================================
+   .jail-county-card — full-width container that groups one county's
+   heading + facility links. Used in the "22 facilities" section on
+   jail.html. Each county becomes its own scannable card row.
+   ============================================================ */
+.jail-county-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+  transition: box-shadow .18s ease, transform .18s ease;
+}
+.jail-county-card:hover {
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+.jail-county-card:last-child {
+  margin-bottom: 0;
+}
+.jail-county-card .jail-region-heading {
+  margin: 0 0 14px;
+  color: var(--color-accent, #c8102e);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.jail-county-card .jail-location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 540px) {
+  .jail-county-card .jail-location-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 860px) {
+  .jail-county-card .jail-location-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1100px) {
+  .jail-county-card .jail-location-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.jail-county-card .jail-location-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 12px;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+.jail-county-card .jail-location-link:hover {
+  background: #ffffff;
+  border-color: rgba(185, 28, 28, 0.30);
+  transform: translateY(-1px);
+}
+.jail-county-card .jail-location-link small {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
