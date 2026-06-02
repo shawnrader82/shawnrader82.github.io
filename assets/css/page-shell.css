@@ -74,7 +74,8 @@
 }
 
 /* ===== Banded service-detail sections ===== */
-.service-detail { padding: 56px 0; }
+/* NOTE: .service-detail { padding: 56px 0 } moved to global.css so spoke
+   pages get section spacing without needing to link page-shell.css. */
 .service-detail--white { background: #ffffff; color: #0f172a; }
 .service-detail--gray  { background: #f8fafc; color: #0f172a; }
 .service-detail-inner {

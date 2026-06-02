@@ -292,4 +292,11 @@ button {
   text-transform: none;
 }
 
+/* ---------- Universal section spacing ---------- */
+/* Every banded section on every page gets 56px vertical padding by default.
+   Lives here (loaded site-wide) so spoke/sub-hub pages don't need to link
+   page-shell.css just for spacing. Component CSS (page-life-event, etc.)
+   can still override per-component via !important. */
+.service-detail { padding: 56px 0; }
+
 /* ========== /GLOBAL COMPONENTS ========== */
