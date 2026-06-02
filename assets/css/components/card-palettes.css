@@ -1,0 +1,286 @@
+/* =========================================================================
+   card-palettes.css
+   Per-page-family card-banner gradient palettes.
+   ---------------------------------------------------------------------------
+   Pages that show N cards using the same .ap-card--vital (or other) class
+   would otherwise render N identical banners. This file gives every spoke
+   page its own anchor color (tying it to its parent family) AND varies
+   each card by position so cards within a page read like the
+   hospital.css pattern: same family, subtle distinction per card.
+
+   Hook: set <body data-card-palette="vital"> (etc) on the page.
+   All gradients stay desaturated and in the slate family.
+   ========================================================================= */
+
+/* ===== VITAL RECORDS family — muted blue-slate axis =====
+   Used by: services/apostille/vital-records.html
+   Card 1: blue-slate
+   Card 2: deeper blue-slate
+   Card 3: mid blue-slate
+   Card 4+: lightest blue-slate
+*/
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
+}
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0a1929 0%, #18324d 60%, #244769 100%);
+}
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #234766 60%, #305d80 100%);
+}
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #15263d 0%, #1e3e60 60%, #356a90 100%);
+}
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1a3252 60%, #28567c 100%);
+}
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #131d33 0%, #1d3a5a 60%, #2d5e88 100%);
+}
+[data-card-palette="vital"] .ap-families__grid > .nt-card:nth-child(7n) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0e1c30 0%, #1c3855 60%, #2e6088 100%);
+}
+
+/* ===== COURT family — mid-slate cool axis =====
+   Used by: services/apostille/court-documents.html
+*/
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #334155 60%, #475569 100%);
+}
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182230 0%, #2c3a4d 60%, #3e4d62 100%);
+}
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2533 0%, #2f3f55 60%, #455870 100%);
+}
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c2638 0%, #354660 60%, #506680 100%);
+}
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #16202e 0%, #2a394f 60%, #3f5169 100%);
+}
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #384a64 60%, #4d6079 100%);
+}
+[data-card-palette="court"] .ap-families__grid > .nt-card:nth-child(7n) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2433 0%, #324360 60%, #4a5e7a 100%);
+}
+
+/* ===== SCHOOL / ACADEMIC family — muted teal-slate axis =====
+   Used by: services/apostille/school-academic.html
+*/
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #1f3a4d 60%, #2d5566 100%);
+}
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182733 0%, #1b3543 60%, #2a4e5e 100%);
+}
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2e3d 0%, #224053 60%, #335e72 100%);
+}
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c3042 0%, #25455a 60%, #37657a 100%);
+}
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #14202c 0%, #1d3645 60%, #2c5163 100%);
+}
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #213d52 60%, #305d74 100%);
+}
+[data-card-palette="school"] .ap-families__grid > .nt-card:nth-child(7n) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182834 0%, #1f3a4f 60%, #2e596e 100%);
+}
+
+/* ===== BUSINESS / CORPORATE family — base neutral slate axis =====
+   Used by: services/apostille/business-corporate.html
+*/
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+}
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0c1422 0%, #1a2433 60%, #2d394d 100%);
+}
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #131c30 0%, #22304a 60%, #38465e 100%);
+}
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e2a40 60%, #344666 100%);
+}
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #111a2e 0%, #1c2738 60%, #303e54 100%);
+}
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #131c30 0%, #1f2d44 60%, #36455c 100%);
+}
+[data-card-palette="business"] .ap-families__grid > .nt-card:nth-child(7n) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1c2840 60%, #324360 100%);
+}
+
+/* ===== NOTARIZED / POA family — muted maroon axis =====
+   Used by: services/apostille/notarized-documents.html
+*/
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
+}
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182030 0%, #341c28 60%, #5e1c2f 100%);
+}
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #42233a 60%, #722842 100%);
+}
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c2436 0%, #3a1f30 60%, #66243a 100%);
+}
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2233 0%, #2f1a26 60%, #55192c 100%);
+}
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3f2030 60%, #6e2138 100%);
+}
+[data-card-palette="notarized"] .ap-families__grid > .nt-card:nth-child(7n) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1d2738 0%, #3b1d2c 60%, #682136 100%);
+}
+
+/* ===== FEDERAL family — deepest near-black slate axis =====
+   Used by: services/apostille/federal-documents.html
+*/
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #020617 0%, #0f172a 60%, #1e293b 100%);
+}
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #060a1c 0%, #131c33 60%, #232f45 100%);
+}
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #020617 0%, #111a2e 60%, #1f2a40 100%);
+}
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #040b1e 0%, #142035 60%, #27334a 100%);
+}
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #020617 0%, #0d1628 60%, #1c2638 100%);
+}
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #050a1d 0%, #121c30 60%, #212d44 100%);
+}
+[data-card-palette="federal"] .ap-families__grid > .nt-card:nth-child(7n) .nt-card__banner {
+  background-image: linear-gradient(135deg, #020617 0%, #0e1827 60%, #1b2638 100%);
+}
+
+/* ===== REAL ESTATE sub-hub (notary) — muted blue-slate (transaction) =====
+   Used by: services/notary/real-estate.html
+   Same axis as vital-records but with a slightly warmer mid-stop to
+   distinguish (real estate = transactional, not archival).
+*/
+[data-card-palette="real-estate"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
+}
+[data-card-palette="real-estate"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0c1424 0%, #1a3354 60%, #284972 100%);
+}
+[data-card-palette="real-estate"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #131d34 0%, #234266 60%, #345e8a 100%);
+}
+[data-card-palette="real-estate"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1f3a5f 60%, #305a85 100%);
+}
+
+/* ===== ESTATE PLANNING sub-hub (notary) — mid-slate cool =====
+   Used by: services/notary/estate-planning.html
+   Same axis as court (judicial / legal).
+*/
+[data-card-palette="estate"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #334155 60%, #475569 100%);
+}
+[data-card-palette="estate"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182230 0%, #2c3a4d 60%, #3e4d62 100%);
+}
+[data-card-palette="estate"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2533 0%, #2f3f55 60%, #455870 100%);
+}
+[data-card-palette="estate"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c2638 0%, #354660 60%, #506680 100%);
+}
+
+/* ===== JAIL sub-hub (notary) — muted maroon (legal seriousness) =====
+   Used by: services/notary/jail.html (3 cards)
+*/
+[data-card-palette="jail"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
+}
+[data-card-palette="jail"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182030 0%, #341c28 60%, #5e1c2f 100%);
+}
+[data-card-palette="jail"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #42233a 60%, #722842 100%);
+}
+
+/* ===== COUNTRY pages — each country gets its own anchor color =====
+   These are spoke pages by destination country. To give each country a
+   subtle identity while staying inside the muted slate family, we use:
+     UK          -> muted blue-slate (royal blue family, dignified)
+     UAE         -> deep slate + warm sand-toned mid-stop
+     Philippines -> muted teal-slate (tropical-clinical, blue-green)
+     Mexico      -> muted warm-slate with subtle terracotta hint
+*/
+
+/* UK */
+[data-card-palette="uk"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1a2f50 60%, #25467a 100%);
+}
+[data-card-palette="uk"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0c1424 0%, #182947 60%, #213e6e 100%);
+}
+[data-card-palette="uk"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #131d34 0%, #1d3458 60%, #2a4f86 100%);
+}
+[data-card-palette="uk"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1c3354 60%, #2a4a7c 100%);
+}
+
+/* UAE - deep slate with warm sand undertone */
+[data-card-palette="uae"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c2030 0%, #322a30 60%, #4d3e3a 100%);
+}
+[data-card-palette="uae"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #181b28 0%, #2c2528 60%, #463833 100%);
+}
+[data-card-palette="uae"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1f2333 0%, #382f33 60%, #56453d 100%);
+}
+[data-card-palette="uae"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a1e2c 0%, #302930 60%, #4a3c38 100%);
+}
+
+/* Philippines - muted teal-slate (tropical) */
+[data-card-palette="philippines"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #1f3a4d 60%, #2d5566 100%);
+}
+[data-card-palette="philippines"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182733 0%, #1b3543 60%, #2a4e5e 100%);
+}
+[data-card-palette="philippines"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2e3d 0%, #224053 60%, #335e72 100%);
+}
+[data-card-palette="philippines"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c3042 0%, #25455a 60%, #37657a 100%);
+}
+
+/* Mexico - muted warm-slate with subtle terracotta */
+[data-card-palette="mexico"] .ap-families__grid > .nt-card:nth-child(7n+1) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #382630 60%, #5a3334 100%);
+}
+[data-card-palette="mexico"] .ap-families__grid > .nt-card:nth-child(7n+2) .nt-card__banner {
+  background-image: linear-gradient(135deg, #182030 0%, #321e27 60%, #50272c 100%);
+}
+[data-card-palette="mexico"] .ap-families__grid > .nt-card:nth-child(7n+3) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3c2933 60%, #623838 100%);
+}
+[data-card-palette="mexico"] .ap-families__grid > .nt-card:nth-child(7n+4) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1c2436 0%, #36242e 60%, #563134 100%);
+}
+[data-card-palette="mexico"] .ap-families__grid > .nt-card:nth-child(7n+5) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1a2233 0%, #2e1f29 60%, #4b2d30 100%);
+}
+[data-card-palette="mexico"] .ap-families__grid > .nt-card:nth-child(7n+6) .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3a2832 60%, #5e3637 100%);
+}
