@@ -556,34 +556,38 @@ body[data-nav-active="apostille"] .home-hero__cta {
 
 /* ========== 09) DOCUMENT FAMILY BANNER IMAGES ========== */
 
-/* Vital records — slate to teal-blue (civil records / archival) */
+/* Muted slate-family gradients matching hospital.css palette.
+   All endpoints stay desaturated; subtle hue shift hints family without
+   shouting. White banner text keeps strong contrast on every stop. */
+
+/* Vital records — slate → muted blue-slate (records / archival) */
 .ap-card--vital .nt-card__banner {
   background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
 }
 
-/* Court documents — slate to deep navy (judicial) */
+/* Court documents — deep slate (judicial gravity) */
 .ap-card--court .nt-card__banner {
-  background-image: linear-gradient(135deg, #020617 0%, #1e293b 55%, #1e3a5f 100%);
+  background-image: linear-gradient(135deg, #020617 0%, #0f172a 60%, #1e293b 100%);
 }
 
-/* Academic / school — slate to indigo (scholastic) */
+/* Academic / school — slate → muted indigo-slate (scholastic) */
 .ap-card--school .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #3730a3 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #1f3a4d 60%, #2d5566 100%);
 }
 
-/* Business / corporate — slate to charcoal-warm (corporate) */
+/* Business / corporate — cool slate (neutral, corporate) */
 .ap-card--business .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #292524 60%, #44403c 100%);
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
 }
 
-/* POA / legal — slate to brand maroon (legal scope) */
+/* POA / legal — slate → muted maroon (legal hint) */
 .ap-card--poa .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #44232a 55%, #8b1a1a 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
 }
 
-/* Federal / government — slate to deep federal blue */
+/* Federal / government — slate → mid-slate (subtle authority) */
 .ap-card--federal .nt-card__banner {
-  background-image: linear-gradient(135deg, #020617 0%, #0f2747 55%, #1d4ed8 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #334155 60%, #475569 100%);
 }
 
 /* ========== 10) DESTINATION COUNTRY EXPLORER ========== */

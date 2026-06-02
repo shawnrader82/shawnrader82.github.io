@@ -283,36 +283,38 @@ body[data-nav-active="notary"] .home-hero__cta {
   transform: scale(1.02);
 }
 
-/* Banner backgrounds by modifier — brand gradients (no external images) */
+/* Banner backgrounds by modifier — muted slate-family gradients
+   matching hospital.css. Desaturated tones throughout; subtle hue
+   variation distinguishes family without bright color blocks. */
 
 /* General notary — neutral slate */
 .nt-card--general .nt-card__banner {
   background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
 }
 
-/* Hospital — slate to muted clinical blue */
+/* Hospital — slate → muted clinical blue */
 .nt-card--hospital .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #1f3a4d 60%, #2d5566 100%);
 }
 
-/* Jail — slate to brand red (urgency) */
+/* Jail — slate → muted maroon (legal seriousness, not alarm red) */
 .nt-card--jail .nt-card__banner {
-  background-image: linear-gradient(135deg, #020617 0%, #3b0d12 55%, #b91c1c 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
 }
 
-/* Real estate — slate to brand maroon (legal/transaction) */
+/* Real estate — cool slate (transaction / neutral) */
 .nt-card--real-estate .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #44232a 55%, #8b1a1a 100%);
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
 }
 
-/* Estate planning — slate to deeper maroon (legal scope) */
+/* Estate planning — slate → muted maroon (legal scope) */
 .nt-card--estate .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #3a1f24 55%, #7f1d1d 100%);
+  background-image: linear-gradient(135deg, #1e293b 0%, #3d1f2e 60%, #6b1f33 100%);
 }
 
-/* Travel / apostille handoff — slate to sky blue */
+/* Travel — slate → muted blue-slate */
 .nt-card--travel .nt-card__banner {
-  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #0369a1 100%);
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #2c5282 100%);
 }
 
 .nt-card__banner-kicker {

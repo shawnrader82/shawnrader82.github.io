@@ -33,10 +33,36 @@
   font-weight: 600;
 }
 
+/* --- Base grid for all hub card sections (jail, hospital, etc) --- */
+.ap-families__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 22px;
+  align-items: stretch;
+}
+
+/* 2-col layout from tablet up */
+@media (min-width: 720px) {
+  .ap-families__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
 /* --- 3-col grid override on wide screens --- */
 @media (min-width: 1081px) {
   .ap-families__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* 3-card sections center themselves nicely on extra-wide screens */
+@media (min-width: 1081px) {
+  .ap-families__grid[data-card-count="3"] {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
