@@ -1,0 +1,464 @@
+/* ============================================================
+   legal-page.css
+   Shared stylesheet for legal / compliance / status pages:
+     - /sms-consent.html
+     - /terms.html
+     - /thank-you.html
+   Extracted from inline <style> blocks 2026-06-01 as part of
+   the legacy-architecture cleanup. Keep selectors stable —
+   pages reference them by class.
+   ============================================================ */
+
+/* ---------- Page band ---------- */
+.legal-page {
+  background:
+    radial-gradient(circle at top center, rgba(15, 23, 42, 0.04), transparent 42%),
+    #f3f4f6;
+  min-height: calc(100vh - 78px);
+  padding: 72px 0 92px;
+}
+
+.legal-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.legal-card {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 34px 30px 32px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.08);
+}
+
+/* Narrower variant for long-form prose like Terms */
+.legal-card--narrow {
+  width: min(860px, 100%);
+}
+
+/* ---------- Header bits ---------- */
+.legal-kicker {
+  margin: 0 0 10px;
+  color: #b91c1c;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.legal-card h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.legal-meta {
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.legal-intro {
+  margin: 16px 0 0;
+  max-width: 52rem;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* ---------- Body content ---------- */
+.legal-content {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  color: #111827;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.legal-content h2 {
+  margin: 22px 0 4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.legal-content p {
+  margin: 0;
+  color: #374151;
+}
+
+.legal-content strong {
+  color: #0f172a;
+}
+
+.legal-content a {
+  color: #b91c1c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.legal-content a:hover,
+.legal-content a:focus-visible {
+  color: #991b1b;
+  text-decoration: underline;
+}
+
+/* ---------- Example consent block (sms-consent only) ---------- */
+.legal-example {
+  margin-top: 4px;
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.legal-example-label {
+  display: inline-block;
+  margin: 0 0 10px;
+  color: #b91c1c;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.legal-example-text {
+  margin: 0;
+  color: #1f2937;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+/* ---------- Contact / CTA block ---------- */
+.legal-contact-card {
+  margin-top: 6px;
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.legal-contact-name {
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.legal-contact-line {
+  margin: 4px 0 0;
+  color: #475569;
+}
+
+.legal-contact-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 14px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #b91c1c;
+  border: 1px solid #b91c1c;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(185, 28, 28, 0.20);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.legal-contact-phone:hover,
+.legal-contact-phone:focus-visible {
+  background: #991b1b;
+  border-color: #991b1b;
+  color: #ffffff !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ---------- Back to Home button ---------- */
+.legal-back {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.legal-back .legal-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.9);
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.legal-back .legal-back-link:hover,
+.legal-back .legal-back-link:focus-visible {
+  background: #f3f4f6;
+  border-color: rgba(148, 163, 184, 1);
+  color: #0f172a;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   Thank-You page (form submission landing) — distinct hero
+   ============================================================ */
+.thank-you-page {
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0.00) 100%),
+    #f8fafc;
+  min-height: calc(100vh - 78px);
+  display: flex;
+  align-items: center;
+  padding: 72px 0 84px;
+}
+
+.thank-you-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.thank-you-card {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 34px 30px 32px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.thank-you-kicker {
+  margin: 0 0 10px;
+  color: #b91c1c;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.thank-you-card h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 4.5vw, 3.35rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.thank-you-lead {
+  margin: 18px auto 0;
+  max-width: 44rem;
+  color: #475569;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.thank-you-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #dcfce7 0%, #bbf7d0 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(22, 101, 52, 0.10),
+    0 14px 30px rgba(22, 101, 52, 0.10);
+}
+
+.thank-you-status svg {
+  width: 34px;
+  height: 34px;
+  color: #166534;
+}
+
+.thank-you-points {
+  list-style: none;
+  margin: 26px auto 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  max-width: 38rem;
+  text-align: left;
+}
+
+.thank-you-points li {
+  position: relative;
+  padding: 14px 16px 14px 40px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.thank-you-points li::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #b91c1c;
+}
+
+.thank-you-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.thank-you-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.thank-you-btn--primary {
+  background: #b91c1c;
+  color: #ffffff;
+  border-color: #b91c1c;
+  box-shadow: 0 10px 24px rgba(185, 28, 28, 0.20);
+}
+
+.thank-you-btn--primary:hover,
+.thank-you-btn--primary:focus-visible {
+  background: #991b1b;
+  border-color: #991b1b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.thank-you-btn--secondary {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+
+.thank-you-btn--secondary:hover,
+.thank-you-btn--secondary:focus-visible {
+  background: #111827;
+  border-color: #111827;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.thank-you-btn--ghost {
+  background: #ffffff;
+  color: #b91c1c;
+  border-color: rgba(185, 28, 28, 0.22);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.thank-you-btn--ghost:hover,
+.thank-you-btn--ghost:focus-visible {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: rgba(185, 28, 28, 0.38);
+  transform: translateY(-1px);
+}
+
+.thank-you-note {
+  margin: 22px auto 0;
+  max-width: 36rem;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 767px) {
+  .legal-page {
+    min-height: auto;
+    padding: 56px 0 72px;
+  }
+
+  .legal-shell {
+    width: min(100% - 24px, 1200px);
+  }
+
+  .legal-card {
+    padding: 24px 18px 24px;
+    border-radius: 18px;
+  }
+
+  .legal-content h2 {
+    margin-top: 18px;
+  }
+
+  .legal-contact-phone,
+  .legal-back .legal-back-link {
+    width: 100%;
+  }
+
+  .thank-you-actions {
+    flex-direction: column;
+  }
+
+  .thank-you-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-shell {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .legal-card h1 {
+    font-size: clamp(1.7rem, 6vw, 2.1rem);
+  }
+}
