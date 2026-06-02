@@ -27,6 +27,25 @@
   --section-bg-light: var(--color-light);
   --section-bg-dark: var(--color-dark);
 
+  /* ----- Canonical dark-hero gradient (use on every .hero across the site) -----
+   * Two-stop diagonal navy + subtle blue glow.
+   * Use --hero-bg for solid heroes (about, hub pages, no photo).
+   * Use --hero-bg-photo for location pages that overlay a background photo.
+   * Single source of truth so heroes look identical across the site.
+   */
+  --hero-bg:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(19, 34, 56, 0.88)),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 38%);
+
+  --hero-bg-photo:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.90) 0%, rgba(15, 23, 42, 0.72) 45%, rgba(15, 23, 42, 0.50) 100%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.50) 100%);
+
+  /* Matching solid for the same blue family (use on service-detail--blue bands) */
+  --section-bg-blue:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(19, 34, 56, 0.90)),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 40%);
+
   /* ----- Typography tokens (referenced from locations.css and other modules) ----- */
   --text-kicker: 0.78rem;            /* small uppercase eyebrow */
   --text-label: 0.92rem;             /* uppercase region/section labels */

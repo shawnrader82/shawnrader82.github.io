@@ -12,12 +12,11 @@
  */
 
 /* ========== HERO (DARK) ========== */
+/* Uses canonical --hero-bg token from global.css so every hero matches. */
 .hero {
   position: relative;
   padding: clamp(56px, 9vw, 96px) 0;
-  background:
-    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(19, 34, 56, 0.88)),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 38%);
+  background: var(--hero-bg);
   color: #ffffff;
   overflow: hidden;
 }
@@ -159,10 +158,9 @@
 
 
 /* ========== SERVICE-DETAIL BLUE VARIANT ========== */
+/* Uses canonical --section-bg-blue token so blue bands match across the site. */
 .service-detail--blue {
-  background:
-    linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(19, 34, 56, 0.90)),
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 40%);
+  background: var(--section-bg-blue);
   color: #ffffff;
 }
 .service-detail--blue h2,
