@@ -147,9 +147,10 @@ line-height: 1.55;
 }
 .ap-step li:last-child { margin-bottom: 0; }
 
-/* 3-col variant for 6-step processes (overrides default 5-col at 1100px) */
+/* Width-variant modifiers (override default 5-col at 1100px) */
 @media (min-width: 1024px) {
-.ap-process__grid--3col { grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; }
+.ap-process__grid--3col { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 20px !important; }
+.ap-process__grid--4col { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 20px !important; }
 }
 
 /* ===== DOCUMENT EXPLORER (10 doc cards) ===== */
