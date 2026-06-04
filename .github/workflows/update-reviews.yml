@@ -1,0 +1,60 @@
+name: Update LocalBusiness aggregateRating
+
+# Runs weekly Sunday 9am PT (16:00 UTC) and can be triggered manually.
+# Pulls current rating + review count from Google Business Profile,
+# updates JSON-LD across hub/spoke pages, commits only if something changed.
+
+on:
+  schedule:
+    - cron: "0 16 * * 0"
+  workflow_dispatch:
+    inputs:
+      rating:
+        description: "Manual rating override (e.g. 5.0)"
+        required: false
+      count:
+        description: "Manual review count override (e.g. 161)"
+        required: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install tool dependencies
+        working-directory: tools
+        run: npm install --no-audit --no-fund
+
+      - name: Run update script (manual override)
+        if: ${{ github.event.inputs.rating != '' && github.event.inputs.count != '' }}
+        working-directory: tools
+        run: node update-reviews.mjs --rating "${{ github.event.inputs.rating }}" --count "${{ github.event.inputs.count }}"
+
+      - name: Run update script (live GBP fetch)
+        if: ${{ github.event.inputs.rating == '' || github.event.inputs.count == '' }}
+        working-directory: tools
+        env:
+          GBP_SERVICE_ACCOUNT_JSON: ${{ secrets.GBP_SERVICE_ACCOUNT_JSON }}
+          GBP_LOCATION_NAME: ${{ secrets.GBP_LOCATION_NAME }}
+        run: node update-reviews.mjs
+
+      - name: Commit + push if changed
+        run: |
+          git config user.name "review-bot"
+          git config user.email "review-bot@users.noreply.github.com"
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "No changes — nothing to commit."
+            exit 0
+          fi
+          git add -A
+          git commit -m "auto: refresh LocalBusiness aggregateRating from GBP"
+          git push

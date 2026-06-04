@@ -1,0 +1,75 @@
+{
+  "ts": "2026-06-04T08:46:18.743Z",
+  "stats": {
+    "ratingValue": "5.0",
+    "ratingCount": "161",
+    "reviewCount": "161",
+    "source": "cli-override"
+  },
+  "results": [
+    {
+      "path": "/tmp/man_site/index.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/index2.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/apostille.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/real-estate.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/jail.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/estate-planning.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/jail/vehicle-title.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/jail/power-of-attorney.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/jail/affidavits.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital/molst-polst.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital/living-will.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital/hipaa-authorization.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital/healthcare-power-of-attorney.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital/bedside-notary.html",
+      "status": "would-change"
+    },
+    {
+      "path": "/tmp/man_site/services/notary/hospital/advance-healthcare-directive.html",
+      "status": "would-change"
+    }
+  ]
+}

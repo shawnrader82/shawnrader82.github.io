@@ -1,0 +1,14 @@
+{
+  "name": "man-tools",
+  "private": true,
+  "type": "module",
+  "description": "Tooling scripts for mobileamericannotary.com — review auto-update, etc.",
+  "scripts": {
+    "update-reviews": "node update-reviews.mjs",
+    "update-reviews:dry": "node update-reviews.mjs --dry-run",
+    "update-reviews:test": "node update-reviews.mjs --rating 5.0 --count 160"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.14.1"
+  }
+}
