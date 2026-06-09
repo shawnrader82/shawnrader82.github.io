@@ -1241,3 +1241,31 @@ body[data-nav-active="apostille"][data-card-palette="school"] .home-hero__media 
   background-position: center;
   background-repeat: no-repeat;
 }
+
+body[data-nav-active="apostille"][data-card-palette="business"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/business-corporate/business-corporate-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-nav-active="apostille"][data-card-palette="federal"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/federal-documents/federal-documents-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-nav-active="apostille"][data-card-palette="notarized"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/notarized-documents/notarized-documents-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-nav-active="apostille"][data-card-palette="expedited"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/expedited/expedited-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
