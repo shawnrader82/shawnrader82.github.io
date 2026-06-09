@@ -1,16 +1,70 @@
-/* ========== HOSPITAL SPOKE CSS: boyle-heights-keck-usc ========== */
-/* Canonical stylesheet #4 — loaded after global.css, header.css, home.css */
+/* ========== HOSPITAL SPOKE CSS — SHARED ========== */
+/* Canonical stylesheet #4 — loaded after global.css, header.css, home.css
+   Replaces 23 per-spoke files. Hero image routed via data-card-palette on <body>.
+   Default hero (for document spokes): /assets/images/hero/hospitals/notary-bedside-setup.webp */
 
 /* ========== 01) HERO BACKGROUND ========== */
-/* Drop /assets/images/hero/hospitals/boyle-heights-keck-usc.webp to activate the hero image.
-   Until the image is present the dark gradient fallback is shown. */
 
 .home-hero {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
 
-.home-hero__media {
+/* Default hero — used by document-type spokes (living-will, hipaa, etc.) */
+body[data-nav-active="notary"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/notary-bedside-setup.webp");
+}
+
+/* Per-location hero overrides */
+body[data-card-palette="hosp-beverly-grove-cedars-sinai"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/beverly-grove-cedars-sinai.webp");
+}
+body[data-card-palette="hosp-boyle-heights-keck-usc"] .home-hero__media {
   background-image: url("/assets/images/hero/hospitals/boyle-heights-keck-usc.webp");
+}
+body[data-card-palette="hosp-burbank-providence-saint-joseph"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/burbank-providence-saint-joseph.webp");
+}
+body[data-card-palette="hosp-east-hollywood-presbyterian"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/east-hollywood-presbyterian.webp");
+}
+body[data-card-palette="hosp-encino-hospital-medical-center"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/encino-hospital-medical-center.webp");
+}
+body[data-card-palette="hosp-hollywood-kaiser"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/hollywood-kaiser.webp");
+}
+body[data-card-palette="hosp-mission-hills-providence-holy-cross"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/mission-hills-providence-holy-cross.webp");
+}
+body[data-card-palette="hosp-northridge-dignity-northridge"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/northridge-dignity-northridge.webp");
+}
+body[data-card-palette="hosp-simi-valley-adventist"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/simi-valley-adventist.webp");
+}
+body[data-card-palette="hosp-sylmar-olive-view-ucla"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/sylmar-olive-view-ucla.webp");
+}
+body[data-card-palette="hosp-tarzana-providence-cedars-sinai"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/tarzana-providence-cedars-sinai.webp");
+}
+body[data-card-palette="hosp-thousand-oaks-los-robles"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/thousand-oaks-los-robles.webp");
+}
+body[data-card-palette="hosp-valencia-henry-mayo"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/valencia-henry-mayo.webp");
+}
+body[data-card-palette="hosp-van-nuys-valley-presbyterian"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/van-nuys-valley-presbyterian.webp");
+}
+body[data-card-palette="hosp-west-hills-ucla-west-valley"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/west-hills-ucla-west-valley.webp");
+}
+body[data-card-palette="hosp-westwood-ucla"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/westwood-ucla.webp");
+}
+body[data-card-palette="hosp-woodland-hills-kaiser"] .home-hero__media {
+  background-image: url("/assets/images/hero/hospitals/woodland-hills-kaiser.webp");
 }
 
 /* ========== 02) SECTION BACKGROUND ZEBRA ========== */
@@ -222,6 +276,98 @@
   font-size: 0.95rem;
 }
 
+/* ========== 08b) ACCEPT/REJECT LIST BOXES (optional component) ========== */
+/* Used by: advance-healthcare-directive, molst-polst */
+
+.vs-acc-rej {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.vs-list-box {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+
+.vs-list-box h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.vs-list-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vs-list-box li {
+  padding: .5rem 0 .5rem 1.6rem;
+  position: relative;
+  color: #475569;
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  font-size: 0.95rem;
+}
+
+.vs-list-box li:last-child { border-bottom: 0; }
+
+.vs-list-box--accepted li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  font-size: 0.95rem;
+}
+
+.vs-list-box--rejected li::before {
+  content: "❌";
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  font-size: 0.95rem;
+}
+
+/* ========== 08c) TIMELINE BOXES (optional component) ========== */
+/* Used by: advance-healthcare-directive */
+
+.vs-timelines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.vs-timeline-box {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+
+.vs-timeline-box h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.vs-timeline-box ul {
+  list-style: disc;
+  padding: 0 0 0 1.1rem;
+  margin: 0;
+}
+
+.vs-timeline-box li {
+  padding: .35rem 0;
+  color: #475569;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
 /* ========== 09) AP-PROCESS / AP-STEP (ported from apostille.css) ========== */
 
 .ap-process {
@@ -358,6 +504,45 @@
 .nt-card:hover .nt-card__arrow,
 .nt-card:focus-visible .nt-card__arrow { color: #c8102e; }
 
+/* ========== 11b) HOSPITAL MINI LINK GRID (optional component) ========== */
+/* Used by: bedside-notary */
+
+.hosp-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.hosp-mini-link {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+  line-height: 1.35;
+}
+
+.hosp-mini-link small {
+  display: block;
+  font-weight: 400;
+  color: #64748b;
+  font-size: 0.78rem;
+  margin-top: 1px;
+}
+
+.hosp-mini-link:hover,
+.hosp-mini-link:focus-visible {
+  border-color: rgba(200, 16, 46, 0.4);
+  color: #c8102e;
+  background: rgba(200, 16, 46, 0.04);
+}
+
 /* ========== 12) 150+ FIVE-STAR REVIEWS BAR ========== */
 
 .nt-reviews-bar {
@@ -471,4 +656,4 @@
 
 .vs-shade.home-faq .faq-item { background: #fff; }
 
-/* ========== /boyle-heights-keck-usc ========== */
+/* ========== /hospital-spoke shared ========== */
