@@ -1207,3 +1207,37 @@ body[data-nav-active="apostille"] .home-hero__cta {
 }
 
 /* ========== /APOSTILLE HUB CSS ========== */
+
+/* ========== HUB + SPOKE 21:9 HEROES (2026-06 refresh) ==========
+   Defaults to notary-desk-blur.webp from home.css.
+   These overrides route each hub/spoke to its dedicated 21:9 ultrawide.
+   Spokes inherit their hub's hero via data-card-palette on <body>.
+*/
+
+body[data-nav-active="apostille"]:not([data-card-palette]) .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/apostille-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-nav-active="apostille"][data-card-palette="vital"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/vital-records/vital-records-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-nav-active="apostille"][data-card-palette="court"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/court-documents/court-documents-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-nav-active="apostille"][data-card-palette="school"] .home-hero__media {
+  background-image: url("/assets/images/hero/services/apostille/school-academic/school-academic-21:9.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
