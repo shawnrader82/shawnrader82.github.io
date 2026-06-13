@@ -202,20 +202,20 @@
   <!--  ========== PRIMARY SERVICE HUBS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
 <url>
     <loc>https://www.mobileamericannotary.com/services/translations.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -223,19 +223,19 @@
   <!--  ========== NOTARY SUB-HUBS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -305,61 +305,61 @@
   <!--  ========== GENERAL NOTARY SERVICES ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/power-of-attorney.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/affidavit-of-support.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/bill-of-sale.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/copy-certification.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/general-affidavit.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/guardianship-authorization.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/letter-of-resignation.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/minor-travel-consent.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/name-change-affidavit.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/general/passport-consent-ds3053.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -367,25 +367,25 @@
   <!--  ========== HIGH PRIORITY HOSPITAL NOTARY ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/northridge-dignity-northridge.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/westwood-ucla.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/beverly-grove-cedars-sinai.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/burbank-providence-saint-joseph.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -393,79 +393,79 @@
   <!--  ========== STANDARD HOSPITAL NOTARY ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/boyle-heights-keck-usc.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/east-hollywood-presbyterian.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/encino-hospital-medical-center.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/hollywood-kaiser.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/mission-hills-providence-holy-cross.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/simi-valley-adventist.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/sylmar-olive-view-ucla.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/tarzana-providence-cedars-sinai.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/thousand-oaks-los-robles.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/valencia-henry-mayo.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/van-nuys-valley-presbyterian.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/west-hills-ucla-west-valley.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/woodland-hills-kaiser.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -473,37 +473,37 @@
   <!--  ========== HOSPITAL DOC-TYPE SPOKES (Phase 4 Job A) ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/advance-healthcare-directive.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/healthcare-power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/living-will.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/hipaa-authorization.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/molst-polst.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/hospital/bedside-notary.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -511,31 +511,31 @@
   <!--  ========== HIGH PRIORITY JAIL NOTARY (Top Facilities) ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/la-mens-central.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/la-twin-towers.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/oc-theo-lacy.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/oc-central.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/sb-central.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -543,85 +543,85 @@
   <!--  ========== STANDARD JAIL NOTARY ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/la-crdf-lynwood.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/la-mdc.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/la-nccf.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/la-pitchess.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/oc-musick.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/riv-benoit-indio.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/riv-larry-smith.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/riv-robert-presley.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/riv-southwest.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/sba-main-jail.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/sba-northern-branch.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/sb-glen-helen.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/sb-high-desert.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/sb-west-valley.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -633,7 +633,7 @@
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/vn-main-jail.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -647,67 +647,67 @@
   <!--  ========== APOSTILLE SUB-HUBS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/vital-records.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/court-documents.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/notarized-documents.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/notarized-documents/power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/notarized-documents/affidavit.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/notarized-documents/consent-to-travel-letter.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/notarized-documents/copy-certification.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/notarized-documents/other-notarized.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -715,37 +715,37 @@
   <!--  ========== HIGH PRIORITY APOSTILLE (High Search Volume) ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/vital-records/birth.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/expedited/same-day-los-angeles.html</loc>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/vital-records/marriage.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/diploma-high-school.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents/uscis-naturalization-name-change.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/court-documents/divorce-decree.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -753,13 +753,13 @@
   <!--  ========== STANDARD APOSTILLE VITAL RECORDS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/vital-records/death.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/vital-records/divorce.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -767,37 +767,37 @@
   <!--  ========== APOSTILLE SCHOOL/ACADEMIC ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/diploma-college.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/enrollment-graduation-letters.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/transcript-college.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/transcript-high-school.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/course-descriptions-syllabi.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/school-academic/tefl-tesol-certificate.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -805,25 +805,25 @@
   <!--  ========== APOSTILLE COURT DOCUMENTS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/court-documents/adoption.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/court-documents/custody-name-change.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/court-documents/civil-judgments.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/court-documents/probate-orders.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -831,37 +831,37 @@
   <!--  ========== APOSTILLE BUSINESS/CORPORATE ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate/articles-incorporation.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate/good-standing.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate/resolutions.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate/bylaws-operating-agreements.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate/commercial-invoice-origin.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/business-corporate/corporate-poa.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -869,176 +869,176 @@
   <!--  ========== APOSTILLE FEDERAL DOCUMENTS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents/birth-abroad.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents/death-abroad.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents/fbi-background-check.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents/federal-court-documents.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/federal-documents/nara-documents.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/special-power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/extra-judicial-settlement.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/deed-of-donation.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/philippines/affidavit-of-support.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uk.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uae.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/cuba.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/thailand.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uk/birth-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uk/degree-diploma.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uk/marriage-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uk/power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uae/birth-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uae/marriage-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uae/degree-diploma.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/uae/power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico/birth-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico/marriage-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico/death-certificate.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico/divorce-decree.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico/power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/apostille/countries/mexico/single-status-affidavit.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -1049,19 +1049,19 @@
 
 <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/power-of-attorney.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/affidavits.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/vehicle-title.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
