@@ -29,12 +29,9 @@
 .vs-light { background: #ffffff !important; }
 .vs-shade { background: #f4f7fb !important; }
 
-/* --- Hero secondary CTA arrow --- */
+/* --- Hero secondary CTA arrow removed (decoration deliberately killed) --- */
 .home-hero__cta--secondary::after {
-  content: " \2192";
-  display: inline-block;
-  margin-left: 0.3rem;
-  font-weight: 600;
+  content: none;
 }
 
 /* --- Base grid for all hub card sections (jail, hospital, etc) --- */
