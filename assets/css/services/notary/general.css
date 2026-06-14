@@ -12,9 +12,9 @@
 .home-hero__media--notary-general {
   background-image:
     linear-gradient(rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.18)),
-    url("/assets/images/hero/notary-desk-blur.webp");
+    url("/assets/images/hero/notary-21:9.webp?v=20260614");
   background-size: cover;
-  background-position: center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
 }
 

@@ -13,6 +13,10 @@ body[data-nav-active="notary"] .home-hero__media {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  background-image: url("/assets/images/hero/notary-21:9.webp?v=20260614");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
 
 body[data-nav-active="notary"] .home-hero__content {
