@@ -57,9 +57,17 @@
   <!--  ========== LOCATIONS HUB ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/locations/</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+  </url>
+
+  <!--  ========== COUNTY HUB ==========  -->
+  <url>
+    <loc>https://www.mobileamericannotary.com/locations/los-angeles-county.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
   </url>
 
   <!--  ========== HIGH PRIORITY LOCATIONS (High Impressions) ==========  -->
