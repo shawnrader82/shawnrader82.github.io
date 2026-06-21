@@ -1,7 +1,7 @@
 /* ========== HOSPITAL SPOKE CSS — SHARED ========== */
 /* Canonical stylesheet #4 — loaded after global.css, header.css, home.css
    Replaces 23 per-spoke files. Hero image routed via data-card-palette on <body>.
-   Default hero (for document spokes): /assets/images/hero/hospitals/notary-bedside-setup.webp */
+   Default hero (for document spokes): /assets/images/hero/hospitals/notary-bedside-setup-21:9.webp */
 
 /* ========== 01) HERO BACKGROUND ========== */
 
@@ -11,60 +11,60 @@
 
 /* Default hero — used by document-type spokes (living-will, hipaa, etc.) */
 body[data-nav-active="notary"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/notary-bedside-setup.webp");
+  background-image: url("/assets/images/hero/hospitals/notary-bedside-setup-21:9.webp");
 }
 
 /* Per-location hero overrides */
 body[data-card-palette="hosp-beverly-grove-cedars-sinai"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/beverly-grove-cedars-sinai.webp");
+  background-image: url("/assets/images/hero/hospitals/beverly-grove-cedars-sinai-21:9.webp");
 }
 body[data-card-palette="hosp-boyle-heights-keck-usc"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/boyle-heights-keck-usc.webp");
+  background-image: url("/assets/images/hero/hospitals/boyle-heights-keck-usc-21:9.webp");
 }
 body[data-card-palette="hosp-burbank-providence-saint-joseph"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/burbank-providence-saint-joseph.webp");
+  background-image: url("/assets/images/hero/hospitals/burbank-providence-saint-joseph-21:9.webp");
 }
 body[data-card-palette="hosp-east-hollywood-presbyterian"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/east-hollywood-presbyterian.webp");
+  background-image: url("/assets/images/hero/hospitals/east-hollywood-presbyterian-21:9.webp");
 }
 body[data-card-palette="hosp-encino-hospital-medical-center"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/encino-hospital-medical-center.webp");
+  background-image: url("/assets/images/hero/hospitals/encino-hospital-medical-center-21:9.webp");
 }
 body[data-card-palette="hosp-hollywood-kaiser"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/hollywood-kaiser.webp");
+  background-image: url("/assets/images/hero/hospitals/hollywood-kaiser-21:9.webp");
 }
 body[data-card-palette="hosp-mission-hills-providence-holy-cross"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/mission-hills-providence-holy-cross.webp");
+  background-image: url("/assets/images/hero/hospitals/mission-hills-providence-holy-cross-21:9.webp");
 }
 body[data-card-palette="hosp-northridge-dignity-northridge"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/northridge-dignity-northridge.webp");
+  background-image: url("/assets/images/hero/hospitals/northridge-dignity-northridge-21:9.webp");
 }
 body[data-card-palette="hosp-simi-valley-adventist"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/simi-valley-adventist.webp");
+  background-image: url("/assets/images/hero/hospitals/simi-valley-adventist-21:9.webp");
 }
 body[data-card-palette="hosp-sylmar-olive-view-ucla"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/sylmar-olive-view-ucla.webp");
+  background-image: url("/assets/images/hero/hospitals/sylmar-olive-view-ucla-21:9.webp");
 }
 body[data-card-palette="hosp-tarzana-providence-cedars-sinai"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/tarzana-providence-cedars-sinai.webp");
+  background-image: url("/assets/images/hero/hospitals/tarzana-providence-cedars-sinai-21:9.webp");
 }
 body[data-card-palette="hosp-thousand-oaks-los-robles"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/thousand-oaks-los-robles.webp");
+  background-image: url("/assets/images/hero/hospitals/thousand-oaks-los-robles-21:9.webp");
 }
 body[data-card-palette="hosp-valencia-henry-mayo"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/valencia-henry-mayo.webp");
+  background-image: url("/assets/images/hero/hospitals/valencia-henry-mayo-21:9.webp");
 }
 body[data-card-palette="hosp-van-nuys-valley-presbyterian"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/van-nuys-valley-presbyterian.webp");
+  background-image: url("/assets/images/hero/hospitals/van-nuys-valley-presbyterian-21:9.webp");
 }
 body[data-card-palette="hosp-west-hills-ucla-west-valley"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/west-hills-ucla-west-valley.webp");
+  background-image: url("/assets/images/hero/hospitals/west-hills-ucla-west-valley-21:9.webp");
 }
 body[data-card-palette="hosp-westwood-ucla"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/westwood-ucla.webp");
+  background-image: url("/assets/images/hero/hospitals/westwood-ucla-21:9.webp");
 }
 body[data-card-palette="hosp-woodland-hills-kaiser"] .home-hero__media {
-  background-image: url("/assets/images/hero/hospitals/woodland-hills-kaiser.webp");
+  background-image: url("/assets/images/hero/hospitals/woodland-hills-kaiser-21:9.webp");
 }
 
 /* ========== 02) SECTION BACKGROUND ZEBRA ========== */

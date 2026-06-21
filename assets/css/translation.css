@@ -12,7 +12,7 @@ body[data-nav-active="translation"] .home-hero__media {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url('/assets/images/hero/translation-hero.webp');
+  background-image: url('/assets/images/hero/translation-hero-21:9.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
