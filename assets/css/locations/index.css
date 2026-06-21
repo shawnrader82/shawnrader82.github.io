@@ -271,6 +271,32 @@
 }
 .loc-directory-cities__footnote a:hover { color: var(--loc-red-dark); }
 
+/* Intro labels above the two sub-lists (linked + plain) */
+.loc-directory-cities__intro {
+  padding: 0.4rem 1.2rem 0.2rem;
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--loc-muted);
+}
+
+/* Plain (non-clickable) variant for cities that are served but don't have their own page */
+.loc-directory-cities--plain {
+  border-top: 0;
+  padding-top: 0;
+}
+.loc-directory-cities--plain li {
+  color: var(--loc-ink);
+  font-size: 0.97rem;
+  font-weight: 500;
+  cursor: default;
+}
+.loc-directory-cities--plain li:hover {
+  background: transparent;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .loc-directory-county__chevron,
   .loc-directory-county__summary {
