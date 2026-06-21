@@ -1,0 +1,359 @@
+/* =========================================================
+   /locations/index.html (Layout B)
+   County cards + alphabetical <details> directory + service shortcuts.
+   All CSS in CSS files — no inline styles in the HTML.
+   ========================================================= */
+
+:root {
+  --loc-red: #c8102e;
+  --loc-red-dark: #a30d24;
+  --loc-ink: #0f172a;
+  --loc-ink-soft: #334155;
+  --loc-muted: #64748b;
+  --loc-border: #e2e8f0;
+  --loc-surface: #ffffff;
+  --loc-surface-soft: #f8fafc;
+  --loc-surface-gray: #f1f5f9;
+}
+
+/* =========================================================
+   Shared section spacing
+   ========================================================= */
+.loc-counties,
+.loc-directory,
+.loc-shortcuts {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+.loc-counties { background: var(--loc-surface); }
+.loc-directory { background: var(--loc-surface-soft); }
+.loc-shortcuts { background: var(--loc-surface-gray); }
+
+.loc-counties__intro,
+.loc-directory__intro,
+.loc-shortcuts__intro {
+  max-width: 740px;
+  margin: 0.65rem auto 0;
+  color: var(--loc-ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   COUNTY HUB CARDS
+   ========================================================= */
+.loc-counties__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.85rem;
+}
+
+.loc-county-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.loc-county-card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -14px rgba(15, 23, 42, 0.22),
+              0 6px 10px -6px rgba(15, 23, 42, 0.12);
+}
+.loc-county-card-link:focus-visible {
+  outline: 3px solid var(--loc-red);
+  outline-offset: 2px;
+}
+.loc-county-card-link:active {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .loc-county-card-link,
+  .loc-county-card-link:hover,
+  .loc-county-card-link:active {
+    transition: none;
+    transform: none;
+  }
+}
+
+.loc-county-card {
+  height: 100%;
+  background: var(--loc-surface);
+  border: 1px solid var(--loc-border);
+  border-radius: 14px;
+  padding: 1.4rem 1.4rem 1.5rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.18s ease;
+}
+.loc-county-card-link:hover .loc-county-card {
+  border-color: rgba(15, 23, 42, 0.2);
+}
+
+.loc-county-card__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--loc-muted);
+}
+
+.loc-county-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--loc-ink);
+  transition: color 0.18s ease;
+}
+.loc-county-card-link:hover .loc-county-card h3 {
+  color: var(--loc-red);
+}
+
+.loc-county-card__lead {
+  margin: 0 0 0.85rem;
+  color: var(--loc-ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.loc-county-card__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.loc-county-card__bullets li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--loc-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.loc-county-card__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--loc-red);
+}
+
+.loc-county-card__cta {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--loc-red);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.loc-county-card-link:hover .loc-county-card__cta {
+  color: var(--loc-red-dark);
+}
+
+/* =========================================================
+   ALPHABETICAL CITY DIRECTORY (<details> accordion)
+   ========================================================= */
+.loc-directory__list {
+  max-width: 880px;
+  margin: 1.85rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.loc-directory-county {
+  background: var(--loc-surface);
+  border: 1px solid var(--loc-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.loc-directory-county__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  gap: 1rem;
+  transition: background-color 0.15s ease;
+}
+.loc-directory-county__summary::-webkit-details-marker { display: none; }
+.loc-directory-county__summary::marker { content: ""; }
+.loc-directory-county__summary:hover {
+  background: var(--loc-surface-soft);
+}
+.loc-directory-county__summary:focus-visible {
+  outline: 3px solid var(--loc-red);
+  outline-offset: -3px;
+}
+
+.loc-directory-county__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.loc-directory-county__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--loc-ink);
+  letter-spacing: -0.005em;
+}
+.loc-directory-county__count {
+  font-size: 0.85rem;
+  color: var(--loc-muted);
+}
+
+.loc-directory-county__chevron {
+  flex-shrink: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid var(--loc-ink-soft);
+  border-bottom: 2px solid var(--loc-ink-soft);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.loc-directory-county[open] .loc-directory-county__chevron {
+  transform: rotate(-135deg);
+}
+
+.loc-directory-cities {
+  list-style: none;
+  padding: 0.25rem 1.2rem 1rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.4rem 1rem;
+  border-top: 1px solid var(--loc-border);
+}
+.loc-directory-cities li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--loc-surface-gray);
+}
+.loc-directory-cities li:last-child {
+  border-bottom: 0;
+}
+.loc-directory-cities a {
+  color: var(--loc-ink);
+  text-decoration: none;
+  font-size: 0.97rem;
+  font-weight: 500;
+  display: inline-block;
+  width: 100%;
+  transition: color 0.15s ease;
+}
+.loc-directory-cities a:hover,
+.loc-directory-cities a:focus-visible {
+  color: var(--loc-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  outline: none;
+}
+
+.loc-directory-cities__footnote {
+  padding: 0 1.2rem 1rem;
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--loc-muted);
+  line-height: 1.5;
+}
+.loc-directory-cities__footnote a {
+  color: var(--loc-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.loc-directory-cities__footnote a:hover { color: var(--loc-red-dark); }
+
+@media (prefers-reduced-motion: reduce) {
+  .loc-directory-county__chevron,
+  .loc-directory-county__summary {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   SERVICE INTENT SHORTCUTS
+   ========================================================= */
+.loc-shortcuts__list {
+  list-style: none;
+  padding: 0;
+  margin: 1.85rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+}
+
+.loc-shortcut-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  background: var(--loc-surface);
+  border: 1px solid var(--loc-border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  height: 100%;
+}
+.loc-shortcut-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(15, 23, 42, 0.18);
+  box-shadow: 0 10px 22px -12px rgba(15, 23, 42, 0.2);
+}
+.loc-shortcut-link:focus-visible {
+  outline: 3px solid var(--loc-red);
+  outline-offset: 2px;
+}
+.loc-shortcut-link__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--loc-ink);
+  letter-spacing: -0.005em;
+  transition: color 0.18s ease;
+}
+.loc-shortcut-link:hover .loc-shortcut-link__title {
+  color: var(--loc-red);
+}
+.loc-shortcut-link__lead {
+  font-size: 0.92rem;
+  color: var(--loc-ink-soft);
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .loc-shortcut-link,
+  .loc-shortcut-link:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   Mobile tweaks
+   ========================================================= */
+@media (max-width: 640px) {
+  .loc-counties__grid {
+    grid-template-columns: 1fr;
+  }
+  .loc-directory-cities {
+    grid-template-columns: 1fr;
+  }
+  .loc-shortcuts__list {
+    grid-template-columns: 1fr;
+  }
+  .loc-directory-county__summary {
+    padding: 0.9rem 1rem;
+  }
+  .loc-directory-cities,
+  .loc-directory-cities__footnote {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

@@ -1,0 +1,305 @@
+/* =========================================================
+   /locations/ventura-county.html
+   Mirrors the los-angeles-county.css pattern with a vc- prefix.
+   ========================================================= */
+
+:root {
+  --vc-red: #c8102e;
+  --vc-red-dark: #a30d24;
+  --vc-ink: #0f172a;
+  --vc-ink-soft: #334155;
+  --vc-muted: #64748b;
+  --vc-border: #e2e8f0;
+  --vc-surface: #ffffff;
+  --vc-surface-soft: #f8fafc;
+  --vc-surface-gray: #f1f5f9;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.vc-hero {
+  position: relative;
+  isolation: isolate;
+}
+.vc-hero-media {
+  background-image: url("/assets/images/hero/locations/ventura-county-notary-apostille.webp");
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+}
+.vc-hero-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(15, 23, 42, 0.78) 0%,
+    rgba(15, 23, 42, 0.62) 45%,
+    rgba(15, 23, 42, 0.36) 100%
+  );
+}
+.vc-hero-content {
+  max-width: 720px;
+}
+.vc-hero-content h1 {
+  font-size: clamp(1.85rem, 4.2vw, 2.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0.4rem 0 0.85rem;
+  color: #fff;
+}
+.vc-hero-content .home-hero-lead {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* =========================================================
+   Shared section spacing
+   ========================================================= */
+.vc-overview,
+.vc-regions,
+.vc-records,
+.vc-closing {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  background: var(--vc-surface);
+}
+.vc-regions { background: var(--vc-surface-gray); }
+.vc-records { background: var(--vc-surface-soft); }
+
+.vc-overview__intro,
+.vc-regions__intro,
+.vc-records__intro {
+  max-width: 760px;
+  margin: 0.65rem auto 0;
+  color: var(--vc-ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   COUNTY OVERVIEW CARDS
+   ========================================================= */
+.vc-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.vc-overview-card {
+  background: var(--vc-surface);
+  border: 1px solid var(--vc-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.35rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+.vc-overview-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--vc-ink);
+  letter-spacing: -0.005em;
+}
+.vc-overview-card p {
+  margin: 0;
+  color: var(--vc-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.vc-overview-card a {
+  color: var(--vc-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.vc-overview-card a:hover { color: var(--vc-red-dark); }
+
+/* =========================================================
+   SUB-REGIONS
+   ========================================================= */
+.vc-subregion {
+  margin-top: 2rem;
+}
+.vc-subregion-header {
+  max-width: 760px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+.vc-subregion-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--vc-ink);
+  letter-spacing: -0.01em;
+}
+.vc-subregion-intro {
+  margin: 0;
+  color: var(--vc-ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.vc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+
+/* East-county placeholder block */
+.vc-east-placeholder {
+  margin-top: 1.1rem;
+  max-width: 720px;
+  margin-inline: auto;
+  background: var(--vc-surface);
+  border: 1px dashed var(--vc-border);
+  border-radius: 12px;
+  padding: 1.4rem 1.3rem;
+  text-align: center;
+}
+.vc-east-placeholder p {
+  margin: 0 0 1rem;
+  color: var(--vc-ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   Whole-card clickability — no JS
+   Wrap an <article class="service-lane ..."> with
+   <a class="service-lane-link" href="..."> ... </a>
+   ========================================================= */
+.service-lane-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.service-lane-link > .service-lane {
+  transition: border-color 0.18s ease;
+  height: 100%;
+}
+.service-lane-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -10px rgba(15, 23, 42, 0.18),
+              0 4px 8px -4px rgba(15, 23, 42, 0.10);
+}
+.service-lane-link:hover > .service-lane {
+  border-color: rgba(15, 23, 42, 0.18);
+}
+.service-lane-link:hover h3 {
+  color: var(--vc-red);
+}
+.service-lane-link:focus-visible {
+  outline: 3px solid var(--vc-red);
+  outline-offset: 2px;
+}
+.service-lane-link:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px -6px rgba(15, 23, 42, 0.18);
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-lane-link,
+  .service-lane-link:hover,
+  .service-lane-link:active {
+    transition: none;
+    transform: none;
+  }
+}
+.service-lane-link h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+/* =========================================================
+   COUNTY RECORDS
+   ========================================================= */
+.vc-records__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.vc-records-card {
+  background: var(--vc-surface);
+  border: 1px solid var(--vc-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.35rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+.vc-records-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--vc-ink);
+  letter-spacing: -0.005em;
+}
+.vc-records-card p {
+  margin: 0;
+  color: var(--vc-ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.vc-records-card a {
+  color: var(--vc-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.vc-records-card a:hover { color: var(--vc-red-dark); }
+.vc-records-link {
+  margin-top: 0.55rem !important;
+  font-size: 0.92rem !important;
+}
+.vc-records-link a { font-weight: 500; }
+
+/* =========================================================
+   CLOSING CTA
+   ========================================================= */
+.vc-closing {
+  background: var(--vc-surface-gray);
+}
+.vc-closing__card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--vc-surface);
+  border: 1px solid var(--vc-border);
+  border-radius: 16px;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+.vc-closing__card h2 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  color: var(--vc-ink);
+  letter-spacing: -0.01em;
+}
+.vc-closing__card p {
+  margin: 0;
+  color: var(--vc-ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.vc-closing__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.vc-closing__meta {
+  margin-top: 1rem !important;
+  color: var(--vc-muted) !important;
+  font-size: 0.9rem !important;
+}
+
+/* =========================================================
+   Mobile tweaks
+   ========================================================= */
+@media (max-width: 640px) {
+  .vc-overview__grid,
+  .vc-records__grid {
+    grid-template-columns: 1fr;
+  }
+  .vc-subregion-header {
+    text-align: left;
+  }
+}

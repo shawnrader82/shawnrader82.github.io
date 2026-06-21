@@ -62,12 +62,19 @@
     <priority>0.95</priority>
   </url>
 
-  <!--  ========== COUNTY HUB ==========  -->
+  <!--  ========== COUNTY HUBS ==========  -->
   <url>
     <loc>https://www.mobileamericannotary.com/locations/los-angeles-county.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mobileamericannotary.com/locations/ventura-county.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!--  ========== HIGH PRIORITY LOCATIONS (High Impressions) ==========  -->
