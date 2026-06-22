@@ -323,6 +323,11 @@ body[data-nav-active="notary"] .home-hero__cta {
   background-image: linear-gradient(135deg, #020617 0%, #0f172a 60%, #1e293b 100%);
 }
 
+/* Document Recording — warm bronze-slate (county records, ledger leather) */
+.nt-card--recording .nt-card__banner {
+  background-image: linear-gradient(135deg, #1e293b 0%, #3a2f24 55%, #5c4733 100%);
+}
+
 .nt-card__banner-kicker {
   display: block;
   margin-bottom: 4px;
