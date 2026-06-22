@@ -1,0 +1,35 @@
+/**
+ * Grant Deed Recording — spoke page styles
+ * Mobile American Notary & Apostilles
+ */
+
+.gd-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/grant-deed-hero-16x9.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.gd-detail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.gd-detail-list li {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.gd-detail-list li strong {
+  color: #0f172a;
+  display: block;
+  margin-bottom: 2px;
+}

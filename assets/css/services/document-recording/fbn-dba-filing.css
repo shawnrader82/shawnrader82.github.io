@@ -1,0 +1,10 @@
+/**
+ * FBN / DBA Filing — spoke page styles
+ * Mobile American Notary & Apostilles
+ */
+
+.fbn-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/fbn-dba-filing-hero-16x9.webp');
+  background-size: cover;
+  background-position: center;
+}

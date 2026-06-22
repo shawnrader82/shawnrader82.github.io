@@ -1,0 +1,336 @@
+/**
+ * Document Recording — Hub page styles
+ * Mobile American Notary & Apostilles
+ */
+
+/* ── Hero override for 21:9 document-recording hero ───────────────────── */
+.dr-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/document-recording-hero-21x9.webp');
+  background-size: cover;
+  background-position: center top;
+}
+
+/* ── Service area grid ─────────────────────────────────────────────────── */
+.dr-area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.dr-area-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.dr-area-card__county {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b91c1c;
+  margin-bottom: 4px;
+}
+
+.dr-area-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.dr-area-card__fee {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.dr-area-card p {
+  font-size: 0.88rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Calculator wrapper ────────────────────────────────────────────────── */
+.dr-calculator {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+  max-width: 720px;
+  margin: 24px auto 0;
+}
+
+.dr-calculator__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 18px;
+}
+
+.dr-calc-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+}
+
+@media (max-width: 540px) {
+  .dr-calc-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dr-calc-form label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.dr-calc-form select,
+.dr-calc-form input[type="number"] {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #f9fafb;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.dr-calc-form select:focus,
+.dr-calc-form input[type="number"]:focus {
+  outline: 2px solid #b91c1c;
+  outline-offset: 1px;
+  border-color: #b91c1c;
+}
+
+.dr-calc-form .dr-calc-full {
+  grid-column: 1 / -1;
+}
+
+/* ── Calculator output table ───────────────────────────────────────────── */
+.dr-calc__output {
+  margin-top: 22px;
+}
+
+.dr-calc__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dr-calc__table thead tr {
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.dr-calc__table thead th {
+  text-align: left;
+  padding: 6px 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dr-calc__table thead th:last-child {
+  text-align: right;
+}
+
+.dr-calc__table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.dr-calc__table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.dr-calc__label {
+  padding: 8px 8px;
+  color: #374151;
+  text-align: left;
+}
+
+.dr-calc__amount {
+  padding: 8px 8px;
+  text-align: right;
+  white-space: nowrap;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+}
+
+.dr-calc__table tfoot tr {
+  border-top: 2px solid #0f172a;
+}
+
+.dr-calc__total-label {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.dr-calc__total-amount {
+  font-size: 1.1rem;
+  color: #b91c1c;
+}
+
+.dr-calc__disclaimer {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ── Document type cards (spoke grid) ─────────────────────────────────── */
+.dr-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+/* ── How it works steps ────────────────────────────────────────────────── */
+.dr-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.dr-step {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 20px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  position: relative;
+}
+
+.dr-step__num {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: #b91c1c;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  margin-bottom: 12px;
+}
+
+.dr-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 6px;
+}
+
+.dr-step p {
+  font-size: 0.87rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── "What we don't do" box ────────────────────────────────────────────── */
+.dr-dont-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+}
+
+.dr-dont-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #991b1b;
+  margin: 0 0 10px;
+}
+
+.dr-dont-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #374151;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ── "When to call us" CTA closer ──────────────────────────────────────── */
+.dr-cta-closer {
+  background: #0f172a;
+  color: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.dr-cta-closer h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.dr-cta-closer p {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin: 0 0 20px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Related service cross-link card ───────────────────────────────────── */
+.dr-related-card {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dr-related-card__kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #b91c1c;
+}
+
+.dr-related-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.dr-related-card p {
+  font-size: 0.88rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.dr-related-card a.home-hero__cta {
+  align-self: flex-start;
+  margin-top: 4px;
+}

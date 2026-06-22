@@ -1,0 +1,10 @@
+/**
+ * Affidavit of Death of Joint Tenant Recording — spoke page styles
+ * Mobile American Notary & Apostilles
+ */
+
+.adj-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/affidavit-death-joint-tenant-hero-16x9.webp');
+  background-size: cover;
+  background-position: center;
+}

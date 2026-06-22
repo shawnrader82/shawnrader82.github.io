@@ -1,0 +1,10 @@
+/**
+ * Certified Copies — spoke page styles
+ * Mobile American Notary & Apostilles
+ */
+
+.cc-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/certified-copies-hero-16x9.webp');
+  background-size: cover;
+  background-position: center;
+}

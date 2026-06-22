@@ -1,0 +1,10 @@
+/**
+ * Quitclaim Deed Recording — spoke page styles
+ * Mobile American Notary & Apostilles
+ */
+
+.qcd-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/quitclaim-deed-hero-16x9.webp');
+  background-size: cover;
+  background-position: center;
+}

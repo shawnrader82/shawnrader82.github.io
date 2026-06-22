@@ -1,0 +1,10 @@
+/**
+ * Transfer-on-Death Deed Recording — spoke page styles
+ * Mobile American Notary & Apostilles
+ */
+
+.tod-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/transfer-on-death-deed-hero-16x9.webp');
+  background-size: cover;
+  background-position: center;
+}
