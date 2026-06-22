@@ -3,6 +3,55 @@
  * Mobile American Notary & Apostilles
  */
 
+/* ── Zebra section rhythm (scoped to recording pages) ─────────────────────
+   Alternates light-blue-grey (#f3f7fb) and white across content sections
+   to match the apostille / notary hub aesthetic. Hero and trust ribbon
+   keep their own backgrounds and are excluded.
+*/
+body[data-nav-active="recording"] main > .ap-process {
+  background: #ffffff;
+}
+body[data-nav-active="recording"] main > .ap-timelines {
+  background: #f3f7fb;
+}
+body[data-nav-active="recording"] main > .ap-families {
+  background: #ffffff;
+}
+body[data-nav-active="recording"] main > .home-faq--force {
+  background: #f3f7fb;
+}
+body[data-nav-active="recording"] main > .ap-checklist-section {
+  background: #ffffff;
+}
+
+/* Hub-page specific: 5 content sections in sequence — explicitly assign
+   alternating backgrounds via :nth-of-type so the rhythm reads cleanly
+   even though several sections share the .ap-process class. */
+body[data-nav-active="recording"] main > section.ap-process:nth-of-type(3) {
+  background: #ffffff;  /* Explainer */
+}
+body[data-nav-active="recording"] main > section.ap-timelines:nth-of-type(4) {
+  background: #f3f7fb;  /* Calculator — light blue-grey */
+}
+body[data-nav-active="recording"] main > section.ap-process:nth-of-type(5) {
+  background: #ffffff;  /* Service area */
+}
+body[data-nav-active="recording"] main > section.ap-families:nth-of-type(6) {
+  background: #f3f7fb;  /* Docs we record — light blue-grey */
+}
+body[data-nav-active="recording"] main > section.ap-process:nth-of-type(7) {
+  background: #ffffff;  /* Steps */
+}
+body[data-nav-active="recording"] main > section.ap-process:nth-of-type(8) {
+  background: #f3f7fb;  /* What we don't do */
+}
+body[data-nav-active="recording"] main > section.home-faq--force:nth-of-type(9) {
+  background: #ffffff;  /* FAQ */
+}
+body[data-nav-active="recording"] main > section.ap-checklist-section:nth-of-type(10) {
+  background: #f3f7fb;  /* Closing CTA */
+}
+
 /* ── Hero override for 21:9 document-recording hero ───────────────────── */
 .dr-hero .home-hero__media {
   background-image: url('/assets/images/heroes/document-recording-hero-21x9.webp');
