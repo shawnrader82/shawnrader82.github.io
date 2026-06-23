@@ -3,33 +3,48 @@
  * Mobile American Notary & Apostilles
  */
 
-/* ── Zebra section rhythm (scoped to recording pages) ─────────────────────
-   Alternates light-blue-grey (#f3f7fb) and white across content sections
-   to match the apostille / notary hub aesthetic. Hero and trust ribbon
-   keep their own backgrounds and are excluded.
+/* ── Section rhythm (recording pages) ────────────────────────────────────────
+   The page has 8 content sections (after hero + trust ribbon). We force a
+   true zebra alternation grey ↔ white between sections 3–10 using nth-of-type
+   on the body sections.
+   We add vertical padding because the recording page doesn't load apostille.css
+   (which is where the section padding normally comes from).
+   Reading order target:
+     3 grey | 4 white | 5 grey | 6 white | 7 grey | 8 white | 9 grey | 10 white
 */
-body[data-nav-active="recording"] main > .ap-process {
-  background: #ffffff;
-  padding: 64px 0;
+body[data-nav-active="recording"] main > .ap-process { padding: 64px 0; }
+body[data-nav-active="recording"] main > .ap-timelines { padding: 64px 0; }
+body[data-nav-active="recording"] main > .ap-families { padding: 72px 0; }
+body[data-nav-active="recording"] main > .home-faq--force { padding: 56px 0; }
+body[data-nav-active="recording"] main > .ap-checklist-section { padding: 64px 0; }
+
+/* Explicit zebra alternation using nth-of-type (counts ALL sibling sections). */
+body[data-nav-active="recording"] main > section:nth-of-type(3) {
+  background: #f4f7fb !important; /* Explainer    — grey */
 }
-body[data-nav-active="recording"] main > .ap-timelines {
-  background: #f3f7fb;
-  padding: 64px 0;
+body[data-nav-active="recording"] main > section:nth-of-type(4) {
+  background: #ffffff !important; /* Calculator   — white */
 }
-body[data-nav-active="recording"] main > .ap-families {
-  background: #ffffff;
-  padding: 72px 0;
+body[data-nav-active="recording"] main > section:nth-of-type(5) {
+  background: #f4f7fb !important; /* Service area — grey */
 }
-body[data-nav-active="recording"] main > .home-faq--force {
-  background: #f3f7fb;
-  padding: 56px 0;
+body[data-nav-active="recording"] main > section:nth-of-type(6) {
+  background: #ffffff !important; /* Docs grid    — white */
 }
-body[data-nav-active="recording"] main > .ap-checklist-section {
-  background: #ffffff;
-  padding: 64px 0;
+body[data-nav-active="recording"] main > section:nth-of-type(7) {
+  background: #f4f7fb !important; /* Steps        — grey */
+}
+body[data-nav-active="recording"] main > section:nth-of-type(8) {
+  background: #ffffff !important; /* Don't        — white */
+}
+body[data-nav-active="recording"] main > section:nth-of-type(9) {
+  background: #f4f7fb !important; /* FAQ          — grey */
+}
+body[data-nav-active="recording"] main > section:nth-of-type(10) {
+  background: #ffffff !important; /* Closing CTA  — white */
 }
 
-/* Mobile/tablet softens the rhythm slightly to keep total scroll length reasonable */
+/* Mobile softens vertical spacing so total scroll length stays reasonable. */
 @media (max-width: 720px) {
   body[data-nav-active="recording"] main > .ap-process,
   body[data-nav-active="recording"] main > .ap-timelines,
@@ -42,34 +57,6 @@ body[data-nav-active="recording"] main > .ap-checklist-section {
   body[data-nav-active="recording"] main > .home-faq--force {
     padding: 44px 0;
   }
-}
-
-/* Hub-page specific: 5 content sections in sequence — explicitly assign
-   alternating backgrounds via :nth-of-type so the rhythm reads cleanly
-   even though several sections share the .ap-process class. */
-body[data-nav-active="recording"] main > section.ap-process:nth-of-type(3) {
-  background: #ffffff;  /* Explainer */
-}
-body[data-nav-active="recording"] main > section.ap-timelines:nth-of-type(4) {
-  background: #f3f7fb;  /* Calculator — light blue-grey */
-}
-body[data-nav-active="recording"] main > section.ap-process:nth-of-type(5) {
-  background: #ffffff;  /* Service area */
-}
-body[data-nav-active="recording"] main > section.ap-families:nth-of-type(6) {
-  background: #f3f7fb;  /* Docs we record — light blue-grey */
-}
-body[data-nav-active="recording"] main > section.ap-process:nth-of-type(7) {
-  background: #ffffff;  /* Steps */
-}
-body[data-nav-active="recording"] main > section.ap-process:nth-of-type(8) {
-  background: #f3f7fb;  /* What we don't do */
-}
-body[data-nav-active="recording"] main > section.home-faq--force:nth-of-type(9) {
-  background: #ffffff;  /* FAQ */
-}
-body[data-nav-active="recording"] main > section.ap-checklist-section:nth-of-type(10) {
-  background: #f3f7fb;  /* Closing CTA */
 }
 
 /* ── Hero override for 21:9 document-recording hero ───────────────────── */

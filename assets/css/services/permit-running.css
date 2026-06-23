@@ -7,28 +7,19 @@
    Alternates white and light-blue-grey (#f3f7fb) across content sections.
    Hero and trust ribbon keep their own backgrounds and are excluded.
 */
-body[data-nav-active="permit-running"] main > .ap-process {
-  background: #ffffff;
-  padding: 64px 0;
-}
-body[data-nav-active="permit-running"] main > .ap-timelines {
-  background: #f3f7fb;
-  padding: 64px 0;
-}
-body[data-nav-active="permit-running"] main > .ap-families {
-  background: #ffffff;
-  padding: 72px 0;
-}
-body[data-nav-active="permit-running"] main > .home-faq--force {
-  background: #f3f7fb;
-  padding: 56px 0;
-}
-body[data-nav-active="permit-running"] main > .ap-checklist-section {
-  background: #ffffff;
-  padding: 64px 0;
-}
+/* ── Section rhythm (permit-running page) ────────────────────────────────
+   11 sections total. Force true grey ↔ white zebra between sections 3–11.
+   Padding restated here because we don't load apostille.css.
+   Reading order:
+     3 grey | 4 white | 5 grey | 6 white | 7 grey | 8 white | 9 grey | 10 white | 11 grey
+*/
+body[data-nav-active="permit-running"] main > .ap-process { padding: 64px 0; }
+body[data-nav-active="permit-running"] main > .ap-timelines { padding: 64px 0; }
+body[data-nav-active="permit-running"] main > .ap-families { padding: 72px 0; }
+body[data-nav-active="permit-running"] main > .home-faq--force { padding: 56px 0; }
+body[data-nav-active="permit-running"] main > .ap-checklist-section { padding: 64px 0; }
 
-/* Mobile/tablet softens the rhythm slightly to keep total scroll length reasonable */
+/* Mobile softens vertical spacing so total scroll length stays reasonable. */
 @media (max-width: 720px) {
   body[data-nav-active="permit-running"] main > .ap-process,
   body[data-nav-active="permit-running"] main > .ap-timelines,
@@ -43,34 +34,33 @@ body[data-nav-active="permit-running"] main > .ap-checklist-section {
   }
 }
 
-/* Explicitly assign alternating backgrounds for the 8 content sections
-   (sections 3–10, after hero at 1 and trust ribbon at 2) */
-body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(3) {
-  background: #ffffff;  /* What a permit runner does */
+/* Explicit alternation using nth-of-type. */
+body[data-nav-active="permit-running"] main > section:nth-of-type(3) {
+  background: #f4f7fb !important; /* What a permit runner does — grey */
 }
-body[data-nav-active="permit-running"] main > section.ap-families:nth-of-type(4) {
-  background: #f3f7fb;  /* What we run — light blue-grey */
+body[data-nav-active="permit-running"] main > section:nth-of-type(4) {
+  background: #ffffff !important; /* What we run — white */
 }
-body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(5) {
-  background: #ffffff;  /* Coverage */
+body[data-nav-active="permit-running"] main > section:nth-of-type(5) {
+  background: #f4f7fb !important; /* Coverage — grey */
 }
-body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(6) {
-  background: #f3f7fb;  /* Notary advantage — light blue-grey */
+body[data-nav-active="permit-running"] main > section:nth-of-type(6) {
+  background: #ffffff !important; /* Notary advantage — white */
 }
-body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(7) {
-  background: #ffffff;  /* Payment options */
+body[data-nav-active="permit-running"] main > section:nth-of-type(7) {
+  background: #f4f7fb !important; /* Payment options — grey */
 }
-body[data-nav-active="permit-running"] main > section.ap-timelines:nth-of-type(8) {
-  background: #f3f7fb;  /* Pricing — light blue-grey */
+body[data-nav-active="permit-running"] main > section:nth-of-type(8) {
+  background: #ffffff !important; /* Pricing — white */
 }
-body[data-nav-active="permit-running"] main > section.home-faq--force:nth-of-type(9) {
-  background: #ffffff;  /* FAQ */
+body[data-nav-active="permit-running"] main > section:nth-of-type(9) {
+  background: #f4f7fb !important; /* FAQ — grey */
 }
-body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(10) {
-  background: #f3f7fb;  /* Cross-link — light blue-grey */
+body[data-nav-active="permit-running"] main > section:nth-of-type(10) {
+  background: #ffffff !important; /* Cross-link — white */
 }
-body[data-nav-active="permit-running"] main > section.ap-checklist-section:nth-of-type(11) {
-  background: #ffffff;  /* Closing CTA */
+body[data-nav-active="permit-running"] main > section:nth-of-type(11) {
+  background: #f4f7fb !important; /* Closing CTA — grey */
 }
 
 /* ── Hero override for 21:9 permit-running hero ────────────────────────── */
