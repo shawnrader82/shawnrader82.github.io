@@ -49,10 +49,29 @@
   color: #ffffff;
 }
 
+/* Invisible hover bridge so the cursor can travel from the parent label
+   down to the dropdown panel without crossing a dead zone that drops :hover. */
+.home-header__nav-item--has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
+  pointer-events: none;
+}
+
+.home-header__nav-item--has-dropdown:hover::after,
+.home-header__nav-item--has-dropdown:focus-within::after,
+.home-header__nav-item--has-dropdown.is-open::after {
+  pointer-events: auto;
+}
+
 /* ── Dropdown panel ─────────────────────────────────────────────────────── */
 .home-header__dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%);
   min-width: 240px;
