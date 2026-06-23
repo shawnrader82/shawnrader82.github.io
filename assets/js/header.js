@@ -1,7 +1,51 @@
 (function () {
+  // Inject header dropdown CSS into <head> if not already present.
+  // This guarantees dropdown styling even on pages whose <head> doesn't
+  // explicitly link header-dropdowns.css. Must run BEFORE the header
+  // partial is inserted so the stylesheet is ready when the markup lands.
+  function ensureDropdownStyles() {
+    var href = '/assets/css/header-dropdowns.css';
+    var already = document.querySelector('link[href="' + href + '"]');
+    if (!already) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    }
+
+    // Critical fallback: even if the external stylesheet hasn't finished
+    // loading, hide dropdown panels and the unstyled mobile menu list the
+    // instant the header markup is inserted. Prevents the 'all menus open'
+    // flash visible in screenshots.
+    if (document.getElementById('header-dropdowns-critical')) return;
+    var style = document.createElement('style');
+    style.id = 'header-dropdowns-critical';
+    style.textContent =
+      '.home-header__dropdown{position:absolute;visibility:hidden;opacity:0;pointer-events:none}' +
+      '.home-mobile-menu[hidden]{display:none!important}';
+    document.head.appendChild(style);
+  }
+
+  // Inject header dropdown JS into <head> if not already present.
+  // Loaded after the header partial is in the DOM so the script's
+  // bootstrap finds the .home-nav__dropdown elements it wires.
+  function ensureDropdownScript() {
+    var src = '/assets/js/header-dropdowns.js';
+    var already = document.querySelector('script[src="' + src + '"]');
+    if (already) return;
+    var script = document.createElement('script');
+    script.src = src;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
   function init() {
     var placeholder = document.getElementById('header-placeholder');
     if (!placeholder) return;
+
+    // Kick off the CSS request before we even fetch the partial so
+    // the styles are likely to arrive in time.
+    ensureDropdownStyles();
 
     fetch('/partials/header.html')
       .then(function (response) {
@@ -11,6 +55,7 @@
       .then(function (html) {
         placeholder.innerHTML = html;
         wireHeader(placeholder);
+        ensureDropdownScript();
       })
       .catch(function (error) {
         console.error('Header load error:', error);
