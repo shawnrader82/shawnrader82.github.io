@@ -185,6 +185,14 @@
       });
     }
 
+    /* Apply per-page default document type, if provided.
+       Spoke pages set data-dr-default-doctype="grant-deed" (etc.) on the
+       wrapper so the calculator opens pre-selected to that document. */
+    var defaultDoc = wrapper.getAttribute('data-dr-default-doctype');
+    if (defaultDoc && DOC_TYPES.some(function (d) { return d.value === defaultDoc; })) {
+      docSelect.value = defaultDoc;
+    }
+
     function toggleFbn() {
       if (!fbnRow) return;
       var docType = DOC_TYPES.find(function (d) { return d.value === docSelect.value; });
