@@ -12,13 +12,12 @@
   'use strict';
 
   var OPEN_CLASS = 'is-open';
-  var items; // NodeList of .home-header__nav-item--has-dropdown
 
+  // Always re-query — the header is injected asynchronously by
+  // header.min.js, so a cached NodeList from initial bootstrap would
+  // be empty. Re-querying on every call is cheap (a few elements).
   function getItems() {
-    if (!items) {
-      items = document.querySelectorAll('.home-header__nav-item--has-dropdown');
-    }
-    return items;
+    return document.querySelectorAll('.home-header__nav-item--has-dropdown');
   }
 
   function closeAll(except) {
@@ -55,8 +54,13 @@
     return Array.prototype.slice.call(dropdown.querySelectorAll('a[role="menuitem"]'));
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    getItems().forEach(function (item) {
+  function bootstrap() {
+    var nodes = getItems();
+    if (!nodes.length) return false; // header partial not in DOM yet
+    if (document.body.getAttribute('data-header-dropdowns-bootstrapped') === '1') return true;
+    document.body.setAttribute('data-header-dropdowns-bootstrapped', '1');
+
+    nodes.forEach(function (item) {
       // Set initial aria-expanded
       item.setAttribute('aria-expanded', 'false');
 
@@ -149,5 +153,20 @@
         closeAll(null);
       }
     });
-  });
+
+    return true;
+  }
+
+  // Try immediately (in case the partial is already there), then
+  // poll briefly to catch the moment header.min.js drops the markup in,
+  // then give up after ~5s if the header never appears.
+  if (!bootstrap()) {
+    var tries = 0;
+    var poll = setInterval(function () {
+      tries++;
+      if (bootstrap() || tries > 50) {
+        clearInterval(poll);
+      }
+    }, 100);
+  }
 })();
