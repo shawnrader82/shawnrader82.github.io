@@ -10,18 +10,38 @@
 */
 body[data-nav-active="recording"] main > .ap-process {
   background: #ffffff;
+  padding: 64px 0;
 }
 body[data-nav-active="recording"] main > .ap-timelines {
   background: #f3f7fb;
+  padding: 64px 0;
 }
 body[data-nav-active="recording"] main > .ap-families {
   background: #ffffff;
+  padding: 72px 0;
 }
 body[data-nav-active="recording"] main > .home-faq--force {
   background: #f3f7fb;
+  padding: 56px 0;
 }
 body[data-nav-active="recording"] main > .ap-checklist-section {
   background: #ffffff;
+  padding: 64px 0;
+}
+
+/* Mobile/tablet softens the rhythm slightly to keep total scroll length reasonable */
+@media (max-width: 720px) {
+  body[data-nav-active="recording"] main > .ap-process,
+  body[data-nav-active="recording"] main > .ap-timelines,
+  body[data-nav-active="recording"] main > .ap-checklist-section {
+    padding: 48px 0;
+  }
+  body[data-nav-active="recording"] main > .ap-families {
+    padding: 52px 0;
+  }
+  body[data-nav-active="recording"] main > .home-faq--force {
+    padding: 44px 0;
+  }
 }
 
 /* Hub-page specific: 5 content sections in sequence — explicitly assign

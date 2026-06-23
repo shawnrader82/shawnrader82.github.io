@@ -9,18 +9,38 @@
 */
 body[data-nav-active="permit-running"] main > .ap-process {
   background: #ffffff;
+  padding: 64px 0;
 }
 body[data-nav-active="permit-running"] main > .ap-timelines {
   background: #f3f7fb;
+  padding: 64px 0;
 }
 body[data-nav-active="permit-running"] main > .ap-families {
   background: #ffffff;
+  padding: 72px 0;
 }
 body[data-nav-active="permit-running"] main > .home-faq--force {
   background: #f3f7fb;
+  padding: 56px 0;
 }
 body[data-nav-active="permit-running"] main > .ap-checklist-section {
   background: #ffffff;
+  padding: 64px 0;
+}
+
+/* Mobile/tablet softens the rhythm slightly to keep total scroll length reasonable */
+@media (max-width: 720px) {
+  body[data-nav-active="permit-running"] main > .ap-process,
+  body[data-nav-active="permit-running"] main > .ap-timelines,
+  body[data-nav-active="permit-running"] main > .ap-checklist-section {
+    padding: 48px 0;
+  }
+  body[data-nav-active="permit-running"] main > .ap-families {
+    padding: 52px 0;
+  }
+  body[data-nav-active="permit-running"] main > .home-faq--force {
+    padding: 44px 0;
+  }
 }
 
 /* Explicitly assign alternating backgrounds for the 8 content sections
