@@ -1,0 +1,181 @@
+/**
+ * Header Dropdown Navigation
+ * Mobile American Notary & Apostilles
+ *
+ * Adds dropdown support to .home-header__nav items.
+ * Dropdowns are hidden on ≤900px — mobile menu drawer handles nav there.
+ */
+
+/* ── Nav item wrapper (replaces bare <a> for items with dropdowns) ───────── */
+.home-header__nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-header__nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #e5e7eb;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  opacity: 0.92;
+  text-decoration: none;
+  transition: color 0.18s ease, opacity 0.18s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.home-header__nav-link:hover,
+.home-header__nav-link:focus-visible {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* Caret icon inside nav link */
+.home-header__nav-caret {
+  flex-shrink: 0;
+  color: #94a3b8;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.home-header__nav-item--has-dropdown:hover .home-header__nav-caret,
+.home-header__nav-item--has-dropdown:focus-within .home-header__nav-caret,
+.home-header__nav-item--has-dropdown[aria-expanded="true"] .home-header__nav-caret {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+/* ── Dropdown panel ─────────────────────────────────────────────────────── */
+.home-header__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.18),
+    0 2px 6px rgba(15, 23, 42, 0.10);
+  padding: 8px 0;
+  z-index: 10100;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-6px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+  /* prevent layout shift */
+  visibility: hidden;
+}
+
+/* Tiny arrow pointing up */
+.home-header__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 6px;
+  background: #ffffff;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Show on hover or focus-within (desktop) */
+.home-header__nav-item--has-dropdown:hover .home-header__dropdown,
+.home-header__nav-item--has-dropdown:focus-within .home-header__dropdown,
+.home-header__nav-item--has-dropdown.is-open .home-header__dropdown {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
+}
+
+/* Dropdown links */
+.home-header__dropdown a[role="menuitem"] {
+  display: block;
+  padding: 10px 16px;
+  color: #1e293b;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.87rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.14s ease, color 0.14s ease;
+}
+
+.home-header__dropdown a[role="menuitem"]:hover,
+.home-header__dropdown a[role="menuitem"]:focus-visible {
+  background: #f3f7fb;
+  color: #b91c1c;
+  outline: none;
+}
+
+/* ── Active nav state (matches current page) ────────────────────────────── */
+.home-header__nav-item .home-header__nav-link.is-active,
+body[data-nav-active="apostille"] .home-header__nav-item[data-nav="apostille"] .home-header__nav-link,
+body[data-nav-active="notary"] .home-header__nav-item[data-nav="notary"] .home-header__nav-link,
+body[data-nav-active="recording"] .home-header__nav-item[data-nav="recording"] .home-header__nav-link,
+body[data-nav-active="livescan"] a.home-header__nav-link[data-nav="livescan"],
+body[data-nav-active="permit-running"] a.home-header__nav-link[data-nav="permit-running"],
+body[data-nav-active="locations"] a.home-header__nav-link[data-nav="locations"] {
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* ── Mobile menu groups ─────────────────────────────────────────────────── */
+.home-mobile-menu__group {
+  display: contents;
+}
+
+.home-mobile-menu__parent {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.home-mobile-menu__parent:hover,
+.home-mobile-menu__parent:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.home-mobile-menu__child {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px 0 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.home-mobile-menu__child:hover,
+.home-mobile-menu__child:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+/* ── Hide dropdowns entirely on mobile — mobile drawer handles nav ─────── */
+@media (max-width: 900px) {
+  .home-header__dropdown {
+    display: none !important;
+  }
+  .home-header__nav-caret {
+    display: none;
+  }
+}

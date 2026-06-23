@@ -1680,3 +1680,38 @@
     font-size: clamp(1.4rem, 7vw, 2rem);
   }
 }
+
+
+/* ========== 6-TILE SERVICE GRID UPDATES ========== */
+
+/* Explicitly force 3 columns at desktop for 6 tiles (2 rows × 3 cols).
+   auto-fit with minmax(240px,1fr) will naturally do this at ≥800px,
+   but we lock it in for clarity at large viewports. */
+@media (min-width: 900px) {
+  .home-service-lanes__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .home-service-lanes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* "Returning Soon" badge on Live Scan card */
+.service-lane__returning-badge {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 3px 10px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: 1px solid #fcd34d;
+}
+
+/* ========== /6-TILE SERVICE GRID UPDATES ========== */

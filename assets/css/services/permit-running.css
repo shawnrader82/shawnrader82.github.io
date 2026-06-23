@@ -1,0 +1,306 @@
+/**
+ * Permit Running — Hub page styles
+ * Mobile American Notary & Apostilles
+ */
+
+/* ── Zebra section rhythm (scoped to permit-running page) ──────────────────
+   Alternates white and light-blue-grey (#f3f7fb) across content sections.
+   Hero and trust ribbon keep their own backgrounds and are excluded.
+*/
+body[data-nav-active="permit-running"] main > .ap-process {
+  background: #ffffff;
+}
+body[data-nav-active="permit-running"] main > .ap-timelines {
+  background: #f3f7fb;
+}
+body[data-nav-active="permit-running"] main > .ap-families {
+  background: #ffffff;
+}
+body[data-nav-active="permit-running"] main > .home-faq--force {
+  background: #f3f7fb;
+}
+body[data-nav-active="permit-running"] main > .ap-checklist-section {
+  background: #ffffff;
+}
+
+/* Explicitly assign alternating backgrounds for the 8 content sections
+   (sections 3–10, after hero at 1 and trust ribbon at 2) */
+body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(3) {
+  background: #ffffff;  /* What a permit runner does */
+}
+body[data-nav-active="permit-running"] main > section.ap-families:nth-of-type(4) {
+  background: #f3f7fb;  /* What we run — light blue-grey */
+}
+body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(5) {
+  background: #ffffff;  /* Coverage */
+}
+body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(6) {
+  background: #f3f7fb;  /* Notary advantage — light blue-grey */
+}
+body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(7) {
+  background: #ffffff;  /* Payment options */
+}
+body[data-nav-active="permit-running"] main > section.ap-timelines:nth-of-type(8) {
+  background: #f3f7fb;  /* Pricing — light blue-grey */
+}
+body[data-nav-active="permit-running"] main > section.home-faq--force:nth-of-type(9) {
+  background: #ffffff;  /* FAQ */
+}
+body[data-nav-active="permit-running"] main > section.ap-process:nth-of-type(10) {
+  background: #f3f7fb;  /* Cross-link — light blue-grey */
+}
+body[data-nav-active="permit-running"] main > section.ap-checklist-section:nth-of-type(11) {
+  background: #ffffff;  /* Closing CTA */
+}
+
+/* ── Hero override for 21:9 permit-running hero ────────────────────────── */
+.pr-hero .home-hero__media {
+  background-image: url('/assets/images/heroes/permit-running-hero-21x9.webp');
+  background-size: cover;
+  background-position: center top;
+}
+
+/* ── Coverage grid ─────────────────────────────────────────────────────── */
+.pr-coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.pr-coverage-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.pr-coverage-card__region {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b91c1c;
+  margin-bottom: 10px;
+}
+
+.pr-coverage-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.pr-coverage-card li {
+  margin-bottom: 2px;
+}
+
+/* ── Notary advantage callout ──────────────────────────────────────────── */
+.pr-notary-callout {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pr-notary-callout h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin: 0 0 10px;
+}
+
+.pr-notary-callout p {
+  font-size: 0.9rem;
+  color: #1e40af;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── Payment options grid ──────────────────────────────────────────────── */
+.pr-payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.pr-payment-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.pr-payment-card--highlight {
+  border-color: #b91c1c;
+  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.10);
+}
+
+.pr-payment-card__tier {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #b91c1c;
+  margin-bottom: 6px;
+}
+
+.pr-payment-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.pr-payment-card p {
+  font-size: 0.88rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.pr-payment-note {
+  font-size: 0.82rem;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* ── Pricing box ───────────────────────────────────────────────────────── */
+.pr-pricing-box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+  max-width: 720px;
+  margin: 24px auto 0;
+}
+
+.pr-pricing-box__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 18px;
+}
+
+.pr-pricing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pr-pricing-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.pr-pricing-row:last-child {
+  border-bottom: none;
+}
+
+.pr-pricing-row--passthrough {
+  border-top: 2px solid #e5e7eb;
+  margin-top: 4px;
+  padding-top: 16px;
+}
+
+.pr-pricing-row__label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.pr-pricing-row__label strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.pr-pricing-row__label span {
+  font-size: 0.82rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.pr-pricing-row__amount {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #b91c1c;
+  white-space: nowrap;
+  padding-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pr-pricing-disclaimer {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Cross-link card ───────────────────────────────────────────────────── */
+.pr-crosslink-card {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 22px 28px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.65;
+}
+
+.pr-crosslink-card a {
+  color: #b91c1c;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.pr-crosslink-card a:hover {
+  color: #991b1b;
+}
+
+/* ── CTA row centering for closing section ─────────────────────────────── */
+.pr-cta-row {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .pr-pricing-box {
+    padding: 20px 16px 16px;
+  }
+
+  .pr-pricing-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pr-pricing-row__amount {
+    font-size: 1.1rem;
+  }
+
+  .pr-coverage-grid,
+  .pr-payment-grid {
+    grid-template-columns: 1fr;
+  }
+}
