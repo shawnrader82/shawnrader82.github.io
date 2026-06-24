@@ -41,59 +41,113 @@
   <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Estate Planning Notarization",
-    "name": "Estate Planning Mobile Notary Services",
-    "url": "https://www.mobileamericannotary.com/services/notary/estate-planning.html",
-    "description": "Mobile notary services for estate planning documents in Los Angeles, including revocable living trusts, last wills and testaments, durable powers of attorney, advance healthcare directives, certifications of trust, and trust amendments.",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com",
-      "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "telephone": "+1-213-933-2507",
-      "email": "info@mobileamericannotary.com",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.2764,
-        "longitude": -118.4683
-      },
-      "priceRange": "$$",
-      "openingHoursSpecification": [{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Estate Planning Notarization",
+  "name": "Estate Planning Mobile Notary Services",
+  "url": "https://www.mobileamericannotary.com/services/notary/estate-planning.html",
+  "description": "Mobile notary services for estate planning documents in Los Angeles, including revocable living trusts, last wills and testaments, durable powers of attorney, advance healthcare directives, certifications of trust, and trust amendments.",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "09:00",
         "closes": "20:00"
-      }],
-      "sameAs": [
-        "https://www.facebook.com/MobileAmericanNotary/",
-        "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-        "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
-      ]
-    },
-    "areaServed": ["Los Angeles County","Orange County","Ventura County","San Bernardino County","Riverside County","Santa Barbara County"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Estate Planning Notary Services",
-      "itemListElement": [
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Trust Notarization","description":"Notarization of revocable living trusts, certifications of trust, trust amendments, restatements, and trust transfer deeds."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Will Signing","description":"Notarization of self-proving affidavits attached to a last will and testament. Witnessing for the will itself when arrangements are coordinated in advance."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Power of Attorney Notarization","description":"Notarization of durable financial powers of attorney, springing POAs, and limited POAs for real estate or banking."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Advance Healthcare Directive","description":"Notarization or witnessing of California advance healthcare directives, living wills, and HIPAA authorizations."}}
-      ]
-    }
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary/",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    ]
+  },
+  "areaServed": [
+    "Los Angeles County",
+    "Orange County",
+    "Ventura County",
+    "San Bernardino County",
+    "Riverside County",
+    "Santa Barbara County"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Estate Planning Notary Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Trust Notarization",
+          "description": "Notarization of revocable living trusts, certifications of trust, trust amendments, restatements, and trust transfer deeds."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Will Signing",
+          "description": "Notarization of self-proving affidavits attached to a last will and testament. Witnessing for the will itself when arrangements are coordinated in advance."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Power of Attorney Notarization",
+          "description": "Notarization of durable financial powers of attorney, springing POAs, and limited POAs for real estate or banking."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Advance Healthcare Directive",
+          "description": "Notarization or witnessing of California advance healthcare directives, living wills, and HIPAA authorizations."
+        }
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
+    ]
   }
+}
   </script>
 
   <!-- JSON-LD: FAQPage (mirrors visible accordion) -->
@@ -209,8 +263,8 @@
       "ratingValue": "5.0",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "163",
-      "reviewCount": "163"
+      "ratingCount": "171",
+      "reviewCount": "171"
     },
     "review": [
       {

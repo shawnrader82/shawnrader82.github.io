@@ -67,159 +67,176 @@
   <!-- 2. Service with Offers and LocalBusiness provider -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Mobile Notary and Apostille Services",
-    "name": "Mobile Notary & Apostille Pricing Los Angeles",
-    "description": "Transparent pricing for mobile notary visits, hospital and jail notarizations, real estate signings, estate planning, and apostille services in Los Angeles, Orange, and Ventura Counties.",
-    "url": "https://www.mobileamericannotary.com/pricing.html",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com",
-      "telephone": "+1-213-933-2507",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        {
-          "@type": "AdministrativeArea",
-          "name": "Los Angeles County"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Orange County"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Ventura County"
-        }
-      ]
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mobile Notary and Apostille Services",
+  "name": "Mobile Notary & Apostille Pricing Los Angeles",
+  "description": "Transparent pricing for mobile notary visits, hospital and jail notarizations, real estate signings, estate planning, and apostille services in Los Angeles, Orange, and Ventura Counties.",
+  "url": "https://www.mobileamericannotary.com/pricing.html",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "telephone": "+1-213-933-2507",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Mobile Notary & Apostille Service Pricing",
-      "itemListElement": [
-        {
-          "@type": "OfferCatalog",
-          "name": "General Mobile Notary",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Standard mobile notary visit"
-              },
-              "price": "80.00",
-              "priceCurrency": "USD",
-              "description": "Includes first signature. Home, office, coffee shop, or other agreed location within standard service area."
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Los Angeles County"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Orange County"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ventura County"
+      }
+    ]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mobile Notary & Apostille Service Pricing",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "General Mobile Notary",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Standard mobile notary visit"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Additional notarized signature"
-              },
-              "price": "15.00",
-              "priceCurrency": "USD",
-              "description": "Each additional notarized signature on the same visit."
-            }
-          ]
-        },
-        {
-          "@type": "OfferCatalog",
-          "name": "Hospital & Medical Facility Notarizations",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Tier 1 hospital visit (nearby)"
-              },
-              "price": "195.00",
-              "priceCurrency": "USD",
-              "description": "Standard hospital visit at Providence Holy Cross, Northridge Hospital, Kaiser Woodland Hills, or Henry Mayo Valencia."
+            "price": "80.00",
+            "priceCurrency": "USD",
+            "description": "Includes first signature. Home, office, coffee shop, or other agreed location within standard service area."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Additional notarized signature"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Tier 2 hospital visit (farther)"
-              },
-              "price": "225.00",
-              "priceCurrency": "USD",
-              "description": "Standard hospital visit at Adventist Health Simi Valley, Los Robles, Kaiser LA Medical Center, or Cedars-Sinai."
-            }
-          ]
-        },
-        {
-          "@type": "OfferCatalog",
-          "name": "Real Estate & Loan Signings",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Single deed signing"
-              },
-              "price": "100.00",
-              "priceCurrency": "USD"
+            "price": "15.00",
+            "priceCurrency": "USD",
+            "description": "Each additional notarized signature on the same visit."
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Hospital & Medical Facility Notarizations",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier 1 hospital visit (nearby)"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Refinance package"
-              },
-              "price": "200.00",
-              "priceCurrency": "USD"
+            "price": "195.00",
+            "priceCurrency": "USD",
+            "description": "Standard hospital visit at Providence Holy Cross, Northridge Hospital, Kaiser Woodland Hills, or Henry Mayo Valencia."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier 2 hospital visit (farther)"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Purchase package"
-              },
-              "price": "250.00",
-              "priceCurrency": "USD"
-            }
-          ]
-        },
-        {
-          "@type": "OfferCatalog",
-          "name": "Apostille & Legalization",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Personal document apostille"
-              },
-              "price": "175.00",
-              "priceCurrency": "USD",
-              "description": "Per-document fee for personal documents. Volume discounts available."
+            "price": "225.00",
+            "priceCurrency": "USD",
+            "description": "Standard hospital visit at Adventist Health Simi Valley, Los Robles, Kaiser LA Medical Center, or Cedars-Sinai."
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Real Estate & Loan Signings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Single deed signing"
             },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Business document apostille"
-              },
-              "price": "250.00",
-              "priceCurrency": "USD",
-              "description": "Per-document fee for business and corporate documents. Volume discounts available."
-            }
-          ]
-        }
-      ]
-    }
+            "price": "100.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Refinance package"
+            },
+            "price": "200.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Purchase package"
+            },
+            "price": "250.00",
+            "priceCurrency": "USD"
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Apostille & Legalization",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Personal document apostille"
+            },
+            "price": "175.00",
+            "priceCurrency": "USD",
+            "description": "Per-document fee for personal documents. Volume discounts available."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business document apostille"
+            },
+            "price": "250.00",
+            "priceCurrency": "USD",
+            "description": "Per-document fee for business and corporate documents. Volume discounts available."
+          }
+        ]
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "171",
+    "reviewCount": "171"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
+    ]
   }
+}
   </script>
 
   <!-- ========== /STRUCTURED DATA ========== -->

@@ -40,59 +40,110 @@
   <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Permit Running",
-    "name": "Permit Runner for Architects, Engineers & General Contractors — Greater Los Angeles",
-    "url": "https://www.mobileamericannotary.com/services/permit-running.html",
-    "description": "Permit running service for architects, engineers, and general contractors across Greater Los Angeles, Orange County, and Ventura County. We submit plan sets, retrieve issued permits, shuttle correction packets, and handle agency clearances at LADBS, LA County Public Works, Glendale, Burbank, Santa Monica, and more.",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com",
-      "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "telephone": "+1-213-933-2507",
-      "email": "info@mobileamericannotary.com",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.2764,
-        "longitude": -118.4683
-      },
-      "priceRange": "$$",
-      "openingHoursSpecification": [{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Permit Running",
+  "name": "Permit Runner for Architects, Engineers & General Contractors — Greater Los Angeles",
+  "url": "https://www.mobileamericannotary.com/services/permit-running.html",
+  "description": "Permit running service for architects, engineers, and general contractors across Greater Los Angeles, Orange County, and Ventura County. We submit plan sets, retrieve issued permits, shuttle correction packets, and handle agency clearances at LADBS, LA County Public Works, Glendale, Burbank, Santa Monica, and more.",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "09:00",
         "closes": "20:00"
-      }],
-      "sameAs": [
-        "https://www.facebook.com/MobileAmericanNotary/",
-        "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-        "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
-      ]
-    },
-    "areaServed": ["Los Angeles County","Orange County","Ventura County"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Permit Running Services",
-      "itemListElement": [
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Plan Check Submittal","description":"Drop off architectural and engineering plan sets at LADBS Metro, Van Nuys, West LA, San Pedro, and other jurisdictions."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"RTI Permit Pickup","description":"Collect issued permits and job cards from LADBS and city building departments on your behalf."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Correction Round Trip","description":"Pick up correction packets from the building department and return revised sheets to the plan check counter."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Agency Clearance Shuttle","description":"Obtain Fire, DOT, Public Works, and Sanitation clearances required before permit issuance."}}
-      ]
-    }
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary/",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    ]
+  },
+  "areaServed": [
+    "Los Angeles County",
+    "Orange County",
+    "Ventura County"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Permit Running Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Plan Check Submittal",
+          "description": "Drop off architectural and engineering plan sets at LADBS Metro, Van Nuys, West LA, San Pedro, and other jurisdictions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "RTI Permit Pickup",
+          "description": "Collect issued permits and job cards from LADBS and city building departments on your behalf."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Correction Round Trip",
+          "description": "Pick up correction packets from the building department and return revised sheets to the plan check counter."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Agency Clearance Shuttle",
+          "description": "Obtain Fire, DOT, Public Works, and Sanitation clearances required before permit issuance."
+        }
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
+    ]
   }
+}
   </script>
 
   <!-- JSON-LD: FAQPage -->
@@ -191,8 +242,8 @@
       "ratingValue": "5.0",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "163",
-      "reviewCount": "163"
+      "ratingCount": "171",
+      "reviewCount": "171"
     },
     "sameAs": [
       "https://g.page/r/CZQcr6e0ew40EAE/review"
@@ -223,6 +274,72 @@
     })(window,document,'script','dataLayer','GTM-KWBRTN9M');
   </script>
   <script src="/assets/js/gclid-capture.min.js" defer></script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Run a Permit in Los Angeles",
+  "description": "Permit running service for architects, engineers, and GCs across Greater LA, Orange, and Ventura counties. Plan check submittals, RTI permit pickup, agency clearance shuttle. LADBS, LA County, OC, Ventura. Call (213) 933‑2507.",
+  "image": "https://www.mobileamericannotary.com/assets/images/heroes/permit-running-hero-21x9.webp",
+  "totalTime": "PT3D",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "75"
+  },
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Approved plan sets or correction packets"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Notarized Agent Authorization Letter"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Agency fees (cash, check, or Square)"
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "LADBS permit portal or ePlanLA"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Mobile American Notary & Apostilles permit runner"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Step 1 — Plan Check Submittal Drop-Off",
+      "text": "We deliver your plan sets to LADBS Metro (201 N. Figueroa), Van Nuys, West LA, San Pedro, or any other jurisdiction counter. We also submit electronic packages via ePlanLA with your notarized Agent Authorization Letter.",
+      "url": "https://www.mobileamericannotary.com/services/permit-running.html#step-1"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 2 — RTI Permit Pickup",
+      "text": "Once your plans are approved and the permit is Ready to Issue, we collect the issued permit, job card, and approved plan set from the building department counter and deliver them to your office or job site.",
+      "url": "https://www.mobileamericannotary.com/services/permit-running.html#step-2"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 3 — Correction Round Trips",
+      "text": "We pick up correction packets and redline sheets from the plan check counter, deliver them to your design team, then return the revised sheets to the agency for re-check.",
+      "url": "https://www.mobileamericannotary.com/services/permit-running.html#step-3"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Step 4 — Agency Clearance Shuttle",
+      "text": "Many permits require clearances from Fire Prevention, DOT, LA County Public Works, or LA Sanitation before LADBS will issue. We visit each required agency counter and obtain the sign-offs on your behalf.",
+      "url": "https://www.mobileamericannotary.com/services/permit-running.html#step-4"
+    }
+  ]
+}
+  </script>
 </head>
 
 <body data-nav-active="permit-running">

@@ -59,58 +59,81 @@
   <!-- 2. LocalBusiness (Notary) with AggregateRating -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Notary",
-    "name": "Mobile American Notary & Apostilles",
-    "url": "https://www.mobileamericannotary.com",
-    "logo": "https://www.mobileamericannotary.com/assets/images/brandlogo.webp",
-    "image": "https://www.mobileamericannotary.com/assets/images/brandlogo.webp",
-    "telephone": "+1-213-933-2507",
-    "email": "info@mobileamericannotary.com",
-    "founder": {
-      "@type": "Person",
-      "name": "Shawn Rader",
-      "jobTitle": "Notary Public",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Mobile American Notary & Apostilles"
-      }
-    },
-    "foundingDate": "2018",
-    "description": "Mobile American Notary & Apostilles is a Los Angeles-based mobile notary and apostille service led by Shawn Rader, providing mobile notarizations, hospital and jail signings, estate documents, and apostille support across Los Angeles, Orange, Ventura, and nearby counties.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "10718 White Oak Ave Suite 5",
-      "addressLocality": "Granada Hills",
-      "addressRegion": "CA",
-      "postalCode": "91344",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 34.2764,
-      "longitude": -118.4683
-    },
-    "areaServed": [
-      "Los Angeles County",
-      "Orange County",
-      "Ventura County"
+  "@context": "https://schema.org",
+  "@type": "Notary",
+  "name": "Mobile American Notary & Apostilles",
+  "url": "https://www.mobileamericannotary.com",
+  "logo": "https://www.mobileamericannotary.com/assets/images/brandlogo.webp",
+  "image": "https://www.mobileamericannotary.com/assets/images/brandlogo.webp",
+  "telephone": "+1-213-933-2507",
+  "email": "info@mobileamericannotary.com",
+  "founder": {
+    "@type": "Person",
+    "name": "Shawn Rader",
+    "jobTitle": "Notary Public",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Mobile American Notary & Apostilles"
+    }
+  },
+  "foundingDate": "2018",
+  "description": "Mobile American Notary & Apostilles is a Los Angeles-based mobile notary and apostille service led by Shawn Rader, providing mobile notarizations, hospital and jail signings, estate documents, and apostille support across Los Angeles, Orange, Ventura, and nearby counties.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10718 White Oak Ave Suite 5",
+    "addressLocality": "Granada Hills",
+    "addressRegion": "CA",
+    "postalCode": "91344",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.2764,
+    "longitude": -118.4683
+  },
+  "areaServed": [
+    "Los Angeles County",
+    "Orange County",
+    "Ventura County"
+  ],
+  "priceRange": "$$",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
     ],
-    "priceRange": "$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-      ],
-      "opens": "09:00",
-      "closes": "20:00"
-    },
-    "sameAs": [
-      "https://www.facebook.com/MobileAmericanNotary",
-      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/MobileAmericanNotary",
+    "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+    "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "171",
+    "reviewCount": "171"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
     ]
   }
+}
   </script>
 
   <!-- 3. Person (founder) -->

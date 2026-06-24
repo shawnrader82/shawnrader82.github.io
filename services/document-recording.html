@@ -40,61 +40,126 @@
   <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Document Recording",
-    "name": "Document Recording Service — LA, Orange & Ventura County",
-    "url": "https://www.mobileamericannotary.com/services/document-recording.html",
-    "description": "Mobile document recording service for LA, Orange, and Ventura County. We pick up your notarized deeds, FBN statements, affidavits, and other recordable documents and file them at the county clerk-recorder on your behalf.",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com",
-      "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "telephone": "+1-213-933-2507",
-      "email": "info@mobileamericannotary.com",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.2764,
-        "longitude": -118.4683
-      },
-      "priceRange": "$$",
-      "openingHoursSpecification": [{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Document Recording",
+  "name": "Document Recording Service — LA, Orange & Ventura County",
+  "url": "https://www.mobileamericannotary.com/services/document-recording.html",
+  "description": "Mobile document recording service for LA, Orange, and Ventura County. We pick up your notarized deeds, FBN statements, affidavits, and other recordable documents and file them at the county clerk-recorder on your behalf.",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "09:00",
         "closes": "20:00"
-      }],
-      "sameAs": [
-        "https://www.facebook.com/MobileAmericanNotary/",
-        "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-        "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
-      ]
-    },
-    "areaServed": ["Los Angeles County","Orange County","Ventura County"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Document Recording Services",
-      "itemListElement": [
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Grant Deed Recording","description":"Filing grant deeds at LA, Orange, or Ventura County Recorder."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Quitclaim Deed Recording","description":"Filing quitclaim deeds for divorce, family transfers, and title corrections."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Affidavit of Death Recording","description":"Filing Affidavit of Death of Joint Tenant to remove a deceased co-owner from title."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"TOD Deed Recording","description":"Filing California Transfer-on-Death deeds for estate planning."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"FBN/DBA Filing","description":"Filing Fictitious Business Name statements with the county clerk."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Certified Copies","description":"Obtaining certified copies of previously recorded documents from the county recorder."}}
-      ]
-    }
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary/",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    ]
+  },
+  "areaServed": [
+    "Los Angeles County",
+    "Orange County",
+    "Ventura County"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Document Recording Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Grant Deed Recording",
+          "description": "Filing grant deeds at LA, Orange, or Ventura County Recorder."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Quitclaim Deed Recording",
+          "description": "Filing quitclaim deeds for divorce, family transfers, and title corrections."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Affidavit of Death Recording",
+          "description": "Filing Affidavit of Death of Joint Tenant to remove a deceased co-owner from title."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "TOD Deed Recording",
+          "description": "Filing California Transfer-on-Death deeds for estate planning."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "FBN/DBA Filing",
+          "description": "Filing Fictitious Business Name statements with the county clerk."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Certified Copies",
+          "description": "Obtaining certified copies of previously recorded documents from the county recorder."
+        }
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
+    ]
   }
+}
   </script>
 
   <!-- JSON-LD: FAQPage -->
@@ -225,8 +290,8 @@
       "ratingValue": "5.0",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "163",
-      "reviewCount": "163"
+      "ratingCount": "171",
+      "reviewCount": "171"
     },
     "sameAs": [
       "https://g.page/r/CZQcr6e0ew40EAE/review"

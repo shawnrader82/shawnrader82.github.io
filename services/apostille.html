@@ -50,47 +50,110 @@
   <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Apostille and Document Legalization",
-    "serviceType": "Apostille and document legalization",
-    "url": "https://www.mobileamericannotary.com/services/apostille.html",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com/",
-      "telephone": "+1-213-933-2507",
-      "email": "info@mobileamericannotary.com",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      }
-    },
-    "areaServed": [
-      { "@type": "State", "name": "California" },
-      { "@type": "AdministrativeArea", "name": "Los Angeles County" },
-      { "@type": "AdministrativeArea", "name": "Orange County" },
-      { "@type": "AdministrativeArea", "name": "Ventura County" }
-    ],
-    "description": "Apostille and document legalization help for vital records, court orders, school records, business filings, FBI background checks, powers of attorney, and federal documents used abroad.",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Apostille document families",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vital records apostille", "url": "https://www.mobileamericannotary.com/services/apostille/vital-records.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Court documents apostille", "url": "https://www.mobileamericannotary.com/services/apostille/court-documents.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "School and academic apostille", "url": "https://www.mobileamericannotary.com/services/apostille/school-academic.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business and corporate apostille", "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notarized document apostille", "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Federal documents apostille", "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents.html" } }
-      ]
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Apostille and Document Legalization",
+  "serviceType": "Apostille and document legalization",
+  "url": "https://www.mobileamericannotary.com/services/apostille.html",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com/",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
     }
+  },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "California"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Los Angeles County"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Orange County"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ventura County"
+    }
+  ],
+  "description": "Apostille and document legalization help for vital records, court orders, school records, business filings, FBI background checks, powers of attorney, and federal documents used abroad.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Apostille document families",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vital records apostille",
+          "url": "https://www.mobileamericannotary.com/services/apostille/vital-records.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Court documents apostille",
+          "url": "https://www.mobileamericannotary.com/services/apostille/court-documents.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "School and academic apostille",
+          "url": "https://www.mobileamericannotary.com/services/apostille/school-academic.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business and corporate apostille",
+          "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Notarized document apostille",
+          "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents.html"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Federal documents apostille",
+          "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents.html"
+        }
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
+    ]
   }
+}
   </script>
 
   <!-- JSON-LD: Breadcrumb -->
@@ -212,8 +275,8 @@
       "ratingValue": "5.0",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "163",
-      "reviewCount": "163"
+      "ratingCount": "171",
+      "reviewCount": "171"
     },
     "review": [
       {

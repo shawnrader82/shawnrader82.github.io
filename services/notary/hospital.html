@@ -40,48 +40,73 @@
   <!-- JSON-LD: Service -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Hospital Bedside Mobile Notary",
-    "serviceType": "Mobile Notary Service",
-    "url": "https://www.mobileamericannotary.com/services/notary/hospital.html",
-    "description": "Bedside mobile notary service at hospitals across Los Angeles and Ventura County — advance healthcare directives, healthcare power of attorney, HIPAA authorization, POLST forms, living will equivalents, and emergency signings. We come to patient rooms, ICUs, and care facilities. Available same day for urgent situations.",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com/",
-      "telephone": "+1-213-933-2507",
-      "email": "info@mobileamericannotary.com",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.2764,
-        "longitude": -118.4683
-      },
-      "openingHoursSpecification": [{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Hospital Bedside Mobile Notary",
+  "serviceType": "Mobile Notary Service",
+  "url": "https://www.mobileamericannotary.com/services/notary/hospital.html",
+  "description": "Bedside mobile notary service at hospitals across Los Angeles and Ventura County — advance healthcare directives, healthcare power of attorney, HIPAA authorization, POLST forms, living will equivalents, and emergency signings. We come to patient rooms, ICUs, and care facilities. Available same day for urgent situations.",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com/",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "09:00",
         "closes": "20:00"
-      }],
-      "sameAs": [
-        "https://www.facebook.com/MobileAmericanNotary/",
-        "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2"
-      ]
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary/",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2"
+    ]
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Los Angeles County"
     },
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "Los Angeles County" },
-      { "@type": "AdministrativeArea", "name": "Ventura County" }
+    {
+      "@type": "AdministrativeArea",
+      "name": "Ventura County"
+    }
+  ],
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
     ]
   }
+}
   </script>
 
   <!-- JSON-LD: Breadcrumb -->
@@ -224,8 +249,8 @@
       "ratingValue": "5.0",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "163",
-      "reviewCount": "163"
+      "ratingCount": "171",
+      "reviewCount": "171"
     },
     "review": [
       {

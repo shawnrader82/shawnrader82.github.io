@@ -53,147 +53,273 @@
   <!-- ========== STRUCTURED DATA ========== -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mobileamericannotary.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://www.mobileamericannotary.com/locations/" },
-          { "@type": "ListItem", "position": 3, "name": "Los Angeles County", "item": "https://www.mobileamericannotary.com/locations/los-angeles-county.html" }
-        ]
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#webpage",
-        "url": "https://www.mobileamericannotary.com/locations/los-angeles-county.html",
-        "name": "Mobile Notary & Apostille in Los Angeles County",
-        "description": "Mobile notary and apostille help across Los Angeles County, including homes, offices, hospitals, county jails, and courthouses, with same-day options when needed.",
-        "isPartOf": { "@id": "https://www.mobileamericannotary.com/#website" },
-        "breadcrumb": { "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#breadcrumb" },
-        "about": { "@id": "https://www.mobileamericannotary.com/#organization" },
-        "primaryImageOfPage": { "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#primaryimage" }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#primaryimage",
-        "url": "https://www.mobileamericannotary.com/assets/images/hero/locations/los-angeles-county-notary-apostille-21:9.webp",
-        "contentUrl": "https://www.mobileamericannotary.com/assets/images/hero/locations/los-angeles-county-notary-apostille-21:9.webp",
-        "name": "Mobile notary and apostille service across Los Angeles County"
-      },
-      {
-        "@type": "LegalService",
-        "@id": "https://www.mobileamericannotary.com/#localbusiness",
-        "name": "Mobile American Notary & Apostilles",
-        "url": "https://www.mobileamericannotary.com/",
-        "telephone": "+1-213-933-2507",
-        "email": "info@mobileamericannotary.com",
-        "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "10718 White Oak Ave Suite 5",
-          "addressLocality": "Granada Hills",
-          "addressRegion": "CA",
-          "postalCode": "91344",
-          "addressCountry": "US"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.mobileamericannotary.com/"
         },
-        "areaServed": {
-          "@type": "AdministrativeArea",
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Locations",
+          "item": "https://www.mobileamericannotary.com/locations/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "Los Angeles County",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "California"
+          "item": "https://www.mobileamericannotary.com/locations/los-angeles-county.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#webpage",
+      "url": "https://www.mobileamericannotary.com/locations/los-angeles-county.html",
+      "name": "Mobile Notary & Apostille in Los Angeles County",
+      "description": "Mobile notary and apostille help across Los Angeles County, including homes, offices, hospitals, county jails, and courthouses, with same-day options when needed.",
+      "isPartOf": {
+        "@id": "https://www.mobileamericannotary.com/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#breadcrumb"
+      },
+      "about": {
+        "@id": "https://www.mobileamericannotary.com/#organization"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#primaryimage"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "171",
+        "reviewCount": "171"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#primaryimage",
+      "url": "https://www.mobileamericannotary.com/assets/images/hero/locations/los-angeles-county-notary-apostille-21:9.webp",
+      "contentUrl": "https://www.mobileamericannotary.com/assets/images/hero/locations/los-angeles-county-notary-apostille-21:9.webp",
+      "name": "Mobile notary and apostille service across Los Angeles County"
+    },
+    {
+      "@type": "LegalService",
+      "@id": "https://www.mobileamericannotary.com/#localbusiness",
+      "name": "Mobile American Notary & Apostilles",
+      "url": "https://www.mobileamericannotary.com/",
+      "telephone": "+1-213-933-2507",
+      "email": "info@mobileamericannotary.com",
+      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10718 White Oak Ave Suite 5",
+        "addressLocality": "Granada Hills",
+        "addressRegion": "CA",
+        "postalCode": "91344",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Los Angeles County",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "California"
+        }
+      },
+      "description": "Mobile notary, apostille, Live Scan fingerprinting, and document translation coordination serving Los Angeles County."
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#cities-list",
+      "name": "Los Angeles County City and Area Pages",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 22,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city.html",
+          "name": "Sherman Oaks & Studio City"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://www.mobileamericannotary.com/locations/north-hollywood.html",
+          "name": "North Hollywood"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://www.mobileamericannotary.com/locations/encino-tarzana.html",
+          "name": "Encino & Tarzana"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://www.mobileamericannotary.com/locations/van-nuys-panorama-city.html",
+          "name": "Van Nuys & Panorama City"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa.html",
+          "name": "Reseda, Winnetka & Lake Balboa"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "url": "https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima.html",
+          "name": "Sylmar, Sun Valley & Pacoima"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "url": "https://www.mobileamericannotary.com/locations/san-fernando.html",
+          "name": "San Fernando"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "url": "https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch.html",
+          "name": "Granada Hills & Porter Ranch"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "url": "https://www.mobileamericannotary.com/locations/chatsworth-northridge.html",
+          "name": "Chatsworth & Northridge"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "url": "https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park.html",
+          "name": "Woodland Hills, West Hills & Canoga Park"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "url": "https://www.mobileamericannotary.com/locations/beverly-hills.html",
+          "name": "Beverly Hills"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "url": "https://www.mobileamericannotary.com/locations/westwood.html",
+          "name": "Westwood"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "url": "https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey.html",
+          "name": "Santa Monica, Venice & Marina del Rey"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "url": "https://www.mobileamericannotary.com/locations/hollywood-west-hollywood.html",
+          "name": "Hollywood & West Hollywood"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "url": "https://www.mobileamericannotary.com/locations/burbank-glendale.html",
+          "name": "Burbank & Glendale"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena.html",
+          "name": "Pasadena & Altadena"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "url": "https://www.mobileamericannotary.com/locations/eagle-rock.html",
+          "name": "Eagle Rock"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "url": "https://www.mobileamericannotary.com/locations/downtown-los-angeles.html",
+          "name": "Downtown Los Angeles"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "url": "https://www.mobileamericannotary.com/locations/valencia-santa-clarita.html",
+          "name": "Valencia & Santa Clarita"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you serve all of Los Angeles County?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We cover a wide portion of Los Angeles County, including the San Fernando Valley, Westside, Central LA, Downtown, the San Gabriel Valley edge, and the Santa Clarita Valley. The most reliable way to confirm whether we travel to your exact city or neighborhood is to call or text with the appointment address and timing."
           }
         },
-        "description": "Mobile notary, apostille, Live Scan fingerprinting, and document translation coordination serving Los Angeles County."
-      },
-      {
-        "@type": "ItemList",
-        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#cities-list",
-        "name": "Los Angeles County City and Area Pages",
-        "itemListOrder": "https://schema.org/ItemListOrderAscending",
-        "numberOfItems": 22,
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "url": "https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city.html", "name": "Sherman Oaks & Studio City" },
-          { "@type": "ListItem", "position": 2, "url": "https://www.mobileamericannotary.com/locations/north-hollywood.html", "name": "North Hollywood" },
-          { "@type": "ListItem", "position": 3, "url": "https://www.mobileamericannotary.com/locations/encino-tarzana.html", "name": "Encino & Tarzana" },
-          { "@type": "ListItem", "position": 4, "url": "https://www.mobileamericannotary.com/locations/van-nuys-panorama-city.html", "name": "Van Nuys & Panorama City" },
-          { "@type": "ListItem", "position": 5, "url": "https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa.html", "name": "Reseda, Winnetka & Lake Balboa" },
-          { "@type": "ListItem", "position": 6, "url": "https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima.html", "name": "Sylmar, Sun Valley & Pacoima" },
-          { "@type": "ListItem", "position": 7, "url": "https://www.mobileamericannotary.com/locations/san-fernando.html", "name": "San Fernando" },
-          { "@type": "ListItem", "position": 8, "url": "https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch.html", "name": "Granada Hills & Porter Ranch" },
-          { "@type": "ListItem", "position": 9, "url": "https://www.mobileamericannotary.com/locations/chatsworth-northridge.html", "name": "Chatsworth & Northridge" },
-          { "@type": "ListItem", "position": 10, "url": "https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park.html", "name": "Woodland Hills, West Hills & Canoga Park" },
-          { "@type": "ListItem", "position": 11, "url": "https://www.mobileamericannotary.com/locations/beverly-hills.html", "name": "Beverly Hills" },
-          { "@type": "ListItem", "position": 12, "url": "https://www.mobileamericannotary.com/locations/westwood.html", "name": "Westwood" },
-          { "@type": "ListItem", "position": 13, "url": "https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey.html", "name": "Santa Monica, Venice & Marina del Rey" },
-          { "@type": "ListItem", "position": 14, "url": "https://www.mobileamericannotary.com/locations/hollywood-west-hollywood.html", "name": "Hollywood & West Hollywood" },
-          { "@type": "ListItem", "position": 15, "url": "https://www.mobileamericannotary.com/locations/burbank-glendale.html", "name": "Burbank & Glendale" },
-          { "@type": "ListItem", "position": 16, "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena.html", "name": "Pasadena & Altadena" },
-          { "@type": "ListItem", "position": 17, "url": "https://www.mobileamericannotary.com/locations/eagle-rock.html", "name": "Eagle Rock" },
-          { "@type": "ListItem", "position": 18, "url": "https://www.mobileamericannotary.com/locations/downtown-los-angeles.html", "name": "Downtown Los Angeles" },
-          { "@type": "ListItem", "position": 19, "url": "https://www.mobileamericannotary.com/locations/valencia-santa-clarita.html", "name": "Valencia & Santa Clarita" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.mobileamericannotary.com/locations/los-angeles-county.html#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Do you serve all of Los Angeles County?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We cover a wide portion of Los Angeles County, including the San Fernando Valley, Westside, Central LA, Downtown, the San Gabriel Valley edge, and the Santa Clarita Valley. The most reliable way to confirm whether we travel to your exact city or neighborhood is to call or text with the appointment address and timing."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can you visit Los Angeles County hospitals and jails?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. We coordinate mobile notarizations for patients at hospitals across Los Angeles County and for inmates at Los Angeles County Sheriff's Department facilities, subject to signer awareness, facility approval, ID rules, and visiting schedules. Hospital and jail visits are scheduled by phone so we can confirm access and timing first."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you handle Los Angeles County apostille documents?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. For documents originally signed or notarized in California, we handle California Secretary of State apostille processing. Los Angeles County vital records (birth, death, marriage) typically need to be ordered as certified copies from the Los Angeles County Registrar-Recorder/County Clerk or the California Department of Public Health before they can be apostilled. We can explain which path applies to your document."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where do you travel from?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We are based in Granada Hills in the San Fernando Valley and travel throughout Los Angeles County. Travel time, traffic, and the type of facility involved affect scheduling and fees, which is why we quote the full cost (including any parking or expected wait time) before confirming an appointment."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you offer same-day notary or apostille help in Los Angeles County?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Same-day mobile notarizations are often possible depending on the time of day, traffic, and the signer's readiness. Same-day apostille is also possible for documents already correctly notarized or certified, but timing depends on California Secretary of State counter availability. The fastest way to confirm options is to call or text."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if my city is not on your list?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We frequently travel to nearby communities even when they don't have a dedicated page. If you don't see your city listed, call or text with your address and document type and we'll let you know whether we currently travel there."
-            }
+        {
+          "@type": "Question",
+          "name": "Can you visit Los Angeles County hospitals and jails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We coordinate mobile notarizations for patients at hospitals across Los Angeles County and for inmates at Los Angeles County Sheriff's Department facilities, subject to signer awareness, facility approval, ID rules, and visiting schedules. Hospital and jail visits are scheduled by phone so we can confirm access and timing first."
           }
-        ],
-        "inLanguage": "en"
-      }
-    ]
-  }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle Los Angeles County apostille documents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For documents originally signed or notarized in California, we handle California Secretary of State apostille processing. Los Angeles County vital records (birth, death, marriage) typically need to be ordered as certified copies from the Los Angeles County Registrar-Recorder/County Clerk or the California Department of Public Health before they can be apostilled. We can explain which path applies to your document."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do you travel from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are based in Granada Hills in the San Fernando Valley and travel throughout Los Angeles County. Travel time, traffic, and the type of facility involved affect scheduling and fees, which is why we quote the full cost (including any parking or expected wait time) before confirming an appointment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer same-day notary or apostille help in Los Angeles County?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same-day mobile notarizations are often possible depending on the time of day, traffic, and the signer's readiness. Same-day apostille is also possible for documents already correctly notarized or certified, but timing depends on California Secretary of State counter availability. The fastest way to confirm options is to call or text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my city is not on your list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We frequently travel to nearby communities even when they don't have a dedicated page. If you don't see your city listed, call or text with your address and document type and we'll let you know whether we currently travel there."
+          }
+        }
+      ],
+      "inLanguage": "en"
+    }
+  ]
+}
   </script>
   <!-- ========== /STRUCTURED DATA ========== -->
   <script src="/assets/js/gclid-capture.min.js" defer></script>

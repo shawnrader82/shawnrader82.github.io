@@ -41,59 +41,113 @@
   <!-- JSON-LD: Service (preserved from prior version) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Real Estate Notarization",
-    "name": "Real Estate Mobile Notary Services",
-    "url": "https://www.mobileamericannotary.com/services/notary/real-estate.html",
-    "description": "Mobile notary services for real estate transactions in Los Angeles, including grant deeds, quitclaim deeds, deeds of trust, loan documents, escrow paperwork, and property transfer documents.",
-    "provider": {
-      "@type": "Notary",
-      "name": "Mobile American Notary & Apostilles",
-      "url": "https://www.mobileamericannotary.com",
-      "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-      "telephone": "+1-213-933-2507",
-      "email": "info@mobileamericannotary.com",
-      "foundingDate": "2018",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "10718 White Oak Ave Suite 5",
-        "addressLocality": "Granada Hills",
-        "addressRegion": "CA",
-        "postalCode": "91344",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.2764,
-        "longitude": -118.4683
-      },
-      "priceRange": "$$",
-      "openingHoursSpecification": [{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Real Estate Notarization",
+  "name": "Real Estate Mobile Notary Services",
+  "url": "https://www.mobileamericannotary.com/services/notary/real-estate.html",
+  "description": "Mobile notary services for real estate transactions in Los Angeles, including grant deeds, quitclaim deeds, deeds of trust, loan documents, escrow paperwork, and property transfer documents.",
+  "provider": {
+    "@type": "Notary",
+    "name": "Mobile American Notary & Apostilles",
+    "url": "https://www.mobileamericannotary.com",
+    "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+    "telephone": "+1-213-933-2507",
+    "email": "info@mobileamericannotary.com",
+    "foundingDate": "2018",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10718 White Oak Ave Suite 5",
+      "addressLocality": "Granada Hills",
+      "addressRegion": "CA",
+      "postalCode": "91344",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.2764,
+      "longitude": -118.4683
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "09:00",
         "closes": "20:00"
-      }],
-      "sameAs": [
-        "https://www.facebook.com/MobileAmericanNotary/",
-        "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-        "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
-      ]
-    },
-    "areaServed": ["Los Angeles County","Orange County","Ventura County","San Bernardino County","Riverside County","Santa Barbara County"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Real Estate Notary Services",
-      "itemListElement": [
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Deed Notarization","description":"Notarization of grant deeds, quitclaim deeds, interspousal deeds, trust transfer deeds, and property transfer documents."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Loan Signing","description":"Notarization of loan documents, deeds of trust, promissory notes, refinance packages, and HELOC documents."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Escrow Document Notarization","description":"Notarization of escrow instructions, settlement documents, seller grant deeds, and closing paperwork."}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Property Transfer Notarization","description":"Notarization of inter-family transfers, title changes, and documents related to adding or removing parties from title."}}
-      ]
-    }
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/MobileAmericanNotary/",
+      "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+      "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849"
+    ]
+  },
+  "areaServed": [
+    "Los Angeles County",
+    "Orange County",
+    "Ventura County",
+    "San Bernardino County",
+    "Riverside County",
+    "Santa Barbara County"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Real Estate Notary Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Deed Notarization",
+          "description": "Notarization of grant deeds, quitclaim deeds, interspousal deeds, trust transfer deeds, and property transfer documents."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Loan Signing",
+          "description": "Notarization of loan documents, deeds of trust, promissory notes, refinance packages, and HELOC documents."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Escrow Document Notarization",
+          "description": "Notarization of escrow instructions, settlement documents, seller grant deeds, and closing paperwork."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Property Transfer Notarization",
+          "description": "Notarization of inter-family transfers, title changes, and documents related to adding or removing parties from title."
+        }
+      }
+    ]
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".ap-section-lead",
+      ".nt-section-lead",
+      ".home-hero__lead"
+    ]
   }
+}
   </script>
 
   <!-- JSON-LD: FAQPage (mirrors visible accordion) -->
@@ -209,8 +263,8 @@
       "ratingValue": "5.0",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "163",
-      "reviewCount": "163"
+      "ratingCount": "171",
+      "reviewCount": "171"
     },
     "review": [
       {
