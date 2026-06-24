@@ -52,86 +52,137 @@
 
   <!-- Organization + Local Business -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.mobileamericannotary.com/#organization",
-        "name": "Mobile American Notary & Apostilles",
-        "url": "https://www.mobileamericannotary.com/",
-        "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-        "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-        "telephone": "+1-213-933-2507",
-        "email": "info@mobileamericannotary.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Shawn Rader"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.mobileamericannotary.com/#organization",
+      "name": "Mobile American Notary & Apostilles",
+      "url": "https://www.mobileamericannotary.com/",
+      "logo": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+      "telephone": "+1-213-933-2507",
+      "email": "info@mobileamericannotary.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Shawn Rader",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Notary Public Commission",
+          "name": "California Notary Public Commission",
+          "identifier": "2559091",
+          "recognizedBy": {
+            "@type": "GovernmentOrganization",
+            "name": "California Secretary of State",
+            "url": "https://www.sos.ca.gov/notary"
+          },
+          "validFrom": "2026-06-20",
+          "validThrough": "2030-06-19"
         },
-        "sameAs": [
-          "https://www.facebook.com/MobileAmericanNotary/",
-          "https://www.linkedin.com/company/mobile-american-notary",
-          "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
-          "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849",
-          "https://g.page/r/CZQcr6e0ew40EAE/review",
-          "https://maps.app.goo.gl/Qse6Vm5GTJGbdMcs5"
-        ]
-      },
-      {
-        "@type": "Notary",
-        "@id": "https://www.mobileamericannotary.com/#localbusiness",
-        "name": "Mobile American Notary & Apostilles",
-        "url": "https://www.mobileamericannotary.com/",
-        "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
-        "telephone": "+1-213-933-2507",
-        "email": "info@mobileamericannotary.com",
-        "priceRange": "$$",
-        "description": "Mobile notary and apostille help across Los Angeles, Orange, and Ventura Counties, including hospital and jail visits.",
-        "founder": {
-          "@type": "Person",
-          "name": "Shawn Rader",
-          "jobTitle": "California Notary Public"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "10718 White Oak Ave Suite 5",
-          "addressLocality": "Granada Hills",
-          "addressRegion": "CA",
-          "postalCode": "91344",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 34.2764,
-          "longitude": -118.4683
-        },
-        "areaServed": [
-          { "@type": "AdministrativeArea", "name": "Los Angeles County" },
-          { "@type": "AdministrativeArea", "name": "Orange County" },
-          { "@type": "AdministrativeArea", "name": "Ventura County" }
-        ],
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-            ],
-            "opens": "09:00",
-            "closes": "20:00"
-          }
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.mobileamericannotary.com/#website",
-        "url": "https://www.mobileamericannotary.com/",
-        "name": "Mobile American Notary & Apostilles",
-        "publisher": {
-          "@id": "https://www.mobileamericannotary.com/#organization"
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "California Notary Public Commission Number",
+          "value": "2559091"
         }
+      },
+      "sameAs": [
+        "https://www.facebook.com/MobileAmericanNotary/",
+        "https://www.linkedin.com/company/mobile-american-notary",
+        "https://www.yelp.com/biz/mobile-american-notary-and-apostilles-los-angeles-2",
+        "https://www.bbb.org/us/ca/granada-hills/profile/notary-public/mobile-american-notary-apostilles-1216-1270849",
+        "https://g.page/r/CZQcr6e0ew40EAE/review",
+        "https://maps.app.goo.gl/Qse6Vm5GTJGbdMcs5"
+      ]
+    },
+    {
+      "@type": "Notary",
+      "@id": "https://www.mobileamericannotary.com/#localbusiness",
+      "name": "Mobile American Notary & Apostilles",
+      "url": "https://www.mobileamericannotary.com/",
+      "image": "https://www.mobileamericannotary.com/assets/images/brand/logo.webp",
+      "telephone": "+1-213-933-2507",
+      "email": "info@mobileamericannotary.com",
+      "priceRange": "$$",
+      "description": "Mobile notary and apostille help across Los Angeles, Orange, and Ventura Counties, including hospital and jail visits.",
+      "founder": {
+        "@type": "Person",
+        "name": "Shawn Rader",
+        "jobTitle": "California Notary Public",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Notary Public Commission",
+          "name": "California Notary Public Commission",
+          "identifier": "2559091",
+          "recognizedBy": {
+            "@type": "GovernmentOrganization",
+            "name": "California Secretary of State",
+            "url": "https://www.sos.ca.gov/notary"
+          },
+          "validFrom": "2026-06-20",
+          "validThrough": "2030-06-19"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "California Notary Public Commission Number",
+          "value": "2559091"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10718 White Oak Ave Suite 5",
+        "addressLocality": "Granada Hills",
+        "addressRegion": "CA",
+        "postalCode": "91344",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.2764,
+        "longitude": -118.4683
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Los Angeles County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Orange County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Ventura County"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "20:00"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.mobileamericannotary.com/#website",
+      "url": "https://www.mobileamericannotary.com/",
+      "name": "Mobile American Notary & Apostilles",
+      "publisher": {
+        "@id": "https://www.mobileamericannotary.com/#organization"
       }
-    ]
-  }
+    }
+  ]
+}
   </script>
 
   <!-- FAQ schema for homepage FAQ section -->
