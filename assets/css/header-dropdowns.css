@@ -135,13 +135,21 @@
   outline: none;
 }
 
+/* Visual separator between grouped dropdown items */
+.home-header__dropdown-sep {
+  height: 1px;
+  margin: 6px 12px;
+  background: #e5e7eb;
+}
+
 /* ── Active nav state (matches current page) ────────────────────────────── */
 .home-header__nav-item .home-header__nav-link.is-active,
 body[data-nav-active="apostille"] .home-header__nav-item[data-nav="apostille"] .home-header__nav-link,
 body[data-nav-active="notary"] .home-header__nav-item[data-nav="notary"] .home-header__nav-link,
 body[data-nav-active="recording"] .home-header__nav-item[data-nav="recording"] .home-header__nav-link,
 body[data-nav-active="livescan"] a.home-header__nav-link[data-nav="livescan"],
-body[data-nav-active="permit-running"] a.home-header__nav-link[data-nav="permit-running"],
+body[data-nav-active="permit-running"] .home-header__nav-item[data-nav="recording"] .home-header__nav-link,
+body[data-nav-active="resources"] .home-header__nav-item[data-nav="resources"] .home-header__nav-link,
 body[data-nav-active="locations"] a.home-header__nav-link[data-nav="locations"] {
   color: #ffffff;
   opacity: 1;
