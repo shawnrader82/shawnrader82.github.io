@@ -332,8 +332,13 @@
 .home-mobile-menu {
   position: absolute;
   top: calc(100% + 6px);
-  right: 0;
-  width: min(320px, calc(100vw - 16px));
+  right: 8px;
+  left: 8px;
+  max-width: 360px;
+  margin-left: auto;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 10040;
   display: none;
   background: rgba(15, 23, 42, 0.985);
@@ -353,10 +358,13 @@
 
 .home-mobile-menu nav {
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 
-.home-mobile-menu a {
+/* Base link style — applies to top-level items (Live Scan, Locations, Call/Text, Book Online).
+   Child items (.home-mobile-menu__child) override this with a more-specific selector below. */
+.home-mobile-menu > nav > a,
+.home-mobile-menu__parent {
   display: flex;
   align-items: center;
   min-height: 44px;
@@ -369,8 +377,10 @@
   font-weight: 700;
 }
 
-.home-mobile-menu a:hover,
-.home-mobile-menu a:focus-visible {
+.home-mobile-menu > nav > a:hover,
+.home-mobile-menu > nav > a:focus-visible,
+.home-mobile-menu__parent:hover,
+.home-mobile-menu__parent:focus-visible {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -526,10 +536,12 @@
 
   .home-mobile-menu {
     right: 6px;
-    width: min(300px, calc(100vw - 12px));
+    left: 6px;
+    max-width: none;
   }
 
-  .home-mobile-menu a {
+  .home-mobile-menu > nav > a,
+  .home-mobile-menu__parent {
     min-height: 44px;
     font-size: 0.9rem;
   }

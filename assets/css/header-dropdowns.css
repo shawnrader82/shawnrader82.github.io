@@ -156,44 +156,45 @@ body[data-nav-active="locations"] a.home-header__nav-link[data-nav="locations"] 
 }
 
 /* ── Mobile menu groups ─────────────────────────────────────────────────── */
+/* Group is a flex-column container so the visual left border can span the
+   children as a group. Extra top margin visually separates groups. */
 .home-mobile-menu__group {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 6px;
 }
 
-.home-mobile-menu__parent {
+.home-mobile-menu__group:first-of-type {
+  margin-top: 0;
+}
+
+/* Parent = top-level nav item styling (same as the flat items outside groups
+   like Live Scan / Locations). Base styles come from header.css via the
+   .home-mobile-menu__parent selector — nothing extra needed here now. */
+
+/* Child rows: visually indented, muted color, thin left rail so hierarchy
+   reads at a glance. Increased specificity with .home-mobile-menu prefix so
+   it wins against .home-mobile-menu a from header.css. */
+.home-mobile-menu .home-mobile-menu__child {
   display: flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 14px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 700;
-}
-
-.home-mobile-menu__parent:hover,
-.home-mobile-menu__parent:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.home-mobile-menu__child {
-  display: flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 0 14px 0 28px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.02);
+  min-height: 38px;
+  padding: 0 14px 0 26px;
+  margin-left: 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0 6px 6px 0;
+  background: transparent;
   color: #cbd5e1;
   text-decoration: none;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-.home-mobile-menu__child:hover,
-.home-mobile-menu__child:focus-visible {
-  background: rgba(255, 255, 255, 0.06);
+.home-mobile-menu .home-mobile-menu__child:hover,
+.home-mobile-menu .home-mobile-menu__child:focus-visible {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.32);
   color: #ffffff;
 }
 
