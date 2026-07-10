@@ -69,12 +69,40 @@
     var toggle = scope.querySelector('#home-menu-toggle');
     var menu = scope.querySelector('#home-mobile-menu');
 
+    // Collapse/expand helpers for mobile menu groups.
+    // Defined here so openMenu/closeMenu can call them.
+    function collapseAllGroups() {
+      var groups = scope.querySelectorAll('.home-mobile-menu__group[data-collapsible]');
+      Array.prototype.forEach.call(groups, function (group) {
+        group.classList.remove('is-expanded');
+        var btn = group.querySelector('.home-mobile-menu__toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    function expandGroupByNav(navKey) {
+      if (!navKey) return;
+      var groups = scope.querySelectorAll('.home-mobile-menu__group[data-collapsible]');
+      Array.prototype.forEach.call(groups, function (group) {
+        var parent = group.querySelector('.home-mobile-menu__parent');
+        if (parent && parent.getAttribute('data-nav') === navKey) {
+          group.classList.add('is-expanded');
+          var btn = group.querySelector('.home-mobile-menu__toggle');
+          if (btn) btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
+
     function openMenu() {
       if (!toggle || !menu) return;
       header.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close menu');
       menu.hidden = false;
+      // Auto-expand the group matching the current page.
+      collapseAllGroups();
+      var activeNav = (document.body && document.body.getAttribute('data-nav-active')) || '';
+      expandGroupByNav(activeNav);
     }
 
     function closeMenu() {
@@ -83,6 +111,7 @@
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open menu');
       menu.hidden = true;
+      collapseAllGroups();
     }
 
     // Info bar slide state: hide on scroll-down past threshold,
@@ -160,6 +189,19 @@
 
       closeMenu();
     }
+
+    // Wire chevron toggle buttons on each collapsible group.
+    var mobileGroups = scope.querySelectorAll('.home-mobile-menu__group[data-collapsible]');
+    Array.prototype.forEach.call(mobileGroups, function (group) {
+      var btn = group.querySelector('.home-mobile-menu__toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var expanded = group.classList.toggle('is-expanded');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });

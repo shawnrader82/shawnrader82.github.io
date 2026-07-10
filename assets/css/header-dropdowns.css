@@ -169,6 +169,64 @@ body[data-nav-active="locations"] a.home-header__nav-link[data-nav="locations"] 
   margin-top: 0;
 }
 
+/* Parent row = the parent link + the chevron toggle side-by-side. */
+.home-mobile-menu__parent-row {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.home-mobile-menu__parent-row .home-mobile-menu__parent {
+  flex: 1;
+  min-width: 0; /* allow text truncation inside flex child */
+}
+
+/* Chevron toggle button — 44x44 tap target, transparent background. */
+.home-mobile-menu__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-width: 44px;
+  height: auto;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-mobile-menu__toggle:hover,
+.home-mobile-menu__toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+  outline: none;
+}
+
+.home-mobile-menu__chevron {
+  transition: transform 180ms ease;
+  color: #cbd5e1;
+}
+
+/* Rotate chevron 180° when group is expanded. */
+.home-mobile-menu__group.is-expanded .home-mobile-menu__chevron {
+  transform: rotate(180deg);
+  color: #ffffff;
+}
+
+/* Children collapsed by default. Expanded when group has .is-expanded. */
+.home-mobile-menu__children {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.home-mobile-menu__group.is-expanded .home-mobile-menu__children {
+  display: flex;
+}
+
 /* Parent = top-level nav item styling (same as the flat items outside groups
    like Live Scan / Locations). Base styles come from header.css via the
    .home-mobile-menu__parent selector — nothing extra needed here now. */

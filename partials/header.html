@@ -132,45 +132,76 @@
 <div class="home-mobile-menu" id="home-mobile-menu" hidden>
   <nav aria-label="Mobile">
     <!-- Apostille group -->
-    <div class="home-mobile-menu__group">
-      <a href="/services/apostille.html" class="home-mobile-menu__parent" data-nav="apostille">Apostille</a>
-      <a href="/services/translations.html" class="home-mobile-menu__child" data-nav="apostille">Document Translation</a>
+    <div class="home-mobile-menu__group" data-collapsible>
+      <div class="home-mobile-menu__parent-row">
+        <a href="/services/apostille.html" class="home-mobile-menu__parent" data-nav="apostille">Apostille</a>
+        <button type="button" class="home-mobile-menu__toggle" aria-expanded="false" aria-label="Toggle Apostille submenu">
+          <svg class="home-mobile-menu__chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="home-mobile-menu__children">
+        <a href="/services/apostille.html" class="home-mobile-menu__child" data-nav="apostille">Apostille Overview</a>
+        <a href="/services/translations.html" class="home-mobile-menu__child" data-nav="apostille">Document Translation</a>
+      </div>
     </div>
 
     <!-- Notary group -->
-    <div class="home-mobile-menu__group">
-      <a href="/services/notary.html" class="home-mobile-menu__parent" data-nav="notary">Mobile Notary</a>
-      <a href="/services/notary/general.html" class="home-mobile-menu__child" data-nav="notary">General Notary</a>
-      <a href="/services/notary/hospital.html" class="home-mobile-menu__child" data-nav="notary">Hospital Notary</a>
-      <a href="/services/notary/jail.html" class="home-mobile-menu__child" data-nav="notary">Jail Notary</a>
-      <a href="/services/notary/real-estate.html" class="home-mobile-menu__child" data-nav="notary">Real Estate Notary</a>
-      <a href="/services/notary/estate-planning.html" class="home-mobile-menu__child" data-nav="notary">Estate Planning Notary</a>
+    <div class="home-mobile-menu__group" data-collapsible>
+      <div class="home-mobile-menu__parent-row">
+        <a href="/services/notary.html" class="home-mobile-menu__parent" data-nav="notary">Mobile Notary</a>
+        <button type="button" class="home-mobile-menu__toggle" aria-expanded="false" aria-label="Toggle Mobile Notary submenu">
+          <svg class="home-mobile-menu__chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="home-mobile-menu__children">
+        <a href="/services/notary.html" class="home-mobile-menu__child" data-nav="notary">Notary Overview</a>
+        <a href="/services/notary/general.html" class="home-mobile-menu__child" data-nav="notary">General Notary</a>
+        <a href="/services/notary/hospital.html" class="home-mobile-menu__child" data-nav="notary">Hospital Notary</a>
+        <a href="/services/notary/jail.html" class="home-mobile-menu__child" data-nav="notary">Jail Notary</a>
+        <a href="/services/notary/real-estate.html" class="home-mobile-menu__child" data-nav="notary">Real Estate Notary</a>
+        <a href="/services/notary/estate-planning.html" class="home-mobile-menu__child" data-nav="notary">Estate Planning Notary</a>
+      </div>
     </div>
 
     <!-- Filing & Recording group -->
-    <div class="home-mobile-menu__group">
-      <a href="/services/document-recording.html" class="home-mobile-menu__parent" data-nav="recording">Filing &amp; Recording</a>
-      <a href="/services/document-recording/grant-deed.html" class="home-mobile-menu__child" data-nav="recording">Grant Deed</a>
-      <a href="/services/document-recording/quitclaim-deed.html" class="home-mobile-menu__child" data-nav="recording">Quitclaim Deed</a>
-      <a href="/services/document-recording/affidavit-death-joint-tenant.html" class="home-mobile-menu__child" data-nav="recording">Affidavit of Death</a>
-      <a href="/services/document-recording/transfer-on-death-deed.html" class="home-mobile-menu__child" data-nav="recording">Transfer on Death Deed</a>
-      <a href="/services/document-recording/fbn-dba-filing.html" class="home-mobile-menu__child" data-nav="recording">FBN / DBA Filing</a>
-      <a href="/services/document-recording/certified-copies.html" class="home-mobile-menu__child" data-nav="recording">Certified Copies</a>
-      <a href="/services/permit-running.html" class="home-mobile-menu__child" data-nav="recording">Permit Running</a>
+    <div class="home-mobile-menu__group" data-collapsible>
+      <div class="home-mobile-menu__parent-row">
+        <a href="/services/document-recording.html" class="home-mobile-menu__parent" data-nav="recording">Filing &amp; Recording</a>
+        <button type="button" class="home-mobile-menu__toggle" aria-expanded="false" aria-label="Toggle Filing and Recording submenu">
+          <svg class="home-mobile-menu__chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="home-mobile-menu__children">
+        <a href="/services/document-recording.html" class="home-mobile-menu__child" data-nav="recording">Recording Overview</a>
+        <a href="/services/document-recording/grant-deed.html" class="home-mobile-menu__child" data-nav="recording">Grant Deed</a>
+        <a href="/services/document-recording/quitclaim-deed.html" class="home-mobile-menu__child" data-nav="recording">Quitclaim Deed</a>
+        <a href="/services/document-recording/affidavit-death-joint-tenant.html" class="home-mobile-menu__child" data-nav="recording">Affidavit of Death</a>
+        <a href="/services/document-recording/transfer-on-death-deed.html" class="home-mobile-menu__child" data-nav="recording">Transfer on Death Deed</a>
+        <a href="/services/document-recording/fbn-dba-filing.html" class="home-mobile-menu__child" data-nav="recording">FBN / DBA Filing</a>
+        <a href="/services/document-recording/certified-copies.html" class="home-mobile-menu__child" data-nav="recording">Certified Copies</a>
+        <a href="/services/permit-running.html" class="home-mobile-menu__child" data-nav="recording">Permit Running</a>
+      </div>
     </div>
 
     <a href="/services/livescan.html" data-nav="livescan">Live Scan</a>
 
     <!-- Resources group -->
-    <div class="home-mobile-menu__group">
-      <a href="/forms/" class="home-mobile-menu__parent" data-nav="resources">Resources</a>
-      <a href="/forms/" class="home-mobile-menu__child" data-nav="resources">Document Library</a>
-      <a href="/forms/philippines-special-power-of-attorney.html" class="home-mobile-menu__child" data-nav="resources">Philippine SPA</a>
-      <a href="/forms/ca-statutory-power-of-attorney.html" class="home-mobile-menu__child" data-nav="resources">California POA</a>
-      <a href="/forms/ca-advance-health-care-directive.html" class="home-mobile-menu__child" data-nav="resources">Advance Health Care Directive</a>
-      <a href="https://blog.mobileamericannotary.com/" class="home-mobile-menu__child" data-nav="resources">Blog</a>
-      <a href="/pricing.html" class="home-mobile-menu__child" data-nav="resources">Pricing &amp; Fees</a>
-      <a href="/faq.html" class="home-mobile-menu__child" data-nav="resources">FAQ</a>
+    <div class="home-mobile-menu__group" data-collapsible>
+      <div class="home-mobile-menu__parent-row">
+        <a href="/forms/" class="home-mobile-menu__parent" data-nav="resources">Resources</a>
+        <button type="button" class="home-mobile-menu__toggle" aria-expanded="false" aria-label="Toggle Resources submenu">
+          <svg class="home-mobile-menu__chevron" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="home-mobile-menu__children">
+        <a href="/forms/" class="home-mobile-menu__child" data-nav="resources">Document Library</a>
+        <a href="/forms/philippines-special-power-of-attorney.html" class="home-mobile-menu__child" data-nav="resources">Philippine SPA</a>
+        <a href="/forms/ca-statutory-power-of-attorney.html" class="home-mobile-menu__child" data-nav="resources">California POA</a>
+        <a href="/forms/ca-advance-health-care-directive.html" class="home-mobile-menu__child" data-nav="resources">Advance Health Care Directive</a>
+        <a href="https://blog.mobileamericannotary.com/" class="home-mobile-menu__child" data-nav="resources">Blog</a>
+        <a href="/pricing.html" class="home-mobile-menu__child" data-nav="resources">Pricing &amp; Fees</a>
+        <a href="/faq.html" class="home-mobile-menu__child" data-nav="resources">FAQ</a>
+      </div>
     </div>
 
     <a href="/locations/" data-nav="locations">Locations</a>
