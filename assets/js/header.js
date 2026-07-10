@@ -1,12 +1,23 @@
 (function () {
+  // Bump this when header-dropdowns.css or header-dropdowns.js meaningfully
+  // changes and clients need to bypass cached copies. It's appended as a
+  // query string so browsers treat the request as a new URL.
+  var HEADER_ASSET_VERSION = '2026-07-10c';
+
   // Inject header dropdown CSS into <head> if not already present.
   // This guarantees dropdown styling even on pages whose <head> doesn't
   // explicitly link header-dropdowns.css. Must run BEFORE the header
   // partial is inserted so the stylesheet is ready when the markup lands.
   function ensureDropdownStyles() {
-    var href = '/assets/css/header-dropdowns.css';
-    var already = document.querySelector('link[href="' + href + '"]');
-    if (!already) {
+    var href = '/assets/css/header-dropdowns.css?v=' + HEADER_ASSET_VERSION;
+    var already = document.querySelector('link[href^="/assets/css/header-dropdowns.css"]');
+    if (already) {
+      // Force refresh if a stale (differently-versioned or unversioned) link
+      // is already present in <head>.
+      if (already.getAttribute('href') !== href) {
+        already.setAttribute('href', href);
+      }
+    } else {
       var link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = href;
@@ -30,8 +41,8 @@
   // Loaded after the header partial is in the DOM so the script's
   // bootstrap finds the .home-nav__dropdown elements it wires.
   function ensureDropdownScript() {
-    var src = '/assets/js/header-dropdowns.js';
-    var already = document.querySelector('script[src="' + src + '"]');
+    var src = '/assets/js/header-dropdowns.js?v=' + HEADER_ASSET_VERSION;
+    var already = document.querySelector('script[src^="/assets/js/header-dropdowns.js"]');
     if (already) return;
     var script = document.createElement('script');
     script.src = src;
