@@ -112,26 +112,33 @@
     var docType = DOC_TYPES.find(function (d) { return d.value === docValue; });
     var category = docType ? docType.category : 'other';
 
-    var lineItems = [];
-    var grandTotal = 0;
+    /* ── Group A: Our Service Fee (what we charge) ─────────────────────── */
+    var serviceLines = [];
+    var serviceTotal = 0;
 
-    /* Trip fee */
-    lineItems.push({ label: fs.name + ' trip fee', amount: fs.tripFee });
-    grandTotal += fs.tripFee;
+    serviceLines.push({ label: fs.name + ' mobile trip fee', amount: fs.tripFee });
+    serviceTotal += fs.tripFee;
 
-    /* Extra documents */
     if (extraDocs > 0) {
       var extraCost = extraDocs * 25;
-      lineItems.push({ label: 'Extra documents (' + extraDocs + ' × $25)', amount: extraCost });
-      grandTotal += extraCost;
+      serviceLines.push({ label: 'Extra documents (' + extraDocs + ' × $25)', amount: extraCost });
+      serviceTotal += extraCost;
     }
 
-    /* County recording fees */
+    /* ── Group B: Government pass-through fees (paid to the county) ────── */
     var county = calcCountyFee(countyKey, category, pages, extraFbnNames);
-    county.lines.forEach(function (l) { lineItems.push(l); });
-    grandTotal += county.total;
+    var passthroughLines = county.lines.slice();
+    var passthroughTotal = county.total;
 
-    return { lineItems: lineItems, grandTotal: grandTotal };
+    var grandTotal = serviceTotal + passthroughTotal;
+
+    return {
+      serviceLines: serviceLines,
+      serviceTotal: serviceTotal,
+      passthroughLines: passthroughLines,
+      passthroughTotal: passthroughTotal,
+      grandTotal: grandTotal
+    };
   }
 
   /* ── DOM helpers ───────────────────────────────────────────────────────── */
@@ -140,17 +147,60 @@
   }
 
   function buildHTML(result) {
-    var rows = result.lineItems.map(function (item) {
-      return '<tr><td class="dr-calc__label">' + item.label + '</td><td class="dr-calc__amount">' + fmt(item.amount) + '</td></tr>';
-    }).join('');
+    function rowsFor(items) {
+      return items.map(function (item) {
+        return '<tr><td class="dr-calc__label">' + item.label + '</td>' +
+               '<td class="dr-calc__amount">' + fmt(item.amount) + '</td></tr>';
+      }).join('');
+    }
 
-    return '<table class="dr-calc__table" aria-label="Fee breakdown">' +
-      '<thead><tr><th>Item</th><th>Amount</th></tr></thead>' +
-      '<tbody>' + rows + '</tbody>' +
-      '<tfoot><tr><td class="dr-calc__label dr-calc__total-label"><strong>Estimated Total</strong></td>' +
-      '<td class="dr-calc__amount dr-calc__total-amount"><strong>' + fmt(result.grandTotal) + '</strong></td></tr></tfoot>' +
-      '</table>' +
-      '<p class="dr-calc__disclaimer">Fees verified June 2026 &middot; Final amount confirmed with recorder at filing.</p>';
+    var serviceRows = rowsFor(result.serviceLines);
+    var passthroughRows = result.passthroughLines.length
+      ? rowsFor(result.passthroughLines)
+      : '<tr><td class="dr-calc__label" colspan="2"><em>None for this document type.</em></td></tr>';
+
+    return (
+      '<div class="dr-calc__groups">' +
+
+        /* ── Group A: Our Service Fee ─────────────────────────────────── */
+        '<section class="dr-calc__group dr-calc__group--service" aria-label="Our service fee">' +
+          '<header class="dr-calc__group-header">' +
+            '<span class="dr-calc__group-title">Our Service Fee</span>' +
+            '<span class="dr-calc__group-sub">Mobile pickup, notarization, and in-person filing</span>' +
+          '</header>' +
+          '<table class="dr-calc__table dr-calc__table--service" aria-label="Our service fee breakdown">' +
+            '<tbody>' + serviceRows + '</tbody>' +
+            '<tfoot><tr>' +
+              '<td class="dr-calc__label dr-calc__subtotal-label"><strong>Our fee subtotal</strong></td>' +
+              '<td class="dr-calc__amount dr-calc__subtotal-amount"><strong>' + fmt(result.serviceTotal) + '</strong></td>' +
+            '</tr></tfoot>' +
+          '</table>' +
+        '</section>' +
+
+        /* ── Group B: Government Fees (Pass-Through) ──────────────────── */
+        '<section class="dr-calc__group dr-calc__group--passthrough" aria-label="Government pass-through fees">' +
+          '<header class="dr-calc__group-header">' +
+            '<span class="dr-calc__group-title">Government Fees <span class="dr-calc__pill">Pass-Through</span></span>' +
+            '<span class="dr-calc__group-sub">Paid directly to the county recorder at cost — not our fee</span>' +
+          '</header>' +
+          '<table class="dr-calc__table dr-calc__table--passthrough" aria-label="Government fees breakdown">' +
+            '<tbody>' + passthroughRows + '</tbody>' +
+            '<tfoot><tr>' +
+              '<td class="dr-calc__label dr-calc__subtotal-label"><strong>Government subtotal</strong></td>' +
+              '<td class="dr-calc__amount dr-calc__subtotal-amount"><strong>' + fmt(result.passthroughTotal) + '</strong></td>' +
+            '</tr></tfoot>' +
+          '</table>' +
+        '</section>' +
+
+        /* ── Grand total ─────────────────────────────────────────────── */
+        '<div class="dr-calc__grand">' +
+          '<span class="dr-calc__grand-label">Estimated Total</span>' +
+          '<span class="dr-calc__grand-amount">' + fmt(result.grandTotal) + '</span>' +
+        '</div>' +
+
+      '</div>' +
+      '<p class="dr-calc__disclaimer">Fees verified June 2026 &middot; Government fees are pass-through and paid directly to the county recorder. Final amount confirmed with recorder at filing.</p>'
+    );
   }
 
   /* ── Widget initializer ────────────────────────────────────────────────── */

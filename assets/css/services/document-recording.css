@@ -249,6 +249,115 @@ body[data-nav-active="recording"] main > section:nth-of-type(10) {
   text-align: center;
 }
 
+/* ── Grouped calculator output (Our fee vs. Government fees) ────────── */
+.dr-calc__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.dr-calc__group {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 16px 10px;
+  background: #fff;
+}
+
+.dr-calc__group--service {
+  border-color: #bfdbfe;
+  background: #f0f7ff;
+}
+
+.dr-calc__group--passthrough {
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+
+.dr-calc__group-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.dr-calc__group-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+}
+
+.dr-calc__group--service .dr-calc__group-title {
+  color: #1d4ed8;
+}
+
+.dr-calc__group-sub {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.dr-calc__pill {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4b5563;
+  background: #e5e7eb;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.dr-calc__subtotal-label {
+  font-size: 0.9rem;
+  color: #0f172a;
+}
+
+.dr-calc__subtotal-amount {
+  font-size: 0.95rem;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+}
+
+.dr-calc__group--service .dr-calc__table tfoot tr {
+  border-top: 2px solid #1d4ed8;
+}
+
+.dr-calc__group--passthrough .dr-calc__table tfoot tr {
+  border-top: 2px solid #6b7280;
+}
+
+.dr-calc__grand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
+.dr-calc__grand-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.dr-calc__grand-amount {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fbbf24;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ── Document type cards (spoke grid) ─────────────────────────────────── */
 .dr-doc-grid {
   display: grid;

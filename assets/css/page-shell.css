@@ -230,6 +230,57 @@
 .pricing-table th:nth-child(3),
 .pricing-table td:nth-child(3) { width: 48%; }
 
+/* ===== Fee groups (Our Fee vs. Government Pass-Through) ===== */
+.fee-group {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 16px 10px;
+  margin: 16px 0;
+  background: #fff;
+}
+.fee-group--service {
+  border-color: #bfdbfe;
+  background: #f0f7ff;
+}
+.fee-group--passthrough {
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+.fee-group__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+.fee-group__title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+}
+.fee-group--service .fee-group__title { color: #1d4ed8; }
+.fee-group__sub {
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+.fee-group__pill {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #4b5563;
+  background: #e5e7eb;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+.fee-group .pricing-table { margin-top: 4px; }
+
 /* ===== Page-local CTA buttons (matches site theme) ===== */
 .btn {
   display: inline-flex;

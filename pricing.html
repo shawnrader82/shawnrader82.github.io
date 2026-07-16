@@ -852,47 +852,97 @@
 
       <p>
         We file your deeds, FBN statements, and other documents at the LA, Orange, or Ventura county recorders.
-        Our trip fee covers the service; county recording fees are pass-through costs paid directly to the recorder
+        Our trip fee covers the mobile service; county recording fees are pass-through costs paid directly to the recorder
         at cost. Use the
         <a href="/services/document-recording.html#dr-calc-title">live fee calculator</a>
         on the Document Recording page for a line-item estimate.
       </p>
 
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>County</th>
-            <th>Trip fee</th>
-            <th>Includes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Los Angeles County</td>
-            <td>$150</td>
-            <td>Pickup or drop-off, recorder review, filing, and return of conformed copy</td>
-          </tr>
-          <tr>
-            <td>Ventura County</td>
-            <td>$175</td>
-            <td>Same scope as LA County, applied to Ventura County recorder offices</td>
-          </tr>
-          <tr>
-            <td>Orange County</td>
-            <td>$200</td>
-            <td>Same scope as LA County, applied to Orange County recorder offices</td>
-          </tr>
-          <tr>
-            <td>Each additional document</td>
-            <td>+$25</td>
-            <td>Extra documents filed during the same trip</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Group A: Our Service Fee -->
+      <div class="fee-group fee-group--service">
+        <div class="fee-group__header">
+          <span class="fee-group__title">Our Service Fee</span>
+          <span class="fee-group__sub">Mobile pickup, notarization, in-person filing, and return of the conformed copy</span>
+        </div>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>County</th>
+              <th>Trip fee</th>
+              <th>Includes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Los Angeles County</td>
+              <td>$150</td>
+              <td>Pickup or drop-off, recorder review, filing, and return of conformed copy</td>
+            </tr>
+            <tr>
+              <td>Ventura County</td>
+              <td>$175</td>
+              <td>Same scope as LA County, applied to Ventura County recorder offices</td>
+            </tr>
+            <tr>
+              <td>Orange County</td>
+              <td>$200</td>
+              <td>Same scope as LA County, applied to Orange County recorder offices</td>
+            </tr>
+            <tr>
+              <td>Each additional document</td>
+              <td>+$25</td>
+              <td>Extra documents filed during the same trip</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Group B: Government / County Fees (Pass-Through) -->
+      <div class="fee-group fee-group--passthrough">
+        <div class="fee-group__header">
+          <span class="fee-group__title">Government / County Fees <span class="fee-group__pill">Pass-Through</span></span>
+          <span class="fee-group__sub">Paid directly to the county recorder at cost — not our fee</span>
+        </div>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Charge</th>
+              <th>Fee</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Base recording fee</td>
+              <td>At cost</td>
+              <td>Typically $12–$15 for the first page + $3 per additional page (varies by county)</td>
+            </tr>
+            <tr>
+              <td>SB2 Building Homes &amp; Jobs Act</td>
+              <td>At cost</td>
+              <td>$75 per title on most real property recordings, capped at $225 per transaction</td>
+            </tr>
+            <tr>
+              <td>Real Estate Fraud Prevention Fee</td>
+              <td>At cost</td>
+              <td>Small statutory fee (typically $10) on real property documents</td>
+            </tr>
+            <tr>
+              <td>AB 1466 Restrictive Covenant Fee</td>
+              <td>At cost</td>
+              <td>$2 per document on most recordings, per state law</td>
+            </tr>
+            <tr>
+              <td>Other statutory fees</td>
+              <td>At cost</td>
+              <td>Survey monument, missing PCOR penalty, transfer tax where applicable — all at cost</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <p class="pricing-note">
-        County recording fees (base recording, SB2, Real Estate Fraud Fee, AB 1466, Survey Monument, etc.) are passed
-        through at cost. Fees verified June 2026.
+        Government/county fees are pass-through costs paid directly to the recorder — they apply no matter who files the document. Fees verified June 2026.
       </p>
 
       <div class="service-detail-cta" style="margin-top:16px;">
@@ -912,31 +962,61 @@
         the same trip - no separate Notary fee, no separate visit.
       </p>
 
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Fee</th>
-            <th>Includes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Standard trip</td>
-            <td>$95</td>
-            <td>One pickup, drop-off, or retrieval at a single agency. Includes notarization of the Agent Authorization Letter if needed.</td>
-          </tr>
-          <tr>
-            <td>Agency fees</td>
-            <td>Pass-through at cost</td>
-            <td>Billed at cost with receipt. We front fees under $500 and invoice Net-15.</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Group A: Our Trip Fee -->
+      <div class="fee-group fee-group--service">
+        <div class="fee-group__header">
+          <span class="fee-group__title">Our Trip Fee</span>
+          <span class="fee-group__sub">Physical courier service, in-person counter visit, and notarization of the Agent Authorization Letter if needed</span>
+        </div>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Fee</th>
+              <th>Includes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard trip</td>
+              <td>$95</td>
+              <td>One pickup, drop-off, or retrieval at a single agency. Includes notarization of the Agent Authorization Letter if needed.</td>
+            </tr>
+            <tr>
+              <td>Urgent same-day trip</td>
+              <td>$150</td>
+              <td>Requested after 10 AM for same-day service, or within 2 hours of counter close time</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Group B: Government / Agency Fees (Pass-Through) -->
+      <div class="fee-group fee-group--passthrough">
+        <div class="fee-group__header">
+          <span class="fee-group__title">Government &amp; Agency Fees <span class="fee-group__pill">Pass-Through</span></span>
+          <span class="fee-group__sub">Paid directly to LADBS, LA County, OC, or Ventura at cost — not our fee</span>
+        </div>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Charge</th>
+              <th>Fee</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Plan check, permit, and clearance fees</td>
+              <td>At cost</td>
+              <td>Billed at cost with receipt. We front fees under $500 and invoice Net-15.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <p class="pricing-note">
-        No minimum document count - a single item pickup is a standard trip. Multi-agency or same-day return trips
-        are quoted individually.
+        Our trip fee covers our courier service and is separate from all government / agency fees, which are pass-through at cost. No minimum document count — a single item pickup is a standard trip. Multi-agency or same-day return trips are quoted individually.
       </p>
 
       <div class="service-detail-cta" style="margin-top:16px;">
