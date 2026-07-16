@@ -196,6 +196,42 @@
       },
       {
         "@type": "OfferCatalog",
+        "name": "Juvenile Detention Center Notarizations",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Juvenile detention notary visit - Los Angeles County"
+            },
+            "price": "300.00",
+            "priceCurrency": "USD",
+            "description": "Attorney-coordinated visit at LA County juvenile facilities (Los Padrinos, Barry J. Nidorf, Campus Kilpatrick, Dorothy Kirby). Includes court-order or attorney-sponsored entry and WIC 827-compliant notarization."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Juvenile detention notary visit - Orange County"
+            },
+            "price": "325.00",
+            "priceCurrency": "USD",
+            "description": "Attorney-coordinated visit at Orange County Juvenile Hall."
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Juvenile detention notary visit - San Bernardino & Riverside"
+            },
+            "price": "350.00",
+            "priceCurrency": "USD",
+            "description": "Attorney-coordinated visit at Central Valley JDAC (San Bernardino) or Riverside Juvenile Hall."
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
         "name": "Apostille & Legalization",
         "itemListElement": [
           {
@@ -378,6 +414,22 @@
           <h2 class="service-card-title">Jail Notarizations</h2>
           <p class="service-card-text">
             Flat rates by county for detention center visits.
+          </p>
+        </a>
+      </article>
+
+      <!-- Juvenile Detention -->
+      <article class="service-card">
+        <a href="#juvenile-pricing" class="service-card-link">
+          <div class="service-card-image-wrapper">
+            <div class="service-card-image">
+              <img loading="lazy" src="/assets/images/buttons/service-cards/notary-jail-btn.webp"
+                   alt="Juvenile detention center notary pricing">
+            </div>
+          </div>
+          <h2 class="service-card-title">Juvenile Detention</h2>
+          <p class="service-card-text">
+            Attorney-coordinated visits at Juvenile Halls and SYTFs.
           </p>
         </a>
       </article>
@@ -730,7 +782,71 @@
       </div>
     </section>
 
-    <section aria-labelledby="apostille-pricing" class="service-detail service-detail--gray">
+    <section aria-labelledby="juvenile-pricing" class="service-detail service-detail--gray">
+      <div class="service-detail-inner">
+        <div class="service-detail-kicker">Juvenile Detention</div>
+        <h2 id="juvenile-pricing">Juvenile Detention Center Notarizations</h2>
+
+      <p>
+        Juvenile facility visits require attorney coordination (court order or attorney-sponsored visit) and
+        strict adherence to Welfare &amp; Institutions Code &sect; 827 confidentiality. Because of the extra lead
+        time and professional-visitor procedures, juvenile visits are priced above adult jail work.
+      </p>
+
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Facility region</th>
+            <th>Flat fee</th>
+            <th>Includes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Los Angeles County juvenile facilities<br>
+              <span class="pricing-note" style="margin:0;">Los Padrinos, Barry J. Nidorf, Campus Kilpatrick, Dorothy Kirby</span>
+            </td>
+            <td>$300</td>
+            <td>Attorney coordination, court-order or attorney-sponsored entry, WIC 827-compliant visit, notarization of documents you or your attorney provide.</td>
+          </tr>
+          <tr>
+            <td>Orange County juvenile facilities<br>
+              <span class="pricing-note" style="margin:0;">Orange County Juvenile Hall (Orange)</span>
+            </td>
+            <td>$325</td>
+            <td>Same scope as LA, applied to OC Juvenile Hall with additional travel time.</td>
+          </tr>
+          <tr>
+            <td>San Bernardino &amp; Riverside County juvenile facilities<br>
+              <span class="pricing-note" style="margin:0;">Central Valley JDAC (SB), Riverside Juvenile Hall (Riverside)</span>
+            </td>
+            <td>$350</td>
+            <td>Same scope as LA, applied to Inland Empire facilities with extended travel.</td>
+          </tr>
+          <tr>
+            <td>Federal juvenile custody (rare)</td>
+            <td>Custom quote</td>
+            <td>Federal minors are almost always transferred to state facilities under an Intergovernmental Agreement. If a true federal juvenile visit is required, we quote case-by-case.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="pricing-note">
+        Juvenile facility access requires <strong>at least 1&ndash;2 business days of lead time</strong> for attorney
+        coordination. Same-day service is not typically possible for juvenile visits &mdash; call as early as
+        possible. Pricing assumes one visit at one facility for one youth; multi-facility or repeat-visit work
+        is quoted separately.
+      </p>
+
+      <div class="service-detail-cta" style="margin-top:16px;">
+        <a href="/services/notary/juvenile-detention.html" class="btn btn--secondary">
+          Learn more about juvenile detention notary services
+        </a>
+      </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="apostille-pricing" class="service-detail service-detail--white">
       <div class="service-detail-inner">
         <div class="service-detail-kicker">Apostille & Legalization</div>
         <h2 id="apostille-pricing">Apostille & Legalization Services</h2>
@@ -845,7 +961,7 @@
       </div>
     </section>
 
-    <section aria-labelledby="document-recording-pricing" class="service-detail service-detail--white">
+    <section aria-labelledby="document-recording-pricing" class="service-detail service-detail--gray">
       <div class="service-detail-inner">
         <div class="service-detail-kicker">Document Recording</div>
         <h2 id="document-recording-pricing">Document Recording Services</h2>
@@ -951,7 +1067,7 @@
       </div>
     </section>
 
-    <section aria-labelledby="permit-running-pricing" class="service-detail service-detail--gray">
+    <section aria-labelledby="permit-running-pricing" class="service-detail service-detail--white">
       <div class="service-detail-inner">
         <div class="service-detail-kicker">Permit Running</div>
         <h2 id="permit-running-pricing">Permit Running &amp; Agency Shuttle</h2>
@@ -1025,7 +1141,7 @@
       </div>
     </section>
 
-    <section aria-labelledby="pricing-cta" class="service-detail service-detail--white">
+    <section aria-labelledby="pricing-cta" class="service-detail service-detail--gray">
       <div class="service-detail-inner">
         <div class="service-detail-kicker">Get a Quote</div>
         <h2 id="pricing-cta">Need a specific quote?</h2>
