@@ -1,6 +1,10 @@
 # Mobile American Notary & Apostilles
 
-> Mobile American Notary & Apostilles is a Los Angeles-based mobile Notary, Apostille, Live Scan fingerprinting, and certified translation service. We serve Los Angeles, Orange, Ventura, San Bernardino, Riverside, and Santa Barbara Counties. In business since 2018. Phone: (213) 933‑2507.
+> Mobile American Notary & Apostilles is a Los Angeles-based mobile Notary, Apostille, and certified translation service. We serve Los Angeles, Orange, Ventura, San Bernardino, Riverside, and Santa Barbara Counties. In business since 2018. Phone: (213) 933‑2507. (Live Scan fingerprinting is coming soon and not currently offered.)
+
+## Full Reference
+
+- [llms-full.txt — Complete plain-text reference for AI systems](https://www.mobileamericannotary.com/llms-full.txt): Full service catalog, transparent pricing, coverage areas, credentials, and comprehensive FAQ in one document.
 
 ## Core Services
 
