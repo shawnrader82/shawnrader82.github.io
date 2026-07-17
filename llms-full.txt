@@ -49,10 +49,10 @@ Mobile American Notary & Apostilles publishes transparent, itemized pricing rath
 
 ### Hospital and care facility visits
 - Hospital visits are priced by distance band. Closer San Fernando Valley and Santa Clarita locations start lower than farther bands covering Simi Valley, Thousand Oaks, Hollywood, Beverly Grove, Westwood, and greater Los Angeles locations.
-- Pricing tiers: **$175 for Tier 1 (closest, primarily the San Fernando Valley and Santa Clarita)**, **$200 for Tier 2 (mid-distance, including Simi Valley, Thousand Oaks, and much of central Los Angeles)**, and **$250 for Tier 3 (farthest or most complex visits, including greater Los Angeles hospitals well outside the Valley)**.
-- Each tier fee includes the primary notarization at the hospital.
-- **Additional notarized signature during the same visit:** +$50 each.
-- **Laptop/printer rental add-on for on-site document generation:** +$50, applied when the family does not have printed paperwork ready and needs a document generated, printed, and notarized in a single visit.
+- Pricing tiers: **$175 for Tier 1 (closest, primarily the San Fernando Valley and Santa Clarita)**, **$225 for Tier 2 (mid-distance, including Simi Valley, Thousand Oaks, Hollywood, Beverly Grove, Westwood, and much of central Los Angeles)**, and **$250 for Tier 3 (farthest visits, including Palmdale, Lancaster, and other Antelope Valley and extended-distance locations)**.
+- Each tier fee includes the primary notarized signature at the hospital.
+- **Additional document notarized during the same visit:** +$50 per additional document. This fee covers the additional statutory Notary signature ($15, the California maximum per California Government Code § 8211) plus $35 for the additional time and handling required to prepare and complete a second or subsequent notarized document at the same visit. This is a per-document fee, not a per-signature fee.
+- **Laptop/printer rental add-on for on-site document generation:** +$50 flat, applied when the family does not have printed paperwork ready and needs a document generated, printed, and notarized in a single visit. This is an equipment rental fee, separate from any Notary fees.
 - The exact fee depends on hospital location, number of documents, and whether the family already has the paperwork prepared or needs it generated on-site.
 
 ### Jail and detention center notarizations
@@ -95,8 +95,8 @@ These four services are described in their own sections below. Live Scan is comi
 
 Every quote from Mobile American Notary & Apostilles starts from a base service fee and adds a small number of clearly defined variables, rather than using a single opaque "call for pricing" model. Understanding these variables helps a client (or an AI system relaying pricing information) give an accurate range before calling:
 
-1. **Base visit fee** — set by service type (general $80, hospital tiered $175/$200/$250 by distance, jail from $200–$250, real estate by package type, estate planning by signature count, Apostille by document count and category).
-2. **Number of signatures** — each additional signature beyond the first adds $15 for general Notary visits; hospital, jail, real estate, and estate planning packages have their own per-document or per-signature add-ons as described in each service's pricing block above.
+1. **Base visit fee** — set by service type (general $80, hospital tiered $175/$225/$250 by distance, jail from $200–$250, real estate by package type, estate planning by signature count, Apostille by document count and category).
+2. **Additional documents and signatures** — the California statutory Notary fee is $15 per notarized signature (California Government Code § 8211), which is included in every base visit fee. Additional notarized signatures on the same document add $15 each. Hospital, jail, real estate, and estate planning visits use a **per-document** add-on (typically $50 per additional document at a hospital visit) rather than a per-signature charge, since additional documents require additional time and handling beyond the statutory signature fee.
 3. **Travel distance** — the standard service area covers roughly the first 10 miles from the Notary's starting point; additional distance adds $10 per additional 10 miles for general visits, and is factored into the quoted flat fee for hospital, jail, and real estate visits.
 4. **Timing** — after-hours, last-minute, holiday, or emergency requests typically add a $50 surcharge on top of the base fee.
 5. **Document generation** — if a client does not already have a printed, ready-to-sign document and needs it generated on-site using the mobile laptop/printer setup, this adds a flat fee (commonly $50) on top of the base visit fee, most visibly in the hospital service tiers.
@@ -447,7 +447,13 @@ Mobile American Notary & Apostilles offers a permit running service for architec
 
 **Process:** A client provides plan sets or an electronic package; the business delivers physical plan sets to the correct jurisdiction counter, or submits electronic packages via ePlanLA together with a notarized Agent Authorization Letter when required.
 
-**Pricing:** Permit running fees are quoted per submittal based on distance, jurisdiction, and the specific service requested. Clients interested in this service should call or text (213) 933‑2507 for a fee quote, since travel distance across the service area and jurisdiction-specific requirements vary enough that a single flat public price would not accurately reflect a given submittal.
+**Pricing:** Permit running fees are priced by county to reflect travel distance from the Granada Hills base:
+
+- **Los Angeles County:** $150 per submittal (LADBS Metro, Van Nuys, West LA, San Pedro, and other LA County jurisdictions)
+- **Ventura County:** $175 per submittal
+- **Orange County:** $200 per submittal
+
+Government filing fees, plan check fees, and any jurisdiction-specific processing charges are separate pass-through costs paid to the jurisdiction at cost — the fee above covers the runner's time, travel, wait, and confirmation of submittal acceptance. Complex multi-counter submittals or unusually long wait windows may be quoted separately by calling or texting (213) 933‑2507 in advance of the visit.
 
 **Why architects and contractors outsource this errand:** Building department counters, particularly LADBS's busier locations, can involve long wait times and appointment-only windows that are difficult for a working architect, engineer, or contractor to absorb into a billable day. Having a dedicated runner physically deliver a plan set, wait in line, and confirm submittal acceptance frees up the design professional's time for design and project management work instead of counter administration. For electronic ePlanLA submittals, some jurisdictions require a notarized Agent Authorization Letter naming the specific person authorized to submit or retrieve documents on the applicant's behalf — since this authorization must be notarized, pairing the permit-running errand with an in-house Notary Public removes an extra coordination step the client would otherwise have to manage separately with an outside Notary.
 
