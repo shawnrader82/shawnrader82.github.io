@@ -342,11 +342,6 @@
         </select>
         <select class="directory-filter" id="location-filter" aria-label="Filter by consulate location">
           <option value="all">All consulate locations</option>
-          <option value="la">LA-area consulate</option>
-          <option value="sf">SF Bay Area only</option>
-          <option value="ny">New York consulate</option>
-          <option value="dc">Washington DC only</option>
-          <option value="closed">Consular services suspended</option>
         </select>
         <div class="directory-count" id="directory-count">70 countries</div>
       </div>
@@ -2096,10 +2091,54 @@
       return `<details class="country-card__note" style="border-left-color:#94a3b8;"><summary style="cursor:pointer;font-weight:600;color:#334155;">Other US posts for this country (${others.length})</summary><ul style="margin:.5rem 0 0 1.2rem;padding:0;font-size:.85rem;line-height:1.55;">${list}</ul></details>`;
     }
 
+    // Rebuild the third-dropdown option list based on which office loc codes
+    // actually appear for the currently selected state. Preserves the current
+    // selection when possible, else falls back to "all".
+    function rebuildLocationFilter(selectedState) {
+      const locFilterEl = document.getElementById("location-filter");
+      const currentValue = locFilterEl.value;
+      // Count how many countries route to each loc for the selected state
+      const locCounts = {};
+      COUNTRIES.forEach(c => {
+        const r = resolveOffice(c.iso2, selectedState);
+        const loc = r.office.loc;
+        locCounts[loc] = (locCounts[loc] || 0) + 1;
+      });
+      // Order options: LA first (we're an LA business), then SF, NY, DC, then everything
+      // else alphabetically by label, then "closed" at the end.
+      const preferred = ["la", "sf", "ny", "dc"];
+      const rest = Object.keys(locCounts)
+        .filter(l => !preferred.includes(l) && l !== "closed")
+        .sort((a, b) => (badgeMap[a]?.text || a).localeCompare(badgeMap[b]?.text || b));
+      const ordered = [
+        ...preferred.filter(l => locCounts[l]),
+        ...rest,
+        ...(locCounts["closed"] ? ["closed"] : [])
+      ];
+      // Build option HTML
+      const opts = [`<option value="all">All consulate locations</option>`];
+      ordered.forEach(loc => {
+        const label = badgeMap[loc]?.text || loc;
+        const displayLabel = loc === "closed"
+          ? `Consular services suspended (${locCounts[loc]})`
+          : `${label} (${locCounts[loc]})`;
+        opts.push(`<option value="${loc}">${displayLabel}</option>`);
+      });
+      locFilterEl.innerHTML = opts.join("");
+      // Preserve the previous selection if it's still valid, else reset to "all"
+      if (currentValue === "all" || locCounts[currentValue]) {
+        locFilterEl.value = currentValue;
+      } else {
+        locFilterEl.value = "all";
+      }
+    }
+
     function renderList() {
       const search = document.getElementById("country-search").value.toLowerCase().trim();
-      const filter = document.getElementById("location-filter").value;
       const selectedState = document.getElementById("state-selector").value;
+      // Rebuild location filter FIRST so its options reflect the current state
+      rebuildLocationFilter(selectedState);
+      const filter = document.getElementById("location-filter").value;
       const container = document.getElementById("country-list");
       container.innerHTML = "";
       let shown = 0;
