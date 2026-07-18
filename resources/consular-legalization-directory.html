@@ -172,6 +172,19 @@
     .country-card__meta a { color: #8b1a1a; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
     .country-card__note { background: #f8fafc; border-left: 3px solid #cbd5e1; padding: .65rem .85rem; margin-top: .65rem; font-size: .85rem; color: #475569; line-height: 1.5; border-radius: 0 6px 6px 0; }
 
+    /* Fee + routing rows */
+    .country-card__fee { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .9rem; margin: .55rem 0 .35rem; padding: .5rem .75rem; background: #f8fafc; border-radius: 6px; font-size: .88rem; }
+    .country-card__fee-label { color: #64748b; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+    .country-card__fee-value { color: #0f172a; font-weight: 600; }
+    .country-card__fee-verified { color: #94a3b8; font-size: .78rem; margin-left: auto; }
+    .country-card__fee-notes { flex-basis: 100%; color: #64748b; font-size: .82rem; line-height: 1.5; margin-top: .15rem; }
+    .country-card__routing { background: #ecfdf5; border-left: 3px solid #10b981; padding: .6rem .85rem; margin: .5rem 0; font-size: .88rem; color: #065f46; line-height: 1.5; border-radius: 0 6px 6px 0; }
+    .country-card__routing strong { color: #064e3b; }
+    .country-card__routing-outofstate { background: #fef3c7; border-left-color: #f59e0b; color: #78350f; }
+    .country-card__routing-outofstate strong { color: #78350f; }
+    .country-card__routing-unverified { background: #fef2f2; border-left-color: #dc2626; color: #7f1d1d; }
+    .country-card__routing-unverified strong { color: #7f1d1d; }
+
     .cta-block { max-width: 1080px; margin: 3rem auto; padding: 2rem 1.5rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 12px; text-align: center; color: #ffffff; }
     .cta-block h2 { color: #ffffff; font-size: 1.5rem; margin: 0 0 .75rem; }
     .cta-block p { color: #cbd5e1; margin: 0 0 1.25rem; max-width: 640px; margin-left: auto; margin-right: auto; }
@@ -262,10 +275,71 @@
     <!-- ── Directory ───────────────────────────────────── -->
     <section class="directory-section">
       <h2 style="font-size:1.5rem;color:#0f172a;margin:0 0 1rem;">Country Directory</h2>
-      <p style="color:#475569;line-height:1.6;max-width:780px;margin:0 0 1.25rem;">All 70 non-Hague countries. Search by country name or filter by consulate location. Sorted alphabetically.</p>
+      <p style="color:#475569;line-height:1.6;max-width:840px;margin:0 0 1.25rem;">All non-Hague countries with active consular routing in the United States. Pick your state to see which consulate handles documents notarized there — many countries maintain multiple US posts with strict jurisdiction rules, and using the wrong office is a common cause of rejected filings.</p>
 
       <div class="directory-controls">
         <input type="search" class="directory-search" id="country-search" placeholder="Search country name…" aria-label="Search country name">
+        <select class="directory-filter" id="state-selector" aria-label="State where document is notarized">
+          <option value="CA" selected>Notarized in California</option>
+          <option disabled>──────────</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+          <option disabled>──────────</option>
+          <option value="PR">Puerto Rico</option>
+          <option value="GU">Guam</option>
+          <option value="VI">US Virgin Islands</option>
+          <option value="AS">American Samoa</option>
+          <option value="MP">N. Mariana Islands</option>
+        </select>
         <select class="directory-filter" id="location-filter" aria-label="Filter by consulate location">
           <option value="all">All consulate locations</option>
           <option value="la">LA-area consulate</option>
@@ -300,27 +374,15 @@
   </main>
 
   <script>
-    // Country data — merged from Hague master + consulate lookups
+    // ─── Legacy single-office consulate data (still used for countries without full jurisdiction research) ───
+    // For countries in CONSULATE_JURISDICTIONS (below), the state selector routes to the correct office
+    // based on where the document was notarized. For countries with only an entry here, we show a single
+    // fallback address (usually the DC embassy). We progressively replace entries here with jurisdiction data.
     const CONSULATE_DATA = {
-      "CN": {"name":"Consulate General of China in Los Angeles","address":"443 Shatto Place, Los Angeles, CA 90020","phone":"(213) 807-8088","website":"http://losangeles.china-consulate.gov.cn/eng/","loc":"la","note":"NOTE: China acceded to the Hague Convention in Nov 2023. Documents now generally need Apostille, not consular legalization. This entry is retained for pre-accession documents only."},
       "EG": {"name":"Consulate General of Egypt in Los Angeles","address":"500 N Brand Blvd, Suite 1450, Glendale, CA 91203","phone":"(818) 545-8112","website":"https://losangeles.consulate.mfa.gov.eg/","loc":"la","note":"Serves AZ, CA, CO, HI, ID, MT, NV, NM, OR, UT, WA, WY, AK. Requires CA Secretary of State certification first."},
-      "LB": {"name":"Consulate General of Lebanon in Los Angeles","address":"660 S Figueroa Street, Suite 1050, Los Angeles, CA 90017","phone":"(213) 243-0999","website":"http://www.lebanonconsulatela.org/","loc":"la","note":"Serves AZ, CA, CO, HI, NV, NM, UT, WA. Requires CA Secretary of State certification first."},
-      "MY": {"name":"Consulate General of Malaysia in Los Angeles","address":"550 S Hope Street, Suite 400, Los Angeles, CA 90071","phone":"(213) 892-1238","website":"https://www.kln.gov.my/web/usa_los-angeles/home","loc":"la","note":"Requires CA Secretary of State certification first."},
-      "TH": {"name":"Royal Thai Consulate General, Los Angeles","address":"611 N. Larchmont Blvd, 2nd Floor, Los Angeles, CA 90004","phone":"(323) 962-9574","website":"https://thaiconsulatela.thaiembassy.org/","loc":"la","note":"Serves AZ, CA, CO, HI, ID, MT, NV, NM, OR, UT, WA, WY, AK. Requires prior US Department of State authentication (not CA SoS). Fee: $15/seal, money order only."},
-      "TW": {"name":"Taipei Economic and Cultural Office in Los Angeles (TECO-LA)","address":"3731 Wilshire Blvd, Suite 700, Los Angeles, CA 90010","phone":"(213) 389-1215","website":"https://www.roc-taiwan.org/uslax_en/","loc":"la","note":"Taiwan is not a UN member and not a Hague signatory. TECO handles document legalization for Taiwan-destination documents. Requires CA Secretary of State certification first."},
-      "VN": {"name":"Consulate General of Vietnam in San Francisco","address":"1700 California Street, Suite 580, San Francisco, CA 94109","phone":"(415) 922-1707","website":"https://vietnamconsulate-sf.org/","loc":"sf","note":"No LA consulate. Serves 13 western states. Requires CA Secretary of State apostille first, then mail to SF for legalization."},
-      "NG": {"name":"Consulate General of Nigeria (New York)","address":"828 2nd Avenue, New York, NY 10017","phone":"(212) 850-2200","website":"https://www.nigeriahouse.com/","loc":"ny","note":"No LA consulate. Requires US Department of State authentication first."},
-      "AE": {"name":"Consulate General of the UAE in Los Angeles","address":"UAE also has an Embassy in Washington DC (3522 International Court NW, Suite 400, DC 20008 — (202) 243-2400) and consulates in New York (212) 419-7670 and Houston (832) 956-6666.","phone":"(310) 623-5604","website":"https://www.uae-embassy.org/","loc":"la","note":"UAE has a Los Angeles Consulate General. Requires US Department of State authentication first, then UAE consular legalization. Additional attestation from UAE Ministry of Foreign Affairs required after arrival in UAE. Call the LA consulate for current procedures and appointment requirements."},
-      "QA": {"name":"Embassy of Qatar (Washington DC)","address":"2555 M Street NW, Washington, DC 20037","phone":"(202) 274-1600","website":"https://washington.embassy.qa/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first, then mail to DC embassy."},
-      "KW": {"name":"Embassy of the State of Kuwait (Washington DC)","address":"2940 Tilden Street NW, Washington, DC 20008","phone":"(202) 966-0702","website":"https://www.kuwaitembassy.us/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
-      "JO": {"name":"Embassy of Jordan (Washington DC)","address":"3504 International Drive NW, Washington, DC 20008","phone":"(202) 966-2664","website":"https://www.jordanembassyus.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "IR": {"name":"Iranian Interests Section (via Pakistan Embassy, Washington DC)","address":"1250 23rd Street NW, Suite 200, Washington, DC 20037","phone":"(202) 965-4990","website":"https://daftar.org/","loc":"dc","note":"No direct US-Iran diplomatic relations. Iranian Interests Section operates via Pakistan Embassy. Requires US Department of State authentication first. Sanctions/OFAC restrictions apply to many transactions."},
-      "CU": {"name":"Embassy of Cuba (Washington DC)","address":"2630 16th Street NW, Washington, DC 20009","phone":"(202) 797-8518","website":"https://misiones.cubaminrex.cu/en/usa","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first. OFAC sanctions restrictions apply — some transactions may require special licensing."},
       "MM": {"name":"Embassy of Myanmar (Washington DC)","address":"2300 S Street NW, Washington, DC 20008","phone":"(202) 332-3344","website":"https://mewashingtondc.mofa.gov.mm/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first. Political situation may affect processing."},
-      "KE": {"name":"Embassy of Kenya (Washington DC)","address":"2249 R Street NW, Washington, DC 20008","phone":"(202) 387-6101","website":"https://kenyaembassydc.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
-      "ET": {"name":"Embassy of Ethiopia (Washington DC)","address":"3506 International Drive NW, Washington, DC 20008","phone":"(202) 364-1200","website":"https://ethiopianembassy.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "GH": {"name":"Embassy of Ghana (Washington DC)","address":"3512 International Drive NW, Washington, DC 20008","phone":"(202) 686-4520","website":"https://www.ghanaembassydc.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
-      "IQ": {"name":"Embassy of Iraq (Washington DC)","address":"3421 Massachusetts Avenue NW, Washington, DC 20007","phone":"(202) 742-1600","website":"https://www.mofa.gov.iq/washington/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "LK": {"name":"Embassy of Sri Lanka (Washington DC)","address":"3025 Whitehaven Street NW, Washington, DC 20008","phone":"(202) 483-4025","website":"https://slembassyusa.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "NP": {"name":"Embassy of Nepal (Washington DC)","address":"2131 Leroy Place NW, Washington, DC 20008","phone":"(202) 667-4550","website":"https://us.nepalembassy.gov.np/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "AF": {"name":"CLOSED — No Afghan consular services available in the United States","address":"The Afghan Embassy in Washington, DC and consulates in Los Angeles and New York ceased operations on March 16, 2022. The US Department of State's Office of Foreign Missions holds custody of the properties.","phone":"","website":"https://www.state.gov/u-s-relations-with-afghanistan/","loc":"closed","note":"IMPORTANT: There is currently no functioning Afghan diplomatic mission in the United States. The US does not recognize the Taliban government, and no consular legalization of US documents for use in Afghanistan is available through the traditional channel. Options are limited: (1) the Afghan Embassy in Ottawa, Canada continues to serve Afghan nationals in the US and may accept documents by mail for legalization — verify current status directly with them; (2) apply for legalization at an Afghan embassy in a third country (e.g. Islamabad, Doha, or Ankara) that maintains services; (3) if the receiving party in Afghanistan is a private entity, ask whether a US Department of State authentication alone (without consular legalization) will be accepted. We cannot promise a routing that will work — this is a country where consular legalization is effectively suspended and we recommend calling us to discuss your specific case before starting any document preparation."},
@@ -329,11 +391,1492 @@
       "SY": {"name":"Embassy of the Syrian Arab Republic (Washington DC) — recently reopened","address":"2215 Wyoming Avenue NW, Washington, DC 20008","phone":"(202) 232-6313","website":"https://www.state.gov/foreign-embassies-in-the-united-states/","loc":"dc","note":"The Syrian Embassy in Washington DC reopened on September 19, 2025 after 11 years of closure, following the fall of the Assad regime and the appointment of a new Syrian government. A new Chargé d'Affaires (Mohammad Qanatari) was named in January 2026. Consular services are being restored on a phased schedule and specific requirements may still be evolving. Call us before starting document preparation for Syria — we will confirm current legalization procedures directly with the embassy. Requires US Department of State authentication first."}
     };
 
+    // ─── Multi-office jurisdiction data (research verified July 2026) ───
+    // Populated from official embassy/consulate sources. See /resources/consular_jurisdictions_research.md
+    // for per-country data-quality notes and source URLs.
+    const CONSULATE_JURISDICTIONS = {
+      "TW": [
+        {
+          "name": "TECRO (Taipei Economic and Cultural Representative Office) - Washington, DC",
+          "role": "Embassy (de facto)",
+          "address": "4201 Wisconsin Avenue, NW, Washington, DC 20016-2137",
+          "phone": "(202) 895-1800",
+          "website": "https://www.roc-taiwan.org/us_en/",
+          "loc": "dc",
+          "states": [
+            "DC",
+            "MD",
+            "VA",
+            "WV",
+            "DE"
+          ]
+        },
+        {
+          "name": "TECO New York",
+          "role": "Consulate (de facto)",
+          "address": "1 East 42nd Street, 4th Floor, New York, NY 10017",
+          "phone": "(212) 486-0088",
+          "website": "https://www.roc-taiwan.org/usnyc_en/",
+          "loc": "ny",
+          "states": [
+            "NY",
+            "NJ",
+            "PA",
+            "CT"
+          ]
+        },
+        {
+          "name": "TECO Boston",
+          "role": "Consulate (de facto)",
+          "address": "99 Summer Street, Suite 801, Boston, MA 02110",
+          "phone": "(617) 737-2050",
+          "website": "https://www.roc-taiwan.org/usbos_en/",
+          "loc": "boston",
+          "states": [
+            "ME",
+            "NH",
+            "MA",
+            "VT",
+            "RI"
+          ]
+        },
+        {
+          "name": "TECO Chicago",
+          "role": "Consulate (de facto)",
+          "address": "55 West Wacker Drive, Suite 1200, Chicago, IL 60601",
+          "phone": "(312) 616-0100",
+          "website": "https://www.roc-taiwan.org/uschi_en/",
+          "loc": "chicago",
+          "states": [
+            "OH",
+            "MI",
+            "IA",
+            "IN",
+            "IL",
+            "WI",
+            "MN"
+          ]
+        },
+        {
+          "name": "TECO Seattle",
+          "role": "Consulate (de facto)",
+          "address": "600 University St, One Union Square, Suite 2020, Seattle, WA 98101",
+          "phone": "(206) 441-4586",
+          "website": "https://www.roc-taiwan.org/ussea_en/",
+          "loc": "seattle",
+          "states": [
+            "WA",
+            "MT",
+            "WY",
+            "ID",
+            "AK",
+            "OR"
+          ]
+        },
+        {
+          "name": "TECO San Francisco",
+          "role": "Consulate (de facto)",
+          "address": "345 4th Street, San Francisco, CA 94107",
+          "phone": "(415) 362-7680",
+          "website": "https://www.roc-taiwan.org/ussfo_en/",
+          "loc": "sf",
+          "states": [
+            "CA",
+            "NV",
+            "UT"
+          ]
+        },
+        {
+          "name": "TECO Los Angeles",
+          "role": "Consulate (de facto)",
+          "address": "4401 Wilshire Blvd., Los Angeles, CA 90010",
+          "phone": "(213) 389-1215",
+          "website": "https://www.roc-taiwan.org/uslax_en/",
+          "loc": "la",
+          "states": [
+            "CA",
+            "AZ",
+            "NM"
+          ]
+        },
+        {
+          "name": "TECO Atlanta",
+          "role": "Consulate (de facto)",
+          "address": "1180 West Peachtree Street, NW, Suite 800, Atlanta, GA 30309",
+          "phone": "(404) 870-9375",
+          "website": "https://www.roc-taiwan.org/usatl_en/",
+          "loc": "atlanta",
+          "states": [
+            "GA",
+            "KY",
+            "TN",
+            "AL",
+            "NC",
+            "SC"
+          ]
+        },
+        {
+          "name": "TECO Denver",
+          "role": "Consulate (de facto)",
+          "address": "1600 Broadway, Suite 1740, Denver, CO 80202",
+          "phone": "(720) 587-2949",
+          "website": "https://www.roc-taiwan.org/usden_en/",
+          "loc": "denver",
+          "states": [
+            "MO",
+            "KS",
+            "ND",
+            "SD",
+            "CO",
+            "NE"
+          ]
+        },
+        {
+          "name": "TECO Houston",
+          "role": "Consulate (de facto)",
+          "address": "11 Greenway Plaza, Suite 2006, Houston, TX 77046",
+          "phone": "(713) 626-7445",
+          "website": "https://www.roc-taiwan.org/ushou_en/",
+          "loc": "houston",
+          "states": [
+            "TX",
+            "OK",
+            "AR",
+            "LA",
+            "MS"
+          ]
+        },
+        {
+          "name": "TECO Miami",
+          "role": "Consulate (de facto)",
+          "address": "2333 Ponce de Leon Blvd., Suite 610, Coral Gables, FL 33134",
+          "phone": "(305) 443-8917",
+          "website": "https://www.roc-taiwan.org/usmia_en/",
+          "loc": "miami",
+          "states": [
+            "FL",
+            "PR",
+            "VI"
+          ]
+        },
+        {
+          "name": "TECO Honolulu",
+          "role": "Consulate (de facto)",
+          "address": "2746 Pali Highway, Honolulu, HI 96817",
+          "phone": "(808) 595-6347",
+          "website": "https://www.roc-taiwan.org/ushnl_en/",
+          "loc": "honolulu",
+          "states": [
+            "HI",
+            "AS"
+          ]
+        },
+        {
+          "name": "TECO Guam",
+          "role": "Consulate (de facto)",
+          "address": "590 South Marine Corps Drive, Suite 721, Tamuning, Guam 96913",
+          "phone": "(671) 472-5865",
+          "website": "https://www.roc-taiwan.org/usgum_en/",
+          "loc": "guam",
+          "states": [
+            "GU",
+            "MP"
+          ]
+        }
+      ],
+      "VN": [
+        {
+          "name": "Embassy of Vietnam",
+          "role": "Embassy",
+          "address": "1233 20th Street NW, Suite 400, Washington, DC 20036",
+          "phone": "(202) 861-0737",
+          "website": "https://vietnamembassy-usa.org/",
+          "loc": "dc",
+          "states": [
+            "AL",
+            "CO",
+            "CT",
+            "DE",
+            "DC",
+            "FL",
+            "GA",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NH",
+            "NJ",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "VT",
+            "VA",
+            "WV",
+            "WI",
+            "PR",
+            "GU",
+            "VI",
+            "AS",
+            "MP"
+          ]
+        },
+        {
+          "name": "Consulate General of Vietnam, San Francisco",
+          "role": "Consulate",
+          "address": "1700 California Street, Suite 580, San Francisco, CA 94109",
+          "phone": "(415) 922-1707",
+          "website": "https://vietnamconsulate-sf.org/",
+          "loc": "sf",
+          "states": [
+            "CA",
+            "WA",
+            "HI",
+            "OR",
+            "AZ",
+            "UT",
+            "NM",
+            "CO",
+            "ID",
+            "WY",
+            "AK"
+          ]
+        },
+        {
+          "name": "Consulate General of Vietnam, Houston",
+          "role": "Consulate",
+          "address": "5251 Westheimer Road, Suite 1100, Houston, TX 77056",
+          "phone": "(713) 850-1233",
+          "website": "https://vietnamconsulateinhouston.org/",
+          "loc": "houston",
+          "states": [
+            "TX"
+          ]
+        }
+      ],
+      "NG": [
+        {
+          "name": "Embassy of the Federal Republic of Nigeria",
+          "role": "Embassy",
+          "address": "3519 International Court, NW, Washington, DC 20008",
+          "phone": "(202) 800-7201",
+          "website": "https://nigeriaembassyusa.org/",
+          "loc": "dc",
+          "states": [
+            "AK",
+            "AZ",
+            "CA",
+            "CO",
+            "HI",
+            "ID",
+            "MD",
+            "MT",
+            "NV",
+            "OR",
+            "UT",
+            "VA",
+            "WA",
+            "WY",
+            "DC",
+            "GU",
+            "VI",
+            "AS",
+            "MP"
+          ]
+        },
+        {
+          "name": "Consulate General of Nigeria, New York",
+          "role": "Consulate",
+          "address": "828 Second Avenue, New York, NY 10017",
+          "phone": "(212) 808-0301",
+          "website": "https://nigeriahouse.com/",
+          "loc": "ny",
+          "states": [
+            "NY",
+            "NJ",
+            "MA",
+            "ME",
+            "VT",
+            "OH",
+            "IN",
+            "CT",
+            "IL",
+            "RI",
+            "IA",
+            "NH",
+            "ND",
+            "SD",
+            "NE",
+            "WI",
+            "MI",
+            "PA",
+            "DE",
+            "MN"
+          ]
+        },
+        {
+          "name": "Consulate General of Nigeria, Atlanta",
+          "role": "Consulate",
+          "address": "8060 Roswell Road, Atlanta, GA 30350",
+          "phone": "(770) 394-6261",
+          "website": "https://www.nigeriaconsulateatlanta.org/",
+          "loc": "atlanta",
+          "states": [
+            "AL",
+            "AR",
+            "FL",
+            "GA",
+            "KS",
+            "KY",
+            "LA",
+            "MS",
+            "MO",
+            "NM",
+            "NC",
+            "OK",
+            "PR",
+            "SC",
+            "TN",
+            "TX",
+            "WV"
+          ]
+        }
+      ],
+      "EG": [
+        {
+          "name": "Embassy of the Arab Republic of Egypt",
+          "role": "Embassy",
+          "address": "3521 International Court, NW, Washington, DC 20008",
+          "phone": "(202) 966-6342",
+          "website": "https://egyptembassy.net/",
+          "loc": "dc",
+          "states": [
+            "DE",
+            "FL",
+            "GA",
+            "MD",
+            "NC",
+            "SC",
+            "VA",
+            "DC",
+            "WV"
+          ]
+        },
+        {
+          "name": "Consulate General of Egypt, New York",
+          "role": "Consulate",
+          "address": "866 United Nations Plaza, Suite 586, New York, NY 10017",
+          "phone": "(212) 759-7120",
+          "website": "https://egyptembassy.net/",
+          "loc": "ny",
+          "states": [
+            "CT",
+            "ME",
+            "MA",
+            "NH",
+            "NJ",
+            "OH",
+            "PA",
+            "PR",
+            "RI",
+            "VT",
+            "NY"
+          ]
+        },
+        {
+          "name": "Consulate General of Egypt, Chicago",
+          "role": "Consulate",
+          "address": "180 N. Michigan Ave., Suite 1150, Chicago, IL 60601",
+          "phone": "(312) 332-7210",
+          "website": "https://egyptembassy.net/",
+          "loc": "chicago",
+          "states": [
+            "IL",
+            "IN",
+            "IA",
+            "KY",
+            "MI",
+            "MN",
+            "NE",
+            "ND",
+            "SD",
+            "WI"
+          ]
+        },
+        {
+          "name": "Consulate General of Egypt, Los Angeles",
+          "role": "Consulate",
+          "address": "6300 Wilshire Blvd., Suite 1890, Los Angeles, CA 90048",
+          "phone": "(323) 933-9700",
+          "website": "https://www.egyconsulatela.com/",
+          "loc": "la",
+          "states": [
+            "AK",
+            "AZ",
+            "CA",
+            "ID",
+            "HI",
+            "MT",
+            "NV",
+            "OR",
+            "WA",
+            "WY",
+            "UT"
+          ]
+        },
+        {
+          "name": "Consulate General of Egypt, Houston",
+          "role": "Consulate",
+          "address": "5718 Westheimer Road, Suite 1350, Houston, TX 77057",
+          "phone": "(713) 961-4915",
+          "website": "https://www.consulateofegypthouston.com/",
+          "loc": "houston",
+          "states": [
+            "AL",
+            "AR",
+            "CO",
+            "KS",
+            "LA",
+            "MS",
+            "MO",
+            "NM",
+            "OK",
+            "TN",
+            "TX"
+          ]
+        }
+      ],
+      "LB": [
+        {
+          "name": "Embassy of Lebanon (Area I)",
+          "role": "Embassy",
+          "address": "2560 28th St. N.W., Washington, DC 20008",
+          "phone": "(202) 939-6300",
+          "website": "https://www.lebanonembassyus.org/",
+          "loc": "dc",
+          "states": [
+            "MD",
+            "VA",
+            "NC",
+            "SC",
+            "GA",
+            "TN",
+            "FL",
+            "LA",
+            "MS",
+            "AR",
+            "OK",
+            "TX",
+            "AL",
+            "DC",
+            "PR",
+            "VI",
+            "GU",
+            "AS",
+            "MP"
+          ]
+        },
+        {
+          "name": "Consulate General of Lebanon, New York",
+          "role": "Consulate",
+          "address": "9 East 76th St., New York, NY 10021",
+          "phone": "(212) 744-7905",
+          "website": "https://nylebcons.org/",
+          "loc": "ny",
+          "states": [
+            "NY",
+            "NJ",
+            "DE",
+            "PA",
+            "NH",
+            "MA",
+            "CT",
+            "VT",
+            "RI",
+            "ME"
+          ]
+        },
+        {
+          "name": "Consulate General of Lebanon, Detroit (Southfield)",
+          "role": "Consulate",
+          "address": "1000 Southfield Town Center, Suite 2450, Southfield, MI 48075",
+          "phone": "(248) 200-7007",
+          "website": "http://www.lebanonconsulategdetroit.org/",
+          "loc": "detroit",
+          "states": [
+            "MI",
+            "KY",
+            "IL",
+            "OH",
+            "IN",
+            "MN",
+            "IA",
+            "NE",
+            "ND",
+            "SD",
+            "WI",
+            "WV",
+            "MO",
+            "KS"
+          ]
+        },
+        {
+          "name": "Consulate General of Lebanon, Los Angeles",
+          "role": "Consulate",
+          "address": "811 Wilshire Blvd., Suite 1800, Los Angeles, CA 90017",
+          "phone": "(213) 243-0999",
+          "website": "https://lebanonconsulatela.org/",
+          "loc": "la",
+          "states": [
+            "CA",
+            "AZ",
+            "NM",
+            "NV",
+            "UT",
+            "CO",
+            "OR",
+            "ID",
+            "WY",
+            "WA",
+            "MT",
+            "AK",
+            "HI"
+          ]
+        }
+      ],
+      "AE": [
+        {
+          "name": "Embassy of the United Arab Emirates",
+          "role": "Embassy",
+          "address": "3522 International Court, NW, Suite 400, Washington, DC 20008",
+          "phone": "+1-202-243-2400",
+          "website": "https://www.uae-embassy.org/",
+          "loc": "dc",
+          "states": []
+        },
+        {
+          "name": "Consulate General of the UAE, New York",
+          "role": "Consulate",
+          "address": "305 East 47th Street, 7th Floor, New York, NY 10017",
+          "phone": "+1-212-419-7670",
+          "website": "https://www.mofa.gov.ae/en/missions/new-york",
+          "loc": "ny",
+          "states": [
+            "NY",
+            "NJ",
+            "FL",
+            "GA",
+            "MD",
+            "PA",
+            "NC",
+            "SC",
+            "KY",
+            "TN",
+            "VA",
+            "CT",
+            "WV",
+            "DE",
+            "AL",
+            "MS"
+          ]
+        },
+        {
+          "name": "Consulate General of the UAE, Houston",
+          "role": "Consulate",
+          "address": "2200 Post Oak Blvd., Suite 1500, Houston, TX 77056",
+          "phone": "+1-832-956-6666",
+          "website": "https://www.mofa.gov.ae/en/missions/houston",
+          "loc": "houston",
+          "states": [
+            "TX",
+            "LA",
+            "SD",
+            "ND",
+            "NE",
+            "KS",
+            "OK",
+            "AR",
+            "MO",
+            "IA",
+            "AL"
+          ]
+        },
+        {
+          "name": "Consulate General of the UAE, Los Angeles",
+          "role": "Consulate",
+          "address": "1901 Avenue of the Stars, Suite 350, Los Angeles, CA 90067",
+          "phone": "+1-310-551-6534",
+          "website": "https://www.mofa.gov.ae/en/missions/los-angeles",
+          "loc": "la",
+          "states": [
+            "CA"
+          ]
+        }
+      ],
+      "QA": [
+        {
+          "name": "Embassy of the State of Qatar",
+          "role": "Embassy",
+          "address": "2555 M Street NW, Washington, DC 20037",
+          "phone": "+1-202-274-1600",
+          "website": "https://washington.embassy.qa/en",
+          "loc": "dc",
+          "states": [
+            "DC",
+            "MD",
+            "VA",
+            "NC",
+            "SC",
+            "SD",
+            "ND",
+            "NE",
+            "AR",
+            "WV",
+            "KY"
+          ]
+        },
+        {
+          "name": "Consulate General of Qatar, New York",
+          "role": "Consulate",
+          "address": "540 Madison Avenue, 38th Floor, New York, NY 10022",
+          "phone": "+1-646-882-0300",
+          "website": "https://ny.consulate.qa/en",
+          "loc": "ny",
+          "states": [
+            "NY",
+            "CT",
+            "IL",
+            "IN",
+            "IA",
+            "ME",
+            "MA",
+            "MI",
+            "MN",
+            "MO",
+            "NH",
+            "OH",
+            "NJ",
+            "PA",
+            "RI",
+            "VT",
+            "WI"
+          ]
+        },
+        {
+          "name": "Consulate General of Qatar, Houston",
+          "role": "Consulate",
+          "address": "1990 Post Oak Blvd, Suite 900, Houston, TX 77056",
+          "phone": "+1-713-355-8221",
+          "website": "https://houston.consulate.qa/en",
+          "loc": "houston",
+          "states": [
+            "TX",
+            "AL",
+            "CO",
+            "FL",
+            "GA",
+            "KS",
+            "LA",
+            "MS",
+            "NM",
+            "OK",
+            "TN"
+          ]
+        },
+        {
+          "name": "Consulate General of Qatar, Beverly Hills (Los Angeles)",
+          "role": "Consulate",
+          "address": "150 S. Rodeo Dr. Suite 250, Beverly Hills, CA 90212",
+          "phone": "+1-310-246-0005",
+          "website": "https://la.consulate.qa/en",
+          "loc": "la",
+          "states": [
+            "CA",
+            "NV",
+            "OR",
+            "WA",
+            "ID",
+            "UT",
+            "MT",
+            "AZ",
+            "WY",
+            "AK",
+            "HI",
+            "DE"
+          ]
+        }
+      ],
+      "KW": [
+        {
+          "name": "Embassy of the State of Kuwait",
+          "role": "Embassy",
+          "address": "2940 Tilden Street NW, Washington, DC 20008",
+          "phone": "(202) 966-0702",
+          "website": "https://washington.mofa.gov.kw/",
+          "loc": "dc",
+          "states": [
+            "DC",
+            "MD",
+            "VA",
+            "WV"
+          ]
+        },
+        {
+          "name": "Consulate General of Kuwait, Beverly Hills (Los Angeles)",
+          "role": "Consulate",
+          "address": "130 S. El Camino Drive, Beverly Hills, CA 90212",
+          "phone": "(310) 556-0300",
+          "website": "https://washington.mofa.gov.kw/",
+          "loc": "la",
+          "states": [
+            "AK",
+            "AZ",
+            "CA",
+            "CO",
+            "HI",
+            "ID",
+            "IA",
+            "SD",
+            "UT",
+            "WA",
+            "WY",
+            "KS",
+            "MN",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "ND",
+            "OR"
+          ]
+        },
+        {
+          "name": "Consulate of Kuwait, New York",
+          "role": "Consulate",
+          "address": "321 East 44th Street, New York, NY 10017",
+          "phone": "(929) 919-3555",
+          "website": "https://washington.mofa.gov.kw/",
+          "loc": "ny",
+          "states": [
+            "CT",
+            "DE",
+            "ME",
+            "MA",
+            "NH",
+            "NJ",
+            "NY",
+            "PA",
+            "RI",
+            "VT"
+          ]
+        },
+        {
+          "name": "Kuwait consular jurisdiction (fourth block, no separately listed office address -- appears grouped with New York consulate administratively)",
+          "role": "Consulate (jurisdiction block)",
+          "address": "See New York consulate",
+          "phone": "(929) 919-3555",
+          "website": "https://washington.mofa.gov.kw/",
+          "loc": "ny",
+          "states": [
+            "AL",
+            "AR",
+            "FL",
+            "GA",
+            "IL",
+            "IN",
+            "KY",
+            "LA",
+            "MI",
+            "MS",
+            "NM",
+            "NC",
+            "OH",
+            "OK",
+            "SC",
+            "TN",
+            "TX",
+            "WI"
+          ]
+        }
+      ],
+      "KE": [
+        {
+          "name": "Embassy of Kenya",
+          "role": "Embassy",
+          "address": "2249 R Street, NW, Washington, DC 20008",
+          "phone": "(202) 387-6101",
+          "website": "https://kenyaembassydc.org/",
+          "loc": "dc",
+          "states": []
+        },
+        {
+          "name": "Consulate General of Kenya, Los Angeles",
+          "role": "Consulate",
+          "address": "4801 Wilshire Boulevard, Mezzanine Floor, Los Angeles, CA 90010",
+          "phone": "+1-323-939-2408",
+          "website": "N/A - no independent official website found",
+          "loc": "la",
+          "states": []
+        },
+        {
+          "name": "Permanent Mission of Kenya to the UN / Consulate, New York",
+          "role": "Consulate / UN Mission",
+          "address": "866 UN Plaza, Suite 486, New York, NY 10017",
+          "phone": "+1-212-421-4741",
+          "website": "N/A",
+          "loc": "ny",
+          "states": []
+        }
+      ],
+      "ET": [
+        {
+          "name": "Embassy of Ethiopia",
+          "role": "Embassy",
+          "address": "3506 International Drive, NW, Washington, DC 20008",
+          "phone": "(202) 364-1200",
+          "website": "https://ethiopianembassy.org/",
+          "loc": "dc",
+          "states": []
+        },
+        {
+          "name": "Consulate General of Ethiopia, Los Angeles",
+          "role": "Consulate",
+          "address": "3250 Wilshire Blvd., Suite 1101, Los Angeles, CA 90010",
+          "phone": "(213) 365-6651",
+          "website": "http://www.ethiopianconsla.org/",
+          "loc": "la",
+          "states": []
+        }
+      ],
+      "MY": [
+        {
+          "name": "Embassy of Malaysia",
+          "role": "Embassy",
+          "address": "3516 International Court, NW, Washington, DC 20008",
+          "phone": "(202) 572-9700",
+          "website": "https://www.kln.gov.my/web/usa_washington",
+          "loc": "dc",
+          "states": [
+            "AL",
+            "FL",
+            "GA",
+            "IL",
+            "IN",
+            "KY",
+            "LA",
+            "MD",
+            "MS",
+            "NC",
+            "SC",
+            "OH",
+            "TN",
+            "TX",
+            "VA",
+            "WV",
+            "DC"
+          ]
+        },
+        {
+          "name": "Consulate General of Malaysia, Los Angeles",
+          "role": "Consulate",
+          "address": "777 South Figueroa Street, Suite 600, Los Angeles, CA 90017",
+          "phone": "(213) 892-1238",
+          "website": "https://www.kln.gov.my/web/usa_los-angeles",
+          "loc": "la",
+          "states": [
+            "AK",
+            "AZ",
+            "CO",
+            "HI",
+            "ID",
+            "KS",
+            "MT",
+            "NV",
+            "NE",
+            "NM",
+            "ND",
+            "SD",
+            "OR",
+            "UT",
+            "WA",
+            "WY",
+            "CA",
+            "GU"
+          ]
+        },
+        {
+          "name": "Consulate General of Malaysia, New York",
+          "role": "Consulate",
+          "address": "313 East 43rd Street, New York, NY 10017",
+          "phone": "(212) 490-2723",
+          "website": "https://www.kln.gov.my/web/usa_new-york",
+          "loc": "ny",
+          "states": [
+            "AR",
+            "CT",
+            "DE",
+            "IA",
+            "ME",
+            "MA",
+            "MI",
+            "MN",
+            "MO",
+            "NH",
+            "NJ",
+            "OK",
+            "PA",
+            "RI",
+            "VT",
+            "WI",
+            "NY"
+          ]
+        }
+      ],
+      "TH": [
+        {
+          "name": "Royal Thai Embassy",
+          "role": "Embassy",
+          "address": "1024 Wisconsin Ave. NW, Suite 401, Washington, DC 20007",
+          "phone": "(202) 944-3600",
+          "website": "https://washingtondc.thaiembassy.org/",
+          "loc": "dc",
+          "states": [
+            "AL",
+            "DC",
+            "DE",
+            "FL",
+            "GA",
+            "LA",
+            "MD",
+            "MS",
+            "NC",
+            "SC",
+            "TN",
+            "TX",
+            "VA",
+            "WV",
+            "PR"
+          ]
+        },
+        {
+          "name": "Royal Thai Consulate-General, Los Angeles",
+          "role": "Consulate",
+          "address": "611 N. Larchmont Blvd., 2nd Floor, Los Angeles, CA 90004",
+          "phone": "(323) 962-9574",
+          "website": "https://thaiconsulatela.thaiembassy.org/",
+          "loc": "la",
+          "states": [
+            "AK",
+            "AZ",
+            "CA",
+            "CO",
+            "HI",
+            "ID",
+            "MT",
+            "NV",
+            "NM",
+            "OR",
+            "UT",
+            "WA",
+            "WY",
+            "GU"
+          ]
+        },
+        {
+          "name": "Royal Thai Consulate-General, New York",
+          "role": "Consulate",
+          "address": "351 East 52nd Street, New York, NY 10022",
+          "phone": "(212) 754-1770",
+          "website": "https://newyork.thaiembassy.org/",
+          "loc": "ny",
+          "states": [
+            "CT",
+            "NY",
+            "NJ",
+            "NH",
+            "ME",
+            "MA",
+            "OH",
+            "PA",
+            "RI",
+            "VT"
+          ]
+        },
+        {
+          "name": "Royal Thai Consulate-General, Chicago",
+          "role": "Consulate",
+          "address": "700 North Rush Street, Chicago, IL 60611",
+          "phone": "(312) 664-3129",
+          "website": "https://cgchicago.thaiembassy.org/",
+          "loc": "chicago",
+          "states": [
+            "AR",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "MI",
+            "MN",
+            "MO",
+            "NE",
+            "ND",
+            "SD",
+            "OK",
+            "WI"
+          ]
+        }
+      ],
+      "IQ": [
+        {
+          "name": "Embassy of the Republic of Iraq, Consular Section",
+          "role": "Embassy / Consular Section",
+          "address": "1801 P St NW, Washington, DC 20036",
+          "phone": "(202) 742-1600",
+          "website": "https://www.iraqiembassy.us/",
+          "loc": "dc",
+          "states": [
+            "AL",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MS",
+            "NH",
+            "NJ",
+            "NY",
+            "NC",
+            "PA",
+            "RI",
+            "SC",
+            "TN",
+            "VT",
+            "VA",
+            "WV",
+            "DC",
+            "PR"
+          ]
+        },
+        {
+          "name": "Consulate General of Iraq, Detroit (Southfield)",
+          "role": "Consulate",
+          "address": "16445 W. 12 Mile Road, Southfield, MI 48076",
+          "phone": "(248) 423-1250",
+          "website": "https://www.iraqiembassy.us/page/consulate-general-detroit",
+          "loc": "detroit",
+          "states": [
+            "AR",
+            "IL",
+            "IA",
+            "IN",
+            "KS",
+            "KY",
+            "MN",
+            "MO",
+            "NE",
+            "ND",
+            "OH",
+            "OK",
+            "SD",
+            "WI",
+            "MI"
+          ]
+        },
+        {
+          "name": "Consulate General of Iraq, Los Angeles",
+          "role": "Consulate",
+          "address": "Los Angeles, CA (exact street address not published on embassy site as of this research)",
+          "phone": "Not published",
+          "website": "https://www.iraqiembassy.us/",
+          "loc": "la",
+          "states": [
+            "AZ",
+            "CO",
+            "ID",
+            "MT",
+            "NV",
+            "NM",
+            "OR",
+            "TX",
+            "UT",
+            "WA",
+            "WY",
+            "AK",
+            "CA",
+            "HI"
+          ]
+        }
+      ],
+      "JO": [
+        {
+          "name": "Embassy of the Hashemite Kingdom of Jordan",
+          "role": "Embassy (sole full-service consular post; nationwide jurisdiction)",
+          "address": "3504 International Drive, NW, Washington, DC 20008",
+          "phone": "(202) 966-2664",
+          "website": "https://mfa.gov.jo/en/embassy/washington",
+          "loc": "dc",
+          "states": [
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY",
+            "DC",
+            "PR",
+            "GU",
+            "VI",
+            "AS",
+            "MP"
+          ]
+        }
+      ],
+      "CU": [
+        {
+          "name": "Embassy of the Republic of Cuba",
+          "role": "Embassy (sole US post; in-person consular services SUSPENDED as of research date -- mail/agency service only)",
+          "address": "2630 16th St NW, Washington, DC 20009",
+          "phone": "(202) 797-8518",
+          "website": "https://misiones.cubaminrex.cu/es/eeuu",
+          "loc": "dc",
+          "states": [
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY",
+            "DC",
+            "PR",
+            "GU",
+            "VI",
+            "AS",
+            "MP"
+          ]
+        }
+      ]
+    };
+
+    // ─── Consular fees (destination country's own fee, per document) ───
+    // Does NOT include CA SoS ($20), US DoS ($20), or Mobile American Notary service fees.
+    const CONSULAR_FEES = {
+      "TW": {
+        "usd": 15,
+        "display": "$15 per document",
+        "notes": "Flat $15 per authenticated document at all TECRO/TECO offices nationwide (same rate DC, LA, SF, etc.). Expedited service adds $7.50 (50% surcharge) per document, so $22.50 expedited. Cash, money order, or cashier's check only -- no personal checks, credit cards, or company checks accepted. Rate is uniform for personal and most commercial documents.",
+        "verified": "2026-07",
+        "source_url": "https://www.roc-taiwan.org/us_en/post/6383.html"
+      },
+      "VN": {
+        "usd": {
+          "min": 30,
+          "max": 100,
+          "unit": "per_document"
+        },
+        "display": "$30–$100 per document",
+        "notes": "Vietnamese consular fee schedules are published primarily for Vietnam-based offices and vary between Vietnamese diplomatic missions abroad; a consistent published flat fee specific to the three US posts (DC, SF, Houston) was not located on the embassy's own fee page as of this research. Third-party legalization-service aggregators consistently report $30-100 per document depending on document type and office, with personal civil documents (birth/marriage/death certificates) at the lower end and commercial or complex documents at the higher end. Recommend confirming exact current rate by phone/email with vietnamembassy-usa.org before publishing a single number; use the range with a clear caveat on the live site.",
+        "verified": "2026-07",
+        "source_url": "https://consulatesoftheworld.us/country/vietnam/authentication-apostille/"
+      },
+      "NG": {
+        "usd": 100,
+        "display": "$100 per document",
+        "notes": "Nigerian Embassy DC's own official consular fee schedule lists 'Authentication of Documents' at a flat $100.00, and 'Authentication of Certificate of Free Sale (Commercial)' at $150.00. This makes Nigeria one of the highest per-document consular fees among the 16 countries researched. Fee schedules can differ slightly between the DC embassy and the NY/Atlanta consulates -- confirm with the specific office handling the document before publishing final pricing.",
+        "verified": "2026-07",
+        "source_url": "https://nigeriaembassyusa.org/consular-services-fee/"
+      },
+      "EG": {
+        "usd": 47,
+        "display": "$47 per document",
+        "notes": "$47 per document for standard personal/civil document authentication (signature legalization) at the DC embassy or any consulate; $132 per document for commercial documents (more than 5x the personal rate). Pet legalization is a special higher-fee category at $132. Cashier's check only when mailing (no money orders or personal checks); cash accepted in person.",
+        "verified": "2026-07",
+        "source_url": "https://egyptembassy.net/consular-services/legalization/personal-legalization-procedure/"
+      },
+      "LB": {
+        "usd": {
+          "min": 40,
+          "max": 225,
+          "unit": "per_document"
+        },
+        "display": "$40–$225 per document",
+        "notes": "Fee varies significantly by document type per the embassy's own fee page: Life Certificate $40, School/University Certificate $60 (waived for current-year enrollment as of March 1, 2026), Palestinian Refugee vital records $60, General Power of Attorney $100/Special POA $50, commercial company documents $225 (plus a proportional 4-per-mille charge on stated monetary amounts, capped at $3,125), and 'statement of work'/commercial transaction documents $90. There is no single flat personal-document rate -- use $225 as the commercial ceiling and note the type-specific breakdown prominently since a single number would understate cost for corporate documents and overstate it for many personal ones.",
+        "verified": "2026-07",
+        "source_url": "https://www.lebanonembassyus.org/consular-services/legalization-of-documents-and-signature/"
+      },
+      "AE": {
+        "usd": {
+          "min": 41,
+          "max": 700,
+          "unit": "per_document"
+        },
+        "display": "$41–$700 per document",
+        "notes": "UAE fees are the most fragmented/inconsistent in this dataset. Third-party legalization-service sites citing the UAE Embassy's own rates report personal/educational document fees ranging $40.82-$144 depending on source and date, while commercial/corporate/business documents run $544.59-$700+ (and a UAE Trade Registry portal separately lists $571.92). IMPORTANT 2026 PROCESS CHANGE: as of documented sources, UAE document attestation has shifted to VFS Global as the mandatory processing channel rather than direct embassy walk-in for many document types, and a separate UAE MOFA fee of AED 150/document (~$41) applies after US-side embassy attestation, on top of the embassy fee itself. No single authoritative current fee schedule was found directly on uae-embassy.org or mofa.gov.ae with a fee table. Recommend marking this fee data as low-confidence and directing users to contact the embassy/VFS Global directly for a quote before publishing a specific number.",
+        "verified": "2026-07",
+        "source_url": "https://www.dcmobilenotary.com/dc-mobile-blog/how-legalize-us-documents-uae"
+      },
+      "QA": {
+        "usd": 27,
+        "display": "$27 per document",
+        "notes": "Official Qatar MOFA fee schedule (mofa.gov.qa) lists civil/personal/judicial/medical/academic documents at QAR 100 (~$27, at the embassy's stated fixed exchange rate of 3.64 QAR/USD). Commercial documents (certificate of origin, bills of lading, commercial contracts, agencies) are QAR 150 (~$41). Commercial invoices use a tiered scale based on invoice value, ranging from $138 (invoices under 15,000 QAR) up to 0.6% of invoice value for amounts over 1,000,000 QAR. Use $27 as the standard personal-document rate.",
+        "verified": "2026-07",
+        "source_url": "https://mofa.gov.qa/en/consular-services/legalization/legalization"
+      },
+      "KW": {
+        "usd": 25,
+        "display": "$25 per document",
+        "notes": "Flat $25 per document across all personal-document categories per the Kuwait Embassy's own official fee page, payable by money order made out to 'Embassy of the State of Kuwait' (personal checks not accepted). This rate is described as uniform across essentially all listed personal-document services on the official page. Commercial invoice/certificate-of-origin authentication is charged separately and appears in third-party breakdowns at roughly $50-75 per document, but no single official commercial rate table was found directly on washington.mofa.gov.kw.",
+        "verified": "2026-07",
+        "source_url": "https://washington.mofa.gov.kw/en/personal-documents/"
+      },
+      "KE": {
+        "usd": 50,
+        "display": "$50 per document",
+        "notes": "Flat $50 per document for both outbound document authentication (US-issued documents legalized for use in Kenya) and inbound authentication (Kenya-issued documents authenticated after State Dept/Secretary of State certification), per the Kenya Embassy DC's own official document-authentication page. Payment by money order or cashier's check only, payable to 'Embassy of The Republic of Kenya'. This fee is confirmed and reliable even though the state-by-state jurisdiction split for Kenya remains unverified (see jurisdiction notes above).",
+        "verified": "2026-07",
+        "source_url": "https://kenyaembassydc.org/docauthentication/"
+      },
+      "ET": {
+        "usd": {
+          "min": 59,
+          "max": 90,
+          "unit": "per_document"
+        },
+        "display": "$59–$90 per document",
+        "notes": "Two-tier fee structure per the Ethiopian Embassy's own official page: $59 per document for applicants who submit a valid Ethiopian passport (with a copy of a Green Card or I-94) or a valid Ethiopian Origin ID Card; $90 per document for all other applicants. Power of Attorney authentication is priced separately at $62 (with additional attached fee schedules for other document types reaching up to $95-$100 in some categories). Money order only, payable to the Embassy of Ethiopia. Use $90 as the conservative default for a general (non-Ethiopian-passport-holder) applicant.",
+        "verified": "2026-07",
+        "source_url": "https://consular.ethiopianembassy.org/service-details_DA.php"
+      },
+      "MY": {
+        "usd": 5,
+        "display": "$5 per document",
+        "notes": "Unusually low flat fee of $5.00 per set of document/per signature required from a consular officer, confirmed consistently across both the Los Angeles and New York consulate official pages. Payable in cash or money order (US Postal Service, Western Union, or MoneyGram only) or cashier's check, made payable to the relevant Consulate General of Malaysia. This is among the lowest fees of all 16 countries researched.",
+        "verified": "2026-07",
+        "source_url": "https://www.kln.gov.my/web/usa_los-angeles/other_information/-/asset_publisher/2TQe/content/legalization-of-documents?inheritRedirect=false"
+      },
+      "TH": {
+        "usd": 15,
+        "display": "$15 per document",
+        "notes": "Flat $15.00 per document/per official seal, confirmed consistently across the Royal Thai Embassy DC and Consulates in New York and Los Angeles official pages. Payment method varies slightly by office: DC and NY require money order or cashier's check (no cash, personal checks, or credit cards); LA also requires money order/cashier's check. IMPORTANT: Thailand deposited its accession to the Hague Apostille Convention on June 30, 2026, with the Convention entering into force for Thailand on February 28, 2027. Until Feb 28, 2027 consular legalization still applies; on or after that date, US documents for use in Thailand will route through the California Secretary of State apostille instead. Call us to confirm which pathway applies to your document.",
+        "verified": "2026-07",
+        "source_url": "https://washingtondc.thaiembassy.org/en/page/visa-information"
+      },
+      "IQ": {
+        "usd": 15,
+        "display": "$15 per document",
+        "notes": "$15 per document for non-commercial/personal document certifications (per the Iraqi Embassy's own official 'Non-Commercial Certifications' page and the consular fee table published at mofa.gov.iq). Commercial documents are charged at a much higher flat $160 per document (certificate of origin, commercial invoices, trade lists). Academic credentials/signatures/oaths are $20. Cash payment only at the embassy. Use $15 as the standard personal-document rate and flag the $160 commercial rate separately.",
+        "verified": "2026-07",
+        "source_url": "https://www.iraqiembassy.us/page/non-commercial-certifications"
+      },
+      "JO": {
+        "usd": 11.25,
+        "display": "$11.25 per document",
+        "notes": "Official Jordan Embassy fee schedule (jordanembassy.us) shows $11.25 for personal document legalization and $47.25 per document for commercial/legal documents (power of attorney, assignment of agent, trademark, articles of incorporation, agreements, contracts, affidavits, certificates). Commercial invoices use a tiered scale from $69.75 (under $15,000 value) up to $157.50 plus $11.25 per additional $15,000 increment for high-value invoices. Money order or cashier's check only, payable to the Embassy of Jordan.",
+        "verified": "2026-07",
+        "source_url": "https://www.jordanembassy.us/legalization-services/personal-documents"
+      },
+      "CU": {
+        "usd": null,
+        "display": "Contact us — fee not published",
+        "notes": "FLAGGED AS UNVERIFIED -- sources conflict sharply. An older secondary source (aice-eval.org, credential-evaluation focused) cites a $40 Postal Money Order for consulate legalization plus $25-40 for related MINREX processing/shipping steps, while a commercial legalization-service site (visadc.com) lists a much higher 'Cuba Interest Section Fee' of $290, and another (cubaembassy.com) lists $300 as the 'Cuba Embassy fee' per document for expedited service. Cuba's own domestic fee circulars (in CUP, Cuban pesos) are not directly convertible to a reliable USD figure for the Washington DC post. Given this is compounded by the operational caveat that in-person consular services at the DC office are reportedly suspended (see jurisdiction notes), do not publish a specific dollar figure -- direct users to contact the embassy directly or use an intermediary legalization service for current pricing.",
+        "verified": "2026-07",
+        "source_url": "https://visadc.com/legalization-cuba/"
+      }
+    };
+
+    // ─── Country-level data-quality flags ───
+    const COUNTRY_FLAGS = {
+      "TW": {
+        "jurisdiction_status": "verified",
+        "notes": "Taiwan has no formal diplomatic relations with the US; TECRO (Taipei Economic and Cultural Representative Office) in DC functions as the de facto embassy, and 12 TECO (Taipei Economic and Cultural Office) posts function as de facto consulates. Jurisdiction is strictly enforced -- documents must be authenticated by the TECO/TECRO office matching the state where the document was issued/notarized. All roc-taiwan.org domains returned HTTP 403 to raw curl (bot-protection artifact) but were confirmed live via the fetch_url tool -- treat as verified live, not down."
+      },
+      "VN": {
+        "jurisdiction_status": "verified",
+        "notes": "The New York office at 866 UN Plaza functions as Vietnam's Permanent Mission to the UN, not a general public-facing consulate for document legalization -- it is NOT included as a jurisdictional office. The Houston Consulate's jurisdiction is stated in a 2009 US State Dept diplomatic note as 'the state of Texas' -- no updated official source was found expanding this, so Texas-only is used. All US states/territories not explicitly assigned to San Francisco or Houston default to the DC Embassy."
+      },
+      "NG": {
+        "jurisdiction_status": "verified",
+        "notes": "Nigeria maintains only 3 passport/document-issuing missions in the US: the Embassy in DC, Consulate General in New York, and Consulate General in Atlanta. NY jurisdiction (20 states) sourced directly from nigeriahouse.com official homepage text. Atlanta jurisdiction (16 states + Puerto Rico) sourced directly from the Atlanta consulate's own 'Consul General' page. All remaining 14 states not covered by NY or Atlanta default to the DC Embassy, along with DC itself and all territories other than Puerto Rico (Guam, USVI, American Samoa, Northern Mariana Islands -- no explicit assignment found, assumed DC default)."
+      },
+      "EG": {
+        "jurisdiction_status": "verified",
+        "notes": "Egypt's jurisdiction assignment is the cleanest of all 16 countries researched -- all 50 US states map to exactly one of 5 offices with zero gaps or overlaps, per the embassy's own consular-services page. DC Embassy handles DC + 8 nearby states. Puerto Rico is explicitly assigned to the New York consulate (not the DC Embassy, unlike some other countries in this dataset)."
+      },
+      "LB": {
+        "jurisdiction_status": "verified",
+        "notes": "Lebanon's embassy publishes an explicit 'Jurisdictions' page assigning territories (including Jamaica, American Samoa, Guam, Midway Islands, Puerto Rico, U.S. Virgin Islands) to Area I (DC). Lebanon also maintains 8 honorary consulates (Raleigh NC, Birmingham AL, Cleveland OH, Phoenix AZ, Las Vegas NV, San Francisco CA, Atlanta GA, Tampa FL) that provide limited services but do not have separately assigned states in the primary jurisdiction table -- they operate within their parent consulate's territory as local service points. Northern Mariana Islands not explicitly mentioned; assumed grouped with Guam under DC per pattern."
+      },
+      "AE": {
+        "jurisdiction_status": "unverified",
+        "notes": "FLAGGED AS UNVERIFIED. Houston jurisdiction (11 states, incl. Alabama) and New York jurisdiction (16 states, also incl. Alabama) come from two separate official mofa.gov.ae pages that both list Alabama -- an unresolved overlap/contradiction in the UAE's own published data. The Los Angeles consulate's official 'about' pages do not publish an explicit state list; only a UAE embassy press release describes it as covering 'California and 12 other western states' without naming them. Roughly half the US states (~24) have no explicit, mutually-consistent official assignment across the three consulates. Recommend NOT publishing exact state-by-state jurisdiction for UAE until MOFA publishes a clean, non-overlapping table; fall back to 'contact us' / call all three consulates for this country on the live site. Contact details below are verified live and safe to publish; only the states arrays are unreliable."
+      },
+      "QA": {
+        "jurisdiction_status": "verified",
+        "notes": "Full 50-state jurisdiction confirmed via Qatar's own washington.embassy.qa jurisdiction-distribution page and corroborated by the Qatar Cultural Attache emergency-contacts page. DC Embassy covers DC + 11 states. New York, Houston, and Los Angeles/Beverly Hills consulates cover clearly delineated regional blocks."
+      },
+      "KW": {
+        "jurisdiction_status": "verified",
+        "notes": "Full 50-state jurisdiction confirmed via Kuwait's official MOFA jurisdiction page. Note: a third-party apostille-services aggregator listed a different, non-matching state split (used only for cross-check, not authoritative) -- the official washington.mofa.gov.kw table above is treated as controlling."
+      },
+      "KE": {
+        "jurisdiction_status": "unverified",
+        "notes": "FLAGGED AS UNVERIFIED. No official Kenyan government source (mfa.go.ke or embassy site) publishing an explicit state-by-state jurisdiction split was found. Kenya's mfa.go.ke diplomatic-missions directory confirms 3 US posts (Embassy DC, Consulate/Permanent Mission New York, Consulate General Los Angeles) but does not enumerate which states each covers. Third-party aggregator sites offer no consistent or authoritative breakdown. Recommend falling back to 'contact us' / list all 3 offices without state-specific routing for Kenya until an official jurisdiction table is published."
+      },
+      "ET": {
+        "jurisdiction_status": "unverified",
+        "notes": "FLAGGED AS UNVERIFIED. Ethiopia maintains an Embassy in DC and a Consulate General in Los Angeles (the 'Seattle' and 'Houston' offices found in some aggregator lists are unofficial/honorary contacts, not confirmed government posts). No official ethiopianembassy.org page enumerating a state-by-state jurisdiction split between DC and LA was found despite multiple targeted searches. Recommend falling back to 'contact us' for Ethiopia until an authoritative jurisdiction table can be located directly from ethiopianembassy.org or ethioconsulatela.org."
+      },
+      "MY": {
+        "jurisdiction_status": "verified",
+        "notes": "Full jurisdiction confirmed via two separate official kln.gov.my (Malaysian Ministry of Foreign Affairs) pages, both consistent with each other. All 50 states + DC map cleanly to the 3 offices with Guam explicitly noted under Los Angeles jurisdiction. New Mexico is not explicitly mentioned in either official source list -- likely an oversight in the government's own table; treated here as an unresolved minor gap and flagged in the MD summary rather than guessed."
+      },
+      "TH": {
+        "jurisdiction_status": "verified",
+        "notes": "Full 50-state + DC + Puerto Rico + Guam jurisdiction confirmed via the Royal Thai Embassy's own official visa-information page, which explicitly states the complete breakdown for all 4 posts. This is one of the cleanest official sources in the entire dataset. TRANSITION: Thailand becomes a Hague Convention country on February 28, 2027. This card will move to the Apostille directory at that point."
+      },
+      "IQ": {
+        "jurisdiction_status": "verified",
+        "notes": "Full jurisdiction confirmed via the Iraqi Embassy's own official consular-services page listing all 3 posts (Washington DC Consular Section, Detroit Consulate General, Los Angeles Consulate General) and their exact state assignments. All 50 states accounted for. No mention of DC, Puerto Rico, or other territories in the official source -- assumed grouped with the Washington DC consular section by default since that section is embedded within the embassy itself."
+      },
+      "JO": {
+        "jurisdiction_status": "verified",
+        "notes": "Jordan operates only ONE consular-services post in the US -- the Embassy in Washington, DC -- which serves the entire country with no state-based jurisdictional split; a third-party source explicitly confirms 'people residing in any location are eligible for services' from the DC embassy. Jordan does maintain a few honorary consulates (Chicago, San Francisco, Detroit-area/Lathrup Village) for very limited local liaison functions, but these are not full-service consular posts and do not have separately assigned states -- all official document legalization for Jordan routes through the Washington DC embassy nationwide."
+      },
+      "CU": {
+        "jurisdiction_status": "unverified",
+        "notes": "FLAGGED AS UNVERIFIED / AMBIGUOUS. Cuba's diplomatic mission in the US is officially the Embassy of the Republic of Cuba, Washington, DC (upgraded from 'Interests Section' status in 2015 when US-Cuba relations were normalized; it is a full embassy, not an interests section, as of 2026). It is the ONLY Cuban diplomatic/consular post in the US -- there are no Cuban consulates in other US cities. However, the official Cuban consular-services page (misiones.cubaminrex.cu) explicitly states that ALL in-person consular services at the Washington office are currently SUSPENDED ('Quedan suspendidos todos los servicios consulares presenciales en la Oficina Consular de Cuba en Washington DC hasta nuevo aviso' -- suspended until further notice), with services only available via mail or authorized third-party agencies. Given this suspension of in-person/document services, and given no jurisdictional split exists (single national post), recommend falling back to 'contact us' rather than implying walk-in document legalization is currently available."
+      }
+    };
+
     // ISO2 → flag emoji (regional indicator symbols)
     function flag(iso2) {
       if (!iso2 || iso2.length !== 2) return "🌍";
       return String.fromCodePoint(...[...iso2.toUpperCase()].map(c => 0x1F1E6 - 65 + c.charCodeAt(0)));
     }
+
+    // Full state name lookup for user-facing routing messages
+    const STATE_NAMES = {
+      AL:"Alabama", AK:"Alaska", AZ:"Arizona", AR:"Arkansas", CA:"California",
+      CO:"Colorado", CT:"Connecticut", DE:"Delaware", DC:"District of Columbia",
+      FL:"Florida", GA:"Georgia", HI:"Hawaii", ID:"Idaho", IL:"Illinois",
+      IN:"Indiana", IA:"Iowa", KS:"Kansas", KY:"Kentucky", LA:"Louisiana",
+      ME:"Maine", MD:"Maryland", MA:"Massachusetts", MI:"Michigan", MN:"Minnesota",
+      MS:"Mississippi", MO:"Missouri", MT:"Montana", NE:"Nebraska", NV:"Nevada",
+      NH:"New Hampshire", NJ:"New Jersey", NM:"New Mexico", NY:"New York",
+      NC:"North Carolina", ND:"North Dakota", OH:"Ohio", OK:"Oklahoma", OR:"Oregon",
+      PA:"Pennsylvania", RI:"Rhode Island", SC:"South Carolina", SD:"South Dakota",
+      TN:"Tennessee", TX:"Texas", UT:"Utah", VT:"Vermont", VA:"Virginia",
+      WA:"Washington", WV:"West Virginia", WI:"Wisconsin", WY:"Wyoming",
+      PR:"Puerto Rico", GU:"Guam", VI:"US Virgin Islands", AS:"American Samoa", MP:"N. Mariana Islands"
+    };
 
     // The full non-Hague country list (from Hague master)
     const COUNTRIES = [
@@ -410,56 +1953,191 @@
       {iso2:"ZW", name:"Zimbabwe"}
     ];
 
-    // Default consulate assignment: if not in CONSULATE_DATA, assume DC-only
-    function getConsulate(iso2) {
-      if (CONSULATE_DATA[iso2]) return CONSULATE_DATA[iso2];
+    /**
+     * Resolve which consulate office should handle a document for a given country + state.
+     * Returns { office, matchType } where matchType is:
+     *   "jurisdiction"  — office's states array includes selectedState (correct routing)
+     *   "default"       — no state match; falling back to embassy or first office
+     *   "unverified"    — jurisdictions exist but no state assignments (e.g. Kenya, Ethiopia)
+     *   "single-office" — country has only one US post (e.g. Jordan, Cuba)
+     *   "legacy"        — country is in CONSULATE_DATA only, no state routing available
+     */
+    function resolveOffice(iso2, selectedState) {
+      const jurisdictions = CONSULATE_JURISDICTIONS[iso2];
+      if (jurisdictions && jurisdictions.length > 0) {
+        // Check if any office has states data at all
+        const hasStateData = jurisdictions.some(o => o.states && o.states.length > 0);
+        if (!hasStateData) {
+          return { office: jurisdictions[0], matchType: "unverified", jurisdictions };
+        }
+        if (jurisdictions.length === 1) {
+          return { office: jurisdictions[0], matchType: "single-office", jurisdictions };
+        }
+        // Match by state — gather ALL offices claiming this state (rare but happens
+        // when a country subdivides a state like CA into North/South).
+        const matches = jurisdictions.filter(o => o.states && o.states.includes(selectedState));
+        if (matches.length > 0) {
+          // If multiple offices claim the state (subdivided coverage), prefer in this order:
+          // 1. LA-area office (we're an LA business — defaults to closest for our clients)
+          // 2. SF Bay office
+          // 3. First match
+          const laPref = matches.find(o => o.loc === "la");
+          if (laPref) return { office: laPref, matchType: "jurisdiction", jurisdictions };
+          const sfPref = matches.find(o => o.loc === "sf");
+          if (sfPref) return { office: sfPref, matchType: "jurisdiction", jurisdictions };
+          return { office: matches[0], matchType: "jurisdiction", jurisdictions };
+        }
+        // No state match — prefer the DC embassy (loc: "dc"), else first office
+        const dcOffice = jurisdictions.find(o => o.loc === "dc");
+        return {
+          office: dcOffice || jurisdictions[0],
+          matchType: "default",
+          jurisdictions
+        };
+      }
+      // Legacy single-office data
+      if (CONSULATE_DATA[iso2]) {
+        return { office: CONSULATE_DATA[iso2], matchType: "legacy", jurisdictions: null };
+      }
+      // Fallback: no data at all
       return {
-        name: "No dedicated US consulate — contact the country's Embassy in Washington DC",
-        address: "See the US Department of State directory of foreign embassies for the current address",
-        phone: "",
-        website: "https://www.state.gov/foreign-embassies-in-the-united-states/",
-        loc: "dc",
-        note: "This country has no dedicated consulate in Southern California. Documents must be authenticated by the US Department of State (not the CA Secretary of State) and then submitted to the country's embassy in Washington DC. We can handle the full chain including DC embassy submission by mail. Call us for the current embassy address and requirements — they change without notice."
+        office: {
+          name: "No dedicated US consulate — contact the country's Embassy in Washington DC",
+          address: "See the US Department of State directory of foreign embassies for the current address",
+          phone: "",
+          website: "https://www.state.gov/foreign-embassies-in-the-united-states/",
+          loc: "dc",
+          note: "This country has no dedicated consulate in Southern California. Documents must be authenticated by the US Department of State (not the CA Secretary of State) and then submitted to the country's embassy in Washington DC. We can handle the full chain including DC embassy submission by mail. Call us for the current embassy address and requirements — they change without notice."
+        },
+        matchType: "legacy",
+        jurisdictions: null
       };
     }
 
+    // Map loc codes to badge display metadata
     const badgeMap = {
       la: {cls:"badge-la", text:"LA Consulate"},
       sf: {cls:"badge-sf", text:"SF Bay Area"},
       ny: {cls:"badge-ny", text:"New York"},
       dc: {cls:"badge-dc", text:"DC Only"},
+      houston: {cls:"badge-dc", text:"Houston"},
+      chicago: {cls:"badge-dc", text:"Chicago"},
+      detroit: {cls:"badge-dc", text:"Detroit"},
+      atlanta: {cls:"badge-dc", text:"Atlanta"},
+      miami: {cls:"badge-dc", text:"Miami"},
+      boston: {cls:"badge-dc", text:"Boston"},
+      seattle: {cls:"badge-dc", text:"Seattle"},
+      denver: {cls:"badge-dc", text:"Denver"},
+      honolulu: {cls:"badge-dc", text:"Honolulu"},
+      guam: {cls:"badge-dc", text:"Guam"},
       closed: {cls:"badge-closed", text:"No Consular Services"}
     };
+
+    // Format phone for tel: link
+    function telHref(phone) {
+      const digits = phone.replace(/[^0-9+]/g, "");
+      return digits.startsWith("+") ? digits : ("+1" + digits);
+    }
+
+    function renderFeeBlock(iso2, matchType) {
+      const fee = CONSULAR_FEES[iso2];
+      if (!fee) return "";
+      const feeValue = fee.display || "Contact us — fee not published";
+      const verifiedLabel = fee.verified ? `Verified ${fee.verified}` : "";
+      const notes = fee.notes ? `<div class="country-card__fee-notes">${fee.notes}</div>` : "";
+      return `
+        <div class="country-card__fee">
+          <span class="country-card__fee-label">Consular fee</span>
+          <span class="country-card__fee-value">${feeValue}</span>
+          ${verifiedLabel ? `<span class="country-card__fee-verified">${verifiedLabel}</span>` : ""}
+          ${notes}
+        </div>
+      `;
+    }
+
+    function renderRoutingBlock(iso2, selectedState, resolved) {
+      const { office, matchType, jurisdictions } = resolved;
+      const stateName = STATE_NAMES[selectedState] || selectedState;
+
+      if (matchType === "jurisdiction") {
+        // Correct in-jurisdiction match. If CA, we're the office of record — extra confidence.
+        if (selectedState === "CA" && office.loc === "la") {
+          return `<div class="country-card__routing"><strong>For documents notarized in ${stateName}:</strong> Route through the Los Angeles consulate below. Mobile American Notary handles the full chain end-to-end.</div>`;
+        }
+        return `<div class="country-card__routing"><strong>For documents notarized in ${stateName}:</strong> Route through the office shown below. Mobile American Notary can prepare and mail the documents on your behalf.</div>`;
+      }
+      if (matchType === "default") {
+        // State is not explicitly assigned — flagging so client understands
+        return `<div class="country-card__routing country-card__routing-outofstate"><strong>${stateName} not explicitly assigned:</strong> defaulting to the embassy in DC. Call us — we'll confirm the correct office for your document before shipping.</div>`;
+      }
+      if (matchType === "unverified") {
+        return `<div class="country-card__routing country-card__routing-unverified"><strong>Jurisdiction split not published:</strong> This country has multiple US posts but no publicly available state-by-state map. Call us to confirm which office handles ${stateName} documents.</div>`;
+      }
+      if (matchType === "single-office") {
+        return `<div class="country-card__routing"><strong>Single US post:</strong> ${office.name.split(/[–—-]/)[0].trim()} handles documents from all US states, including ${stateName}.</div>`;
+      }
+      // Legacy — no state routing at all
+      if (office.loc === "closed") {
+        return "";
+      }
+      return `<div class="country-card__routing"><strong>Routing:</strong> ${stateName} documents route through this office. Mobile American Notary can prepare and mail on your behalf.</div>`;
+    }
+
+    function renderJurisdictionAlternates(iso2, selectedOfficeName, resolved) {
+      if (!resolved.jurisdictions || resolved.jurisdictions.length < 2) return "";
+      const others = resolved.jurisdictions.filter(o => o.name !== selectedOfficeName);
+      if (others.length === 0) return "";
+      const list = others.map(o => {
+        const stateList = (o.states && o.states.length > 0)
+          ? o.states.slice(0, 8).join(", ") + (o.states.length > 8 ? `, +${o.states.length - 8} more` : "")
+          : "no published state list";
+        return `<li><strong>${o.name.replace(/\s*[–—-].*$/, "").trim()}</strong> — ${stateList}</li>`;
+      }).join("");
+      return `<details class="country-card__note" style="border-left-color:#94a3b8;"><summary style="cursor:pointer;font-weight:600;color:#334155;">Other US posts for this country (${others.length})</summary><ul style="margin:.5rem 0 0 1.2rem;padding:0;font-size:.85rem;line-height:1.55;">${list}</ul></details>`;
+    }
 
     function renderList() {
       const search = document.getElementById("country-search").value.toLowerCase().trim();
       const filter = document.getElementById("location-filter").value;
+      const selectedState = document.getElementById("state-selector").value;
       const container = document.getElementById("country-list");
       container.innerHTML = "";
       let shown = 0;
 
       COUNTRIES.forEach(c => {
-        const consulate = getConsulate(c.iso2);
+        const resolved = resolveOffice(c.iso2, selectedState);
+        const office = resolved.office;
         if (search && !c.name.toLowerCase().includes(search)) return;
-        if (filter !== "all" && consulate.loc !== filter) return;
+        if (filter !== "all" && office.loc !== filter) return;
         shown++;
 
-        const b = badgeMap[consulate.loc] || badgeMap.dc;
+        const b = badgeMap[office.loc] || badgeMap.dc;
         const card = document.createElement("div");
-        card.className = "country-card" + (consulate.loc === "closed" ? " country-card--closed" : "");
+        card.className = "country-card" + (office.loc === "closed" ? " country-card--closed" : "");
+
+        const feeBlock = renderFeeBlock(c.iso2, resolved.matchType);
+        const routingBlock = renderRoutingBlock(c.iso2, selectedState, resolved);
+        const alternatesBlock = renderJurisdictionAlternates(c.iso2, office.name, resolved);
+
+        // Cleanup: some office names embed a description after em-dash; keep it short in the card title
+        const displayName = office.name;
+
         card.innerHTML = `
           <div class="country-card__head">
             <span class="country-card__flag" aria-hidden="true">${flag(c.iso2)}</span>
             <h3 class="country-card__name">${c.name}</h3>
             <span class="country-card__badge ${b.cls}">${b.text}</span>
           </div>
-          <p class="country-card__consulate">${consulate.name}</p>
+          ${routingBlock}
+          <p class="country-card__consulate">${displayName}</p>
           <div class="country-card__meta">
-            ${consulate.address ? `📍 ${consulate.address}<br>` : ""}
-            ${consulate.phone ? `📞 <a href="tel:${consulate.phone.replace(/[^0-9+]/g,'')}">${consulate.phone}</a><br>` : ""}
-            ${consulate.website ? `🌐 <a href="${consulate.website}" rel="external noopener" target="_blank">Official website</a>` : ""}
+            ${office.address ? `📍 ${office.address}<br>` : ""}
+            ${office.phone ? `📞 <a href="tel:${telHref(office.phone)}">${office.phone}</a><br>` : ""}
+            ${office.website ? `🌐 <a href="${office.website}" rel="external noopener" target="_blank">Official website</a>` : ""}
           </div>
-          ${consulate.note ? `<div class="country-card__note">${consulate.note}</div>` : ""}
+          ${feeBlock}
+          ${office.note ? `<div class="country-card__note">${office.note}</div>` : ""}
+          ${alternatesBlock}
         `;
         container.appendChild(card);
       });
@@ -469,13 +2147,23 @@
 
     document.getElementById("country-search").addEventListener("input", renderList);
     document.getElementById("location-filter").addEventListener("change", renderList);
+    document.getElementById("state-selector").addEventListener("change", renderList);
     renderList();
 
-    // Update hero stats dynamically
-    const laCount = Object.values(CONSULATE_DATA).filter(c => c.loc === "la").length;
-    const sfCount = Object.values(CONSULATE_DATA).filter(c => c.loc === "sf").length;
-    const closedCount = Object.values(CONSULATE_DATA).filter(c => c.loc === "closed").length;
-    const dcCount = COUNTRIES.length - laCount - sfCount - Object.values(CONSULATE_DATA).filter(c => c.loc === "ny").length - closedCount;
+    // Update hero stats dynamically — count how many countries have an LA-area office reachable from CA
+    function countByCaRouting(targetLoc) {
+      let count = 0;
+      COUNTRIES.forEach(c => {
+        const r = resolveOffice(c.iso2, "CA");
+        if (r.office.loc === targetLoc) count++;
+      });
+      return count;
+    }
+    const laCount = countByCaRouting("la");
+    const sfCount = countByCaRouting("sf");
+    const closedCount = countByCaRouting("closed");
+    const nyCount = countByCaRouting("ny");
+    const dcCount = COUNTRIES.length - laCount - sfCount - nyCount - closedCount;
     document.getElementById("stat-la").textContent = laCount;
     document.getElementById("stat-sf").textContent = sfCount;
     document.getElementById("stat-dc").textContent = dcCount;
