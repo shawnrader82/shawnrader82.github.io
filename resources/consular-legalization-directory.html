@@ -148,6 +148,9 @@
     .badge-ny { background: #fef3c7; color: #92400e; }
     .badge-dc { background: #f1f5f9; color: #475569; }
     .badge-none { background: #fee2e2; color: #991b1b; }
+    .badge-closed { background: #fee2e2; color: #991b1b; }
+    .country-card--closed { border: 1px solid #fca5a5; background: #fef2f2; }
+    .country-card--closed .country-card__meta strong { color: #991b1b; }
 
     .country-card__consulate { font-size: .95rem; color: #0f172a; margin: .5rem 0 .35rem; font-weight: 500; }
     .country-card__meta { font-size: .88rem; color: #475569; line-height: 1.55; }
@@ -243,6 +246,7 @@
           <option value="sf">SF Bay Area only</option>
           <option value="ny">New York consulate</option>
           <option value="dc">Washington DC only</option>
+          <option value="closed">Consular services suspended</option>
         </select>
         <div class="directory-count" id="directory-count">70 countries</div>
       </div>
@@ -292,7 +296,11 @@
       "GH": {"name":"Embassy of Ghana (Washington DC)","address":"3512 International Drive NW, Washington, DC 20008","phone":"(202) 686-4520","website":"https://www.ghanaembassydc.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "IQ": {"name":"Embassy of Iraq (Washington DC)","address":"3421 Massachusetts Avenue NW, Washington, DC 20007","phone":"(202) 742-1600","website":"https://www.mofa.gov.iq/washington/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
       "LK": {"name":"Embassy of Sri Lanka (Washington DC)","address":"3025 Whitehaven Street NW, Washington, DC 20008","phone":"(202) 483-4025","website":"https://slembassyusa.org/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
-      "NP": {"name":"Embassy of Nepal (Washington DC)","address":"2131 Leroy Place NW, Washington, DC 20008","phone":"(202) 667-4550","website":"https://us.nepalembassy.gov.np/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."}
+      "NP": {"name":"Embassy of Nepal (Washington DC)","address":"2131 Leroy Place NW, Washington, DC 20008","phone":"(202) 667-4550","website":"https://us.nepalembassy.gov.np/","loc":"dc","note":"No LA consulate. Requires US Department of State authentication first."},
+      "AF": {"name":"CLOSED — No Afghan consular services available in the United States","address":"The Afghan Embassy in Washington, DC and consulates in Los Angeles and New York ceased operations on March 16, 2022. The US Department of State's Office of Foreign Missions holds custody of the properties.","phone":"","website":"https://www.state.gov/u-s-relations-with-afghanistan/","loc":"closed","note":"IMPORTANT: There is currently no functioning Afghan diplomatic mission in the United States. The US does not recognize the Taliban government, and no consular legalization of US documents for use in Afghanistan is available through the traditional channel. Options are limited: (1) the Afghan Embassy in Ottawa, Canada continues to serve Afghan nationals in the US and may accept documents by mail for legalization — verify current status directly with them; (2) apply for legalization at an Afghan embassy in a third country (e.g. Islamabad, Doha, or Ankara) that maintains services; (3) if the receiving party in Afghanistan is a private entity, ask whether a US Department of State authentication alone (without consular legalization) will be accepted. We cannot promise a routing that will work — this is a country where consular legalization is effectively suspended and we recommend calling us to discuss your specific case before starting any document preparation."},
+      "AO": {"name":"Embassy of the Republic of Angola (Washington DC)","address":"2100-2108 16th Street NW, Washington, DC 20009","phone":"(202) 785-1156","website":"https://angola.org/","loc":"dc","note":"No LA consulate. Also has consulates in New York (866 United Nations Plaza, Suite 552) and Houston (3040 Post Oak Blvd, Suite 780). Requires US Department of State authentication first, then mail to DC embassy consular section. Consular hours: submissions Mon/Wed 9:30am-1pm, pickups Tue/Thu 12pm-3pm, closed Friday."},
+      "KP": {"name":"CLOSED — No North Korean consular services in the United States","address":"The US does not maintain diplomatic relations with the Democratic People's Republic of Korea (DPRK). There is no North Korean embassy or consulate in the United States, and no US embassy in Pyongyang. Sweden serves as the US protecting power in North Korea.","phone":"","website":"https://www.state.gov/countries-areas/north-korea","loc":"closed","note":"IMPORTANT: There is no channel for consular legalization of US documents intended for North Korea. Under OFAC and the North Korea Sanctions and Policy Enhancement Act, most transactions with the DPRK are prohibited without a specific license from the Treasury Department. If you have a document that must reach North Korea, the only pathways typically available are: (1) via a third-country embassy (Sweden, the Swiss Embassy Beijing, or the DPRK's UN Mission in New York in very narrow circumstances); (2) with a specific OFAC license. Call us before starting document preparation — in most cases what a client actually needs is a US Department of State authentication and a professional translation, delivered privately, not a consular chain."},
+      "SY": {"name":"Embassy of the Syrian Arab Republic (Washington DC) — recently reopened","address":"2215 Wyoming Avenue NW, Washington, DC 20008","phone":"(202) 232-6313","website":"https://www.state.gov/foreign-embassies-in-the-united-states/","loc":"dc","note":"The Syrian Embassy in Washington DC reopened on September 19, 2025 after 11 years of closure, following the fall of the Assad regime and the appointment of a new Syrian government. A new Chargé d'Affaires (Mohammad Qanatari) was named in January 2026. Consular services are being restored on a phased schedule and specific requirements may still be evolving. Call us before starting document preparation for Syria — we will confirm current legalization procedures directly with the embassy. Requires US Department of State authentication first."}
     };
 
     // ISO2 → flag emoji (regional indicator symbols)
@@ -381,11 +389,11 @@
       if (CONSULATE_DATA[iso2]) return CONSULATE_DATA[iso2];
       return {
         name: "No dedicated US consulate — contact the country's Embassy in Washington DC",
-        address: "Consult travel.state.gov for the current embassy address",
+        address: "See the US Department of State directory of foreign embassies for the current address",
         phone: "",
-        website: "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/embassy-consulate-directory.html",
+        website: "https://www.state.gov/foreign-embassies-in-the-united-states/",
         loc: "dc",
-        note: "This country has no dedicated consulate in Southern California. Documents must be authenticated by the US Department of State (not the CA Secretary of State) and then submitted to the country's embassy in Washington DC. We can handle the full chain including DC embassy submission by mail."
+        note: "This country has no dedicated consulate in Southern California. Documents must be authenticated by the US Department of State (not the CA Secretary of State) and then submitted to the country's embassy in Washington DC. We can handle the full chain including DC embassy submission by mail. Call us for the current embassy address and requirements — they change without notice."
       };
     }
 
@@ -393,7 +401,8 @@
       la: {cls:"badge-la", text:"LA Consulate"},
       sf: {cls:"badge-sf", text:"SF Bay Area"},
       ny: {cls:"badge-ny", text:"New York"},
-      dc: {cls:"badge-dc", text:"DC Only"}
+      dc: {cls:"badge-dc", text:"DC Only"},
+      closed: {cls:"badge-closed", text:"No Consular Services"}
     };
 
     function renderList() {
@@ -411,7 +420,7 @@
 
         const b = badgeMap[consulate.loc] || badgeMap.dc;
         const card = document.createElement("div");
-        card.className = "country-card";
+        card.className = "country-card" + (consulate.loc === "closed" ? " country-card--closed" : "");
         card.innerHTML = `
           <div class="country-card__head">
             <span class="country-card__flag" aria-hidden="true">${flag(c.iso2)}</span>
@@ -439,7 +448,8 @@
     // Update hero stats dynamically
     const laCount = Object.values(CONSULATE_DATA).filter(c => c.loc === "la").length;
     const sfCount = Object.values(CONSULATE_DATA).filter(c => c.loc === "sf").length;
-    const dcCount = COUNTRIES.length - laCount - sfCount - Object.values(CONSULATE_DATA).filter(c => c.loc === "ny").length;
+    const closedCount = Object.values(CONSULATE_DATA).filter(c => c.loc === "closed").length;
+    const dcCount = COUNTRIES.length - laCount - sfCount - Object.values(CONSULATE_DATA).filter(c => c.loc === "ny").length - closedCount;
     document.getElementById("stat-la").textContent = laCount;
     document.getElementById("stat-sf").textContent = sfCount;
     document.getElementById("stat-dc").textContent = dcCount;
