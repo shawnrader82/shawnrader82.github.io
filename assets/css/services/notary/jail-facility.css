@@ -36,6 +36,13 @@
   font-size: 0.95rem;
   line-height: 1.55;
 }
+.nt-info-box .nt-info-hint {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
 
 /* ---------- Card grid (related facilities, services) ---------- */
 .nt-card-grid {
