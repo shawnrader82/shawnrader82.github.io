@@ -241,17 +241,17 @@
         <div class="process-step">
           <p class="process-step__num">Step 1</p>
           <h3 class="process-step__title">Notarize (if needed)</h3>
-          <p class="process-step__body" id="process-step-1-body">Sign before a <span data-state-noun>California Notary</span>. The Notary attaches an acknowledgment or jurat certificate. Documents that are already government-issued and certified — birth, death, marriage, court, or DMV records — skip this step and go directly to state certification.</p>
+          <p class="process-step__body">Sign before a Notary Public in the state where the document is executed. The Notary attaches an acknowledgment or jurat certificate. Documents that are already government-issued and certified — birth, death, marriage, court, or DMV records — skip this step and go directly to state certification.</p>
         </div>
         <div class="process-step">
           <p class="process-step__num">Step 2</p>
-          <h3 class="process-step__title" id="process-step-2-title">California state certification</h3>
-          <p class="process-step__body" id="process-step-2-body">For state-issued or <span data-state-adj>California</span>-notarized documents: the <span data-state-sos>California Secretary of State</span> certifies the Notary's or issuing agency's authority. Federally-issued documents (FBI Identity History reports, USDA export certificates, IRS documents) skip this step and go straight to federal authentication.</p>
+          <h3 class="process-step__title">State certification</h3>
+          <p class="process-step__body">For state-issued or state-notarized documents: your state's Secretary of State (or equivalent authenticating authority) certifies the Notary's or issuing agency's authority. Federally-issued documents (FBI Identity History reports, USDA export certificates, IRS documents) skip this step and go straight to federal authentication.</p>
         </div>
         <div class="process-step">
           <p class="process-step__num">Step 3</p>
           <h3 class="process-step__title">US Department of State authentication</h3>
-          <p class="process-step__body" id="process-step-3-body">Most destination countries require the US Department of State in Washington DC to authenticate the <span data-state-sos>California Secretary of State</span>'s signature (or, for federal documents, the issuing agency). Handled by mail through the Office of Authentications. A short list of countries — including Taiwan — accept state-level certification alone and skip this federal step.</p>
+          <p class="process-step__body">Most destination countries require the US Department of State in Washington DC to authenticate the state Secretary of State's signature (or, for federal documents, the issuing agency). Handled by mail through the Office of Authentications. A short list of countries — including Taiwan — accept state-level certification alone and skip this federal step.</p>
         </div>
         <div class="process-step">
           <p class="process-step__num">Step 4</p>
@@ -267,7 +267,7 @@
 
       <div style="background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:1rem 1.15rem;margin-top:1.5rem;font-size:.92rem;color:#78350f;line-height:1.55;max-width:1080px;">
         <strong>Two common exceptions worth flagging up front:</strong><br>
-        • <strong>Taiwan (TECO)</strong> — accepts <span data-state-sos>California Secretary of State</span> certification directly and does NOT require the US Department of State step. Faster and cheaper than the full 5-step chain.<br>
+        • <strong>Taiwan (TECO)</strong> — accepts state-level Secretary of State certification directly and does NOT require the US Department of State step. Faster and cheaper than the full 5-step chain.<br>
         • <strong>Federally-issued documents</strong> (FBI background checks, IRS letters, USDA/FDA certificates, naturalization certificates) — skip the state-level certification step and go directly to the US Department of State in DC. State-level certification does not apply to federal documents.
       </div>
 
@@ -2157,27 +2157,21 @@
       MP: { adj: "Northern Mariana Islands", noun: "Northern Mariana Islands Notary", sos: "Office of the Attorney General (Northern Mariana Islands)", stepTitle: "Northern Mariana Islands authentication" }
     };
 
-    // Update all process-section copy to reflect the currently selected state.
-    // Uses data-state-* attribute spans as placeholders so the HTML stays semantic.
+    // Update the out-of-state banner copy based on the currently selected state.
+    // The 5-step process section above stays state-agnostic; this banner is where
+    // state-specific routing guidance lives.
     function updateProcessCopy(state) {
       const stateName = STATE_NAMES[state] || "California";
       const override = STATE_OVERRIDES[state];
       const adj = override ? override.adj : stateName;
-      const noun = override ? override.noun : `${stateName} Notary`;
       const sos = override ? override.sos : `${stateName} Secretary of State`;
-      const stepTitle = override ? override.stepTitle : `${stateName} state certification`;
       const quirk = STATE_QUIRKS[state] || "";
 
-      // Fill placeholder spans
+      // Fill placeholder spans (only in the banner now — process steps are static)
       document.querySelectorAll("[data-state-name]").forEach(el => el.textContent = stateName);
       document.querySelectorAll("[data-state-adj]").forEach(el => el.textContent = adj);
       document.querySelectorAll("[data-state-sos]").forEach(el => el.textContent = sos);
-      document.querySelectorAll("[data-state-noun]").forEach(el => el.textContent = noun);
       document.querySelectorAll("[data-state-quirk]").forEach(el => el.textContent = quirk);
-
-      // Update the Step 2 title
-      const step2Title = document.getElementById("process-step-2-title");
-      if (step2Title) step2Title.textContent = stepTitle;
 
       // Show/hide out-of-state banner
       const banner = document.getElementById("out-of-state-banner");
