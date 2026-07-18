@@ -312,4 +312,55 @@ details.faq-item > p {
    can still override per-component via !important. */
 .service-detail { padding: 56px 0; }
 
+/* ========== HUB/SPOKE ZEBRA SECTION BACKGROUNDS ========== */
+/* Any page with <body class="hub-zebra"> gets strict zebra alternation:
+   section 1 (hero, usually dark) and section 2 (trust ribbon, usually white)
+   are left alone. From section 3 onward, backgrounds are pinned to
+   alternating gray/white regardless of the underlying section class,
+   so adjacent sections with the same component class don't produce
+   back-to-back same-color bands.
+
+   Pattern from section 3: gray, white, gray, white, ...
+   (i.e. odd positions get gray, even positions get white)
+
+   Supports pages up to 30 total sections (26 zebra-ed sections). If a page
+   grows beyond that, extend the nth-child list here.
+
+   Callout/warning boxes INSIDE a section keep their own background — this
+   rule only paints the top-level <section> element. */
+/* Use nth-of-type so <style>, <div>, <script> siblings inside <main> don't
+   throw off the counting. nth-of-type only counts <section> elements. */
+body.hub-zebra main > section:nth-of-type(3),
+body.hub-zebra main > section:nth-of-type(5),
+body.hub-zebra main > section:nth-of-type(7),
+body.hub-zebra main > section:nth-of-type(9),
+body.hub-zebra main > section:nth-of-type(11),
+body.hub-zebra main > section:nth-of-type(13),
+body.hub-zebra main > section:nth-of-type(15),
+body.hub-zebra main > section:nth-of-type(17),
+body.hub-zebra main > section:nth-of-type(19),
+body.hub-zebra main > section:nth-of-type(21),
+body.hub-zebra main > section:nth-of-type(23),
+body.hub-zebra main > section:nth-of-type(25),
+body.hub-zebra main > section:nth-of-type(27),
+body.hub-zebra main > section:nth-of-type(29) {
+  background-color: #f4f7fb !important;
+}
+body.hub-zebra main > section:nth-of-type(4),
+body.hub-zebra main > section:nth-of-type(6),
+body.hub-zebra main > section:nth-of-type(8),
+body.hub-zebra main > section:nth-of-type(10),
+body.hub-zebra main > section:nth-of-type(12),
+body.hub-zebra main > section:nth-of-type(14),
+body.hub-zebra main > section:nth-of-type(16),
+body.hub-zebra main > section:nth-of-type(18),
+body.hub-zebra main > section:nth-of-type(20),
+body.hub-zebra main > section:nth-of-type(22),
+body.hub-zebra main > section:nth-of-type(24),
+body.hub-zebra main > section:nth-of-type(26),
+body.hub-zebra main > section:nth-of-type(28),
+body.hub-zebra main > section:nth-of-type(30) {
+  background-color: #ffffff !important;
+}
+
 /* ========== /GLOBAL COMPONENTS ========== */

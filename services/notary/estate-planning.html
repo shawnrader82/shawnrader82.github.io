@@ -374,27 +374,9 @@
   </script>
   <script src="/assets/js/gclid-capture.min.js" defer></script>
 
-  <!-- Page-local styles: zebra section overrides + requirements table + mistakes section + bedside block -->
+  <!-- Page-local styles: requirements table + mistakes section + bedside block
+       (Zebra section alternation is now handled globally via body.hub-zebra in global.css) -->
   <style>
-    /* Zebra alternation for this page's 14 sections.
-       Hero (1) is dark, trust ribbon (2) is white, then alternate gray/white
-       starting from section 3 regardless of the underlying section class. */
-    main > section:nth-of-type(3),
-    main > section:nth-of-type(5),
-    main > section:nth-of-type(7),
-    main > section:nth-of-type(9),
-    main > section:nth-of-type(11),
-    main > section:nth-of-type(13) {
-      background-color: #f4f7fb !important;
-    }
-    main > section:nth-of-type(4),
-    main > section:nth-of-type(6),
-    main > section:nth-of-type(8),
-    main > section:nth-of-type(10),
-    main > section:nth-of-type(12),
-    main > section:nth-of-type(14) {
-      background-color: #ffffff !important;
-    }
 
     .ep-req-table-wrap { margin: 1.5rem 0 1rem; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #e2e8f0; border-radius: 10px; }
     .ep-req-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; background: #ffffff; }
@@ -437,7 +419,7 @@
   </style>
 </head>
 
-<body data-nav-active="notary" data-card-palette="estate">
+<body class="hub-zebra" data-nav-active="notary" data-card-palette="estate">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWBRTN9M" height="0" width="0" style="display:none;visibility:hidden"></iframe>
