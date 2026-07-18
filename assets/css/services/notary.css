@@ -1204,4 +1204,31 @@ body[data-nav-active="notary"] .home-hero__cta {
   color: #b91c1c;
 }
 
+/* ========== Title-only card variant (used on jail hub juvenile cross-link, spoke cross-links, etc.) ========== */
+a.nt-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nt-card__title {
+  display: block;
+  padding: 1.1rem 1.25rem;
+  font-family: var(--font-sans, "Inter", system-ui, -apple-system, sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink, #0f172a);
+  line-height: 1.35;
+  transition: color 0.18s ease;
+}
+
+a.nt-card:hover .nt-card__title,
+a.nt-card:focus-visible .nt-card__title {
+  color: #b91c1c;
+}
+
+a.nt-card:focus-visible {
+  outline: 2px solid #b91c1c;
+  outline-offset: 2px;
+}
+
 /* ========== /NOTARY HUB CSS ========== */
