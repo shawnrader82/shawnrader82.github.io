@@ -125,7 +125,22 @@
 
     .process-section { max-width: 1080px; margin: 3rem auto; padding: 0 1.25rem; }
     .process-section h2 { font-size: 1.5rem; color: #0f172a; margin: 0 0 1rem; }
-    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .process-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; margin-top: 1.25rem; }
+    /* 3 across on row 1, 2 centered on row 2 (using 6-col grid: each of first 3 spans 2; last 2 span 3) */
+    .process-grid > .process-step:nth-child(1),
+    .process-grid > .process-step:nth-child(2),
+    .process-grid > .process-step:nth-child(3) { grid-column: span 2; }
+    .process-grid > .process-step:nth-child(4),
+    .process-grid > .process-step:nth-child(5) { grid-column: span 3; }
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid > .process-step:nth-child(n) { grid-column: auto; }
+      .process-grid > .process-step:nth-child(5) { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .process-grid > .process-step:nth-child(n) { grid-column: auto; }
+    }
     .process-step { background: #ffffff; border: 1px solid #e2e8f0; border-left: 3px solid #8b1a1a; border-radius: 8px; padding: 1.25rem; }
     .process-step__num { color: #8b1a1a; font-weight: 700; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 .5rem; }
     .process-step__title { font-size: 1.02rem; font-weight: 600; color: #0f172a; margin: 0 0 .5rem; }
