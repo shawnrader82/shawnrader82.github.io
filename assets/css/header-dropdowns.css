@@ -265,3 +265,60 @@ body[data-nav-active="locations"] a.home-header__nav-link[data-nav="locations"] 
     display: none;
   }
 }
+
+/* ── Mega dropdown (Apostille) — wider, 2-column layout ─────────────────── */
+.home-header__dropdown--mega {
+  min-width: 520px;
+  padding: 12px 0 10px;
+}
+
+.home-header__dropdown--mega .home-header__dropdown-overview {
+  font-weight: 700;
+  color: #b91c1c;
+  padding: 8px 20px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 8px;
+}
+
+.home-header__dropdown-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 8px;
+  padding: 0 4px;
+}
+
+.home-header__dropdown-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header__dropdown-label {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin: 8px 16px 4px;
+  padding: 0;
+}
+
+.home-header__dropdown--mega .home-header__dropdown-label:first-of-type {
+  margin-top: 4px;
+}
+
+/* ── Mobile menu subgroup labels ────────────────────────────────────────── */
+.home-mobile-menu__label {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.70rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 14px 0 4px;
+  padding: 0 0 0 16px;
+}
+
+.home-mobile-menu__label:first-of-type {
+  margin-top: 8px;
+}
