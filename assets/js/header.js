@@ -209,8 +209,16 @@
       btn.addEventListener('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
-        var expanded = group.classList.toggle('is-expanded');
-        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        var willExpand = !group.classList.contains('is-expanded');
+        // Accordion behavior: collapse all other groups before expanding this one.
+        Array.prototype.forEach.call(mobileGroups, function (other) {
+          if (other === group) return;
+          other.classList.remove('is-expanded');
+          var otherBtn = other.querySelector('.home-mobile-menu__toggle');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('is-expanded', willExpand);
+        btn.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
       });
     });
 
