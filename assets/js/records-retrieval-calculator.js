@@ -1,0 +1,321 @@
+/**
+ * Real Estate Records Retrieval Fee Calculator
+ * Mobile American Notary & Apostilles
+ *
+ * Scope: retrieval (purchase / in-person pickup) of documents ALREADY on record.
+ * This is NOT the recording calculator — no SB2, no fraud fee, no AB 1466.
+ *
+ * Copy fees are per page, never a flat per-document rate.
+ *
+ * certMode controls how the itemization is DISPLAYED so that each line matches
+ * the county's own published fee table verbatim — important when a client
+ * questions the charge:
+ *   'integrated' (LA)  — the county publishes a separate certified per-page rate,
+ *                        so certification is folded into the page rates.
+ *   'separate' (OC/VC) — the county publishes a base copy rate plus a distinct
+ *                        per-document certification fee, so it gets its own line.
+ *
+ *   LA County      certified $6.00 first / $3.00 addl
+ *                  plain     $5.00 first / $3.00 addl
+ *                  Source: lavote.gov real-estate-records-request/fees
+ *   Orange County  $1.00 per page + $1.00 certification per document
+ *                  Source: ocrecorder.com obtaining-official-record-copies
+ *   Ventura County $2.00 first / $1.00 addl + $1.00 certification
+ *                  Source: clerkrecorder.venturacounty.gov ordering-a-copy-of-official-records
+ *
+ * Fees verified August 2026. Final amount confirmed at the counter.
+ */
+(function () {
+  'use strict';
+
+  var COUNTIES = {
+    la: {
+      name: 'LA County',
+      tripFee: 150,
+      certMode: 'integrated',
+      firstPage: 5,
+      addlPage: 3,
+      certFirstPage: 6,
+      certAddlPage: 3,
+      certPerDoc: 1,
+      /* Staff-assisted index search, per name per year. Non-refundable even
+         if no document is found. */
+      searchPerNameYear: 0.5,
+      searchMinimum: 1,
+      cardHandling: 1.75,
+      offices: 'Norwalk, Van Nuys, Lancaster',
+      sameDayFrom: 1985
+    },
+    oc: {
+      name: 'Orange County',
+      tripFee: 200,
+      certMode: 'separate',
+      firstPage: 1,
+      addlPage: 1,
+      certPerDoc: 1,
+      searchPerNameYear: 0,
+      searchMinimum: 0,
+      cardHandling: 0,
+      offices: 'Santa Ana',
+      sameDayFrom: null
+    },
+    ventura: {
+      name: 'Ventura County',
+      tripFee: 175,
+      certMode: 'separate',
+      firstPage: 2,
+      addlPage: 1,
+      certPerDoc: 1,
+      searchPerNameYear: 0,
+      searchMinimum: 0,
+      cardHandling: 0,
+      offices: 'Ventura (Hall of Administration), Thousand Oaks',
+      sameDayFrom: null
+    }
+  };
+
+  var EXTRA_DOC_SERVICE_FEE = 25;
+
+  function fmt(n) {
+    return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  /* ── Calculation ───────────────────────────────────────────────────────── */
+  function runCalc(opts) {
+    var c = COUNTIES[opts.county] || COUNTIES.la;
+    var docs = opts.docs;
+    var pages = opts.pages;
+    var certified = opts.certified;
+
+    /* ── Group A: our service fee ──────────────────────────────────────── */
+    var serviceLines = [];
+    var serviceTotal = 0;
+
+    serviceLines.push({ label: c.name + ' recorder trip fee (in person)', amount: c.tripFee });
+    serviceTotal += c.tripFee;
+
+    if (docs > 1) {
+      var extra = (docs - 1) * EXTRA_DOC_SERVICE_FEE;
+      serviceLines.push({
+        label: 'Additional documents on same trip (' + (docs - 1) + ' × ' + fmt(EXTRA_DOC_SERVICE_FEE) + ')',
+        amount: extra
+      });
+      serviceTotal += extra;
+    }
+
+    /* ── Group B: county pass-through ──────────────────────────────────── */
+    var countyLines = [];
+    var countyTotal = 0;
+
+    /* Pick the published rate pair for the requested copy type. */
+    var integrated = certified && c.certMode === 'integrated';
+    var rateFirst = integrated ? c.certFirstPage : c.firstPage;
+    var rateAddl = integrated ? c.certAddlPage : c.addlPage;
+    var copyLabel = integrated ? 'Certified copy' : (certified ? 'Copy fee' : 'Plain copy');
+
+    var firstTotal = docs * rateFirst;
+    countyLines.push({
+      label: copyLabel + ' — first page (' + docs + ' doc' + (docs > 1 ? 's' : '') + ' × ' + fmt(rateFirst) + ')',
+      amount: firstTotal
+    });
+    countyTotal += firstTotal;
+
+    if (pages > 1) {
+      var addlTotal = docs * (pages - 1) * rateAddl;
+      countyLines.push({
+        label: copyLabel + ' — additional pages (' + docs + ' × ' + (pages - 1) + ' × ' + fmt(rateAddl) + ')',
+        amount: addlTotal
+      });
+      countyTotal += addlTotal;
+    }
+
+    /* Only counties that publish certification as a distinct fee get a line. */
+    if (certified && c.certMode === 'separate') {
+      var certTotal = docs * c.certPerDoc;
+      countyLines.push({
+        label: 'Certification (' + docs + ' × ' + fmt(c.certPerDoc) + ' per document)',
+        amount: certTotal
+      });
+      countyTotal += certTotal;
+    }
+
+    /* Staff index search — LA only, and only when the client cannot supply a
+       document number or book-and-page. Non-refundable. */
+    var searchTotal = 0;
+    if (opts.needSearch && c.searchPerNameYear > 0) {
+      searchTotal = opts.searchNames * opts.searchYears * c.searchPerNameYear;
+      if (searchTotal < c.searchMinimum) searchTotal = c.searchMinimum;
+      countyLines.push({
+        label: 'Index search — non-refundable (' + opts.searchNames + ' name' +
+               (opts.searchNames > 1 ? 's' : '') + ' × ' + opts.searchYears + ' year' +
+               (opts.searchYears > 1 ? 's' : '') + ' × ' + fmt(c.searchPerNameYear) + ')',
+        amount: searchTotal
+      });
+      countyTotal += searchTotal;
+    }
+
+    if (opts.payByCard && c.cardHandling > 0) {
+      countyLines.push({ label: 'Recorder card handling fee', amount: c.cardHandling });
+      countyTotal += c.cardHandling;
+    }
+
+    return {
+      county: c,
+      serviceLines: serviceLines,
+      serviceTotal: serviceTotal,
+      countyLines: countyLines,
+      countyTotal: countyTotal,
+      grandTotal: serviceTotal + countyTotal,
+      certified: certified,
+      needSearch: opts.needSearch
+    };
+  }
+
+  /* ── Rendering ─────────────────────────────────────────────────────────── */
+  function buildHTML(r) {
+    function rowsFor(items) {
+      return items.map(function (item) {
+        return '<tr><td class="dr-calc__label">' + item.label + '</td>' +
+               '<td class="dr-calc__amount">' + fmt(item.amount) + '</td></tr>';
+      }).join('');
+    }
+
+    var notes = [];
+    if (r.certified) {
+      notes.push('Certified copies carry the recorder&rsquo;s seal and are accepted by courts, lenders, and title companies. Plain copies are informational only.');
+    } else {
+      notes.push('Plain copies have no official standing. If a lender, court, or title company is asking for the document, you almost certainly need a certified copy.');
+    }
+    if (r.needSearch) {
+      notes.push('The index search fee is <strong>non-refundable</strong> — the county keeps it even if no matching document is found.');
+    }
+    notes.push('Recorders sell the <strong>complete document</strong> only. Page counts are unknown until we are at the counter, so we ask you to authorize a not-to-exceed dollar amount before the trip.');
+
+    return (
+      '<div class="dr-calc__groups">' +
+
+        '<section class="dr-calc__group dr-calc__group--service" aria-label="Our service fee">' +
+          '<header class="dr-calc__group-header">' +
+            '<span class="dr-calc__group-title">Our Service Fee</span>' +
+            '<span class="dr-calc__group-sub">In-person trip to the recorder, retrieval, and hand-back to you</span>' +
+          '</header>' +
+          '<table class="dr-calc__table dr-calc__table--service" aria-label="Our service fee breakdown">' +
+            '<tbody>' + rowsFor(r.serviceLines) + '</tbody>' +
+            '<tfoot><tr>' +
+              '<td class="dr-calc__label dr-calc__subtotal-label"><strong>Our fee subtotal</strong></td>' +
+              '<td class="dr-calc__amount dr-calc__subtotal-amount"><strong>' + fmt(r.serviceTotal) + '</strong></td>' +
+            '</tr></tfoot>' +
+          '</table>' +
+        '</section>' +
+
+        '<section class="dr-calc__group dr-calc__group--passthrough" aria-label="County fees">' +
+          '<header class="dr-calc__group-header">' +
+            '<span class="dr-calc__group-title">County Fees <span class="dr-calc__pill">Pass-Through</span></span>' +
+            '<span class="dr-calc__group-sub">Paid to the ' + r.county.name + ' Recorder at cost — not our fee</span>' +
+          '</header>' +
+          '<table class="dr-calc__table dr-calc__table--passthrough" aria-label="County fees breakdown">' +
+            '<tbody>' + rowsFor(r.countyLines) + '</tbody>' +
+            '<tfoot><tr>' +
+              '<td class="dr-calc__label dr-calc__subtotal-label"><strong>County subtotal</strong></td>' +
+              '<td class="dr-calc__amount dr-calc__subtotal-amount"><strong>' + fmt(r.countyTotal) + '</strong></td>' +
+            '</tr></tfoot>' +
+          '</table>' +
+        '</section>' +
+
+        '<div class="dr-calc__grand">' +
+          '<span class="dr-calc__grand-label">Estimated Total</span>' +
+          '<span class="dr-calc__grand-amount">' + fmt(r.grandTotal) + '</span>' +
+        '</div>' +
+
+      '</div>' +
+      '<ul class="rr-calc__notes">' +
+        notes.map(function (n) { return '<li>' + n + '</li>'; }).join('') +
+      '</ul>' +
+      '<p class="dr-calc__disclaimer">Copy fees verified August 2026 against the LA, Orange, and Ventura recorder fee schedules &middot; County fees are pass-through and paid directly to the recorder &middot; Final amount confirmed at the counter.</p>'
+    );
+  }
+
+  /* ── Init ──────────────────────────────────────────────────────────────── */
+  function initCalculator(wrapper) {
+    var el = {
+      county: wrapper.querySelector('[data-rr-county]'),
+      type: wrapper.querySelector('[data-rr-type]'),
+      docs: wrapper.querySelector('[data-rr-docs]'),
+      pages: wrapper.querySelector('[data-rr-pages]'),
+      search: wrapper.querySelector('[data-rr-search]'),
+      searchRow: wrapper.querySelector('[data-rr-search-row]'),
+      names: wrapper.querySelector('[data-rr-names]'),
+      years: wrapper.querySelector('[data-rr-years]'),
+      cardRow: wrapper.querySelector('[data-rr-card-row]'),
+      card: wrapper.querySelector('[data-rr-card]'),
+      output: wrapper.querySelector('[data-rr-output]')
+    };
+
+    if (!el.county || !el.output) return;
+
+    if (el.county.options.length === 0) {
+      Object.keys(COUNTIES).forEach(function (key) {
+        var opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = COUNTIES[key].name + ' (trip fee ' + fmt(COUNTIES[key].tripFee) + ')';
+        el.county.appendChild(opt);
+      });
+    }
+
+    function intVal(node, fallback, min) {
+      var v = parseInt(node ? node.value : fallback, 10);
+      if (isNaN(v)) v = fallback;
+      if (v < min) v = min;
+      return v;
+    }
+
+    function update() {
+      var countyKey = el.county.value || 'la';
+      var c = COUNTIES[countyKey];
+
+      /* Only LA sells a staff index search; only LA charges card handling. */
+      var searchAvailable = c.searchPerNameYear > 0;
+      if (el.searchRow) el.searchRow.style.display = searchAvailable ? '' : 'none';
+      if (el.cardRow) el.cardRow.style.display = c.cardHandling > 0 ? '' : 'none';
+
+      var needSearch = searchAvailable && el.search && el.search.checked;
+      var namesRow = wrapper.querySelector('[data-rr-names-row]');
+      var yearsRow = wrapper.querySelector('[data-rr-years-row]');
+      if (namesRow) namesRow.style.display = needSearch ? '' : 'none';
+      if (yearsRow) yearsRow.style.display = needSearch ? '' : 'none';
+
+      var result = runCalc({
+        county: countyKey,
+        certified: !el.type || el.type.value === 'certified',
+        docs: intVal(el.docs, 1, 1),
+        pages: intVal(el.pages, 3, 1),
+        needSearch: needSearch,
+        searchNames: intVal(el.names, 1, 1),
+        searchYears: intVal(el.years, 1, 1),
+        payByCard: !!(el.card && el.card.checked)
+      });
+
+      el.output.innerHTML = buildHTML(result);
+    }
+
+    ['county', 'type', 'docs', 'pages', 'names', 'years'].forEach(function (k) {
+      if (el[k]) el[k].addEventListener(el[k].tagName === 'SELECT' ? 'change' : 'input', update);
+    });
+    if (el.search) el.search.addEventListener('change', update);
+    if (el.card) el.card.addEventListener('change', update);
+
+    update();
+  }
+
+  function autoInit() {
+    var widgets = document.querySelectorAll('.rr-calculator');
+    Array.prototype.forEach.call(widgets, function (w) { initCalculator(w); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', autoInit);
+  } else {
+    autoInit();
+  }
+
+})();

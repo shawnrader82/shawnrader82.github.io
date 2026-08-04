@@ -14,11 +14,21 @@
       firstPage: 15,
       addlPage: 3,
       sb2: 75,
+      /* LA charges TWO distinct fraud fees depending on the instrument:
+         - Fraud Notification fee, Gov. Code 27297.6 / 27387.1 = $7.00
+           (grant deeds and quitclaim deeds -- notice mailed to the owner)
+         - District Attorney Real Estate Fraud fee, Gov. Code 27388 = $10.00
+           (raised from $5 effective 2026-06-01; applies to other recordings) */
       fraudFee: 10,
+      fraudNotification: 7,
       ab1466: 2,
       fbnFirst: 26,
       fbnExtra: 0,
-      certCopy: 8,
+      /* Copy fees are PER PAGE, not flat. certFee is added per document for
+         certification. LA: certified = $6 first + $3 addl. */
+      copyFirst: 5,
+      copyAddl: 3,
+      certFee: 1,
       certCopyNote: '',
       marriageLicense: 91
     },
@@ -29,10 +39,14 @@
       addlPage: 3,
       sb2: 75,
       fraudFee: 10,
+      fraudNotification: null,   /* not separately published -- verify at filing */
       ab1466: 2,
       fbnFirst: 26,
       fbnExtra: 0,
-      certCopy: 5,
+      /* Orange: $1 per page + $1 certification per document. */
+      copyFirst: 1,
+      copyAddl: 1,
+      certFee: 1,
       certCopyNote: '',
       marriageLicense: 61
     },
@@ -43,11 +57,15 @@
       addlPage: 3,
       sb2: 75,
       fraudFee: 10,           /* placeholder – verify at filing */
+      fraudNotification: null,
       ab1466: 2,
       fbnFirst: 59,
       fbnExtra: 10,
-      certCopy: 13,
-      certCopyNote: '(verify at filing)',
+      /* Ventura: $2 first page + $1 each additional + $1 certification. */
+      copyFirst: 2,
+      copyAddl: 1,
+      certFee: 1,
+      certCopyNote: '',
       marriageLicense: 106
     }
   };
@@ -64,7 +82,19 @@
   ];
 
   /* ── Calculation logic ─────────────────────────────────────────────────── */
-  function calcCountyFee(county, docCategory, pages, extraNames) {
+  /* Instruments that trigger the owner-notification fee instead of the
+     District Attorney real estate fraud fee. */
+  var NOTIFICATION_DOCS = ['grant-deed', 'quitclaim-deed'];
+
+  function resolveFraudFee(fs, docValue) {
+    if (fs.fraudNotification !== null && fs.fraudNotification !== undefined &&
+        NOTIFICATION_DOCS.indexOf(docValue) !== -1) {
+      return { amount: fs.fraudNotification, label: 'Real Estate Fraud Notification Fee (Gov. Code 27297.6)' };
+    }
+    return { amount: fs.fraudFee, label: 'Real Estate Fraud Fee (District Attorney, Gov. Code 27388)' };
+  }
+
+  function calcCountyFee(county, docCategory, pages, extraNames, docValue) {
     var fs = FEE_SCHEDULE[county];
     var lines = [];
     var total = 0;
@@ -72,12 +102,13 @@
     if (docCategory === 'deed') {
       var basePage = fs.firstPage;
       var addl = (pages - 1) * fs.addlPage;
+      var fraud = resolveFraudFee(fs, docValue);
       lines.push({ label: 'Recording – first page', amount: basePage });
       if (addl > 0) lines.push({ label: 'Recording – additional pages (' + (pages - 1) + ' × $' + fs.addlPage + ')', amount: addl });
       lines.push({ label: 'SB2 Building Homes & Jobs Act', amount: fs.sb2 });
-      lines.push({ label: 'Real Estate Fraud Prevention Fee', amount: fs.fraudFee });
+      lines.push({ label: fraud.label, amount: fraud.amount });
       lines.push({ label: 'AB 1466 Restrictive Covenant Fee', amount: fs.ab1466 });
-      total = basePage + addl + fs.sb2 + fs.fraudFee + fs.ab1466;
+      total = basePage + addl + fs.sb2 + fraud.amount + fs.ab1466;
 
     } else if (docCategory === 'fbn') {
       var fbnCost = fs.fbnFirst;
@@ -90,10 +121,19 @@
       }
 
     } else if (docCategory === 'cert') {
-      var certCost = fs.certCopy;
-      var certLabel = 'Certified copy fee' + (fs.certCopyNote ? ' ' + fs.certCopyNote : '');
-      lines.push({ label: certLabel, amount: certCost });
-      total = certCost;
+      /* Certified copy of a document already on record. Priced per page:
+         first page + each additional page + per-document certification. */
+      var copyFirst = fs.copyFirst;
+      var copyAddl = (pages - 1) * fs.copyAddl;
+      lines.push({ label: 'Copy fee \u2013 first page', amount: copyFirst });
+      if (copyAddl > 0) {
+        lines.push({
+          label: 'Copy fee \u2013 additional pages (' + (pages - 1) + ' \u00d7 $' + fs.copyAddl + ')',
+          amount: copyAddl
+        });
+      }
+      lines.push({ label: 'Certification (per document)', amount: fs.certFee });
+      total = copyFirst + copyAddl + fs.certFee;
 
     } else {
       /* other recordable */
@@ -126,7 +166,7 @@
     }
 
     /* ── Group B: Government pass-through fees (paid to the county) ────── */
-    var county = calcCountyFee(countyKey, category, pages, extraFbnNames);
+    var county = calcCountyFee(countyKey, category, pages, extraFbnNames, docValue);
     var passthroughLines = county.lines.slice();
     var passthroughTotal = county.total;
 

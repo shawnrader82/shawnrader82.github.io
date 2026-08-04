@@ -1,5 +1,5 @@
 /**
- * Certified Copies — spoke page styles
+ * Real Estate Records Retrieval / Certified Copies — spoke page styles
  * Mobile American Notary & Apostilles
  */
 
@@ -7,4 +7,150 @@
   background-image: url('/assets/images/heroes/certified-copies-hero-16x9.webp');
   background-size: cover;
   background-position: center;
+}
+
+/* ── Retrieval calculator extras ──────────────────────────────────────────
+   Layout is inherited from .dr-calculator / .dr-calc-form in
+   document-recording.css. Only the retrieval-specific pieces live here. */
+
+.rr-calc__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 4px;
+}
+.rr-calc__check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin: 1px 0 0;
+  accent-color: #b91c1c;
+  cursor: pointer;
+}
+.rr-calc__check input[type="checkbox"]:focus-visible {
+  outline: 2px solid #b91c1c;
+  outline-offset: 2px;
+}
+.rr-calc__check label {
+  margin-bottom: 0;
+  cursor: pointer;
+  line-height: 1.45;
+}
+.rr-calc__check label span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.rr-calc__notes {
+  margin: 18px 0 0;
+  padding-left: 20px;
+  list-style: disc;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #4b5563;
+}
+.rr-calc__notes li + li {
+  margin-top: 6px;
+}
+.rr-calc__notes strong {
+  color: #0f172a;
+}
+
+/* ── Identifier requirement callout ─────────────────────────────────────── */
+.rr-need-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 24px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rr-need-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #075985;
+  margin: 0 0 10px;
+}
+.rr-need-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #374151;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ── County copy-fee reference table ────────────────────────────────────── */
+.rr-fee-table-wrap {
+  max-width: 860px;
+  margin: 28px auto 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.rr-fee-table {
+  width: 100%;
+  min-width: 720px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.88rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.rr-fee-table__note {
+  max-width: 860px;
+  margin: 10px auto 0;
+  text-align: left;
+  font-size: 0.78rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+.rr-fee-table th,
+.rr-fee-table td {
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 1px solid #f1f3f5;
+  vertical-align: top;
+}
+.rr-fee-table thead th {
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+.rr-fee-table tbody tr:last-child th,
+.rr-fee-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.rr-fee-table tbody th {
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+}
+.rr-fee-table td {
+  color: #374151;
+}
+.rr-fee-table col.rr-col-county { width: 13%; }
+.rr-fee-table col.rr-col-cert { width: 22%; }
+.rr-fee-table col.rr-col-plain { width: 21%; }
+.rr-fee-table col.rr-col-search { width: 30%; }
+.rr-fee-table col.rr-col-total { width: 14%; }
+
+@media (max-width: 640px) {
+  .rr-need-box,
+  .rr-fee-table-wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .rr-need-box {
+    padding: 18px 20px;
+  }
 }

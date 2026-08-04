@@ -66,7 +66,7 @@
       {"@type":"HowToStep","position":1,"name":"Select your county","text":"Choose Los Angeles, Orange, or Ventura county — where the property is located, not where you live."},
       {"@type":"HowToStep","position":2,"name":"Choose document type","text":"Select deed, FBN filing, certified copy, or other recordable document."},
       {"@type":"HowToStep","position":3,"name":"Enter page count","text":"Count all pages of the document including exhibits and attachments."},
-      {"@type":"HowToStep","position":4,"name":"Review the fee breakdown","text":"The calculator itemizes every statutory fee: base recording, SB2, Real Estate Fraud Fee, AB 1466, and applicable trip/service fee."}
+      {"@type":"HowToStep","position":4,"name":"Review the fee breakdown","text":"The calculator itemizes every statutory fee: base recording, SB2, the correct real estate fraud fee for the instrument, AB 1466, and applicable trip/service fee."}
     ]
   }
   </script>
@@ -96,7 +96,7 @@
       <div class="resource-hero__inner">
         <p class="resource-hero__eyebrow">RESOURCE · UPDATED EVERY 4 MONTHS</p>
         <h1 class="resource-hero__title">California County Recording Fees 2026 — LA, Orange &amp; Ventura</h1>
-        <p class="resource-hero__lede">Complete 2026 recording fee schedule with every statutory line item — SB2, Real Estate Fraud Prevention Fee, AB 1466, FBN filings, and certified copies. Use the calculator below to price any recordable document in Los Angeles, Orange, or Ventura county.</p>
+        <p class="resource-hero__lede">Complete 2026 recording fee schedule with every statutory line item — SB2, both real estate fraud fees, AB 1466, FBN filings, and certified copies. Use the calculator below to price any recordable document in Los Angeles, Orange, or Ventura county.</p>
 
         <p class="resource-hero__updated">Fees verified: <time id="fees-verified">June 2026</time> · Sources: <a href="https://www.lavote.gov/home/recorder/property-document-recording/fees" rel="external noopener">LA County Registrar-Recorder</a>, <a href="https://ocrecorder.com/recording-fees" rel="external noopener">OC Clerk-Recorder</a>, <a href="https://clerkrecorder.venturacounty.gov/county-clerk/fee-schedule-2/" rel="external noopener">Ventura County Clerk-Recorder</a></p>
       </div>
@@ -148,6 +148,12 @@
             <div class="field" id="cert-copies-field" style="display:none;">
               <label for="calc-cert-copies">Number of certified copies</label>
               <input type="number" id="calc-cert-copies" min="1" max="20" value="1">
+            </div>
+
+            <div class="field" id="cert-pages-field" style="display:none;">
+              <label for="calc-cert-pages">Pages per document</label>
+              <input type="number" id="calc-cert-pages" min="1" max="200" value="3">
+              <p class="field-help">Copy fees are per page. Recorders issue the complete document only &mdash; you cannot buy a single page.</p>
             </div>
 
             <div class="calc-toggle">
@@ -219,7 +225,14 @@
                 <td>$225</td>
               </tr>
               <tr>
-                <th scope="row">Real Estate Fraud Prevention Fee</th>
+                <th scope="row">Real Estate Fraud Notification Fee<br /><small>Grant deeds &amp; quitclaim deeds</small></th>
+                <td>Gov. Code §§ 27297.6, 27387.1</td>
+                <td>$7</td>
+                <td>Verify at filing</td>
+                <td>Verify at filing</td>
+              </tr>
+              <tr>
+                <th scope="row">Real Estate Fraud Fee (District Attorney)<br /><small>Other recordings, TOD deeds, involuntary liens</small></th>
                 <td>Gov. Code § 27388</td>
                 <td>$10</td>
                 <td>$10</td>
@@ -247,11 +260,32 @@
                 <td>$10</td>
               </tr>
               <tr>
-                <th scope="row">Certified Copy (per copy)</th>
+                <th scope="row">Certified Copy &mdash; first page</th>
                 <td>Gov. Code § 27366</td>
-                <td>$8</td>
+                <td>$6</td>
+                <td>$1 + $1 cert.</td>
+                <td>$2 + $1 cert.</td>
+              </tr>
+              <tr>
+                <th scope="row">Certified Copy &mdash; each additional page</th>
+                <td>Gov. Code § 27366</td>
+                <td>$3</td>
+                <td>$1</td>
+                <td>$1</td>
+              </tr>
+              <tr>
+                <th scope="row">Plain (Uncertified) Copy &mdash; first page</th>
+                <td>Gov. Code § 27366</td>
                 <td>$5</td>
-                <td>$13</td>
+                <td>$1</td>
+                <td>$2</td>
+              </tr>
+              <tr>
+                <th scope="row">Index Search (per name, per year)</th>
+                <td>Gov. Code § 27366</td>
+                <td>$0.50 <span style="white-space:nowrap">($1 min)</span></td>
+                <td>Not offered</td>
+                <td>Not offered</td>
               </tr>
               <tr>
                 <th scope="row">Public Marriage License</th>
@@ -264,7 +298,7 @@
           </table>
         </div>
 
-        <p class="fees-footnote">Fees verified June 2026 from official county recorder fee schedules. Ventura County's Real Estate Fraud Fee is confirmed at $10 as of the June 2026 update. Recording fees can change with new legislation — this page is updated every four months (February, June, October) via our automated County Recorder monitor.</p>
+        <p class="fees-footnote">Fees verified August 2026 from official county recorder fee schedules. LA County&rsquo;s $7 fraud notification fee and $10 District Attorney fraud fee are separate line items with different triggers &mdash; see the explanation below. Orange and Ventura amounts for the notification fee are not separately published and are confirmed at filing. Recording fees can change with new legislation — this page is updated every four months (February, June, October) via our automated County Recorder monitor.</p>
       </div>
     </section>
 
@@ -280,14 +314,18 @@
         <h3>SB2 Building Homes &amp; Jobs Act (Gov. Code § 27388.1)</h3>
         <p>Enacted in 2017, this $75-per-title fee funds affordable housing statewide. It applies to most recordable documents that transfer or affect title to real property, including deeds. It does <em>not</em> apply to documents recorded in connection with a sale that is subject to documentary transfer tax (buyer-financed home purchases are typically exempt). The fee is capped at $225 per single transaction (up to 3 fees).</p>
 
-        <h3>Real Estate Fraud Prevention Fee (Gov. Code § 27388)</h3>
-        <p>This $10 fee applies to any deed, deed of trust, notice of default, or notice of trustee's sale. It funds county DA offices to investigate and prosecute real estate fraud. LA County increased this fee from $5 to $10 effective June 1, 2026 — Orange and Ventura followed the same timeline.</p>
+        <h3>The two real estate fraud fees — they are not the same</h3>
+        <p>This is the single most common source of quoting errors. Los Angeles County collects <strong>two separate fraud-related fees</strong> under different statutes, and which one applies depends on the instrument you are recording.</p>
+        <p><strong>Real Estate Fraud Notification Fee — $7.00</strong> (Gov. Code §§ 27297.6 and 27387.1). This applies to <strong>grant deeds and quitclaim deeds</strong>. It funds the notice the recorder mails to the property owner of record letting them know a document affecting title was recorded.</p>
+        <p><strong>Real Estate Fraud Fee — $10.00</strong> (Gov. Code § 27388). This is the District Attorney fee that funds fraud investigation and prosecution. It applies to other recordings, including transfer-on-death deeds, involuntary liens, and quitclaim deeds that are not subject to documentary transfer tax. LA County raised it from $5 to $10 effective June 1, 2026.</p>
+        <p>A quitclaim deed that is exempt from documentary transfer tax can attract <strong>both</strong> fees. Because the correct combination depends on how the instrument is characterized at intake, confirm the total at the counter before you commit to a fixed quote.</p>
 
         <h3>AB 1466 Restrictive Covenant Fee (Gov. Code § 27388.2)</h3>
         <p>Enacted in 2021, this $2 per-document fee funds county recorder programs to identify and redact unlawfully restrictive covenants (racial, ethnic, or religious restrictions in historical deeds). It applies to almost every recordable document.</p>
 
         <h3>Certified copies (Gov. Code § 27366)</h3>
-        <p>You'll need a certified copy of a recorded document to file with courts, insurance companies, or lenders. Certified copies are $8 in LA, $5 in Orange, and $13 in Ventura. Most title companies want a certified copy in addition to the recorder's file-stamped original.</p>
+        <p>You'll need a certified copy of a recorded document to file with courts, insurance companies, or lenders. <strong>Copy fees are charged per page, not as a flat rate per document.</strong> Los Angeles County charges $6 for the first page and $3 for each additional page; a plain uncertified copy is $5 for the first page and $3 for each additional. Orange County charges $1 per page plus $1 to certify each document. Ventura County charges $2 for the first page, $1 for each additional page, and $1 for certification. So a three-page certified grant deed costs $12 in LA, $4 in Orange, and $5 in Ventura.</p>
+        <p>Two further points that catch people out. Los Angeles charges a staff index search fee of $0.50 per name per year with a $1 minimum, and it is <strong>non-refundable</strong> even when no matching document is found — Orange and Ventura staff do not search for the public at all, so you must supply a document number or book and page. And recorders sell the <em>complete</em> document only; there is no way to buy a single page, so the final cost always tracks the document's full page count. If you need a document retrieved in person, see our <a href="/services/document-recording/certified-copies.html">real estate records retrieval service</a>.</p>
 
         <h3>What isn't in these fees</h3>
         <p>Recording fees do <em>not</em> include documentary transfer tax (typically $1.10 per $1,000 of consideration on property sales), preliminary change of ownership statement (PCOR) filing (free but required), or notary fees. If a deed requires notarization before recording, that's a separate service — $15 per signature under California Gov. Code § 8211 for the notarization itself, plus travel and handling for a mobile notary visit.</p>
@@ -295,7 +333,7 @@
         <h2>Common questions</h2>
 
         <h3>Why is my recording bill higher than the base fee?</h3>
-        <p>Because a single "recording" transaction includes multiple statutory fees. A 3-page grant deed in LA County breaks down as: $15 first page + $6 additional pages + $75 SB2 + $10 fraud fee + $2 AB 1466 = $108. That's just the county fees — a mobile document recording service adds a trip and handling fee on top.</p>
+        <p>Because a single "recording" transaction includes multiple statutory fees. A 3-page grant deed in LA County breaks down as: $15 first page + $6 additional pages + $75 SB2 + $7 fraud notification fee + $2 AB 1466 = <strong>$105</strong>. That's just the county fees — a mobile document recording service adds a trip and handling fee on top.</p>
 
         <h3>Are recording fees the same for e-recording?</h3>
         <p>Yes. Electronic recording through approved submitters uses the same fee schedule. E-recording can save 2–4 business days on turnaround, especially in Los Angeles County where in-person queues can be 90+ minutes.</p>
@@ -545,18 +583,24 @@
     var FEE_SCHEDULE = {
       la: {
         name: 'LA County', tripFee: 150, firstPage: 15, addlPage: 3,
-        sb2: 75, sb2Cap: 225, fraudFee: 10, ab1466: 2,
-        fbnFirst: 26, fbnExtra: 0, certCopy: 8, marriageLicense: 91
+        sb2: 75, sb2Cap: 225, fraudFee: 10, fraudNotification: 7, ab1466: 2,
+        fbnFirst: 26, fbnExtra: 0,
+        copyFirst: 5, copyAddl: 3, certFee: 1, searchPerNameYear: 0.5, searchMin: 1,
+        marriageLicense: 91
       },
       oc: {
         name: 'Orange County', tripFee: 200, firstPage: 12, addlPage: 3,
-        sb2: 75, sb2Cap: 225, fraudFee: 10, ab1466: 2,
-        fbnFirst: 26, fbnExtra: 0, certCopy: 5, marriageLicense: 61
+        sb2: 75, sb2Cap: 225, fraudFee: 10, fraudNotification: null, ab1466: 2,
+        fbnFirst: 26, fbnExtra: 0,
+        copyFirst: 1, copyAddl: 1, certFee: 1, searchPerNameYear: 0, searchMin: 0,
+        marriageLicense: 61
       },
       ventura: {
         name: 'Ventura County', tripFee: 175, firstPage: 14, addlPage: 3,
-        sb2: 75, sb2Cap: 225, fraudFee: 10, ab1466: 2,
-        fbnFirst: 59, fbnExtra: 10, certCopy: 13, marriageLicense: 106
+        sb2: 75, sb2Cap: 225, fraudFee: 10, fraudNotification: null, ab1466: 2,
+        fbnFirst: 59, fbnExtra: 10,
+        copyFirst: 2, copyAddl: 1, certFee: 1, searchPerNameYear: 0, searchMin: 0,
+        marriageLicense: 106
       }
     };
 
@@ -564,6 +608,18 @@
       'grant-deed':'deed', 'quitclaim-deed':'deed', 'tod-deed':'deed',
       'affidavit-death':'deed', 'fbn-dba':'fbn', 'certified-copy':'cert', 'other':'other'
     };
+
+    /* LA collects a $7 owner-notification fee (Gov. Code 27297.6 / 27387.1) on
+       grant and quitclaim deeds, and a separate $10 District Attorney fraud fee
+       (Gov. Code 27388) on other recordings. They are not interchangeable. */
+    var NOTIFICATION_DOCS = ['grant-deed', 'quitclaim-deed'];
+    function resolveFraudFee(fs, docType) {
+      if (fs.fraudNotification !== null && fs.fraudNotification !== undefined &&
+          NOTIFICATION_DOCS.indexOf(docType) !== -1) {
+        return { amount: fs.fraudNotification, label: 'Real Estate Fraud Notification Fee (&sect; 27297.6)' };
+      }
+      return { amount: fs.fraudFee, label: 'Real Estate Fraud Fee &mdash; District Attorney (&sect; 27388)' };
+    }
 
     function calc() {
       var county = document.getElementById('calc-county').value;
@@ -581,18 +637,21 @@
       document.getElementById('pages-field').style.display = (cat === 'deed' || cat === 'other') ? '' : 'none';
       document.getElementById('fbn-names-field').style.display = (cat === 'fbn') ? '' : 'none';
       document.getElementById('cert-copies-field').style.display = (cat === 'cert') ? '' : 'none';
+      var certPagesField = document.getElementById('cert-pages-field');
+      if (certPagesField) certPagesField.style.display = (cat === 'cert') ? '' : 'none';
 
       if (cat === 'deed' || cat === 'other') {
         var firstPage = fs.firstPage;
         var addl = (pages - 1) * fs.addlPage;
         lines.push({ label: 'Recording — first page', amount: firstPage });
         if (addl > 0) lines.push({ label: 'Additional pages (' + (pages - 1) + ' × $' + fs.addlPage + ')', amount: addl });
+        var fraud = resolveFraudFee(fs, docType);
         if (cat === 'deed') {
           lines.push({ label: 'SB2 Building Homes &amp; Jobs Act', amount: fs.sb2 });
-          lines.push({ label: 'Real Estate Fraud Prevention Fee', amount: fs.fraudFee });
+          lines.push({ label: fraud.label, amount: fraud.amount });
         }
         lines.push({ label: 'AB 1466 Restrictive Covenant Fee', amount: fs.ab1466 });
-        total = firstPage + addl + (cat === 'deed' ? fs.sb2 + fs.fraudFee : 0) + fs.ab1466;
+        total = firstPage + addl + (cat === 'deed' ? fs.sb2 + fraud.amount : 0) + fs.ab1466;
       }
 
       if (cat === 'fbn') {
@@ -613,9 +672,21 @@
       }
 
       if (cat === 'cert') {
-        var certTotal = copies * fs.certCopy;
-        lines.push({ label: 'Certified copies (' + copies + ' × $' + fs.certCopy + ')', amount: certTotal });
-        total = certTotal;
+        // Copy fees are per page: first page + each additional page,
+        // plus a per-document certification fee.
+        var certPagesEl = document.getElementById('calc-cert-pages');
+        var certPages = Math.max(1, parseInt(certPagesEl ? certPagesEl.value : 3, 10) || 3);
+        var firstTotal = copies * fs.copyFirst;
+        lines.push({ label: 'Copy fee — first page (' + copies + ' × $' + fs.copyFirst + ')', amount: firstTotal });
+        total = firstTotal;
+        if (certPages > 1) {
+          var addlTotal = copies * (certPages - 1) * fs.copyAddl;
+          lines.push({ label: 'Copy fee — additional pages (' + copies + ' × ' + (certPages - 1) + ' × $' + fs.copyAddl + ')', amount: addlTotal });
+          total += addlTotal;
+        }
+        var certTotal = copies * fs.certFee;
+        lines.push({ label: 'Certification (' + copies + ' × $' + fs.certFee + ' per document)', amount: certTotal });
+        total += certTotal;
       }
 
       if (includeTrip) {
@@ -632,7 +703,7 @@
       document.getElementById('calc-total-amount').textContent = '$' + total.toFixed(2).replace(/\.00$/, '');
     }
 
-    ['calc-county','calc-doctype','calc-pages','calc-fbn-names','calc-cert-copies','calc-include-trip'].forEach(function (id) {
+    ['calc-county','calc-doctype','calc-pages','calc-fbn-names','calc-cert-copies','calc-cert-pages','calc-include-trip'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.addEventListener('input', calc);
       if (el) el.addEventListener('change', calc);
