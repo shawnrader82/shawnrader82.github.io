@@ -178,6 +178,10 @@
     min-height: 600px;
   }
 
+  .home-hero__media {
+    background-image: url("/assets/images/hero/home-mobile.webp");
+  }
+
   .home-hero__content {
     padding: 32px 0 80px;
   }
