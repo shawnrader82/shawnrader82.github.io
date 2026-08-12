@@ -120,6 +120,28 @@
         }
       });
 
+      // Desktop hover is handled purely by CSS (:hover / :focus-within),
+      // so keep aria-expanded in sync with that visual state — otherwise
+      // screen readers/AI agents never see the menu as "expanded" on hover.
+      var hoverTimer = null;
+      item.addEventListener('mouseenter', function () {
+        var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+        if (isCoarse) return; // touch devices use click/tap, not hover
+        clearTimeout(hoverTimer);
+        link.setAttribute('aria-expanded', 'true');
+      });
+      item.addEventListener('mouseleave', function () {
+        var isCoarse = window.matchMedia('(pointer: coarse)').matches;
+        if (isCoarse) return;
+        // Small delay so moving across the hover bridge into the dropdown
+        // panel doesn't flicker aria-expanded false/true.
+        hoverTimer = setTimeout(function () {
+          if (!item.classList.contains(OPEN_CLASS)) {
+            link.setAttribute('aria-expanded', 'false');
+          }
+        }, 100);
+      });
+
       // Keyboard arrow navigation within dropdown.
       if (dropdown) {
         dropdown.addEventListener('keydown', function (e) {
