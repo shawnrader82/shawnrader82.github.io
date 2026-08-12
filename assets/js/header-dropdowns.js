@@ -20,11 +20,16 @@
     return document.querySelectorAll('.home-header__nav-item--has-dropdown');
   }
 
+  function getLink(item) {
+    return item.querySelector('.home-header__nav-link');
+  }
+
   function closeAll(except) {
     getItems().forEach(function (item) {
       if (item !== except) {
         item.classList.remove(OPEN_CLASS);
-        item.setAttribute('aria-expanded', 'false');
+        var link = getLink(item);
+        if (link) link.setAttribute('aria-expanded', 'false');
       }
     });
   }
@@ -32,12 +37,14 @@
   function openItem(item) {
     closeAll(item);
     item.classList.add(OPEN_CLASS);
-    item.setAttribute('aria-expanded', 'true');
+    var link = getLink(item);
+    if (link) link.setAttribute('aria-expanded', 'true');
   }
 
   function closeItem(item) {
     item.classList.remove(OPEN_CLASS);
-    item.setAttribute('aria-expanded', 'false');
+    var link = getLink(item);
+    if (link) link.setAttribute('aria-expanded', 'false');
   }
 
   function toggleItem(item) {
@@ -61,10 +68,10 @@
     document.body.setAttribute('data-header-dropdowns-bootstrapped', '1');
 
     nodes.forEach(function (item) {
-      // Set initial aria-expanded
-      item.setAttribute('aria-expanded', 'false');
-
       var link = item.querySelector('.home-header__nav-link');
+
+      // Set initial aria-expanded on the interactive link (not the wrapping div)
+      if (link) link.setAttribute('aria-expanded', 'false');
       var caret = item.querySelector('.home-header__nav-caret');
       var dropdown = item.querySelector('.home-header__dropdown');
 
