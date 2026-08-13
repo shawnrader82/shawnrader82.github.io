@@ -1,4 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /ops
+Disallow: /ops/
 
 Sitemap: https://www.mobileamericannotary.com/sitemap.xml
