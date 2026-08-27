@@ -1,0 +1,1018 @@
+{
+ "_meta": {
+  "version": "1.0",
+  "generated": "2026-08-25",
+  "source": "https://www.mobileamericannotary.com/sitemap.xml",
+  "base": "https://www.mobileamericannotary.com",
+  "total_targets": 198,
+  "usage": "Select the matching hub plus 2-4 spokes by keyword, then instruct the model to link naturally in body prose. Never link the same URL twice in one post.",
+  "blog_base": "https://www.mobileamericannotary.com/blog/",
+  "consumed_by": "n8n content workflows (Blog Sweeper, GBP Rolling Queue)",
+  "canonical_url": "https://www.mobileamericannotary.com/data/link-map.json"
+ },
+ "hubs": {
+  "faq": {
+   "url": "https://www.mobileamericannotary.com/faq.html",
+   "label": "Faq"
+  },
+  "pricing": {
+   "url": "https://www.mobileamericannotary.com/pricing.html",
+   "label": "Pricing"
+  },
+  "hub_locations": {
+   "url": "https://www.mobileamericannotary.com/locations/",
+   "label": "Locations"
+  },
+  "hub_notary": {
+   "url": "https://www.mobileamericannotary.com/services/notary.html",
+   "label": "Notary"
+  },
+  "hub_apostille": {
+   "url": "https://www.mobileamericannotary.com/services/apostille.html",
+   "label": "Apostille"
+  },
+  "hub_translations": {
+   "url": "https://www.mobileamericannotary.com/services/translations.html",
+   "label": "Translations"
+  },
+  "hub_document_recording": {
+   "url": "https://www.mobileamericannotary.com/services/document-recording.html",
+   "label": "Document Recording"
+  },
+  "hub_permit_running": {
+   "url": "https://www.mobileamericannotary.com/services/permit-running.html",
+   "label": "Permit Running"
+  },
+  "hub_forms": {
+   "url": "https://www.mobileamericannotary.com/forms/",
+   "label": "Forms"
+  },
+  "hub_resources": {
+   "url": "https://www.mobileamericannotary.com/resources/",
+   "label": "Resources"
+  }
+ },
+ "keywords": {
+  "notary_jail": [
+   "jail",
+   "inmate",
+   "custody",
+   "detention",
+   "deputy",
+   "men's central",
+   "twin towers",
+   "theo lacy",
+   "pitchess",
+   "crdf"
+  ],
+  "notary_juvenile": [
+   "juvenile",
+   "minor in custody",
+   "los padrinos",
+   "nidorf"
+  ],
+  "notary_hospital": [
+   "hospital",
+   "bedside",
+   "icu",
+   "advance directive",
+   "healthcare",
+   "patient",
+   "hipaa",
+   "polst"
+  ],
+  "notary_estate_planning": [
+   "trust",
+   "will",
+   "estate",
+   "power of attorney",
+   "poa",
+   "advance directive",
+   "probate"
+  ],
+  "notary_real_estate": [
+   "loan signing",
+   "refinance",
+   "heloc",
+   "escrow",
+   "seller",
+   "purchase",
+   "closing",
+   "deed of trust"
+  ],
+  "notary_general_documents": [
+   "affidavit",
+   "bill of sale",
+   "copy certification",
+   "guardianship",
+   "minor travel",
+   "passport",
+   "ds-3053",
+   "name change"
+  ],
+  "apostille_vital_records": [
+   "birth certificate",
+   "marriage certificate",
+   "death certificate",
+   "divorce certificate",
+   "vital record"
+  ],
+  "apostille_academic": [
+   "diploma",
+   "transcript",
+   "tefl",
+   "tesol",
+   "university",
+   "school",
+   "enrollment"
+  ],
+  "apostille_court": [
+   "divorce decree",
+   "court order",
+   "adoption",
+   "custody",
+   "judgment",
+   "probate order"
+  ],
+  "apostille_business": [
+   "articles of incorporation",
+   "good standing",
+   "bylaws",
+   "operating agreement",
+   "resolution",
+   "commercial invoice",
+   "corporate"
+  ],
+  "apostille_federal": [
+   "fbi background check",
+   "fbi",
+   "uscis",
+   "naturalization",
+   "birth abroad",
+   "death abroad",
+   "nara",
+   "federal document",
+   "washington dc"
+  ],
+  "apostille_notarized": [
+   "notarized document",
+   "power of attorney apostille",
+   "consent to travel",
+   "copy certification"
+  ],
+  "apostille_by_country": [
+   "philippines",
+   "mexico",
+   "uk",
+   "united kingdom",
+   "uae",
+   "cuba",
+   "thailand",
+   "destination country",
+   "hague"
+  ],
+  "apostille_by_county": [
+   "los angeles county",
+   "orange county",
+   "ventura county",
+   "san bernardino",
+   "riverside",
+   "kern"
+  ],
+  "apostille_expedited": [
+   "same day",
+   "rush",
+   "expedited",
+   "urgent"
+  ],
+  "document_recording_types": [
+   "grant deed",
+   "quitclaim",
+   "transfer on death",
+   "affidavit of death",
+   "fbn",
+   "dba",
+   "certified copy",
+   "recorder"
+  ],
+  "hub_translations": [
+   "translation",
+   "translate",
+   "certified translation",
+   "spanish",
+   "foreign language"
+  ],
+  "locations": [
+   "near me",
+   "neighborhood",
+   "service area",
+   "city"
+  ],
+  "forms": [
+   "form",
+   "template",
+   "download",
+   "blank form"
+  ],
+  "resources": [
+   "country list",
+   "recording fees",
+   "consular",
+   "directory",
+   "which signing",
+   "inmate locator"
+  ]
+ },
+ "spokes": {
+  "locations": [
+   {
+    "url": "https://www.mobileamericannotary.com/locations/los-angeles-county.html",
+    "label": "Los Angeles County"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/ventura-county.html",
+    "label": "Ventura County"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/granada-hills-porter-ranch.html",
+    "label": "Granada Hills Porter Ranch"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/chatsworth-northridge.html",
+    "label": "Chatsworth Northridge"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/pasadena-altadena.html",
+    "label": "Pasadena Altadena"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/downtown-los-angeles.html",
+    "label": "Downtown Los Angeles"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/burbank-glendale.html",
+    "label": "Burbank Glendale"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/santa-monica-venice-marina-del-rey.html",
+    "label": "Santa Monica Venice Marina Del Rey"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/westwood.html",
+    "label": "Westwood"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/beverly-hills.html",
+    "label": "Beverly Hills"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/calabasas.html",
+    "label": "Calabasas"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/eagle-rock.html",
+    "label": "Eagle Rock"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/encino-tarzana.html",
+    "label": "Encino Tarzana"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/hollywood-west-hollywood.html",
+    "label": "Hollywood West Hollywood"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/north-hollywood.html",
+    "label": "North Hollywood"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/reseda-winnetka-lake-balboa.html",
+    "label": "Reseda Winnetka Lake Balboa"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/san-fernando.html",
+    "label": "San Fernando"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/sherman-oaks-studio-city.html",
+    "label": "Sherman Oaks Studio City"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/simi-valley.html",
+    "label": "Simi Valley"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/sylmar-sun-valley-pacoima.html",
+    "label": "Sylmar Sun Valley Pacoima"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/thousand-oaks-westlake-village.html",
+    "label": "Thousand Oaks Westlake Village"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/valencia-santa-clarita.html",
+    "label": "Valencia Santa Clarita"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/van-nuys-panorama-city.html",
+    "label": "Van Nuys Panorama City"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/locations/woodland-hills-west-hills-canoga-park.html",
+    "label": "Woodland Hills West Hills Canoga Park"
+   }
+  ],
+  "document_recording_types": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/document-recording/grant-deed.html",
+    "label": "Grant Deed"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/document-recording/quitclaim-deed.html",
+    "label": "Quitclaim Deed"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/document-recording/affidavit-death-joint-tenant.html",
+    "label": "Affidavit Death Joint Tenant"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/document-recording/transfer-on-death-deed.html",
+    "label": "Transfer On Death Deed"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/document-recording/fbn-dba-filing.html",
+    "label": "Fbn Dba Filing"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/document-recording/certified-copies.html",
+    "label": "Certified Copies"
+   }
+  ],
+  "notary_real_estate": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/real-estate/refinance.html",
+    "label": "Refinance"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/real-estate/purchase.html",
+    "label": "Purchase"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/real-estate/heloc.html",
+    "label": "Heloc"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/real-estate/seller.html",
+    "label": "Seller"
+   }
+  ],
+  "notary_estate_planning": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/estate-planning/trust.html",
+    "label": "Trust"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/estate-planning/will.html",
+    "label": "Will"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/estate-planning/poa.html",
+    "label": "Poa"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/estate-planning/advance-directive.html",
+    "label": "Advance Directive"
+   }
+  ],
+  "notary_general_documents": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/power-of-attorney.html",
+    "label": "Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/affidavit-of-support.html",
+    "label": "Affidavit Of Support"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/bill-of-sale.html",
+    "label": "Bill Of Sale"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/copy-certification.html",
+    "label": "Copy Certification"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/general-affidavit.html",
+    "label": "General Affidavit"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/guardianship-authorization.html",
+    "label": "Guardianship Authorization"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/letter-of-resignation.html",
+    "label": "Letter Of Resignation"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/minor-travel-consent.html",
+    "label": "Minor Travel Consent"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/name-change-affidavit.html",
+    "label": "Name Change Affidavit"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/general/passport-consent-ds3053.html",
+    "label": "Passport Consent Ds3053"
+   }
+  ],
+  "notary_hospital": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/northridge-dignity-northridge.html",
+    "label": "Northridge Dignity Northridge"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/westwood-ucla.html",
+    "label": "Westwood Ucla"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/beverly-grove-cedars-sinai.html",
+    "label": "Beverly Grove Cedars Sinai"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/burbank-providence-saint-joseph.html",
+    "label": "Burbank Providence Saint Joseph"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/boyle-heights-keck-usc.html",
+    "label": "Boyle Heights Keck Usc"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/east-hollywood-presbyterian.html",
+    "label": "East Hollywood Presbyterian"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/encino-hospital-medical-center.html",
+    "label": "Encino Hospital Medical Center"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/hollywood-kaiser.html",
+    "label": "Hollywood Kaiser"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/mission-hills-providence-holy-cross.html",
+    "label": "Mission Hills Providence Holy Cross"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/simi-valley-adventist.html",
+    "label": "Simi Valley Adventist"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/sylmar-olive-view-ucla.html",
+    "label": "Sylmar Olive View Ucla"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/tarzana-providence-cedars-sinai.html",
+    "label": "Tarzana Providence Cedars Sinai"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/thousand-oaks-los-robles.html",
+    "label": "Thousand Oaks Los Robles"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/valencia-henry-mayo.html",
+    "label": "Valencia Henry Mayo"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/van-nuys-valley-presbyterian.html",
+    "label": "Van Nuys Valley Presbyterian"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/west-hills-ucla-west-valley.html",
+    "label": "West Hills Ucla West Valley"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/woodland-hills-kaiser.html",
+    "label": "Woodland Hills Kaiser"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/advance-healthcare-directive.html",
+    "label": "Advance Healthcare Directive"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/healthcare-power-of-attorney.html",
+    "label": "Healthcare Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/living-will.html",
+    "label": "Living Will"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/hipaa-authorization.html",
+    "label": "Hipaa Authorization"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/molst-polst.html",
+    "label": "Molst Polst"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/hospital/bedside-notary.html",
+    "label": "Bedside Notary"
+   }
+  ],
+  "notary_jail": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/la-mens-central.html",
+    "label": "La Mens Central"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/la-twin-towers.html",
+    "label": "La Twin Towers"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/oc-theo-lacy.html",
+    "label": "Oc Theo Lacy"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/oc-santa-ana-city.html",
+    "label": "Oc Santa Ana City"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/oc-central.html",
+    "label": "Oc Central"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/sb-central.html",
+    "label": "Sb Central"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/la-crdf-lynwood.html",
+    "label": "La Crdf Lynwood"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/la-mdc.html",
+    "label": "La Mdc"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/la-nccf.html",
+    "label": "La Nccf"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/la-pitchess.html",
+    "label": "La Pitchess"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/oc-musick.html",
+    "label": "Oc Musick"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/riv-benoit-indio.html",
+    "label": "Riv Benoit Indio"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/riv-larry-smith.html",
+    "label": "Riv Larry Smith"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/riv-robert-presley.html",
+    "label": "Riv Robert Presley"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/riv-southwest.html",
+    "label": "Riv Southwest"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/sba-main-jail.html",
+    "label": "Sba Main Jail"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/sba-northern-branch.html",
+    "label": "Sba Northern Branch"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/sb-glen-helen.html",
+    "label": "Sb Glen Helen"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/sb-high-desert.html",
+    "label": "Sb High Desert"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/sb-west-valley.html",
+    "label": "Sb West Valley"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/vn-east-valley.html",
+    "label": "Vn East Valley"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/vn-main-jail.html",
+    "label": "Vn Main Jail"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/vn-todd-road.html",
+    "label": "Vn Todd Road"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/power-of-attorney.html",
+    "label": "Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/affidavits.html",
+    "label": "Affidavits"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/vehicle-title.html",
+    "label": "Vehicle Title"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/jail/vehicle-release.html",
+    "label": "Vehicle Release"
+   }
+  ],
+  "notary_juvenile": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/la-los-padrinos.html",
+    "label": "La Los Padrinos"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/la-barry-j-nidorf.html",
+    "label": "La Barry J Nidorf"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/la-campus-kilpatrick.html",
+    "label": "La Campus Kilpatrick"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/la-dorothy-kirby.html",
+    "label": "La Dorothy Kirby"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/oc-juvenile-hall.html",
+    "label": "Oc Juvenile Hall"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/sb-central-valley-jdac.html",
+    "label": "Sb Central Valley Jdac"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/notary/juvenile-detention/riv-juvenile-hall.html",
+    "label": "Riv Juvenile Hall"
+   }
+  ],
+  "apostille_vital_records": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/vital-records.html",
+    "label": "Vital Records"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/vital-records/birth.html",
+    "label": "Birth"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/vital-records/marriage.html",
+    "label": "Marriage"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/vital-records/death.html",
+    "label": "Death"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/vital-records/divorce.html",
+    "label": "Divorce"
+   }
+  ],
+  "apostille_academic": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic.html",
+    "label": "School Academic"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/diploma-high-school.html",
+    "label": "Diploma High School"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/diploma-college.html",
+    "label": "Diploma College"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/enrollment-graduation-letters.html",
+    "label": "Enrollment Graduation Letters"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/transcript-college.html",
+    "label": "Transcript College"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/transcript-high-school.html",
+    "label": "Transcript High School"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/course-descriptions-syllabi.html",
+    "label": "Course Descriptions Syllabi"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/school-academic/tefl-tesol-certificate.html",
+    "label": "Tefl Tesol Certificate"
+   }
+  ],
+  "apostille_court": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/court-documents.html",
+    "label": "Court Documents"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/court-documents/divorce-decree.html",
+    "label": "Divorce Decree"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/court-documents/adoption.html",
+    "label": "Adoption"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/court-documents/custody-name-change.html",
+    "label": "Custody Name Change"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/court-documents/civil-judgments.html",
+    "label": "Civil Judgments"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/court-documents/probate-orders.html",
+    "label": "Probate Orders"
+   }
+  ],
+  "apostille_business": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate.html",
+    "label": "Business Corporate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate/articles-incorporation.html",
+    "label": "Articles Incorporation"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate/good-standing.html",
+    "label": "Good Standing"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate/resolutions.html",
+    "label": "Resolutions"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate/bylaws-operating-agreements.html",
+    "label": "Bylaws Operating Agreements"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate/commercial-invoice-origin.html",
+    "label": "Commercial Invoice Origin"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/business-corporate/corporate-poa.html",
+    "label": "Corporate Poa"
+   }
+  ],
+  "apostille_notarized": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents.html",
+    "label": "Notarized Documents"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents/power-of-attorney.html",
+    "label": "Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents/affidavit.html",
+    "label": "Affidavit"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents/consent-to-travel-letter.html",
+    "label": "Consent To Travel Letter"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents/copy-certification.html",
+    "label": "Copy Certification"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/notarized-documents/other-notarized.html",
+    "label": "Other Notarized"
+   }
+  ],
+  "apostille_federal": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents.html",
+    "label": "Federal Documents"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/washington-dc-federal-apostille.html",
+    "label": "Washington Dc Federal Apostille"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents/uscis-naturalization-name-change.html",
+    "label": "Uscis Naturalization Name Change"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents/birth-abroad.html",
+    "label": "Birth Abroad"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents/death-abroad.html",
+    "label": "Death Abroad"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents/fbi-background-check.html",
+    "label": "Fbi Background Check"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents/federal-court-documents.html",
+    "label": "Federal Court Documents"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/federal-documents/nara-documents.html",
+    "label": "Nara Documents"
+   }
+  ],
+  "apostille_by_county": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/counties/los-angeles.html",
+    "label": "Los Angeles"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/counties/orange.html",
+    "label": "Orange"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/counties/ventura.html",
+    "label": "Ventura"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/counties/san-bernardino.html",
+    "label": "San Bernardino"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/counties/riverside.html",
+    "label": "Riverside"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/counties/kern.html",
+    "label": "Kern"
+   }
+  ],
+  "apostille_expedited": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/expedited/same-day-los-angeles.html",
+    "label": "Same Day Los Angeles"
+   }
+  ],
+  "apostille_by_country": [
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/philippines.html",
+    "label": "Philippines"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/philippines/special-power-of-attorney.html",
+    "label": "Special Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/philippines/extra-judicial-settlement.html",
+    "label": "Extra Judicial Settlement"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/philippines/deed-of-donation.html",
+    "label": "Deed Of Donation"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/philippines/affidavit-of-support.html",
+    "label": "Affidavit Of Support"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uk.html",
+    "label": "Uk"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uae.html",
+    "label": "Uae"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/cuba.html",
+    "label": "Cuba"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/thailand.html",
+    "label": "Thailand"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico.html",
+    "label": "Mexico"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uk/birth-certificate.html",
+    "label": "Birth Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uk/degree-diploma.html",
+    "label": "Degree Diploma"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uk/marriage-certificate.html",
+    "label": "Marriage Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uk/power-of-attorney.html",
+    "label": "Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uae/birth-certificate.html",
+    "label": "Birth Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uae/marriage-certificate.html",
+    "label": "Marriage Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uae/degree-diploma.html",
+    "label": "Degree Diploma"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/uae/power-of-attorney.html",
+    "label": "Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico/birth-certificate.html",
+    "label": "Birth Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico/marriage-certificate.html",
+    "label": "Marriage Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico/death-certificate.html",
+    "label": "Death Certificate"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico/divorce-decree.html",
+    "label": "Divorce Decree"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico/power-of-attorney.html",
+    "label": "Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/services/apostille/countries/mexico/single-status-affidavit.html",
+    "label": "Single Status Affidavit"
+   }
+  ],
+  "forms": [
+   {
+    "url": "https://www.mobileamericannotary.com/forms/philippines-special-power-of-attorney.html",
+    "label": "Philippines Special Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/forms/ca-statutory-power-of-attorney.html",
+    "label": "Ca Statutory Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/forms/ca-revocation-of-power-of-attorney.html",
+    "label": "Ca Revocation Of Power Of Attorney"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/forms/ca-advance-health-care-directive.html",
+    "label": "Ca Advance Health Care Directive"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/forms/vehicle-release-authorization.html",
+    "label": "Vehicle Release Authorization"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/forms/minor-travel-consent.html",
+    "label": "Minor Travel Consent"
+   }
+  ],
+  "resources": [
+   {
+    "url": "https://www.mobileamericannotary.com/resources/apostille-country-list.html",
+    "label": "Apostille Country List"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/resources/california-recording-fees.html",
+    "label": "California Recording Fees"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/resources/consular-legalization-directory.html",
+    "label": "Consular Legalization Directory"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/resources/which-signing-do-i-need.html",
+    "label": "Which Signing Do I Need"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/resources/la-superior-court-filing-reference.html",
+    "label": "La Superior Court Filing Reference"
+   },
+   {
+    "url": "https://www.mobileamericannotary.com/resources/inmate-locator-directory.html",
+    "label": "Inmate Locator Directory"
+   }
+  ]
+ }
+}
