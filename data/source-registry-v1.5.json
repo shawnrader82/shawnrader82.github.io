@@ -1,0 +1,340 @@
+{
+  "_meta": {
+    "version": "1.5",
+    "generated": "2026-08-28",
+    "purpose": "Authoritative source registry. Pairs with link-map.json: link-map supplies INTERNAL links to our own pages, this file supplies OUTSIDE citations that make the facts verifiable.",
+    "url_verification": "Every URL in this file was fetched and confirmed to load and to be published by the stated body on 2026-08-25. Re-verify before adding any new entry.",
+    "keying": "Topic keys match the spoke keys in link-map.json so one selector can feed both.",
+    "consumed_by": "n8n content workflows (Blog Sweeper, GBP Rolling Queue)",
+    "canonical_url": "https://www.mobileamericannotary.com/data/source-registry.json"
+  },
+  "rules": {
+    "citation_policy": [
+      "Cite at most two outside sources per post. More looks like padding.",
+      "Every outside link must be one of the URLs in this registry. Never invent, guess, or reconstruct a government URL.",
+      "Link with descriptive anchor text naming the publisher, for example 'the California Secretary of State apostille FAQ'. Never use 'click here' or a bare URL.",
+      "Cite a source only for the subject listed in its authoritative_for field. Do not use a notary handbook link to support a claim about facility policy or fees.",
+      "Do not use a source about notary law, identity, journals, or forms to support a claim about hospital, clinic, hospice, facility, employer, embassy, court, or agency behavior. Those claims require a direct source from that specific institution or must be omitted."
+    ],
+    "claims_that_require_a_cited_source": [
+      "Any fee, cost, or dollar amount",
+      "Any processing time, turnaround, or deadline",
+      "Any statement about what the law requires or prohibits",
+      "Any identification requirement",
+      "Any statement about which agency handles a document type",
+      "Any statement about whether a country accepts an apostille",
+      "Any claim about how a hospital, clinic, hospice, care facility, employer, embassy, court, agency, or compliance department handles, accepts, verifies, delays, prioritizes, or rejects a document",
+      "Any comparative claim that notarization is faster, stronger, safer, preferred, more readily accepted, more actionable, or otherwise better than witnesses or another lawful signing method",
+      "Any statement about the practical outcome, legal effect, enforceability, acceptance, or usability of a document after signing"
+    ],
+    "if_no_source_supports_the_claim": "Omit the claim entirely. Do not soften it, do not hedge it, and do not substitute a general statement. An unsourced specific is the single biggest factual risk in this content.",
+    "verified_factual_corrections": [
+      "The federal authentication step is the U.S. Department of STATE, Office of Authentications. It is NOT the Department of Justice. Neither State Department page nor USA.gov mentions any DOJ role in authenticating documents for use abroad. The California Department of Justice appears elsewhere in our content for Live Scan fingerprint background checks, which is a separate and unrelated process; do not let the two cross over.",
+      "California issues a single apostille regardless of destination country, confirmed by direct quote from the CA SOS apostille FAQ. Some other states issue a distinct non-Hague certification instead, so guidance written for another state does not transfer to California.",
+      "At the FEDERAL level the apostille versus authentication-certificate distinction does exist: the U.S. Department of State issues an apostille for Hague member countries and an authentication certificate for non-member countries.",
+      "NOT SOURCEABLE from a U.S. federal page: the final embassy or consulate legalization step for a non-member country. Neither the State Department Office of Authentications page nor USA.gov states it. The authority for that final step is the destination country's own consulate, because requirements vary by country. Frame it that way and link the consulate, rather than asserting a generic final step as if a U.S. agency published it."
+    ],
+    "never_do": [
+      "Never state or imply legal advice, or which document a reader should use. That is the unauthorized practice of law and is outside a notary's authority.",
+      "Do not use 'authentication' as a loose synonym for the California apostille, which is the old error we are avoiding. But DO use 'authentication certificate' in its correct technical sense: the specific certificate the U.S. Department of State issues for non-Hague destinations. The banned usage is calling a CA SOS apostille an authentication; the correct usage is the federal non-member certificate.",
+      "Never claim a specific fee or turnaround for a government agency.",
+      "Never cite a commercial competitor, an apostille agency, or an SEO blog as a source.",
+      "Do not name the Department of Justice as the agency that AUTHENTICATES documents for use abroad. DOJ and the FBI issue certain federal documents; the U.S. Department of State authenticates them. Name the correct role for each.",
+      "Never claim or imply that a hospital or other institution prefers, accepts faster, gives more weight to, verifies more easily, or acts more quickly on a notarized document than a witnessed document unless an allowed source from that exact institution directly says so.",
+      "Never invent institutional behavior: do not say a hospital calls witnesses, checks a notary journal, sets aside a witnessed directive, routes a document to compliance, or handles a document in any particular way unless an allowed source directly supports that exact claim.",
+      "Never describe notarization as removing guesswork, preventing delays, making a document immediately actionable, or guaranteeing acceptance. State only the notarial act and the requirements directly supported by an allowed source."
+    ]
+  },
+  "document_routing": {
+    "_rule": "Determine the issuing authority FIRST. It decides the entire path. Getting this wrong is the most damaging factual error possible in apostille content, because it sends a reader to the wrong agency and wastes weeks.",
+    "_source": "https://travel.state.gov/content/travel/en/replace-certify-docs/authenticate-your-document/authentication-certificate-requirements.html",
+    "federal_documents": {
+      "path": "Straight to the U.S. Department of State, Office of Authentications. NO state step. California SOS has no role and cannot apostille these.",
+      "then_if_non_hague": "State Department issues an authentication certificate instead of an apostille, then the destination country's consulate legalizes it.",
+      "document_types": [
+        "FBI background checks (identity history summary), issued by the U.S. Department of Justice",
+        "Federal court documents, issued by the U.S. Department of Justice",
+        "Certificates of naturalization, issued by the U.S. Department of Homeland Security",
+        "Consular Reports of Birth Abroad and documents signed by a U.S. consular officer",
+        "Certifications of U.S. tax residency, issued by the IRS",
+        "Social Security Administration documents",
+        "USDA animal and plant health certifications",
+        "HHS certificates of pharmaceutical product or export",
+        "Patent and trademark applications, issued by the USPTO",
+        "EPA and Office of Personnel Management documents",
+        "Documents signed by a military notary or judge advocate"
+      ],
+      "critical_requirements": [
+        "A federal document MUST NOT be notarized. Notarizing it can invalidate the submission. This is counterintuitive and worth stating plainly on the FBI background check page.",
+        "Original or certified copy only, with original seals and signatures, a date of issuance, agency letterhead, and a legible signature with printed name and title.",
+        "If a translation is needed, the TRANSLATION is notarized, but the original federal document is still not notarized."
+      ],
+      "terminology_nuance": "The DOJ and FBI ISSUE these documents. The U.S. Department of State AUTHENTICATES them. Both agencies are legitimately part of the story, so be precise about which role each plays rather than treating DOJ as the authenticating body."
+    },
+    "federal_detention_facilities": {
+      "_why_this_matters": "Federal detention is a completely different legal regime from a county jail. LASD rules and California notary practice do not transfer to MDC Los Angeles, Terminal Island, or ICE facilities. Never reuse county jail language for a federal facility.",
+      "who_can_already_do_it_inside": "Under 18 U.S.C. 4004 the warden, associate warden, chief clerk, and record clerk may administer oaths and take acknowledgments for inmates, and may not charge a fee. BOP policy assigns witnessing to institution Case Managers.",
+      "most_federal_filings_need_no_notary": "BOP policy states that for documents filed in federal courts or with federal agencies, staff need not administer oaths or witness signatures unless the court or agency directs it, because 28 U.S.C. 1746 lets the inmate sign an unsworn declaration under penalty of perjury instead.",
+      "where_an_outside_notary_still_matters": "BOP policy itself says documents for submission to STATE courts and STATE agencies may require a sworn declaration. A California deed, DMV title transfer, statutory power of attorney, or state court filing signed by a federal inmate is the real use case, because the 18 U.S.C. 4004 authority is a federal witnessing power and not a California notarial act.",
+      "access_reality": "The MDC Los Angeles handbook authorizes legal visits for attorneys with valid Bar Association cards and does not list notaries as authorized legal visitors. 28 CFR 543.11 likewise contemplates only an authorized attorney visit from a retained attorney. Do not imply walk-in or scheduled notary access to a federal facility the way we describe county jails. Access is arranged through the inmate's attorney or the facility, at the facility's discretion.",
+      "access_mechanism": "A notary does not enter a federal facility as a notary. They enter as the REPRESENTATIVE OF A LICENSED ATTORNEY using BOP form BP-A0243, accompanied in practice by a letter on the attorney's letterhead authorizing the visit. The form is a full background questionnaire: date of birth, five years of address history, five years of employment history, education from grade 10 forward, criminal and confinement history, and any prior BOP visit denials. The sponsoring attorney must certify bar membership, that they employ or supervise the representative, and must accept personal and professional responsibility for all acts of that representative inside the institution.",
+      "business_implication": "Because a sponsoring attorney is structurally REQUIRED, federal facility work is inherently a B2B referral channel and cannot be sold directly to a family the way county jail work can. Content about federal facilities should be written for attorneys and their staff, not for families, because the attorney is the only party who can authorize entry. This is the strongest business-partner angle in the entire content plan.",
+      "do_not_publish": "Never reproduce a filled BP-A0243 in public content. A completed form contains the representative's date of birth and home address, and names a specific inmate. Use only the blank official form and describe the fields in general terms.",
+      "content_guidance": "Write this as an honest explainer that saves the reader a wasted trip: for most federal paperwork they need no notary at all, and the facility can handle oaths for free. Then explain the narrow state-document case. That honesty is the differentiator, because competitors advertise federal jail notary service without addressing any of this."
+    },
+    "state_and_notarized_documents": {
+      "path": "California Secretary of State apostille FIRST. California issues a single apostille regardless of destination country.",
+      "then_if_non_hague": "U.S. Department of State authentication certificate, then the destination country's consulate legalizes it.",
+      "document_types": [
+        "Birth, marriage, and death certificates",
+        "Divorce decrees",
+        "Probate wills and judgments",
+        "Affidavits and agreements",
+        "Articles of incorporation, bylaws, commercial invoices",
+        "Copy of a U.S. passport bio data page",
+        "Diplomas and transcripts",
+        "Deeds of assignment",
+        "Adoption home studies",
+        "Income verification",
+        "Powers of attorney",
+        "Single status declarations"
+      ]
+    }
+  },
+  "sources": {
+    "notary_law_general": [
+      {
+        "url": "https://www.sos.ca.gov/notary",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Who may act as a California notary, commission status, and oversight"
+      },
+      {
+        "url": "https://www.sos.ca.gov/notary/handbook",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "California notary law: journal, ID requirements, fees, certificate wording",
+        "notes": "The Notary Public Handbook is the single controlling source for what a CA notary may and may not do. Cite this for any statement about notary duties or limits."
+      },
+      {
+        "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=CIV",
+        "publisher": "California Legislature",
+        "authoritative_for": "Civil Code text, including powers of attorney"
+      },
+      {
+        "url": "https://selfhelp.courts.ca.gov/",
+        "publisher": "Judicial Council of California",
+        "authoritative_for": "California court procedure and self-help forms"
+      }
+    ],
+    "apostille": [
+      {
+        "url": "https://www.sos.ca.gov/notary/apostille-faqs",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "California apostille requirements, what SOS will and will not authenticate",
+        "notes": "Controlling source. One apostille is issued regardless of destination country."
+      },
+      {
+        "url": "https://www.sos.ca.gov/notary/authentication",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "How to submit documents to CA SOS for authentication"
+      },
+      {
+        "url": "https://notary.cdn.sos.ca.gov/forms/apostille-request-apus.pdf",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Official apostille request form"
+      },
+      {
+        "url": "https://www.hcch.net/en/instruments/conventions/specialised-sections/apostille",
+        "publisher": "Hague Conference on Private International Law",
+        "authoritative_for": "Which countries are party to the 1961 Apostille Convention",
+        "notes": "Use for membership questions. Non-member countries need consular legalization, not an apostille."
+      },
+      {
+        "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html",
+        "publisher": "U.S. Department of State",
+        "authoritative_for": "Apostilles for FEDERAL documents",
+        "notes": "Federal documents go to US Dept of State, not CA SOS. This distinction is the most common public misunderstanding."
+      }
+    ],
+    "apostille_federal": [
+      {
+        "url": "https://travel.state.gov/content/travel/en/replace-certify-docs/authenticate-your-document/authentication-certificate-requirements.html",
+        "publisher": "U.S. Department of State",
+        "authoritative_for": "Which document types are federal versus state, and federal document prerequisites",
+        "notes": "Controlling source for routing. Federal documents skip the state step entirely and must NOT be notarized."
+      },
+      {
+        "url": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/identity-history-summary-checks",
+        "publisher": "Federal Bureau of Investigation",
+        "authoritative_for": "FBI Identity History Summary requests, channelers, and corrections"
+      },
+      {
+        "url": "https://oag.ca.gov/fingerprints",
+        "publisher": "California Department of Justice",
+        "authoritative_for": "California state-level fingerprint background checks and Live Scan",
+        "notes": "CA DOJ record review is a STATE check and is not interchangeable with the FBI summary."
+      },
+      {
+        "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html",
+        "publisher": "U.S. Department of State",
+        "authoritative_for": "Federal document authentication routing"
+      }
+    ],
+    "apostille_vital_records": [
+      {
+        "url": "https://www.cdph.ca.gov/Programs/CHSI/Pages/Vital-Records.aspx",
+        "publisher": "California Department of Public Health, Vital Records",
+        "authoritative_for": "California birth, death, marriage, and divorce records"
+      },
+      {
+        "url": "https://www.lavote.gov/home/records/birth-records/birth-records-request/inperson-request",
+        "publisher": "LA County Registrar-Recorder/County Clerk",
+        "authoritative_for": "Obtaining LA County birth records"
+      },
+      {
+        "url": "https://www.sos.ca.gov/notary/apostille-faqs",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Which vital record copies are eligible for apostille",
+        "notes": "Only a certified copy from the county recorder or CDPH is eligible. Hospital souvenir certificates are not."
+      }
+    ],
+    "document_recording": [
+      {
+        "url": "https://www.lavote.gov/home/recorder",
+        "publisher": "LA County Registrar-Recorder/County Clerk",
+        "authoritative_for": "LA County real property recording requirements"
+      },
+      {
+        "url": "https://www.lavote.gov/home/recorder/property-document-recording/fees",
+        "publisher": "LA County Registrar-Recorder/County Clerk",
+        "authoritative_for": "Current LA County recording fees",
+        "notes": "Fees change. Never state a recording fee without linking this page."
+      }
+    ],
+    "notary_jail": [
+      {
+        "url": "https://app5.lasd.org/iic",
+        "publisher": "Los Angeles County Sheriff's Department",
+        "authoritative_for": "LA County custody status and inmate location lookup",
+        "notes": "Facility rules and visiting procedure come from the operating agency, never from memory."
+      },
+      {
+        "url": "https://www.sos.ca.gov/notary/handbook",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Signer awareness, willingness, and identification requirements",
+        "notes": "The handbook governs what happens in a custody signing, not facility policy."
+      }
+    ],
+    "notary_federal_detention": [
+      {
+        "url": "https://www.bop.gov/policy/progstat/1315_08.pdf",
+        "publisher": "Federal Bureau of Prisons",
+        "authoritative_for": "BOP policy on inmate oaths, witnessing, and unsworn declarations",
+        "notes": "Controlling source for federal facilities. Key quotes: 'Inmates and staff will be able to make oaths and affirmations and have them witnessed by institution Case Managers, as authorized by 18 U.S.C. 4004.' And: 'Other than for the exceptions cited above, staff need not administer oaths and witness inmate signatures on any documents to be filed in Federal courts or with Federal agencies, unless directly instructed to do so by the Court or agency.' And the opening for outside notaries: 'documents for submission to state courts and state agencies may require a sworn declaration.'"
+      },
+      {
+        "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section4004&num=0&edition=prelim",
+        "publisher": "U.S. House, Office of the Law Revision Counsel",
+        "authoritative_for": "18 U.S.C. 4004, the in-house federal authority to administer oaths and take acknowledgments",
+        "notes": "Exact text: wardens, associate wardens, chief clerks, and record clerks of Federal penal or correctional institutions 'may administer oaths to and take acknowledgments of officers, employees, and inmates of such institutions, but shall not demand or accept any fee or compensation therefor.' Note the no-fee clause: this is a free in-house service, so a federal facility has no need to bring in a paid notary for federal filings."
+      },
+      {
+        "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title28-section1746&num=0&edition=prelim",
+        "publisher": "U.S. House, Office of the Law Revision Counsel",
+        "authoritative_for": "28 U.S.C. 1746, unsworn declaration under penalty of perjury",
+        "notes": "Statutory language a reader can actually use: 'I declare (or certify, verify, or state) under penalty of perjury under the laws of the United States of America that the foregoing is true and correct. Executed on (date).' Excludes depositions, oaths of office, and oaths required before an official other than a notary public."
+      },
+      {
+        "url": "https://www.law.cornell.edu/cfr/text/28/543.11",
+        "publisher": "Legal Information Institute, 28 CFR 543.11",
+        "authoritative_for": "Inmate legal document preparation and witnessing in federal facilities",
+        "notes": "Quote: 'Institution staff who are authorized to administer oaths shall be available to provide necessary witnessing of these documents, as requested by inmates and at times scheduled by staff.' The regulation contemplates only 'an authorized attorney visit from a retained attorney' and never identifies notaries as authorized visitors."
+      },
+      {
+        "url": "https://www.bop.gov/locations/institutions/los/",
+        "publisher": "Federal Bureau of Prisons",
+        "authoritative_for": "MDC Los Angeles facility information and visiting rules"
+      },
+      {
+        "url": "https://www.bop.gov/locations/institutions/los/los_ao-handbook.pdf?v=1.0.0",
+        "publisher": "Federal Bureau of Prisons",
+        "authoritative_for": "MDC Los Angeles admission and orientation handbook, legal visit rules",
+        "notes": "Quote: 'Attorneys with valid Bar Association cards are permitted to visit from 8:00 a.m. to 8:00 p.m. during weekdays and 8:00 a.m. to 3:00 p.m. on weekends.' There are no time limits on legal visits. The handbook never lists notaries as authorized legal visitors."
+      },
+      {
+        "url": "https://www.bop.gov/policy/forms/BP_A0243.pdf",
+        "publisher": "Federal Bureau of Prisons",
+        "authoritative_for": "Form BP-A0243, the actual mechanism by which a non-attorney enters a federal facility",
+        "notes": "Official title: 'Application to Enter Institution as the Representative of a Licensed Attorney or to Correspond with a Federal Prisoner as the Representative of a Licensed Attorney.' Prescribed by P1315. Three parts: a questionnaire, an applicant certification, and a sponsoring attorney statement. The questionnaire requires date of birth, five years of addresses, five years of employers, education from grade 10 forward, criminal history, confinement history, and prior BOP visit denials. The sponsoring attorney must certify bar membership, that the attorney employs or supervises the representative, and must 'accept personal and professional responsibility for all acts of my representative which affect the institution, its inmates or staff.' This is the form our own operator actually submits, plus a letter on the attorney's letterhead."
+      },
+      {
+        "url": "https://www.ice.gov/doclib/detention/LegalAccessAtAGlance.pdf",
+        "publisher": "U.S. Immigration and Customs Enforcement",
+        "authoritative_for": "Legal access rules in ICE detention",
+        "notes": "Relevant for Adelanto and other immigration detention, which is a separate regime from BOP."
+      }
+    ],
+    "notary_hospital": [
+      {
+        "url": "https://www.sos.ca.gov/notary/handbook",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Signer capacity, credible witnesses, and ID when a signer lacks documents"
+      },
+      {
+        "url": "https://selfhelp.courts.ca.gov/",
+        "publisher": "Judicial Council of California",
+        "authoritative_for": "Advance health care directive and conservatorship background"
+      }
+    ],
+    "notary_estate_planning": [
+      {
+        "url": "https://leginfo.legislature.ca.gov/faces/codesTOCSelected.xhtml?tocCode=CIV",
+        "publisher": "California Legislature",
+        "authoritative_for": "Statutory power of attorney provisions"
+      },
+      {
+        "url": "https://www.sos.ca.gov/notary/handbook",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Acknowledgment versus jurat, and the prohibition on choosing a certificate for a signer"
+      }
+    ],
+    "consular_legalization": [
+      {
+        "url": "https://www.sos.ca.gov/notary/apostille-faqs",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "That California issues ONE apostille regardless of destination country",
+        "notes": "Direct quote: 'The California Secretary of State issues a single Apostille for documents to be used outside of the United States, regardless of the country of destination.' California does not issue a separate non-Hague certification the way some other states do. Note this page is SILENT on what to do next for a non-member country."
+      },
+      {
+        "url": "https://travel.state.gov/content/travel/en/replace-certify-docs/authenticate-your-document/office-of-authentications.html",
+        "publisher": "U.S. Department of State, Office of Authentications",
+        "authoritative_for": "The federal step for non-Hague destinations, and Form DS-4194",
+        "notes": "This office issues BOTH apostilles (Hague member countries) and authentication certificates (non-member countries). It is the U.S. Department of State, NOT the Department of Justice. Sourced specifics: Form DS-4194; mail requests processed within five weeks; walk-in is one request per day capped at 15 documents and processed in seven business days; same-day appointments exist only for the death, dying, or life-threatening illness of an immediate family member abroad."
+      },
+      {
+        "url": "https://www.usa.gov/authenticate-us-document",
+        "publisher": "USA.gov",
+        "authoritative_for": "Plain-language split between apostille and authentication certificate",
+        "notes": "Quote: 'If the country where you want to use your document is not on the 1961 Hague Convention member list, you will need an authentication certificate.'"
+      },
+      {
+        "url": "https://www.hcch.net/en/instruments/conventions/specialised-sections/apostille",
+        "publisher": "Hague Conference on Private International Law",
+        "authoritative_for": "Whether the destination country is a Convention member",
+        "notes": "Check membership here FIRST. Membership determines the entire downstream path."
+      }
+    ],
+    "translations": [
+      {
+        "url": "https://www.sos.ca.gov/notary/apostille-faqs",
+        "publisher": "California Secretary of State",
+        "authoritative_for": "Whether a translation itself can be apostilled",
+        "notes": "A translator's sworn statement can be notarized and then apostilled. CA SOS does not certify translation accuracy."
+      },
+      {
+        "url": "https://www.hcch.net/en/instruments/conventions/specialised-sections/apostille",
+        "publisher": "Hague Conference on Private International Law",
+        "authoritative_for": "Whether the destination country requires a translation"
+      }
+    ]
+  }
+}
