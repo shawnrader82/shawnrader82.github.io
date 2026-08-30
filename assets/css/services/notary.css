@@ -497,6 +497,129 @@ body[data-nav-active="notary"] .home-hero__cta {
   background: #111b2e;
 }
 
+/* ========== JUVENILE DETENTION CROSS-LINKS ========== */
+
+.juvenile-links {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.juvenile-links__hub,
+.juvenile-links__facility {
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.juvenile-links__hub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.juvenile-links__hub:hover,
+.juvenile-links__hub:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(200, 16, 46, 0.28);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+}
+
+.juvenile-links__hub-copy,
+.juvenile-links__facility > span:first-child {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.juvenile-links__eyebrow {
+  color: #c8102e;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.juvenile-links__title {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.juvenile-links__description {
+  max-width: 760px;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.juvenile-links__facilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.juvenile-links__facility {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  border-radius: 12px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.juvenile-links__facility:hover,
+.juvenile-links__facility:focus-visible {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: rgba(200, 16, 46, 0.24);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.juvenile-links__facility-name {
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.juvenile-links__facility-location {
+  color: #64748b;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.juvenile-links__arrow {
+  flex: 0 0 auto;
+  color: #c8102e;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.juvenile-links__hub:hover .juvenile-links__arrow,
+.juvenile-links__hub:focus-visible .juvenile-links__arrow,
+.juvenile-links__facility:hover .juvenile-links__arrow,
+.juvenile-links__facility:focus-visible .juvenile-links__arrow {
+  transform: translateX(3px);
+}
+
 /* ========== Mobile Responsive ========== */
 @media (max-width: 767px) {
   .nt-services {
@@ -505,6 +628,31 @@ body[data-nav-active="notary"] .home-hero__cta {
 
   .nt-services__heading {
     margin-bottom: 24px;
+  }
+
+  .juvenile-links {
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .juvenile-links__hub {
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .juvenile-links__description {
+    font-size: 0.9rem;
+  }
+
+  .juvenile-links__facilities {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .juvenile-links__facility {
+    min-height: 76px;
+    padding: 1rem 1.1rem;
   }
 
   .nt-services__grid {
