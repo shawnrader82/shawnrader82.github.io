@@ -160,7 +160,35 @@ body[data-card-palette="hosp-woodland-hills-kaiser"] .home-hero__media {
   line-height: 1.55;
 }
 
-/* ========== 07) REASONS GRID ========== */
+/* ========== 07) OPTIONAL PRICING REFERENCE ========== */
+
+.facility-pricing-reference {
+  padding: 0.85rem 1.25rem;
+  background: #f4f7fb;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.facility-pricing-reference p {
+  margin: 0 auto;
+}
+
+.facility-pricing-reference a {
+  color: #c8102e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.facility-pricing-reference a:hover,
+.facility-pricing-reference a:focus-visible {
+  color: #9f0d25;
+}
+
+/* ========== 08) REASONS GRID ========== */
 
 .vs-reasons {
   display: grid;
