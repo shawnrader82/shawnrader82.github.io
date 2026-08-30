@@ -160,104 +160,32 @@ body[data-card-palette="hosp-woodland-hills-kaiser"] .home-hero__media {
   line-height: 1.55;
 }
 
-/* ========== 07) COMMERCIAL OFFER PANEL ========== */
+/* ========== 07) OPTIONAL PRICING REFERENCE ========== */
 
-.facility-offer {
-  padding: 1.25rem;
+.facility-pricing-reference {
+  padding: 0.85rem 1.25rem;
   background: #f4f7fb;
-}
-
-.facility-offer__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 1.4rem 1.5rem;
-  background: #fff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-}
-
-.facility-offer__eyebrow {
-  margin: 0 0 0.3rem;
-  color: #c8102e;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.facility-offer h2 {
-  margin: 0 0 0.4rem;
-  color: #0f172a;
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
-  line-height: 1.25;
-}
-
-.facility-offer__copy {
-  max-width: 720px;
-  margin: 0;
   color: #475569;
   font-size: 0.95rem;
-  line-height: 1.55;
-}
-
-.facility-offer__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  min-width: 225px;
-}
-
-.facility-offer__cta {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1rem;
-  border: 2px solid #c8102e;
-  border-radius: 8px;
-  color: #c8102e;
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.5;
   text-align: center;
-  text-decoration: none;
 }
 
-.facility-offer__cta--primary {
-  background: #c8102e;
-  color: #fff;
+.facility-pricing-reference p {
+  margin: 0 auto;
 }
 
-.facility-offer__cta:hover,
-.facility-offer__cta:focus-visible {
-  box-shadow: 0 6px 16px rgba(200, 16, 46, 0.16);
-  transform: translateY(-1px);
+.facility-pricing-reference a {
+  color: #c8102e;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
-.facility-offer__cta--primary:hover,
-.facility-offer__cta--primary:focus-visible {
-  color: #fff;
-}
-
-@media (max-width: 760px) {
-  .facility-offer {
-    padding: 1rem;
-  }
-
-  .facility-offer__inner {
-    grid-template-columns: 1fr;
-    padding: 1.2rem;
-  }
-
-  .facility-offer__actions {
-    width: 100%;
-    min-width: 0;
-  }
+.facility-pricing-reference a:hover,
+.facility-pricing-reference a:focus-visible {
+  color: #9f0d25;
 }
 
 /* ========== 08) REASONS GRID ========== */
