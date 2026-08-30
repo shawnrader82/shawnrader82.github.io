@@ -757,7 +757,23 @@
     }
 
     .pricing-page .pricing-table {
-        min-width: 560px;
+        min-width: 0;
+        font-size: 0.9rem;
+    }
+
+    .pricing-page .pricing-table th,
+    .pricing-page .pricing-table td {
+        padding: 10px;
+    }
+
+    .pricing-page .pricing-table th:last-child,
+    .pricing-page .pricing-table td:last-child {
+        width: 90px;
+    }
+
+    .pricing-page .pricing-table th:nth-child(2):not(:last-child),
+    .pricing-page .pricing-table td:nth-child(2):not(:last-child) {
+        width: 110px;
     }
 
     .pricing-page .pricing-card {
@@ -800,7 +816,7 @@
     }
 
     .pricing-page .pricing-table {
-        min-width: 520px;
+        min-width: 0;
     }
 }
 
