@@ -561,10 +561,34 @@ body[data-nav-active="notary"] .home-hero__cta {
   line-height: 1.55;
 }
 
+.juvenile-links__groups {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.juvenile-links__group {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.juvenile-links__group-title {
+  margin: 0;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .juvenile-links__facilities {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.juvenile-links__facilities--la {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .juvenile-links__facility {
@@ -648,6 +672,10 @@ body[data-nav-active="notary"] .home-hero__cta {
   .juvenile-links__facilities {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .juvenile-links__groups {
+    gap: 1rem;
   }
 
   .juvenile-links__facility {
