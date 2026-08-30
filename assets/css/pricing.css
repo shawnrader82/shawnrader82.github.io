@@ -537,6 +537,31 @@
     white-space: nowrap;
 }
 
+.pricing-page .pricing-table--details th:first-child,
+.pricing-page .pricing-table--details td:first-child {
+    width: 34%;
+}
+
+.pricing-page .pricing-table--details th:nth-child(2),
+.pricing-page .pricing-table--details td:nth-child(2) {
+    width: 110px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.pricing-page .pricing-table--details th:last-child,
+.pricing-page .pricing-table--details td:last-child {
+    width: auto;
+    text-align: left;
+    white-space: normal;
+}
+
+.pricing-page .pricing-table .tier-header td[colspan] {
+    width: auto;
+    text-align: left;
+    white-space: normal;
+}
+
 .pricing-page .pricing-table tbody tr {
     height: 48px;
 }
@@ -774,6 +799,21 @@
     .pricing-page .pricing-table th:nth-child(2):not(:last-child),
     .pricing-page .pricing-table td:nth-child(2):not(:last-child) {
         width: 110px;
+    }
+
+    .pricing-page .pricing-table--details th:first-child,
+    .pricing-page .pricing-table--details td:first-child {
+        width: 38%;
+    }
+
+    .pricing-page .pricing-table--details th:nth-child(2),
+    .pricing-page .pricing-table--details td:nth-child(2) {
+        width: 72px;
+    }
+
+    .pricing-page .pricing-table--details th:last-child,
+    .pricing-page .pricing-table--details td:last-child {
+        width: auto;
     }
 
     .pricing-page .pricing-card {
