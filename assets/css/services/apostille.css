@@ -71,6 +71,31 @@ body[data-nav-active="apostille"] .home-hero__cta {
   text-align: center;
 }
 
+.ap-hero-pricing-link {
+  margin: 0.8rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.ap-hero-pricing-link a {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.ap-hero-pricing-link a:hover,
+.ap-hero-pricing-link a:focus-visible {
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .ap-hero-pricing-link {
+    text-align: center;
+  }
+}
+
 /* ========== 03) SHARED SECTION HELPERS ========== */
 
 .ap-section-shell,
