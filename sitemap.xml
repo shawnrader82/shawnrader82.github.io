@@ -1212,6 +1212,12 @@
   <!--  ========== JAIL / INMATE NOTARY ==========  -->
 
 <url>
+  <loc>https://www.mobileamericannotary.com/services/notary/jail/domestic-partnership.html</loc>
+  <lastmod>2026-09-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
     <loc>https://www.mobileamericannotary.com/services/notary/jail/power-of-attorney.html</loc>
     <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
