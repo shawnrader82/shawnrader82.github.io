@@ -200,8 +200,9 @@
     .disclaimer-block { max-width: 1080px; margin: 2rem auto 3rem; padding: 1.25rem 1.5rem; background: #fef9c3; border: 1px solid #fde047; border-radius: 8px; font-size: .9rem; color: #713f12; line-height: 1.55; }
     .disclaimer-block strong { color: #422006; }
   </style>
+  <link rel="stylesheet" href="/assets/css/resource-pages.min.css?v=2026-10-03b">
 </head>
-<body>
+<body class="resource-zebra">
 
   <!-- ========== SHARED HEADER ========== -->
   <div id="header-placeholder"></div>
@@ -210,7 +211,7 @@
   <main class="page-shell">
 
     <!-- ── Hero ─────────────────────────────────────────── -->
-    <section class="resource-hero">
+    <section class="resource-hero resource-hero--image" style="--hero-img:url('/assets/images/resources/consular-directory-hero.webp')">
       <div class="resource-hero__inner">
         <p class="resource-hero__eyebrow">RESOURCE · UPDATED MONTHLY</p>
         <h1 class="resource-hero__title">Consular Legalization Directory — Every Non-Hague Country</h1>
@@ -359,24 +360,27 @@
       <div id="country-list"></div>
     </section>
 
-    <!-- ── Callout / CTA ───────────────────────────────── -->
-    <div class="cta-block">
-      <h2>Need Help With Consular Legalization?</h2>
-      <p id="cta-body">Consular legalization takes coordinated steps across multiple offices. For California-notarized documents we handle the whole chain — Notary, Secretary of State certification, US Department of State authentication, and delivery to the destination consulate. For documents notarized in other states, we handle the federal and consular portions after you get state authentication done locally.</p>
-      <a href="tel:+12139332507" class="cta-block__phone">Call (213) 933&#8209;2507</a>
-      <p class="cta-block__meta">Mobile American Notary &amp; Apostilles · Los Angeles · 180+ five-star reviews</p>
-    </div>
+    <section class="rp-next" aria-label="Next step">
+      <div class="rp-next__card">
+        <div>
+          <h2>Need consular legalization?</h2>
+          <p>We handle the full chain for California-notarized documents — Notary, Secretary of State, US Department of State, and consulate.</p>
+        </div>
+        <a class="rp-next__link" href="/services/apostille.html">Apostille &amp; Legalization →</a>
+      </div>
+    </section>
 
     <!-- ── Disclaimer ──────────────────────────────────── -->
     <div class="disclaimer-block">
       <strong>Important:</strong> Embassy and consulate rules change frequently — fees, hours, and jurisdictions are updated at each consulate's discretion. Always verify current requirements directly with the destination consulate before submitting documents. This directory is a starting reference, not legal advice. Political situations may affect processing for some countries (Cuba, Iran, Myanmar, Syria) — check current sanctions or restrictions with the US State Department before proceeding.
     </div>
 
-    <!-- ========== SHARED FOOTER ========== -->
-    <div id="footer-placeholder"></div>
-    <script src="/assets/js/footer.min.js" defer></script>
 
   </main>
+
+  <!-- ========== SHARED FOOTER ========== -->
+  <div id="footer-placeholder"></div>
+  <script src="/assets/js/footer.min.js" defer></script>
 
   <script>
     // ─── Legacy single-office consulate data (still used for countries without full jurisdiction research) ───
