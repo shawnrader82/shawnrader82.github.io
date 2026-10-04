@@ -120,8 +120,9 @@
       .locator-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/css/resource-pages.min.css?v=2026-10-03b">
 </head>
-<body>
+<body class="resource-zebra">
 
   <!-- ========== SHARED HEADER ========== -->
   <div id="header-placeholder"></div>
@@ -130,7 +131,7 @@
   <main class="page-shell">
 
     <!-- ========== HERO ========== -->
-    <section class="resource-hero">
+    <section class="resource-hero resource-hero--image" style="--hero-img:url('/assets/images/resources/inmate-locator-hero.webp')">
       <div class="resource-hero__inner">
         <p class="resource-hero__eyebrow">RESOURCE · FREE TOOL</p>
         <h1 class="resource-hero__title">County Jail Inmate Locator Directory</h1>
@@ -302,13 +303,13 @@
       <strong>A note on accuracy:</strong> These links point to each county's own official inmate locator. Inmates can be transferred between facilities within the same county without notice, so always confirm current housing directly through the locator or by calling before scheduling a visit or a jail notary signing. We are not affiliated with any sheriff's department or the Bureau of Prisons — this page is a free convenience directory.
     </div>
 
-    <!-- ========== CTA ========== -->
-    <section class="cta-block">
-      <h2>Need a notary at any of these facilities?</h2>
-      <p>We handle mobile notary signings at jails across LA, Orange, Riverside, San Bernardino, Santa Barbara, and Ventura counties — confirm the inmate's location first, then book us to come sign.</p>
-      <div class="cta-block__buttons">
-        <a href="tel:+12139332507" class="cta-block__phone">Call (213) 933-2507</a>
-        <a href="https://book.squareup.com/appointments/mp3gi6wm4xznjs/location/7NFJ60G7B23YS/services" class="cta-block__book" target="_blank" rel="noopener">Book Online</a>
+    <section class="rp-next" aria-label="Next step">
+      <div class="rp-next__card">
+        <div>
+          <h2>Need a Notary at one of these facilities?</h2>
+          <p>Confirm where the person is housed, then book us to come to the facility for the signing.</p>
+        </div>
+        <a class="rp-next__link" href="/services/notary/jail.html">Jail Notary Service →</a>
       </div>
     </section>
 

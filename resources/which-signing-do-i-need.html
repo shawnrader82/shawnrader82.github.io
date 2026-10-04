@@ -65,7 +65,7 @@
       },
       {
         "@type": "Question",
-        "name": "What documents can a Notary Public NOT do?",
+        "name": "What can a Notary Public NOT do?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "A California Notary Public cannot notarize a document without the signer present, cannot notarize their own signature, cannot notarize a document written in a language the Notary doesn't understand, and cannot give legal advice about which document you should sign or how to fill it out. Notaries also cannot certify true copies of vital records like birth or death certificates — you need certified copies directly from the issuing county recorder."
@@ -149,8 +149,9 @@
     .disclaimer-block { max-width: 900px; margin: 2rem auto 3rem; padding: 1.25rem 1.5rem; background: #f1f5f9; border-radius: 8px; font-size: .88rem; color: #475569; line-height: 1.55; }
     .disclaimer-block strong { color: #0f172a; }
   </style>
+  <link rel="stylesheet" href="/assets/css/resource-pages.min.css?v=2026-10-03b">
 </head>
-<body>
+<body class="resource-zebra">
 
   <!-- ========== SHARED HEADER ========== -->
   <div id="header-placeholder"></div>
@@ -159,7 +160,7 @@
   <main class="page-shell">
 
     <!-- ── Hero ─────────────────────────────────────────── -->
-    <section class="resource-hero">
+    <section class="resource-hero resource-hero--image" style="--hero-img:url('/assets/images/resources/which-signing-hero.webp')">
       <div class="resource-hero__inner">
         <p class="resource-hero__eyebrow">FREE DIAGNOSTIC TOOL · 4 QUESTIONS</p>
         <h1 class="resource-hero__title">Which Signing Do I Need?</h1>
@@ -210,27 +211,28 @@
     </section>
 
     <!-- ── FAQ ─────────────────────────────────────────── -->
-    <section class="faq-section">
-      <h2>Common Questions</h2>
-
-      <div class="faq-item">
-        <h3>What's the difference between a Notary and an Apostille?</h3>
-        <p>A Notary Public verifies your identity and witnesses your signature. An Apostille is an additional certification from the California Secretary of State authenticating the Notary's authority — required only for documents heading to Hague Convention countries. Documents used inside the US only need the Notary.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Do I need an Apostille or embassy legalization?</h3>
-        <p>Depends on the destination. Hague Convention countries (about 130, including Mexico, most of Europe, Japan, South Korea, China) need only an Apostille. Non-Hague countries (Egypt, Vietnam, UAE, Qatar, Iran, Cuba, and about 65 others) need full consular legalization. See the <a href="/resources/apostille-country-list.html">Apostille Country List</a> or <a href="/resources/consular-legalization-directory.html">Consular Legalization Directory</a>.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How much does mobile Notary service cost in Los Angeles?</h3>
-        <p>General mobile service starts at $80 including one signature and travel. Additional signatures are $15 per Cal. Gov. Code § 8211. Specialty signings vary by type. Apostille is $175 personal / $250 business, all-inclusive. See our <a href="/pricing.html">full pricing page</a>.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What can a Notary Public NOT do?</h3>
-        <p>A California Notary cannot notarize a document without the signer physically present, cannot notarize their own signature, cannot give legal advice about which document to sign, cannot certify true copies of vital records, and cannot notarize a document written in a language the Notary can't read. If you need legal advice, we'll refer you to an attorney.</p>
+    <section class="rp-faq" aria-labelledby="ws-faq-title">
+      <header class="rp-section-head">
+        <p class="rp-kicker">Common questions</p>
+        <h2 id="ws-faq-title">Notary vs. Apostille FAQ</h2>
+      </header>
+      <div class="rp-faq__grid">
+          <details class="faq-item">
+            <summary>What's the difference between a Notary and an Apostille?</summary>
+            <p>A Notary Public verifies your identity and witnesses your signature. An Apostille is an additional certification from the California Secretary of State authenticating the Notary's authority — required only for documents heading to Hague Convention countries. Documents used inside the US only need the Notary.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need an Apostille or embassy legalization?</summary>
+            <p>Depends on the destination. Hague Convention countries (about 130, including Mexico, most of Europe, Japan, South Korea, China) need only an Apostille. Non-Hague countries (Egypt, Vietnam, UAE, Qatar, Iran, Cuba, and about 65 others) need full consular legalization. See the <a href="/resources/apostille-country-list.html">Apostille Country List</a> or <a href="/resources/consular-legalization-directory.html">Consular Legalization Directory</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How much does mobile Notary service cost in Los Angeles?</summary>
+            <p>General mobile service starts at $80 including one signature and travel. Additional signatures are $15 per Cal. Gov. Code § 8211. Specialty signings vary by type. Apostille is $175 personal / $250 business, all-inclusive. See our <a href="/pricing.html">full pricing page</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What can a Notary Public NOT do?</summary>
+            <p>A California Notary cannot notarize a document without the signer physically present, cannot notarize their own signature, cannot give legal advice about which document to sign, cannot certify true copies of vital records, and cannot notarize a document written in a language the Notary can't read. If you need legal advice, we'll refer you to an attorney.</p>
+          </details>
       </div>
     </section>
 
@@ -239,11 +241,12 @@
       <strong>Note:</strong> This tool provides general guidance based on typical service scenarios. It is not legal advice. Final requirements depend on the specific document, the requesting party's instructions, and the destination jurisdiction. When in doubt, call us at <a href="tel:+12139332507">(213) 933&#8209;2507</a> — a 60-second phone conversation is faster than any tool and free.
     </div>
 
-    <!-- ========== SHARED FOOTER ========== -->
-    <div id="footer-placeholder"></div>
-    <script src="/assets/js/footer.min.js" defer></script>
 
   </main>
+
+  <!-- ========== SHARED FOOTER ========== -->
+  <div id="footer-placeholder"></div>
+  <script src="/assets/js/footer.min.js" defer></script>
 
   <script>
     // Decision tree
